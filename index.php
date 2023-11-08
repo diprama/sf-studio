@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
-if (!isset($_SESSION["SES_LOGIN"])) {
+
+if ($_SESSION["SES_LOGIN"]=='') {
     header("Location: login.php");
     exit;
 }
