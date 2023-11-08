@@ -65,12 +65,8 @@ if (isset($_POST['btnLogin'])) {
       }
 
 
-       $mySql    = "INSERT INTO log_user (username,logindate, ip)
-						VALUES ('$nama',now(), '$ip')";
-      $myQry = mysqli_query($koneksidb, $mySql) or die("RENTAS ERP ERROR :  " . mysqli_error($koneksidb));
-
-
-      echo "oke";
+  
+      echo "<meta http-equiv='refresh' content='0; url=index.php'>";
 
       // Refresh
 
