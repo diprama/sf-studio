@@ -86,10 +86,10 @@
                                 <h4 class="card-title mb-1">Welcome to SF Studio! 👋</h4>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
 
-                                <form class="auth-login-form mt-2" action="index.html" method="POST">
+                                <form class="form-signin" role="form" action="login.php" method="POST" name="form1" target="_self" id="form1">
                                     <div class="mb-1">
                                         <label for="login-email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" id="login-email" name="login-email" placeholder="john@example.com" aria-describedby="login-email" tabindex="1" autofocus />
+                                        <input type="text" class="form-control" id="txtUser" name="txtUser" placeholder="emailkamu@mail.com" aria-describedby="login-email" tabindex="1" autofocus />
                                     </div>
 
                                     <div class="mb-1">
@@ -100,7 +100,7 @@
                                             </a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input type="password" class="form-control form-control-merge" id="login-password" name="login-password" tabindex="2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="login-password" />
+                                            <input type="password" class="form-control form-control-merge" id="txtPassword" name="txtPassword" tabindex="2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="login-password" />
                                             <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
@@ -110,19 +110,19 @@
                                             <label class="form-check-label" for="remember-me"> Remember Me </label>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="4">Sign in</button>
+                                    <button class="btn btn-primary w-100" type=" submit" name="btnLogin" tabindex="4">Sign in</button>
                                 </form>
 
 
-                                </div>
                             </div>
                         </div>
-                        <!-- /Login basic -->
                     </div>
+                    <!-- /Login basic -->
                 </div>
-
             </div>
+
         </div>
+    </div>
     </div>
     <!-- END: Content-->
 
