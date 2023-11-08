@@ -69,10 +69,9 @@ if (isset($_POST['btnLogin'])) {
 						VALUES ('$nama',now(), '$ip')";
       $myQry = mysqli_query($koneksidb, $mySql) or die("RENTAS ERP ERROR :  " . mysqli_error($koneksidb));
 
-      include "index.php";
 
       echo "oke";
-      
+
       // Refresh
 
     } else {
