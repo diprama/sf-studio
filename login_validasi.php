@@ -10,7 +10,8 @@ if (isset($_POST['btnLogin'])) {
   }
 
   # Baca variabel form
-  $txtUser   = $_POST['txtUser'];
+ echo  $txtUser   = $_POST['txtUser'];
+ exit;
   //$txtUser 	= str_replace("'","&acute;",$txtUser);
 
   $txtPassword = $_POST['txtPassword'];
