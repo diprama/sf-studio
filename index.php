@@ -2,7 +2,7 @@
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
 include "header.php";
-include_once "library/inc.seslogin.php";
+// include_once "library/inc.seslogin.php";
 
 
 
