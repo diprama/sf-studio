@@ -37,20 +37,20 @@ if (isset($_POST['btnLogin'])) {
     include "login.php";
   } else {
     # LOGIN CEK KE TABEL USER LOGIN
-     $mySql = "SELECT * FROM master_user u WHERE u.user_name='" . $txtUser . "' 
+    echo  $mySql = "SELECT * FROM master_user u WHERE u.user_name='" . $txtUser . "' 
 					AND u.user_pass='" . md5($txtPassword) . "' ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
     $myData = mysqli_fetch_array($myQry);
 
     # JIKA LOGIN SUKSES
     if (mysqli_num_rows($myQry) >= 1) {
-      $_SESSION['SES_LOGIN'] = $myData['user_name'];
+    echo   $_SESSION['SES_LOGIN'] = $myData['user_name'];
       $_SESSION['SES_USERID'] = $myData['user_id'];
       $_SESSION['SES_NAMA'] = $myData['user_fullname'];
       $_SESSION['SES_PHOTO'] = $myData['user_photo'];
       $_SESSION['SES_BRANCH'] = '';
       $_SESSION['SES_GROUP'] = $myData['user_group'];
-
+exit;
       $nama =   mysqli_real_escape_string($koneksidb, $myData['user_fullname']);
       // $mySql2 = "SELECT photo FROM hrd_employee_personal WHERE nik='" . $myData['user_id'] . "'";
       // $myQry2  = mysqli_query($koneksidb, $mySql2)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
