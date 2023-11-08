@@ -10,9 +10,7 @@ $koneksidb	= mysqli_connect($myHost, $myUser, $myPass);
 if (! $koneksidb) {
   echo "Failed Connection !";
 }
-else{
-  echo "Connection Success";
-}
+
 
 # Memilih database pd MySQL Server
 mysqli_select_db($koneksidb, "u480352240_sf_selfstudio") or die ("Database not Found !");
