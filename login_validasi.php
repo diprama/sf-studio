@@ -10,7 +10,7 @@ if (isset($_POST['btnLogin'])) {
   }
 
   # Baca variabel form
- echo  $txtUser   = $_POST['txtUser'];
+   $txtUser   = $_POST['txtUser'];
   //$txtUser 	= str_replace("'","&acute;",$txtUser);
 
   $txtPassword = $_POST['txtPassword'];
@@ -37,7 +37,7 @@ if (isset($_POST['btnLogin'])) {
     include "login.php";
   } else {
     # LOGIN CEK KE TABEL USER LOGIN
-    $mySql = "SELECT * FROM master_user u WHERE u.user_name='" . $txtUser . "' 
+    echo $mySql = "SELECT * FROM master_user u WHERE u.user_name='" . $txtUser . "' 
 					AND u.user_pass='" . md5($txtPassword) . "' ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
     $myData = mysqli_fetch_array($myQry);
