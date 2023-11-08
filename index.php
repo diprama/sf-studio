@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
+include_once "library/inc.seslogin.php";
 include "header.php";
-// include_once "library/inc.seslogin.php";
 
 
 
