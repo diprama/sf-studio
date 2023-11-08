@@ -1,6 +1,17 @@
+<?php
+$_SESSION['SES_LOGIN'] = '';
+$_SESSION['SES_NAMA'] = '';
+$_SESSION['SES_GROUP'] = '';
+$_SESSION['SES_ADMIN'] = '';
+$_SESSION['SES_USER'] = '';
+session_unset();
+session_destroy();
+?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
+
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

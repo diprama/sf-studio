@@ -1,4 +1,5 @@
 <?php
+include "library/inc.connection.php";
 if (isset($_POST['btnLogin'])) {
   $pesanError = array();
   if (trim($_POST['txtUser']) == "") {
