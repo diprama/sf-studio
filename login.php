@@ -99,7 +99,7 @@ session_destroy();
 
                                 <form class="form-signin" role="form" action="login_validasi.php" method="POST" name="form1" target="_self" id="form1">
                                     <div class="mb-1">
-                                        <label for="login-email" class="form-label">Email</label>
+                                        <label for="login-email" class="form-label">Username</label>
                                         <input type="text" class="form-control" id="txtUser" name="txtUser" placeholder="emailkamu@mail.com" aria-describedby="login-email" tabindex="1" autofocus />
                                     </div>
 

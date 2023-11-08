@@ -10,8 +10,7 @@ if (isset($_POST['btnLogin'])) {
   }
 
   # Baca variabel form
- echo  $txtUser   = $_POST['txtUser'];
- exit;
+  $txtUser   = $_POST['txtUser'];
   //$txtUser 	= str_replace("'","&acute;",$txtUser);
 
   $txtPassword = $_POST['txtPassword'];
@@ -38,7 +37,7 @@ if (isset($_POST['btnLogin'])) {
     include "login.php";
   } else {
     # LOGIN CEK KE TABEL USER LOGIN
-    $mySql = "SELECT * FROM master_user u WHERE u.user_email='" . $txtUser . "' 
+    $mySql = "SELECT * FROM master_user u WHERE u.user_name='" . $txtUser . "' 
 					AND u.user_pass='" . md5($txtPassword) . "' ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
     $myData = mysqli_fetch_array($myQry);
@@ -51,8 +50,6 @@ if (isset($_POST['btnLogin'])) {
       $_SESSION['SES_PHOTO'] = $myData['user_photo'];
       $_SESSION['SES_BRANCH'] = '';
       $_SESSION['SES_GROUP'] = $myData['user_group'];
-      $_SESSION['SES_EMAIL'] = $myData['user_email'];
-
 
       $nama =   mysqli_real_escape_string($koneksidb, $myData['user_fullname']);
       // $mySql2 = "SELECT photo FROM hrd_employee_personal WHERE nik='" . $myData['user_id'] . "'";
