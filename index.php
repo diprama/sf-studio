@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
-include_once "library/inc.seslogin.php";
+if (!isset($_SESSION["SES_LOGIN"])) {
+    header("Location: login.php");
+    exit;
+}
+
 include "header.php";
 
 
