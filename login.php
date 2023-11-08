@@ -86,7 +86,7 @@
                                 <h4 class="card-title mb-1">Welcome to SF Studio! 👋</h4>
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
 
-                                <form class="form-signin" role="form" action="login.php" method="POST" name="form1" target="_self" id="form1">
+                                <form class="form-signin" role="form" action="login_validasi.php" method="POST" name="form1" target="_self" id="form1">
                                     <div class="mb-1">
                                         <label for="login-email" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="txtUser" name="txtUser" placeholder="emailkamu@mail.com" aria-describedby="login-email" tabindex="1" autofocus />
