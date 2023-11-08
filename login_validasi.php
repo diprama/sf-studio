@@ -20,8 +20,6 @@ if (isset($_POST['btnLogin'])) {
 
   $ip = $_SERVER['REMOTE_ADDR'];
 
-echo "oke";
-exit;
   #$cmbLevel	=$_POST['cmbLevel'];
 
   # JIKA ADA PESAN ERROR DARI VALIDASI
