@@ -71,6 +71,8 @@ if (isset($_POST['btnLogin'])) {
 
       include "index.php";
 
+      echo "oke";
+      
       // Refresh
 
     } else {
