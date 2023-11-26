@@ -21,10 +21,17 @@ if ($_GET) {
       include "login.php";
       break;
 
+    case 'Logout':
+      if (!file_exists("logout.php")) die("Sorry Empty Page!");
+      include "logout.php";
+      break;
+
     case 'Login-Validasi':
       if (!file_exists("login_validasi.php")) die("Sorry Empty Page!");
       include "login_validasi.php";
       break;
+
+      #MANAGEMENT
 
     case 'Management-Booking':
       if (!file_exists("management_booking.php")) die("Sorry Empty Page!");
@@ -36,9 +43,16 @@ if ($_GET) {
       include "management_history.php";
       break;
 
+      #MASTER
+
     case 'Master-Jadwal':
       if (!file_exists("master_jadwal.php")) die("Sorry Empty Page!");
       include "master_jadwal.php";
+      break;
+
+    case 'Master-Kategori':
+      if (!file_exists("master_kategori.php")) die("Sorry Empty Page!");
+      include "master_kategori.php";
       break;
 
 
