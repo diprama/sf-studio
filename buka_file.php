@@ -23,6 +23,21 @@ if ($_GET) {
       include "login.php";
       break;
 
+    case 'Management-Booking':
+      if (!file_exists("management_booking.php")) die("Sorry Empty Page!");
+      include "management_booking.php";
+      break;
+
+    case 'Management-History':
+      if (!file_exists("management_history.php")) die("Sorry Empty Page!");
+      include "management_history.php";
+      break;
+
+    case 'Master-Jadwal':
+      if (!file_exists("master_jadwal.php")) die("Sorry Empty Page!");
+      include "master_jadwal.php";
+      break;
+
 
 
 

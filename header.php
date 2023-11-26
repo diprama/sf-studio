@@ -49,7 +49,7 @@
     <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
         <div class="navbar-container d-flex content">
             <div class="bookmark-wrapper d-flex align-items-center">
-             
+
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
@@ -139,7 +139,7 @@
                         <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">John Doe</span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html">
-                        <i class="me-50" data-feather="user"></i> Profile</a>
+                            <i class="me-50" data-feather="user"></i> Profile</a>
                         <a class="dropdown-item" href="login.php"><i class="me-50" data-feather="power"></i> Logout</a>
                     </div>
                 </li>
@@ -231,7 +231,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item me-auto"><a class="navbar-brand" href="../html/ltr/vertical-menu-template/index.html"><span class="brand-logo">
-                          <img src="" alt=""></span>
+                            <img src="" alt=""></span>
                         <h2 class="brand-text">SF Studio</h2>
                     </a></li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc"></i></a></li>
@@ -245,15 +245,15 @@
                 <li class=""><a class="d-flex align-items-center" href="index.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Dashboard</span></a>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="Datatable">Master Data</span></a>
                     <ul class="menu-content">
-                        <li class=""><a class="d-flex align-items-center" href="master_jadwal.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Jadwal Buka</span></a>
+                        <li class=""><a class="d-flex align-items-center" href="?page=Master-Jadwal"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Jadwal Buka</span></a>
                         </li>
                     </ul>
                 </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="Datatable">Management</span></a>
                     <ul class="menu-content">
-                        <li class=""><a class="d-flex align-items-center" href="management_booking.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Booking</span></a>
+                        <li class=""><a class="d-flex align-items-center" href="?page=Management-Booking"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Booking</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="management_history.php"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Advanced">History</span></a>
+                        <li><a class="d-flex align-items-center" href="m?page=Management-History"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Advanced">History</span></a>
                         </li>
                     </ul>
                 </li>
