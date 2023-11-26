@@ -70,6 +70,7 @@ if (isset($_POST['btnLogin'])) {
       // Refresh
 
     } else {
+      exit;
       $pesanError[] = "Username atau password yang dimasukan salah !";
       if (empty($_SESSION['failed_login'])) {
         $_SESSION['failed_login'] = 1;

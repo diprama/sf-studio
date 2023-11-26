@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
+    include_once "library/inc.seslogin.php";
     echo $_SESSION["SES_LOGIN"];
 if ($_SESSION["SES_LOGIN"]=='') {
     header("Location: login.php");
