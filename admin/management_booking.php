@@ -50,7 +50,7 @@ include "header.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class="datatables-basic table">
+                            <table class="">
                                 <thead>
                                     <tr>
                                         <th></th>
