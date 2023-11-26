@@ -253,7 +253,7 @@
                     <ul class="menu-content">
                         <li class=""><a class="d-flex align-items-center" href="?page=Management-Booking"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Basic">Booking</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="m?page=Management-History"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Advanced">History</span></a>
+                        <li><a class="d-flex align-items-center" href="?page=Management-History"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Advanced">History</span></a>
                         </li>
                     </ul>
                 </li>
