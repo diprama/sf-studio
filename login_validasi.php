@@ -57,8 +57,8 @@ if (isset($_POST['btnLogin'])) {
 
       // Jika yang login Administrator
  
-
-  
+echo "oke";
+  exit;
       echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking'>";
 
       // Refreshaa

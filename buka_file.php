@@ -2,8 +2,6 @@
 
 // include "main_maintenance.php";
 // exit;
-
-
 # KONTROL MENU PROGRAM
 if ($_GET) {
   // Jika mendapatkan variabel URL ?page
