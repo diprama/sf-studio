@@ -23,6 +23,11 @@ if ($_GET) {
       include "login.php";
       break;
 
+    case 'Login-Validasi':
+      if (!file_exists("login_validasi.php")) die("Sorry Empty Page!");
+      include "login_validasi.php";
+      break;
+
     case 'Management-Booking':
       if (!file_exists("management_booking.php")) die("Sorry Empty Page!");
       include "management_booking.php";
