@@ -94,7 +94,7 @@
                           <div class="secondary-light"></div>
                         </div>
                         <div class="logo">
-                          <img src="./assets/images/logo-sf.png" alt="logo" />
+                          <img src="./assets/images/logox2.png" alt="logo" />
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                         </div>
                         <a href="" class="use-text-subtitle2">Lihat harga</a>
@@ -146,8 +146,13 @@
 
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
-                                <input class="" id="text" type="text" name="jenis" required>
                                 <label for="jenis">Jenis Foto*</label>
+                                <select class="form-select" aria-label="Default select example">
+                                  <option selected>Open this select menu</option>
+                                  <option value="1">One</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                </select>
                               </div>
                             </div>
 
