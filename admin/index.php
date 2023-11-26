@@ -1,7 +1,7 @@
 
 <?php
 
-include_once "library/inc.seslogin.php";
+// include_once "library/inc.seslogin.php";
 include "header.php";
 ?>
 
