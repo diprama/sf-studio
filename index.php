@@ -1,12 +1,7 @@
 
 
 <?php
-    // include_once "library/inc.seslogin.php";
-if ($_SESSION["SES_LOGIN"]!='SUPERADMIN') {
-    header("Location: login.php");
-    exit;
-}
-
+include_once "library/inc.seslogin.php";
 include "header.php";
 
 
