@@ -15,10 +15,10 @@
   <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicons/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicons/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="./assets/images/logo-sf.png" sizes="192x192" href="./assets/favicons/android-icon-192x192.png">
+  <link rel="icon" type="./assets/images/logo-sf.png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="./assets/images/logo-sf.png" sizes="96x96" href="./assets/favicons/favicon-96x96.png">
+  <link rel="icon" type="./assets/images/logo-sf.png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
   <link rel="manifest" href="./assets/favicons/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="./assets/favicons/ms-icon-144x144.png"><!-- PWA primary color-->
@@ -54,13 +54,12 @@
   <link href="./assets/css/vendors/slick-carousel/slick.css" rel="stylesheet">
   <link href="./assets/css/vendors/slick-carousel/slick-theme.css" rel="stylesheet">
   <link href="./assets/css/styles.css" rel="stylesheet">
-    <!-- font-awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- datepicker styles -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
-    <!-- timepicker style -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <!-- font-awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- datepicker styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+  <!-- timepicker style -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 </head>
 
 <body>
@@ -95,7 +94,7 @@
                           <div class="secondary-light"></div>
                         </div>
                         <div class="logo">
-                          <img src="./assets/images/logox2.png" alt="logo" />
+                          <img src="./assets/images/logo-sf.png" alt="logo" />
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                         </div>
                         <a href="" class="use-text-subtitle2">Lihat harga</a>
@@ -117,33 +116,33 @@
                         <form id="login_form" method="POST">
                           <div class="row spacing3">
 
-                          <div class="col-sm-6">
-                          <div class="input-field filled dark input-group">
-                            <input type="text" placeholder="Pilih Tanggal" class="form-control datepicker date" id="fecha1">
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                             </div>
-                              <label for="tanggal">Tanggal*</label>
-                            </div>
-                        </div>
-
-                          <div class="col-sm-6">
-                            <div class="input-field filled dark input-group">
-                              <input type="text" placeholder="Pilih Waktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1">
-                              <div class="input-group-append">
-                                <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                            <div class="col-sm-6">
+                              <div class="input-field filled dark input-group">
+                                <input type="text" placeholder="Pilih Tanggal" class="form-control datepicker date" id="fecha1">
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <label for="tanggal">Tanggal*</label>
                               </div>
-                              <label for="jam">Jam*</label>
                             </div>
-                          </div>
+
+                            <div class="col-sm-6">
+                              <div class="input-field filled dark input-group">
+                                <input type="text" placeholder="Pilih Waktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1">
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                                <label for="jam">Jam*</label>
+                              </div>
+                            </div>
 
 
-                          <div class="col-sm-12">
-                            <div class="input-field filled dark">
-                              <input class="" id="name" type="text" name="nama" required>
-                              <label for="email">Nama*</label>
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="name" type="text" name="nama" required>
+                                <label for="email">Nama*</label>
+                              </div>
                             </div>
-                          </div>
 
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
@@ -152,40 +151,40 @@
                               </div>
                             </div>
 
-                              <div class="col-sm-12">
-                                <div class="input-field filled dark">
-                                  <input class="" id="text" type="text" name="paket" required>
-                                  <label for="paket">Pilihan Paket*</label>
-                                </div>
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="text" type="text" name="paket" required>
+                                <label for="paket">Pilihan Paket*</label>
                               </div>
+                            </div>
 
-                              <div class="col-sm-12">
-                                <div class="input-field filled dark">
-                                  <input class="" id="email" type="email" name="email" required>
-                                  <label for="email">Email*</label>
-                                </div>
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="email" type="email" name="email" required>
+                                <label for="email">Email*</label>
                               </div>
+                            </div>
 
-                                <div class="col-sm-12">
-                                  <div class="input-field filled dark">
-                                    <input class="" id="whatsapp" type="number" name="whatsapp" required>
-                                    <label for="whatsapp">No Whatsapp*</label>
-                                  </div>
-                                </div>
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="whatsapp" type="number" name="whatsapp" required>
+                                <label for="whatsapp">No Whatsapp*</label>
+                              </div>
+                            </div>
 
-                                <div class="col-sm-12">
-                                  <div class="input-field filled dark">
-                                    <input class="" id="whatsapp" type="number" name="whatsapp" required>
-                                    <label for="whatsapp">Background*</label>
-                                  </div>
-                                </div>
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="whatsapp" type="number" name="whatsapp" required>
+                                <label for="whatsapp">Background*</label>
+                              </div>
+                            </div>
 
-                                  <div class="col-sm-12">
-                                    <div class="input-field filled dark">
-                                      <input class="" id="instagram" type="text" name="instagram" required>
-                                      <label for="instagram">Username Instagram</label>
-                                    </div>
-                                  </div>
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="instagram" type="text" name="instagram" required>
+                                <label for="instagram">Username Instagram</label>
+                              </div>
+                            </div>
                           </div>
 
                           <div class="btn-area mt-10">
@@ -218,7 +217,7 @@
   <script src="./assets/js/vendors/materialize.js"></script>
   <script src="./assets/js/scripts.js"></script>
 
-  
+
   <!-- Datepicker -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
   <!-- timepicker -->
@@ -226,23 +225,19 @@
 </body>
 
 <script>
-  $(function () {
-      $('.datepicker').datepicker({
-        language: "es",
-        autoclose: true,
-        format: "dd/mm/yyyy"
-      });
-
- 
-  });
-
-  $(function () {
-      $('.timepicker').timepicker();
+  $(function() {
+    $('.datepicker').datepicker({
+      language: "es",
+      autoclose: true,
+      format: "dd/mm/yyyy"
     });
 
 
+  });
 
-    
+  $(function() {
+    $('.timepicker').timepicker();
+  });
 </script>
 
 </html>
