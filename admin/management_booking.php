@@ -42,7 +42,7 @@ include "header.php";
         <div class="content-body">
             <div class="row">
                 <div class="col-12">
-                    <p>Read full documnetation <a href="https://datatables.net/" target="_blank">here</a></p>
+                    <!-- <p>Read full documnetation <a href="https://datatables.net/" target="_blank">here</a></p> -->
                 </div>
             </div>
             <!-- Basic table -->
