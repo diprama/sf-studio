@@ -46,11 +46,11 @@ include "header.php";
                 </div>
             </div>
             <!-- Basic table -->
-            <section id="basic-datatable">
+            <section id="">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class="">
+                            <table class="datatables-basic table">
                                 <thead>
                                     <tr>
                                         <th></th>
