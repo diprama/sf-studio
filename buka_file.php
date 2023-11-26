@@ -14,8 +14,8 @@ if ($_GET) {
       break;
 
     case 'Main':
-      if (!file_exists("main.php")) die("Sorry Empty Page!");
-      include "main.php";
+      if (!file_exists("index.php")) die("Sorry Empty Page!");
+      include "index.php";
       break;
 
     case 'Login':

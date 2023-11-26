@@ -59,8 +59,7 @@ if (isset($_POST['btnLogin'])) {
  
 
   
-      // echo "<meta http-equiv='refresh' content='0; url=index.php'>";
-      include "index.php";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Main'>";
 
       // Refresh
 
