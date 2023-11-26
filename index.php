@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
-//     echo $_SESSION["SES_LOGIN"];
-// if ($_SESSION["SES_LOGIN"]=='') {
-//     header("Location: login.php");
-//     exit;
-// }
+    echo $_SESSION["SES_LOGIN"];
+if ($_SESSION["SES_LOGIN"]=='') {
+    header("Location: login.php");
+    exit;
+}
 
 include "header.php";
 
