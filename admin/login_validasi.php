@@ -8,7 +8,7 @@ if (isset($_POST['btnLogin'])) {
   if (trim($_POST['txtPassword']) == "") {
     $pesanError[] = "Data <b> Password </b> tidak boleh kosong !";
   }
-
+exit;
   # Baca variabel form
    $txtUser   = $_POST['txtUser'];
   //$txtUser 	= str_replace("'","&acute;",$txtUser);
@@ -59,7 +59,7 @@ if (isset($_POST['btnLogin'])) {
  
 echo "oke";
   exit;
-      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Main'>";
 
       // Refreshaa
 
