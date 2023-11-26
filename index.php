@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
-    include_once "library/inc.seslogin.php";
+    // include_once "library/inc.seslogin.php";
     echo $_SESSION["SES_LOGIN"];
+    exit;
 if ($_SESSION["SES_LOGIN"]!='SUPERADMIN') {
     header("Location: login.php");
     exit;
