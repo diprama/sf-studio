@@ -44,6 +44,8 @@ if (isset($_POST['btnLogin'])) {
 
     # JIKA LOGIN SUKSES
     if (mysqli_num_rows($myQry) >= 1) {
+      echo " oke";
+      exit;
        $_SESSION['SES_LOGIN'] = $myData['user_name'];
       $_SESSION['SES_USERID'] = $myData['user_id'];
       $_SESSION['SES_NAMA'] = $myData['user_fullname'];
