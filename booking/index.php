@@ -1,3 +1,16 @@
+<?php
+ob_start();
+session_start();
+ini_set("max_execution_time", 0);
+ini_set('display_errors', 1);
+include_once "library/inc.connection.php";
+// include_once "library/inc.library.php";
+date_default_timezone_set("Asia/Jakarta");
+// include "buka_file.php";
+?>
+
+<!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
+<!-- Dilarang mengcopy , memperbanyak atau menggunakan source code ini dalam bentuk apapun tanpa izin tertulis dari PT. Rentas Media Indonesia. -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -155,7 +168,7 @@
                                 $mySql  = "SELECT * from master_jenisfoto order by id";
                                 $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                 while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                 <option value="<?php echo $myData['id']  ?>"><?php echo $myData['nama_jenis'] ?></option>;
+                                  <option value="<?php echo $myData['id']  ?>"><?php echo $myData['nama_jenis'] ?></option>;
                                 <?php
                                 };
                                 ?>
