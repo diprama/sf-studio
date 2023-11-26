@@ -61,7 +61,7 @@ if (isset($_POST['btnLogin'])) {
   
       echo "<meta http-equiv='refresh' content='0; url=?page=Main'>";
 
-      // Refresh
+      // Refreshaa
 
     } else {
       $pesanError[] = "Username atau password yang dimasukan salah !";
