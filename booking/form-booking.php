@@ -148,7 +148,7 @@
 
                             <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
-                              <select class="input-field filled dark" aria-label="Default select example">
+                              <select class="form-select" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
