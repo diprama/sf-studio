@@ -37,16 +37,14 @@ if (isset($_POST['btnLogin'])) {
     include "login.php";
   } else {
     # LOGIN CEK KE TABEL USER LOGIN
-    echo  $mySql = "SELECT * FROM master_user u WHERE u.user_name='" . $txtUser . "' 
+      $mySql = "SELECT * FROM master_user u WHERE u.user_name='" . $txtUser . "' 
 					AND u.user_pass='" . md5($txtPassword) . "' ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
     $myData = mysqli_fetch_array($myQry);
-
+ echo $jumlahdata = mysqli_num_rows($myQry);
     # JIKA LOGIN SUKSES
     if (mysqli_num_rows($myQry) >= 1) {
-      echo " oke";
-      exit;
-       $_SESSION['SES_LOGIN'] = $myData['user_name'];
+      echo $_SESSION['SES_LOGIN'] = $myData['user_name'];
       $_SESSION['SES_USERID'] = $myData['user_id'];
       $_SESSION['SES_NAMA'] = $myData['user_fullname'];
       $_SESSION['SES_PHOTO'] = $myData['user_photo'];
