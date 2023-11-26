@@ -59,12 +59,12 @@ if (isset($_POST['btnLogin'])) {
  
 
   
-      echo "<meta http-equiv='refresh' content='0; url=index.php'>";
+      // echo "<meta http-equiv='refresh' content='0; url=index.php'>";
+      include "index.php";
 
       // Refresh
 
     } else {
-      exit;
       $pesanError[] = "Username atau password yang dimasukan salah !";
       if (empty($_SESSION['failed_login'])) {
         $_SESSION['failed_login'] = 1;
