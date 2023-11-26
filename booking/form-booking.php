@@ -145,12 +145,13 @@
                             </div>
 
                             <div class="col-sm-12">
-                                <select class="form-select" aria-label="Default select example">
-                                  <option selected>Open this select menu</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                </select>
+                              <label for="email">Jenis Foto*</label>
+                              <select class="input-field filled dark" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
                             </div>
 
                             <div class="col-sm-12">
