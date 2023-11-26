@@ -149,10 +149,16 @@
                             <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
                               <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option selected>Pilih</option>
+                                <?php
+                                // panggil database
+                                $mySql  = "SELECT * from master_jenisfoto order by id";
+                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                 <option value="<?php echo $myData['id']  ?>"><?php echo $myData['nama_jenis'] ?></option>;
+                                <?php
+                                };
+                                ?>
                               </select>
                             </div>
 
