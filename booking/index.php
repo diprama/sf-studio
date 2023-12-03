@@ -161,7 +161,7 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
-                              <select class="form-select" aria-label="Default select example">
+                              <select class="form-select" id="jenisfoto" aria-label="Default select example">
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
@@ -176,10 +176,19 @@ date_default_timezone_set("Asia/Jakarta");
                             </div>
 
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="text" type="text" name="paket" required>
-                                <label for="paket">Pilihan Paket*</label>
-                              </div>
+                              <label for="email">Pilihan Paket*</label>
+                              <select class="form-select" id="paket" aria-label="Default select example">
+                                <option selected>Pilih</option>
+                                <?php
+                                // panggil database
+                                $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                  <option value="<?php echo $myData['id']  ?>"><?php echo $myData['jenis'] ?></option>;
+                                <?php
+                                };
+                                ?>
+                              </select>
                             </div>
 
                             <div class="col-sm-12">
@@ -246,6 +255,9 @@ date_default_timezone_set("Asia/Jakarta");
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
   <!-- timepicker -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <!-- Chaindrop -->
+  <script src="js/chaindropdown/config.js" type="text/javascript"></script>
+
 </body>
 
 <script>

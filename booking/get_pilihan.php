@@ -6,14 +6,14 @@ include "library/inc.connection.php";
 // Ambil data ID kategori yang dikirim via ajax post
 // $part_number = $_POST['kategori'];
 $Channel    = explode("|", $_POST['kategori']);
-$part_number   = $Channel[0];
+$jenis   = $Channel[0];
 // 28250-K0J -N000
 
 // defaul isi validasi
 $validasi = 'NO';
 $html = "";
 // validasi apakah mempunya sub part atau tidak
-$sql = mysqli_query($koneksidb, "SELECT * FROM master_material where product_id='$part_number' ORDER BY product_id");
+$sql = mysqli_query($koneksidb, "SELECT * FROM master_jenis where jenis='$jenis' ORDER BY product_id");
 // $cekQry = mysqli_query($koneksidb, $sql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 if (mysqli_num_rows($sql) >= 1) {
 	$validasi = 'YES';
@@ -21,10 +21,10 @@ if (mysqli_num_rows($sql) >= 1) {
 
 // end validasi
 if ($validasi != 'YES') {
-	$html .= "<option value=''>" .   "  Tidak Mempunyai Subpart " .   "    </option>"; // Tambahkan tag option ke variabel $htm
+	$html .= "Jenis Foto belum ditentukan."; // Tambahkan tag option ke variabel $htm
 } else {
 	while ($data = mysqli_fetch_array($sql)) { // Ambil semua data dari hasil eksekusi $sql
-		$html .= "<option value='" . $data['material_id'] . "'>" . $data['material_id'] .  "  - " . $data['material_name'] .  "    </option>"; // Tambahkan tag option ke variabel $html
+		$html .= "<option value='" . $data['paket'] . "'>" . $data['paket'] . "    </option>"; // Tambahkan tag option ke variabel $html
 	}
 }
 // // Buat query untuk menampilkan data sub part dengan part number alias tertentu(sesuai yang dipilih user pada form)
