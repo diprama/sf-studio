@@ -139,15 +139,7 @@ date_default_timezone_set("Asia/Jakarta");
                                 <label for="tanggal">Tanggal*</label>
                               </div>
                             </div>
-                            <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></span>
-                              </div>
-                              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></span>
-                              </div>
-                            </div>
+
 
                             <div class="col-sm-6">
                               <div class="input-field filled dark input-group">
