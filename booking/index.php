@@ -113,7 +113,7 @@ date_default_timezone_set("Asia/Jakarta");
                           <img src="./assets/images/logo-sf-white.png" alt="logo" />
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                         </div>
-                        <a href="" class="use-text-subtitle2">Lihat harga</a>
+                        <!-- <a href="" class="use-text-subtitle2">Lihat harga</a> -->
                       </div>
                     </div>
                   </div>
@@ -183,19 +183,6 @@ date_default_timezone_set("Asia/Jakarta");
                               </select>
                             </div>
 
-                            <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="email" type="email" name="email" required>
-                                <label for="email">Email*</label>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="whatsapp" type="number" name="whatsapp" required>
-                                <label for="whatsapp">No Whatsapp*</label>
-                              </div>
-                            </div>
 
                             <div class="col-sm-12">
                               <label for="email">Background*</label>
@@ -212,6 +199,21 @@ date_default_timezone_set("Asia/Jakarta");
                                 ?>
                               </select>
                             </div>
+
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="email" type="email" name="email" required>
+                                <label for="email">Email*</label>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
+                                <input class="" id="whatsapp" type="number" name="whatsapp" required>
+                                <label for="whatsapp">No Whatsapp*</label>
+                              </div>
+                            </div>
+
 
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
