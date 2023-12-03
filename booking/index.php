@@ -176,7 +176,7 @@ date_default_timezone_set("Asia/Jakarta");
                               </select>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="padding-top: 10px">
                               <label for="email">Pilihan Paket*</label>
                               <select class="form-select" name="txtSubPart" id="paket" class="form-control" tabindex="-1" disabled>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
