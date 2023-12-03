@@ -18,6 +18,8 @@ $sql = mysqli_query($koneksidb, "SELECT * FROM master_jenis where jenis='$jenis'
 if (mysqli_num_rows($sql) >= 1) {
 	$validasi = 'YES';
 }
+echo $validasi;
+exit;
 
 // end validasi
 if ($validasi != 'YES') {
