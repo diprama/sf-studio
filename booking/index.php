@@ -177,17 +177,8 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-12">
                               <label for="email">Pilihan Paket*</label>
-                              <select class="form-select" id="paket" aria-label="Default select example">
-                                <option selected>Pilih</option>
-                                <?php
-                                // panggil database
-                                $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
-                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                  <option value="<?php echo $myData['id']  ?>"><?php echo $myData['jenis'] ?></option>;
-                                <?php
-                                };
-                                ?>
+                              <select name="txtSubPart" id="paket" class="form-control" tabindex="-1" disabled>
+                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                               </select>
                             </div>
 
