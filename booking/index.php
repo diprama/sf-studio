@@ -207,7 +207,7 @@ date_default_timezone_set("Asia/Jakarta");
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
                                 <input class="" id="instagram" type="text" name="instagram" required>
-                                <label for="instagram">Username Facbooik</label>
+                                <label for="instagram">Username Instagram</label>
                               </div>
                             </div>
                           </div>
