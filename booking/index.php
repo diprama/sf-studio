@@ -175,6 +175,7 @@ date_default_timezone_set("Asia/Jakarta");
                                 ?>
                               </select>
                             </div>
+                            <br>
 
                             <div class="col-sm-12">
                               <label for="email">Pilihan Paket*</label>
