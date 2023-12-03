@@ -75,7 +75,7 @@ date_default_timezone_set("Asia/Jakarta");
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Chaindrop -->
-  <script src="js/chaindropdown/config.js" type="text/javascript"></script>
+  <script src="/js/chaindropdown/config.js" type="text/javascript"></script>
 
 </head>
 
