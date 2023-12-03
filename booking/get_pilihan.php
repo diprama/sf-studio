@@ -13,7 +13,7 @@ $jenis   = $Channel[0];
 $validasi = 'NO';
 $html = "";
 // validasi apakah mempunya sub part atau tidak
-$sql = mysqli_query($koneksidb, "SELECT * FROM master_jenis where jenis='$jenis' ORDER BY product_id");
+$sql = mysqli_query($koneksidb, "SELECT * FROM master_jenis where jenis='$jenis' ORDER BY jenis asc");
 // $cekQry = mysqli_query($koneksidb, $sql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 if (mysqli_num_rows($sql) >= 1) {
 	$validasi = 'YES';
