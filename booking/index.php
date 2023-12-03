@@ -110,7 +110,7 @@ date_default_timezone_set("Asia/Jakarta");
                           <div class="secondary-light"></div>
                         </div>
                         <div class="logo">
-                          <img src="./assets/images/logox2.png" alt="logo" />
+                          <img src="./assets/images/logo-sf-white.png" alt="logo" />
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                         </div>
                         <a href="" class="use-text-subtitle2">Lihat harga</a>
@@ -134,7 +134,7 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-6">
                               <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Tanggal" class="form-control datepicker date" id="fecha1">
+                                <input type="text" placeholder="Pilih Tanggal" name="" class="form-control datepicker date" id="fecha1">
                                 <div class="input-group-append">
                                   <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                 </div>
