@@ -175,7 +175,6 @@ date_default_timezone_set("Asia/Jakarta");
                                 ?>
                               </select>
                             </div>
-                            <br>
 
                             <div class="col-sm-12">
                               <label for="email">Pilihan Paket*</label>
@@ -199,10 +198,19 @@ date_default_timezone_set("Asia/Jakarta");
                             </div>
 
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="whatsapp" type="number" name="whatsapp" required>
-                                <label for="whatsapp">Background*</label>
-                              </div>
+                              <label for="email">Background*</label>
+                              <select class="form-select" id="jenisfoto" aria-label="Default select example">
+                                <option selected>Pilih</option>
+                                <?php
+                                // panggil database
+                                $mySql  = "SELECT * from master_background  order by background asc";
+                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                  <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
+                                <?php
+                                };
+                                ?>
+                              </select>
                             </div>
 
                             <div class="col-sm-12">
