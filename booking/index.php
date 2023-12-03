@@ -200,7 +200,7 @@ date_default_timezone_set("Asia/Jakarta");
                               </select>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <div class="input-field filled dark">
                                 <input class="" id="email" type="email" name="email" required>
                                 <label for="email">Email*</label>
