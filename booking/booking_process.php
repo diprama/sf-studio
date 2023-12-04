@@ -15,8 +15,7 @@ if (isset($_POST['btnSubmit'])) {
   $txtTanggal   = $_POST['txtTanggal'];
   // ganti format tanggal
   $originalDate = "$txtTanggal";
-  echo $txtTanggal = date("d-m-Y", strtotime($originalDate));
-  exit;
+   $txtTanggal = date("Y-m-d", strtotime($originalDate));
    $txtWaktu = $_POST['txtWaktu'];
   $txtJenis = $_POST['txtJenis'];
   $txtPaket = $_POST['txtPaket'];
