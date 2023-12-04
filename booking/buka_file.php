@@ -30,6 +30,11 @@ if ($_GET) {
       if (!file_exists("booking_process.php")) die("Sorry Empty Page!");
       include "booking_process.php";
       break;
+
+    case 'Booking-Success':
+      if (!file_exists("booking_success.php")) die("Sorry Empty Page!");
+      include "booking_success.php";
+      break;
       
     default:
       if (isset($_SESSION['SES_ADMIN'])) {
