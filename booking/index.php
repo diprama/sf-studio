@@ -141,10 +141,11 @@ date_default_timezone_set("Asia/Jakarta");
                             </div>
 
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                               <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></span>
                               </div>
+                              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+
                             </div>
 
 
