@@ -38,6 +38,11 @@ if ($_GET) {
       include "management_booking.php";
       break;
 
+    case 'Management-Booking-Update':
+      if (!file_exists("management_booking_update.php")) die("Sorry Empty Page!");
+      include "management_booking_update.php";
+      break;
+
     case 'Management-History':
       if (!file_exists("management_history.php")) die("Sorry Empty Page!");
       include "management_history.php";
