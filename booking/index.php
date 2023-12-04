@@ -133,19 +133,17 @@ date_default_timezone_set("Asia/Jakarta");
                           <div class="row spacing3">
 
                             <div class="col-sm-6">
+                              <label for="email">Pilih Tanggal*</label>
                               <div class="input-field filled dark input-group">
                                 <input type="text" placeholder="Pilih Tanggal" name="" class="form-control datepicker date" id="fecha1">
-                                <span class="input-group-text"></i></span>
-                                <label for="tanggal">Tanggal*</label>
                               </div>
                             </div>
 
 
                             <div class="col-sm-6">
+                              <label for="email">Pilih Jam*</label>
                               <div class="input-field filled dark input-group">
                                 <input type="text" placeholder="Pilih Waktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1">
-                                <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
-                                <label for="jam">Jam*</label>
                               </div>
                             </div>
 
