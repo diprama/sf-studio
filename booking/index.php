@@ -73,7 +73,7 @@ date_default_timezone_set("Asia/Jakarta");
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
   <!-- timepicker style -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 </head>
@@ -132,10 +132,20 @@ date_default_timezone_set("Asia/Jakarta");
                         <form id="login_form" method="POST">
                           <div class="row spacing3">
 
-                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                              <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">@example.com</span>
+                            <div class="col-sm-6">
+                              <div class="input-field filled dark input-group">
+                                <input type="text" placeholder="Pilih Tanggal" name="" class="form-control datepicker date" id="fecha1">
+                                <span class="input-group-text"></i></span>
+                                <label for="tanggal">Tanggal*</label>
+                              </div>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                              <div class="input-field filled dark input-group">
+                                <input type="text" placeholder="Pilih Waktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1">
+                                <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                <label for="jam">Jam*</label>
                               </div>
                             </div>
 
