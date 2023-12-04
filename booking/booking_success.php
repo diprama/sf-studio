@@ -1,3 +1,7 @@
+<?php
+$nama = isset($_GET['nama']) ? $_GET['nama']:'';
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -113,7 +117,7 @@
                         </div>
                         <form id="login_form" method="POST">
                           <div class="row spacing3">
-                            <p>Terimakasih {NAME}, 
+                            <p>Terimakasih <?php echo $nama ?>, 
                                </p>
                             <p>
                               Selanjutnya yang harus kamu lakukan:</p>
