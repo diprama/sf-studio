@@ -3,6 +3,8 @@
 <?php
 include_once "library/inc.seslogin.php";
 include "header.php";
+include "library/inc.connection.php";
+
 ?>
 
 
@@ -50,7 +52,7 @@ include "header.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class="datatables-basic table">
+                            <table class=" table">
                                 <thead>
                                     <tr>
                                         <th></th>
