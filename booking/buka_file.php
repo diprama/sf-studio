@@ -11,6 +11,11 @@ if ($_GET) {
       include "form-booking.php";
       break;
 
+    case 'Booking':
+      if (!file_exists("form-booking.php")) die("Empty Main Page!");
+      include "form-booking.php";
+      break;
+
     case 'Main':
       if (!file_exists("index.php")) die("Sorry Empty Page!");
       include "index.php";
@@ -21,6 +26,10 @@ if ($_GET) {
       include "greeting.php";
       break;
 
+    case 'Booking-Process':
+      if (!file_exists("booking_process.php")) die("Sorry Empty Page!");
+      include "booking_process.php";
+      break;
       
     default:
       if (isset($_SESSION['SES_ADMIN'])) {

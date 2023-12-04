@@ -129,12 +129,12 @@ date_default_timezone_set("Asia/Jakarta");
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
                           </a> -->
                         </div>
-                        <form id="login_form" method="POST">
+                        <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1" >
                           <div class="row spacing3">
 
                             <div class="col-sm-5">
                               <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Tanggal" name="" class="form-control datepicker date" id="fecha1">
+                                <input type="text" placeholder="Pilih Tanggal" name="txtTanggal" class="form-control datepicker date" id="fecha1" required>
                               </div>
                             </div>
 
@@ -144,21 +144,21 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-5">
                               <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Waktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1">
+                                <input type="text" placeholder="Pilih Waktu" name="txtWaktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1" required>
                               </div>
                             </div>
 
 
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
-                                <input class="" id="name" type="text" name="nama" required>
+                                <input class="" id="name" type="text" name="txtNama" required>
                                 <label for="email">Nama*</label>
                               </div>
                             </div>
 
                             <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
-                              <select class="form-select" id="jenisfoto" aria-label="Default select example">
+                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
@@ -174,7 +174,7 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
-                              <select class="form-select" name="txtSubPart" id="paket" class="form-control" tabindex="-1" disabled>
+                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                               </select>
                             </div>
@@ -182,7 +182,7 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Background*</label>
-                              <select class="form-select" id="jenisfoto" aria-label="Default select example">
+                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
@@ -198,14 +198,14 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-12" style="padding-top: 15px">
                               <div class="input-field filled dark">
-                                <input class="" id="email" type="email" name="email" required>
+                                <input class="" id="email" type="email" name="txtEmail" required>
                                 <label for="email">Email*</label>
                               </div>
                             </div>
 
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
-                                <input class="" id="whatsapp" type="number" name="whatsapp" required>
+                                <input class="" id="whatsapp" type="number" name="txtWhatsapp" required>
                                 <label for="whatsapp">No Whatsapp*</label>
                               </div>
                             </div>
@@ -213,14 +213,14 @@ date_default_timezone_set("Asia/Jakarta");
 
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
-                                <input class="" id="instagram" type="text" name="instagram" required>
+                                <input class="" id="instagram" type="text" name="txtInstagram">
                                 <label for="instagram">Username Instagram</label>
                               </div>
                             </div>
                           </div>
 
                           <div class="btn-area mt-10">
-                            <button class="btn secondary btn-large block waves-effect" type="submit">Confirm Booking</button>
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
                           </div>
                         </form>
                       </div>
