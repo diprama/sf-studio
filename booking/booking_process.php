@@ -12,7 +12,8 @@ if (isset($_POST['btnSubmit'])) {
   // }
 
   # Baca variabel form
-  $txtTanggal   = $_POST['txtTanggal'];
+  echo $txtTanggal   = $_POST['txtTanggal'];
+  exit;
    $txtWaktu = $_POST['txtWaktu'];
   $txtJenis = $_POST['txtJenis'];
   $txtPaket = $_POST['txtPaket'];
