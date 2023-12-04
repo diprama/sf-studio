@@ -46,6 +46,6 @@ if ($_GET) {
   }
 } else {
   // Jika tidak mendapatkan variabel URL : ?page
-  // if (!file_exists("form-booking.php")) die("Empty Main Page! Under Development");
-  // include "form-booking.php";
+  if (!file_exists("booking.php")) die("Empty Main Page! Under Development");
+  include "booking.php";
 }
