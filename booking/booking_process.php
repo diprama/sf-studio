@@ -1,5 +1,7 @@
 <?php
 include "library/inc.connection.php";
+echo "oke";
+exit;
 if (isset($_POST['btnSubmit'])) {
   $pesanError = array();
   // set validasi

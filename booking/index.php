@@ -129,7 +129,7 @@ date_default_timezone_set("Asia/Jakarta");
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
                           </a> -->
                         </div>
-                        <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1" >
+                        <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
                           <div class="row spacing3">
 
                             <div class="col-sm-5">
