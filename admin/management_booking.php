@@ -55,18 +55,40 @@ include "library/inc.connection.php";
                             <table class=" table">
                                 <thead>
                                     <tr>
-                                        <th></th>
-                                        <th></th>
+                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>Tanggal</th>
                                         <th>Jam</th>
                                         <th>No WA</th>
                                         <th>Paket</th>
+                                        <th>Background</th>
                                         <th>Status</th>
-                                        <th>Order</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+
+                                    <?php
+                                    $mySql   = "SELECT * FROM booking order by updated_date desc";
+                                    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+                                    $nomor  = 0;
+                                    while ($myData = mysqli_fetch_array($myQry)) {
+                                    ?>
+
+                                        <tr>
+                                            <td><?php echo $nomor; ?></td>
+                                            <td><?php echo $myData['nama']; ?></td>
+                                            <td><?php echo $myData['tanggal']; ?></td>
+                                            <td><?php echo $myData['jam']; ?></td>
+                                            <td><?php echo $myData['no_wa']; ?></td>
+                                            <td><?php echo $myData['paket']; ?></td>
+                                            <td><?php echo $myData['background']; ?></td>
+                                            <td><?php echo $myData['status']; ?></td>
+                                        </tr>
+                                    <?php }
+                                    ?>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
