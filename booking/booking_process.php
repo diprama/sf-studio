@@ -1,7 +1,6 @@
 <?php
 include "library/inc.connection.php";
-echo "oke";
-exit;
+
 if (isset($_POST['btnSubmit'])) {
   $pesanError = array();
   // set validasi
@@ -14,7 +13,7 @@ if (isset($_POST['btnSubmit'])) {
 
   # Baca variabel form
   $txtTanggal   = $_POST['txtTanggal'];
-  echo $txtWaktu = $_POST['txtWaktu'];
+   $txtWaktu = $_POST['txtWaktu'];
   $txtJenis = $_POST['txtJenis'];
   $txtPaket = $_POST['txtPaket'];
   $txtBackground = $_POST['txtBackground'];
@@ -24,7 +23,6 @@ if (isset($_POST['btnSubmit'])) {
   $txtInstagram = isset($_POST['txtInstagram']) ? $_POST['txtInstagram']:'';
   $txtStatus = 'Dibuat';
 
-exit;
 
   # Baca IP Address
   $ip = $_SERVER['REMOTE_ADDR'];
