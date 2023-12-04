@@ -132,16 +132,14 @@ date_default_timezone_set("Asia/Jakarta");
                         <form id="login_form" method="POST">
                           <div class="row spacing3">
 
-                            <div class="col-sm-6">
-                              <label for="email">Pilih Tanggal*</label>
+                            <div class="col-sm-5">
                               <div class="input-field filled dark input-group">
                                 <input type="text" placeholder="Pilih Tanggal" name="" class="form-control datepicker date" id="fecha1">
                               </div>
                             </div>
 
 
-                            <div class="col-sm-6">
-                              <label for="email">Pilih Jam*</label>
+                            <div class="col-sm-5">
                               <div class="input-field filled dark input-group">
                                 <input type="text" placeholder="Pilih Waktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1">
                               </div>
