@@ -85,7 +85,7 @@ include "library/inc.connection.php";
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('ARE YOU SURE TO DELETE THIS DATA?')"  role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
+                                            <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')"  role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
                                         </tr>
                                     <?php }
                                     ?>
