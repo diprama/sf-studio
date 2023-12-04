@@ -1,5 +1,5 @@
 <?php
-$nama = isset($_GET['nama']) ? $_GET['nama']:'';
+$nama = isset($_GET['nama']) ? $_GET['nama'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +58,10 @@ $nama = isset($_GET['nama']) ? $_GET['nama']:'';
   <link href="./assets/css/vendors/slick-carousel/slick.css" rel="stylesheet">
   <link href="./assets/css/vendors/slick-carousel/slick-theme.css" rel="stylesheet">
   <link href="./assets/css/styles.css" rel="stylesheet">
-    <!-- font-awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      <!-- datepicker styles -->
-      <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
+  <!-- font-awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- datepicker styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
 </head>
 
 <body>
@@ -75,7 +74,7 @@ $nama = isset($_GET['nama']) ? $_GET['nama']:'';
           <div class="hidden-md-up">
             <div class="logo logo-header">
               <a href="index.html">
-                <img src="./assets/images/logox2.png" alt="logo">
+                <img src="./assets/images/logo-sf-white.png" alt="logo">
               </a>
             </div>
           </div>
@@ -117,8 +116,8 @@ $nama = isset($_GET['nama']) ? $_GET['nama']:'';
                         </div>
                         <form id="login_form" method="POST">
                           <div class="row spacing3">
-                            <p>Terimakasih <?php echo $nama ?>, 
-                               </p>
+                            <p>Terimakasih <?php echo $nama ?>,
+                            </p>
                             <p>
                               Selanjutnya yang harus kamu lakukan:</p>
                             <p>
@@ -126,8 +125,8 @@ $nama = isset($_GET['nama']) ? $_GET['nama']:'';
                             <p>
                               2. Melakukan pembayaran DP sebesar Rp65.000 melalui rekening BCA 7175060341 a.n Muhammad Akhyar Fauzi</p>
                             <p>
-                               3. Kirim bukti pembayaran melalui no WhatsApp: 085173158153</p>
-                          <p> Sampai berjumpa di Self Studio :)</p>
+                              3. Kirim bukti pembayaran melalui no WhatsApp: 085173158153</p>
+                            <p> Sampai berjumpa di Self Studio :)</p>
                           </div>
                           <div class="btn-area mt-10">
                             <button class="btn secondary btn-large block waves-effect" type="submit">Confirm Melalui WA</button>
@@ -159,19 +158,19 @@ $nama = isset($_GET['nama']) ? $_GET['nama']:'';
   <script src="./assets/js/vendors/materialize.js"></script>
   <script src="./assets/js/scripts.js"></script>
 
-  
+
   <!-- Datepicker -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 </body>
 
 <script>
-  $(function () {
-      $('.datepicker').datepicker({
-        language: "es",
-        autoclose: true,
-        format: "dd/mm/yyyy"
-      });
+  $(function() {
+    $('.datepicker').datepicker({
+      language: "es",
+      autoclose: true,
+      format: "dd/mm/yyyy"
     });
+  });
 </script>
 
 </html>
