@@ -53,7 +53,7 @@ if (isset($_POST['btnSubmit'])) {
 
    # Validasi Insert Sukses
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success&name=$txtNama'>";
     }
     else {
       echo "Query Gagal";
