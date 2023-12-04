@@ -12,7 +12,10 @@ if (isset($_POST['btnSubmit'])) {
   // }
 
   # Baca variabel form
-  echo $txtTanggal   = $_POST['txtTanggal'];
+  $txtTanggal   = $_POST['txtTanggal'];
+  // ganti format tanggal
+  $originalDate = "$txtTanggal";
+  echo $txtTanggal = date("d-m-Y", strtotime($originalDate));
   exit;
    $txtWaktu = $_POST['txtWaktu'];
   $txtJenis = $_POST['txtJenis'];
