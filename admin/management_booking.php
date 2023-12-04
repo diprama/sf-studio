@@ -85,6 +85,7 @@ include "library/inc.connection.php";
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
+                                            <td> <a href="?page=Delivery-Schedule-Edit&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
                                         </tr>
                                     <?php }
                                     ?>
