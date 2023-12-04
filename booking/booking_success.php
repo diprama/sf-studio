@@ -1,5 +1,5 @@
 <?php
-$nama = isset($_GET['nama']) ? $_GET['nama']:'';
+$nama = isset($_GET['name']) ? $_GET['name']:'';
 ?>
 
 <!DOCTYPE html>
