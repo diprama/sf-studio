@@ -12,7 +12,7 @@ if (isset($_POST['btnSubmit'])) {
 
   # Baca variabel form
   $txtTanggal   = $_POST['txtTanggal'];
-  $txtWaktu = $_POST['txtWaktu'];
+  echo $txtWaktu = $_POST['txtWaktu'];
   $txtJenis = $_POST['txtJenis'];
   $txtPaket = $_POST['txtPaket'];
   $txtBackground = $_POST['txtBackground'];
@@ -22,7 +22,7 @@ if (isset($_POST['btnSubmit'])) {
   $txtInstagram = isset($_POST['txtInstagram']) ? $_POST['txtInstagram']:'';
   $txtStatus = 'Dibuat';
 
-
+exit;
 
   # Baca IP Address
   $ip = $_SERVER['REMOTE_ADDR'];
