@@ -6,10 +6,10 @@
 if ($_GET) {
   // Jika mendapatkan variabel URL ?page
   switch ($_GET['page']) {
-    case '':
-      if (!file_exists("form-booking.php")) die("Empty Main Page!");
-      include "form-booking.php";
-      break;
+    // case '':
+    //   if (!file_exists("form-booking.php")) die("Empty Main Page!");
+    //   include "form-booking.php";
+    //   break;
 
     case 'Booking':
       if (!file_exists("form-booking.php")) die("Empty Main Page!");
