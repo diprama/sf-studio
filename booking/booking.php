@@ -316,7 +316,6 @@ setlocale(LC_TIME, 'id_ID');
     });
 
 
-    $tStart = max([strtotime('09:00'), time()]);
     $(document).ready(function() {
       $('#timepicker').timepicker({
         timeFormat: 'H:i',
