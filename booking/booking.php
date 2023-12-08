@@ -154,8 +154,10 @@ include_once "library/inc.connection.php";
 
 
                             <div class="col-sm-12">
+                              <div class="form-group">
                                 <label >Nama*</label>
                                 <input class="form-control" type="text" name="txtNama" required>
+                              </div>
                             </div>
 
                             <div class="col-sm-12">
