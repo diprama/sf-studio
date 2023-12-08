@@ -207,7 +207,7 @@ include_once "library/inc.connection.php";
                               </div>
                             </div>
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Whatsapp*</label>
                                 <input class="form-control" type="text" name="txtWhatsapp" required>
