@@ -321,8 +321,8 @@ setlocale(LC_TIME, 'id_ID');
       var openingTime = new Date(now);
       var closingTime = new Date(now);
 
-      openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
-      closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
+      openingTime.setHours(0, 0, 0); // Jam buka pukul 08:00
+      closingTime.setHours(8, 0, 0); // Jam tutup pukul 16:00
 
       // Initialize the timepicker with a 20-minute interval
       $('#timepicker').timepicker({
