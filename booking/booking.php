@@ -274,8 +274,10 @@ setlocale(LC_TIME, 'id_ID');
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-  $('.datepicker').datepicker({
-    language: "id"
+  $(function() {
+    $('.datepicker').datepicker({
+      language: "id"
+    });
   });
 </script>
 
