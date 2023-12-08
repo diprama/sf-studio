@@ -273,6 +273,7 @@ setlocale(LC_TIME, 'id_ID');
   <script>
     // Initialize the datepicker
 
+    var dateToday = new Date();
     jQuery(function($) {
       $('input.datetimepicker').datepicker({
         duration: '',
@@ -280,7 +281,8 @@ setlocale(LC_TIME, 'id_ID');
         changeYear: false,
         yearRange: '2010:2020',
         showTime: false,
-        time24h: true
+        time24h: true,
+        minDate: dateToday
       });
 
       $.datepicker.regional['cs'] = {
@@ -318,7 +320,7 @@ setlocale(LC_TIME, 'id_ID');
 
     $(function() {
       $('#timepicker').timepicker({
-        'step': '15'
+        'step': '20 '
       });
     });
   </script>
