@@ -276,39 +276,4 @@ setlocale(LC_TIME, 'id_ID');
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<script>
-  // Set the Indonesian language for jQuery UI Datepicker
-  $.datepicker.setDefaults($.datepicker.regional['id']);
-
-  // Initialize the datepicker
-  $(function() {
-    $("#datepicker").datepicker({
-      language: "id",
-      locale: "id",
-      autoclose: true,
-      todayHighlight: true,
-      format: "dd/mm/yyyy"
-    });
-  });
-</script>
-
-<script>
-  // Set the Indonesian language for jQuery UI Datepicker
-  // $.datepicker.setDefaults($.datepicker.regional['id']);
-
-  // $(function() {
-  //   $('.datepicker').datepicker({
-  //     language: "id",
-  //     autoclose: true,
-  //     format: "dd/mm/yyyy"
-  //   });
-
-
-  // });
-
-  $(function() {
-    $('.timepicker').timepicker();
-  });
-</script>
-
 </html>
