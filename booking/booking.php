@@ -318,7 +318,6 @@ setlocale(LC_TIME, 'id_ID');
 
     $(function() {
       $('#timepicker').timepicker({
-        timeFormat: 'HH:mm',
         interval: 15,
         dynamic: false,
         dropdown: true,
