@@ -310,7 +310,9 @@ setlocale(LC_TIME, 'id_ID');
 
   <script>
     $(function() {
-      $('#datepicker').datepicker();
+      $('#datepicker').datepicker({
+        minDate: 0
+      });
 
 
     });
