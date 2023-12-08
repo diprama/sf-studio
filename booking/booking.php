@@ -153,9 +153,10 @@ include_once "library/inc.connection.php";
                             </div>
 
 
-                            <div class="col-sm-12">
-                              <label for="">Nama*</label>
-                              <input class="form-control" id="" type="text" name="txtNama" required>
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Email address</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
 
                             <div class="col-sm-12">
