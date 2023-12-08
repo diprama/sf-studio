@@ -8,7 +8,7 @@ setlocale(LC_TIME, 'id_ID');
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
 <!-- Dilarang mengcopy , memperbanyak atau menggunakan source code ini dalam bentuk apapun tanpa izin tertulis dari PT. Rentas Media Indonesia. -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 
 <head>
   <meta charset="utf-8">
