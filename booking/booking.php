@@ -88,7 +88,7 @@ setlocale(LC_TIME, 'id_ID');
               </a>
             </div>
           </div>
-          <div class="container">
+          <div class="container max-lg inner-wrap">
             <div class="card form-box fragment-fadeUp">
               <div class="hidden-sm-down">
                 <a class="waves-effect btn-icon backtohome" href="index.html">
@@ -140,7 +140,7 @@ setlocale(LC_TIME, 'id_ID');
                           <div class="row spacing3">
 
 
-                            <div class="col-sm-6">
+                            <div class="col-lg-6 col-sm-12 ">
                               <div class="form-group">
                                 <label>Tanggal*</label>
                                 <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
@@ -148,7 +148,7 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-sm-6">
+                            <div class="col-lg-6 col-sm-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
                                 <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
@@ -156,14 +156,14 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-sm-12">
+                            <div class="col-lg-6 col-sm-12">
                               <div class="form-group">
                                 <label>Nama*</label>
                                 <input class="form-control" type="text" name="txtNama" autocomplete="off" required>
                               </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-lg-6 col-sm-12">
                               <label for="email">Jenis Foto*</label>
                               <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
@@ -179,7 +179,7 @@ setlocale(LC_TIME, 'id_ID');
                               </select>
                             </div>
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-lg-6 col-sm-12" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
                               <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
@@ -187,7 +187,7 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-lg-6 col-sm-12" style="padding-top: 15px">
                               <label for="email">Background*</label>
                               <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
@@ -203,21 +203,21 @@ setlocale(LC_TIME, 'id_ID');
                               </select>
                             </div>
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-lg-6 col-sm-12" style="padding-top: 15px">
                               <div class="form-group">
                                 <label>Email*</label>
                                 <input class="form-control" type="text" name="txtEmail" autocomplete="off" required>
                               </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-lg-6 col-sm-12">
                               <div class="form-group">
                                 <label>Whatsapp*</label>
                                 <input class="form-control" type="text" name="txtWhatsapp" autocomplete="off" required>
                               </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-lg-6 col-sm-12">
                               <div class="form-group">
                                 <label>Instagram</label>
                                 <input class="form-control" type="text" autocomplete="off" name="txtInstagram">
