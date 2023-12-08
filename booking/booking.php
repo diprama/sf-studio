@@ -325,6 +325,9 @@ setlocale(LC_TIME, 'id_ID');
         dropdown: true,
         scrollbar: true,
         minTime: getCurrentTime(),
+        disableTimeRanges: [
+          ['12:00pm', '12:20pm']
+        ],
         change: function(time) {
           // Ensure the selected time is in the future
           if (time < getCurrentTime()) {
