@@ -310,18 +310,8 @@ setlocale(LC_TIME, 'id_ID');
 
 
   $(document).ready(function() {
-    var userLang = navigator.language || navigator.userLanguage;
-    var options = $.extend({},
-      $.datepicker.regional["id"]
-      , {
-        dateFormat: "yy/mm/dd",
-        changeMonth: true,
-        changeYear: true,
-        highlightWeek: true
-      }
-    );
 
-    $("#datepicker").datepicker(options);
+    $("#datepicker").datepicker();
   });
 </script>
 
