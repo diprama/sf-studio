@@ -266,9 +266,12 @@ setlocale(LC_TIME, 'id_ID');
 </body>
 
 <script>
+  // Set the Indonesian language for jQuery UI Datepicker
+  // $.datepicker.setDefaults($.datepicker.regional['id']);
+
   $(function() {
     $('.datepicker').datepicker({
-      language: "es",
+      language: "id",
       autoclose: true,
       format: "dd/mm/yyyy"
     });
