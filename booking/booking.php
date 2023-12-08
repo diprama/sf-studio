@@ -299,6 +299,8 @@ setlocale(LC_TIME, 'id_ID');
         yearSuffix: ''
       };
 
+      
+
       $.datepicker.setDefaults($.datepicker.regional['in']);
     });
 
@@ -308,15 +310,7 @@ setlocale(LC_TIME, 'id_ID');
   </script>
 
   <script>
-    $(function() {
-      $('#datepicker').datepicker({
-        language: "es",
-        autoclose: true,
-        format: "dd/mm/yyyy"
-      });
 
-
-    });
 
     $(function() {
       $('#timepicker').timepicker({
