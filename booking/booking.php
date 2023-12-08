@@ -151,7 +151,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
-                                <input class="form-control timepicker timepicker-with-dropdown" type="text" name="txtWaktu" autocomplete="off" required>
+                                <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -309,7 +309,7 @@ setlocale(LC_TIME, 'id_ID');
   });
 
   $(function() {
-    $('.timepicker').timepicker({
+    $('#timepicker').timepicker({
       'step': '20'
     });
   });
