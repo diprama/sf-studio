@@ -143,7 +143,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-lg-6 col-sm-6 ">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
+                                <input class="form-control" id='datepicker' disabled type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -151,7 +151,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-lg-6 col-sm-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
-                                <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
+                                <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" disabled required>
                               </div>
                             </div>
 
@@ -313,20 +313,6 @@ setlocale(LC_TIME, 'id_ID');
       // Mendapatkan waktu sekarang
       var now = new Date();
 
-      // Jam buka dan jam tutup default
-      var openingTime = new Date(now);
-      var closingTime = new Date(now);
-      openingTime.setHours(0, 0, 0); // Jam buka pukul 00:00
-      closingTime.setHours(2, 0, 0); // Jam tutup pukul 02:00
-
-      // Cek apakah hari ini adalah Sabtu atau Minggu
-      var dayOfWeek = now.getDay();
-      if (dayOfWeek === 0 || dayOfWeek === 6) {
-        // Jika ya, atur jam buka dan jam tutup menjadi 02:00 - 04:00
-        openingTime.setHours(2, 0, 0);
-        closingTime.setHours(4, 0, 0);
-      }
-
       // Inisialisasi datepicker
       $('#datepicker').datepicker({
         minDate: now,
@@ -335,26 +321,29 @@ setlocale(LC_TIME, 'id_ID');
         }
       });
 
-      // Inisialisasi timepicker
-      $('#timepicker').timepicker({
-        timeFormat: 'H:i',
-        interval: 20,
-        step: 20,
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true,
-        minTime: '00:00',
-        maxTime: '02:00'
-      });
-
       // Fungsi untuk mengelola perubahan tanggal
       function handleDateChange(selectedDate) {
-        // Reset timepicker ke rentang jam buka dan jam tutup default
-        $('#timepicker').timepicker('option', {
-          minTime: formatTime(openingTime),
-          maxTime: formatTime(closingTime),
-          disableTimeRanges: []
-        });
+        // Reset timepicker
+        $('#timepicker').val('');
+
+        // Cek hari yang dipilih
+        var dayOfWeek = new Date(selectedDate).getDay();
+
+        // Set jam buka dan jam tutup berdasarkan hari
+        var openingTime, closingTime;
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+          // Hari Senin sampai Jumat
+          openingTime = new Date(now);
+          closingTime = new Date(now);
+          openingTime.setHours(0, 0, 0); // Jam buka pukul 00:00
+          closingTime.setHours(3, 0, 0); // Jam tutup pukul 03:00
+        } else if (dayOfWeek === 0 || dayOfWeek === 6) {
+          // Hari Sabtu dan Minggu
+          openingTime = new Date(now);
+          closingTime = new Date(now);
+          openingTime.setHours(2, 0, 0); // Jam buka pukul 02:00
+          closingTime.setHours(4, 0, 0); // Jam tutup pukul 04:00
+        }
 
         // Cek apakah tanggal yang dipilih adalah 12 Desember 2023
         if (selectedDate === '12/12/2023') {
@@ -385,6 +374,13 @@ setlocale(LC_TIME, 'id_ID');
       $('#datepicker').on('change', function() {
         // Reset nilai pada timepicker jika isi datepicker diganti
         $('#timepicker').val('');
+
+        // Disable timepicker jika tanggal belum dipilih
+        if (!$(this).val()) {
+          $('#timepicker').prop('disabled', true);
+        } else {
+          $('#timepicker').prop('disabled', false);
+        }
       });
     });
   </script>
