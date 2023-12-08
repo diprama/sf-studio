@@ -324,12 +324,13 @@ setlocale(LC_TIME, 'id_ID');
         dynamic: false,
         dropdown: true,
         scrollbar: true,
+        minTime:'09:00',
         minTime: getCurrentTime(),
         disableTimeRanges: [
           ['12:00', '12:20'], // jam booking
           ['13:00', '13:20'] // jam booking
         ],
-        maxTime: '16:00',
+        maxTime: '16:00', // jam tutup
         change: function(time) {
           // Ensure the selected time is in the future
           if (time < getCurrentTime()) {
