@@ -136,19 +136,19 @@ include_once "library/inc.connection.php";
                         <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
                           <div class="row spacing3">
 
-                            <div class="col-sm-5">
-                              <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Tanggal" name="txtTanggal" class="form-control datepicker date" id="fecha1" required>
+
+                            <div class="col-sm-6" style="padding-top: 15px">
+                              <div class="form-group">
+                                <label>Tanggal*</label>
+                                <input class="form-control datepicker date" type="text" name="txtTanggal" required>
                               </div>
                             </div>
 
-                            <div class="col-sm-1">
-                            </div>
 
-
-                            <div class="col-sm-5">
-                              <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Waktu" name="txtWaktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1" required>
+                            <div class="col-sm-6" style="padding-top: 15px">
+                              <div class="form-group">
+                                <label>Waktu*</label>
+                                <input class="form-control timepicker timepicker-with-dropdown" type="text" name="txtWaktu" required>
                               </div>
                             </div>
 
