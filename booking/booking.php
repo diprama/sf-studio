@@ -269,24 +269,7 @@ setlocale(LC_TIME, 'id_ID');
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
-  <script>
-    $(function() {
-      // Set the Indonesian language for jQuery UI Datepicker
-      $.datepicker.setDefaults($.datepicker.regional['id']);
-
-      // Initialize the datepicker
-      $("#datepicker").datepicker();
-
-      // Initialize the timepicker
-      $('#timepicker').timepicker({
-        timeFormat: 'HH:mm',
-        interval: 15,
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true
-      });
-    });
-  </script>
+ 
   <script>
   // Initialize the datepicker
 
