@@ -333,14 +333,14 @@ setlocale(LC_TIME, 'id_ID');
         ]
       });
 
-      function getCurrentTime() {
-        var now = new Date();
-        var hours = now.getHours();
-        var minutes = now.getMinutes();
+      // function getCurrentTime() {
+      //   var now = new Date();
+      //   var hours = now.getHours();
+      //   var minutes = now.getMinutes();
 
-        // Format time as HH:mm
-        return hours + ':' + (minutes < 10 ? '0' : '') + minutes;
-      }
+      //   // Format time as HH:mm
+      //   return hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+      // }
     });
   </script>
 
