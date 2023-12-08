@@ -370,6 +370,8 @@ setlocale(LC_TIME, 'id_ID');
           // Ketika tanggal dipilih, atur pembatasan waktu pada timepicker
           if (selectedDate === '12/11/2023') {
             // Jika tanggal adalah 11 Desember 2023, batasi waktu pada jam 12:00 - 14:00
+
+
             $('#timepicker').timepicker({
               timeFormat: 'H:i',
               interval: 20,
@@ -382,12 +384,22 @@ setlocale(LC_TIME, 'id_ID');
             });
           } else {
             // Jika tanggal lain dipilih, reset timepicker
-            $('#timepicker').timepicker();
+            $('#timepicker').timepicker('destroy');
+            $('#timepicker').timepicker({
+              timeFormat: 'H:i',
+              interval: 20,
+              step: 20,
+              dynamic: false,
+              dropdown: true,
+              scrollbar: true,
+              minTime: '08:00',
+              maxTime: '18:00'
+            });
           }
         }
       });
 
-    
+
     });
   </script>
 
