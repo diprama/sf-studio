@@ -137,7 +137,7 @@ include_once "library/inc.connection.php";
                           <div class="row spacing3">
 
 
-                            <div class="col-sm-6" style="padding-top: 15px">
+                            <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Tanggal*</label>
                                 <input class="form-control datepicker date" type="text" name="txtTanggal" required>
@@ -145,7 +145,7 @@ include_once "library/inc.connection.php";
                             </div>
 
 
-                            <div class="col-sm-6" style="padding-top: 15px">
+                            <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
                                 <input class="form-control timepicker timepicker-with-dropdown" type="text" name="txtWaktu" required>
@@ -153,7 +153,7 @@ include_once "library/inc.connection.php";
                             </div>
 
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Nama*</label>
                                 <input class="form-control" type="text" name="txtNama" required>
@@ -176,7 +176,7 @@ include_once "library/inc.connection.php";
                               </select>
                             </div>
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-sm-12">
                               <label for="email">Pilihan Paket*</label>
                               <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
@@ -184,7 +184,7 @@ include_once "library/inc.connection.php";
                             </div>
 
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-sm-12">
                               <label for="email">Background*</label>
                               <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
@@ -200,7 +200,7 @@ include_once "library/inc.connection.php";
                               </select>
                             </div>
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Email*</label>
                                 <input class="form-control" type="text" name="txtEmail" required>
