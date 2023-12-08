@@ -304,15 +304,16 @@ setlocale(LC_TIME, 'id_ID');
 
 
   $(document).ready(function() {
-
     $("#datepicker").datepicker();
-  });
 
-  $(function() {
     $('#timepicker').timepicker({
       'step': '20'
     });
   });
+
+  // $(function() {
+
+  // });
 </script>
 
 
