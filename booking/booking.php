@@ -160,7 +160,7 @@ include_once "library/inc.connection.php";
                               </div>
                             </div>
 
-                            <div class="col-sm-12" style="padding-top: 15px">
+                            <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
                               <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
