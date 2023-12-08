@@ -319,7 +319,7 @@ setlocale(LC_TIME, 'id_ID');
 
     $(document).ready(function() {
       $('#timepicker').timepicker({
-        timeFormat: 'h:mm a',
+        timeFormat: 'H:i',
         interval: 60,
         minTime: '9',
         maxTime: '4:00pm',
