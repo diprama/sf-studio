@@ -300,7 +300,6 @@ setlocale(LC_TIME, 'id_ID');
       };
 
 
-
       $.datepicker.setDefaults($.datepicker.regional['in']);
     });
 
@@ -311,7 +310,9 @@ setlocale(LC_TIME, 'id_ID');
 
   <script>
     $(function() {
-      $('#datepicker').datepicker('setStartDate', new Date());
+      $('#datepicker').datepicker();
+
+
     });
 
     $(function() {
