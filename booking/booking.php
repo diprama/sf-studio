@@ -214,11 +214,10 @@ include_once "library/inc.connection.php";
                               </div>
                             </div>
 
-
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="instagram" type="text" name="txtInstagram">
-                                <label for="instagram">Username Instagram</label>
+                              <div class="form-group">
+                                <label>Instagram</label>
+                                <input class="form-control" type="text" name="txtInstagram">
                               </div>
                             </div>
                           </div>
