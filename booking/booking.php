@@ -53,7 +53,6 @@ include_once "library/inc.connection.php";
   <title>SF Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
-  <!-- <link href="./assets/css/vendors/materialize.css" rel="stylesheet"> -->
   <link href="./assets/css/vendors/hamburger-menu.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate-extends.css" rel="stylesheet">
@@ -153,10 +152,9 @@ include_once "library/inc.connection.php";
                             </div>
 
 
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Email address</label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div class="col-sm-12">
+                              <label for="">Nama*</label>
+                              <input class="" id="" type="text" name="txtNama" required>
                             </div>
 
                             <div class="col-sm-12">
