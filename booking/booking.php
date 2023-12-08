@@ -14,7 +14,7 @@ inputan datepicker/htmlnya:
 ////////////////////////////////////////////////////////////////////////////////
 
 javascript :
-<script src="<?php echo ('assets/js/vendors/jquery-1.11.2.min.js') ?>"></script>
+<script src="./assets/js/vendors/jquery.min.js') ?>"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.id.min.js" charset="UTF-8"></script>
