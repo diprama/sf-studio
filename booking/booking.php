@@ -154,8 +154,8 @@ include_once "library/inc.connection.php";
 
 
                             <div class="col-sm-12">
-                                <label for="">Nama*</label>
-                                <input class="" id="" type="text" name="txtNama" required>
+                              <label for="">Nama*</label>
+                              <input class="form-control" id="" type="text" name="txtNama" required>
                             </div>
 
                             <div class="col-sm-12">
@@ -199,25 +199,26 @@ include_once "library/inc.connection.php";
                             </div>
 
                             <div class="col-sm-12" style="padding-top: 15px">
-                                <input class="" id="email" type="email" name="txtEmail" required>
-                                <label for="email">Email*</label>
+                              <input class="form-control" id="email" type="email" name="txtEmail" required>
+                              <label for="email">Email*</label>
                             </div>
 
                             <div class="col-sm-12">
+                              <div class="input-field filled dark">
                                 <input class="" id="whatsapp" type="number" name="txtWhatsapp" required>
                                 <label for="whatsapp">No Whatsapp*</label>
-                            </div>
+                              </div>
 
 
-                            <div class="col-sm-12">
+                              <div class="col-sm-12">
                                 <input class="" id="instagram" type="text" name="txtInstagram">
                                 <label for="instagram">Username Instagram</label>
+                              </div>
                             </div>
-                          </div>
 
-                          <div class="btn-area mt-10">
-                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
-                          </div>
+                            <div class="btn-area mt-10">
+                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
+                            </div>
                         </form>
                       </div>
                     </div>
