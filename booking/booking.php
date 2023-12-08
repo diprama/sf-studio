@@ -140,7 +140,7 @@ include_once "library/inc.connection.php";
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control datepicker date" type="text" name="txtTanggal" required>
+                                <input class="form-control datepicker date" type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -148,7 +148,7 @@ include_once "library/inc.connection.php";
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
-                                <input class="form-control timepicker timepicker-with-dropdown" type="text" name="txtWaktu" required>
+                                <input class="form-control timepicker timepicker-with-dropdown" type="text" name="txtWaktu" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -156,13 +156,13 @@ include_once "library/inc.connection.php";
                             <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Nama*</label>
-                                <input class="form-control" type="text" name="txtNama" required>
+                                <input class="form-control" type="text" name="txtNama" autocomplete="off" required>
                               </div>
                             </div>
 
                             <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
-                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
+                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
@@ -178,7 +178,7 @@ include_once "library/inc.connection.php";
 
                             <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
-                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled required>
+                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                               </select>
                             </div>
@@ -186,7 +186,7 @@ include_once "library/inc.connection.php";
 
                             <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Background*</label>
-                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" required>
+                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
@@ -203,21 +203,21 @@ include_once "library/inc.connection.php";
                             <div class="col-sm-12" style="padding-top: 15px">
                               <div class="form-group">
                                 <label>Email*</label>
-                                <input class="form-control" type="text" name="txtEmail" required>
+                                <input class="form-control" type="text" name="txtEmail" autocomplete="off" required>
                               </div>
                             </div>
 
                             <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Whatsapp*</label>
-                                <input class="form-control" type="text" name="txtWhatsapp" required>
+                                <input class="form-control" type="text" name="txtWhatsapp" autocomplete="off" required>
                               </div>
                             </div>
 
                             <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Instagram</label>
-                                <input class="form-control" type="text" name="txtInstagram">
+                                <input class="form-control" type="text" autocomplete="off" name="txtInstagram">
                               </div>
                             </div>
                           </div>
