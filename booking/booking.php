@@ -68,6 +68,8 @@ setlocale(LC_TIME, 'id_ID');
   <!-- timepicker style -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- bahasa indonesia for datepicker -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
 
 
 </head>
@@ -141,7 +143,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control datepicker" type="text" name="txtTanggal" autocomplete="off" required>
+                                <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -258,7 +260,7 @@ setlocale(LC_TIME, 'id_ID');
 
   <!-- Datepicker -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->\
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.id.min.js" charset="UTF-8"></script>
   <!-- timepicker -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
@@ -272,16 +274,20 @@ setlocale(LC_TIME, 'id_ID');
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-
   // Initialize the datepicker
-  $(function() {
-    $(".datepicker").datepicker({
-          language: "id",
-          locale:"id",
-          autoclose: true,
-          todayHighlight: true,
-          format: "dd/mm/yyyy"
-    });
+  $(document).ready(function() {
+    var userLang = navigator.language || navigator.userLanguage;
+
+    var options = $.extend({},
+      $.datepicker.regional["id"], {
+        dateFormat: "yy/mm/dd",
+        changeMonth: true,
+        changeYear: true,
+        highlightWeek: true
+      }
+    );
+
+    $("#datepicker").datepicker(options);
   });
 </script>
 
