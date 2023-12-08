@@ -176,7 +176,7 @@ include_once "library/inc.connection.php";
                               </select>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
                               <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
@@ -184,7 +184,7 @@ include_once "library/inc.connection.php";
                             </div>
 
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Background*</label>
                               <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
@@ -200,7 +200,7 @@ include_once "library/inc.connection.php";
                               </select>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <div class="form-group">
                                 <label>Email*</label>
                                 <input class="form-control" type="text" name="txtEmail" required>
