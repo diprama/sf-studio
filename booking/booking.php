@@ -326,7 +326,7 @@ setlocale(LC_TIME, 'id_ID');
 
       // Initialize the timepicker with a 20-minute interval
       $('#timepicker').timepicker({
-        timeFormat: 'HH:mm',
+        timeFormat: 'H:i',
         interval: 20,
         dynamic: false,
         dropdown: true,
