@@ -383,8 +383,6 @@ setlocale(LC_TIME, 'id_ID');
               maxTime: '14:00'
             });
           } else {
-            // Jika tanggal lain dipilih, reset timepicker
-            $('#timepicker').timepicker('destroy');
             $('#timepicker').timepicker({
               timeFormat: 'H:i',
               interval: 20,
