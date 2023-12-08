@@ -324,7 +324,7 @@ setlocale(LC_TIME, 'id_ID');
         dynamic: false,
         dropdown: true,
         scrollbar: true,
-        minTime:'09:00',
+        minTime:'04:00',
         minTime: getCurrentTime(),
         disableTimeRanges: [
           ['12:00', '12:20'], // jam booking
