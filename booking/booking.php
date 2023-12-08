@@ -387,15 +387,7 @@ setlocale(LC_TIME, 'id_ID');
         }
       });
 
-      // Inisialisasi timepicker
-      $('#timepicker').timepicker({
-        timeFormat: 'H:i',
-        interval: 20,
-        step: 20,
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true
-      });
+    
     });
   </script>
 
