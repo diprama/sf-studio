@@ -1,8 +1,5 @@
 <?php
 include_once "library/inc.connection.php";
-
-// Set the locale to a foreign language (e.g., French)
-setlocale(LC_TIME, 'id_ID');
 ?>
 
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
