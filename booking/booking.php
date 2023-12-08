@@ -143,7 +143,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control" id="datepicker" type="text" name="txtTanggal" autocomplete="off" required>
+                                <input class="form-control datepicker" type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -277,7 +277,7 @@ setlocale(LC_TIME, 'id_ID');
 
   // Initialize the datepicker
   $(function() {
-    $("#datepicker").datepicker({
+    $(".datepicker").datepicker({
           language: "id",
           locale:"id",
           autoclose: true,
