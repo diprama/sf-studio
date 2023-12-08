@@ -308,23 +308,25 @@ setlocale(LC_TIME, 'id_ID');
     // });
   </script>
 
-  <!-- <script>
-    $(function() {
-      $('#datepicker').datepicker({
-        minDate: 0
-      });
-    });
 
 
+  <script>
+    var now = new Date();
+    var openingTime = new Date(now);
+    var closingTime = new Date(now);
+
+    openingTime.setHours(0, 0, 0); // Jam buka pukul 08:00
+    closingTime.setHours(8, 0, 0); // Jam tutup pukul 16:00
     $(document).ready(function() {
-      var now = new Date();
-      var openingTime = new Date(now);
-      var closingTime = new Date(now);
+      // Inisialisasi datepicker
+      $('#datepicker').datepicker({
+        minDate: new Date(),
+        onSelect: function(selectedDate) {
+          handleDateChange(selectedDate);
+        }
+      });
 
-      openingTime.setHours(0, 0, 0); // Jam buka pukul 08:00
-      closingTime.setHours(8, 0, 0); // Jam tutup pukul 16:00
-
-      // Initialize the timepicker with a 20-minute interval
+      // Inisialisasi timepicker
       $('#timepicker').timepicker({
         timeFormat: 'H:i',
         interval: 20,
@@ -332,11 +334,28 @@ setlocale(LC_TIME, 'id_ID');
         dynamic: false,
         dropdown: true,
         scrollbar: true,
-        minTime: openingTime,
-        maxTime: closingTime,
         disableTimeRanges: getDisabledRanges()
       });
 
+      // Fungsi untuk mengelola perubahan tanggal / set non aktif di jam jam tertentu untuk tanggal khusus yang di set
+      function handleDateChange(selectedDate) {
+        // Cek apakah tanggal yang dipilih adalah 11 Desember 2023
+        if (selectedDate === '12/11/2023') {
+          // Jika ya, batasi waktu pada jam 12:00 - 14:00
+          $('#timepicker').timepicker('option', {
+            minTime: '12:00',
+            maxTime: '14:00'
+          });
+        } else {
+          // Jika tidak, reset timepicker ke rentang jam 08:00 - 10:00
+          $('#timepicker').timepicker('option', {
+            minTime: openingTime,
+            maxTime: closingTime
+          });
+        }
+      }
+
+      // fungsi disabled past time
       function getDisabledRanges() {
         var disabledRanges = [];
         var currentTime = new Date();
@@ -354,50 +373,6 @@ setlocale(LC_TIME, 'id_ID');
 
         return disabledRanges;
       }
-
-      function formatTime(date) {
-        return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
-      }
-    });
-  </script> -->
-
-  <script>
-    $(document).ready(function() {
-      // Inisialisasi datepicker
-      $('#datepicker').datepicker({
-        minDate: new Date(),
-        onSelect: function(selectedDate) {
-          // Ketika tanggal dipilih, atur pembatasan waktu pada timepicker
-          if (selectedDate === '12/11/2023') {
-            // Jika tanggal adalah 11 Desember 2023, batasi waktu pada jam 12:00 - 14:00
-
-
-            $('#timepicker').timepicker({
-              timeFormat: 'H:i',
-              interval: 20,
-              step: 20,
-              dynamic: false,
-              dropdown: true,
-              scrollbar: true,
-              minTime: '12:00',
-              maxTime: '14:00'
-            });
-          } else {
-            $('#timepicker').timepicker({
-              timeFormat: 'H:i',
-              interval: 20,
-              step: 20,
-              dynamic: false,
-              dropdown: true,
-              scrollbar: true,
-              minTime: '08:00',
-              maxTime: '18:00'
-            });
-          }
-        }
-      });
-
-
     });
   </script>
 
