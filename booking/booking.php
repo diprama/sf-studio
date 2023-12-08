@@ -341,18 +341,18 @@ setlocale(LC_TIME, 'id_ID');
 
       // Fungsi untuk mengelola perubahan tanggal
       function handleDateChange(selectedDate) {
+        // Reset timepicker ke rentang jam 08:00 - 10:00
+        $('#timepicker').timepicker('option', {
+          minTime: '08:00',
+          maxTime: '10:00'
+        });
+
         // Cek apakah tanggal yang dipilih adalah 11 Desember 2023
         if (selectedDate === '12/11/2023') {
           // Jika ya, batasi waktu pada jam 12:00 - 14:00
           $('#timepicker').timepicker('option', {
             minTime: '12:00',
             maxTime: '14:00'
-          });
-        } else {
-          // Jika tidak, reset timepicker ke rentang jam 08:00 - 10:00
-          $('#timepicker').timepicker('option', {
-            minTime: '08:00',
-            maxTime: '10:00'
           });
         }
 
@@ -370,6 +370,12 @@ setlocale(LC_TIME, 'id_ID');
       function formatTime(date) {
         return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
       }
+
+      // Menangani perubahan nilai pada datepicker
+      $('#datepicker').on('change', function() {
+        // Reset nilai pada timepicker jika isi datepicker diganti
+        $('#timepicker').val('');
+      });
     });
   </script>
 
