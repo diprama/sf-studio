@@ -315,13 +315,13 @@ setlocale(LC_TIME, 'id_ID');
       });
     });
 
-    
 
+    $tStart = max([strtotime('09:00'), time()]);
     $(document).ready(function() {
       $('#timepicker').timepicker({
         timeFormat: 'H:i',
         interval: 60,
-        minTime: '0',
+        minTime: getCurrentTime(), // Set minimum time to current time
         maxTime: '4:00pm',
         defaultTime: '0',
         startTime: '9:00',
@@ -332,6 +332,15 @@ setlocale(LC_TIME, 'id_ID');
           ['12:00pm', '12:01pm']
         ]
       });
+
+      function getCurrentTime() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+
+        // Format time as HH:mm
+        return hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+      }
     });
   </script>
 
