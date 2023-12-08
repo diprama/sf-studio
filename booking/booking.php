@@ -8,7 +8,7 @@ setlocale(LC_TIME, 'id_ID');
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
 <!-- Dilarang mengcopy , memperbanyak atau menggunakan source code ini dalam bentuk apapun tanpa izin tertulis dari PT. Rentas Media Indonesia. -->
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
@@ -274,11 +274,46 @@ setlocale(LC_TIME, 'id_ID');
 
 <script>
   // Initialize the datepicker
+
+  jQuery(function($) {
+    $('input.datetimepicker').datepicker({
+      duration: '',
+      changeMonth: false,
+      changeYear: false,
+      yearRange: '2010:2020',
+      showTime: false,
+      time24h: true
+    });
+
+    $.datepicker.regional['cs'] = {
+      closeText: 'Zavřít',
+      prevText: '&#x3c;Dříve',
+      nextText: 'Později&#x3e;',
+      currentText: 'Nyní',
+      monthNames: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen',
+        'září', 'říjen', 'listopad', 'prosinec'
+      ],
+      monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+      dayNames: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+      dayNamesShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+      dayNamesMin: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+      weekHeader: 'Týd',
+      dateFormat: 'dd/mm/yy',
+      firstDay: 1,
+      isRTL: false,
+      showMonthAfterYear: false,
+      yearSuffix: ''
+    };
+
+    $.datepicker.setDefaults($.datepicker.regional['cs']);
+  });
+
+
   $(document).ready(function() {
     var userLang = navigator.language || navigator.userLanguage;
-
     var options = $.extend({},
-      $.datepicker.regional["id"], {
+      $.datepicker.regional["id"]
+      , {
         dateFormat: "yy/mm/dd",
         changeMonth: true,
         changeYear: true,
