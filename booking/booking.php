@@ -53,6 +53,7 @@ include_once "library/inc.connection.php";
   <title>SF Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
+  <!-- <link href="./assets/css/vendors/materialize.css" rel="stylesheet"> -->
   <link href="./assets/css/vendors/hamburger-menu.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate-extends.css" rel="stylesheet">
@@ -153,12 +154,14 @@ include_once "library/inc.connection.php";
 
 
                             <div class="col-sm-12">
-                              <label for="">Nama*</label>
-                              <input class="" id="" type="text" name="txtNama" required>
+                              <div class="input-field filled dark">
+                                <label for="email">Nama*</label>
+                                <input class="" id="name" type="text" name="txtNama" required>
+                              </div>
                             </div>
 
                             <div class="col-sm-12">
-                              <label for="">Jenis Foto*</label>
+                              <label for="email">Jenis Foto*</label>
                               <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
                                 <?php
@@ -198,8 +201,10 @@ include_once "library/inc.connection.php";
                             </div>
 
                             <div class="col-sm-12" style="padding-top: 15px">
-                              <input class="form-control" id="email" type="email" name="txtEmail" required>
-                              <label for="email">Email*</label>
+                              <div class="input-field filled dark">
+                                <input class="" id="email" type="email" name="txtEmail" required>
+                                <label for="email">Email*</label>
+                              </div>
                             </div>
 
                             <div class="col-sm-12">
@@ -207,17 +212,20 @@ include_once "library/inc.connection.php";
                                 <input class="" id="whatsapp" type="number" name="txtWhatsapp" required>
                                 <label for="whatsapp">No Whatsapp*</label>
                               </div>
+                            </div>
 
 
-                              <div class="col-sm-12">
+                            <div class="col-sm-12">
+                              <div class="input-field filled dark">
                                 <input class="" id="instagram" type="text" name="txtInstagram">
                                 <label for="instagram">Username Instagram</label>
                               </div>
                             </div>
+                          </div>
 
-                            <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
-                            </div>
+                          <div class="btn-area mt-10">
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
+                          </div>
                         </form>
                       </div>
                     </div>
@@ -242,7 +250,7 @@ include_once "library/inc.connection.php";
   <script src="./assets/js/vendors/jquery.navScroll.min.js"></script>
   <script src="./assets/js/vendors/parallax.min.js"></script><!-- This assets are not avalaible in npm.js or it has been costumized-->
   <script src="./assets/js/vendors/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-  <script src="./assets/js/vendors/materialize.js"></script>
+  <!-- <script src="./assets/js/vendors/materialize.js"></script> -->
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
