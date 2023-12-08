@@ -88,7 +88,7 @@ setlocale(LC_TIME, 'id_ID');
               </a>
             </div>
           </div>
-          <div class="container max-lg inner-wrap">
+          <div class="container">
             <div class="card form-box fragment-fadeUp">
               <div class="hidden-sm-down">
                 <a class="waves-effect btn-icon backtohome" href="index.html">
