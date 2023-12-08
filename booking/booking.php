@@ -382,7 +382,7 @@ setlocale(LC_TIME, 'id_ID');
             });
           } else {
             // Jika tanggal lain dipilih, reset timepicker
-            $('#timepicker').timepicker('destroy');
+            $('#timepicker').timepicker();
           }
         }
       });
