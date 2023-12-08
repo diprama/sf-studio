@@ -52,8 +52,8 @@ include_once "library/inc.connection.php";
   <meta property="og:image:height" content="630">
   <title>SF Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
-  <!-- <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet"> -->
-  <link href="./assets/css/vendors/materialize.css" rel="stylesheet">
+  <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
+  <!-- <link href="./assets/css/vendors/materialize.css" rel="stylesheet"> -->
   <link href="./assets/css/vendors/hamburger-menu.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate-extends.css" rel="stylesheet">
