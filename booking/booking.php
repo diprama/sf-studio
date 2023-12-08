@@ -278,7 +278,13 @@ setlocale(LC_TIME, 'id_ID');
 
   // Initialize the datepicker
   $(function() {
-    $("#datepicker").datepicker();
+    $("#datepicker").datepicker({
+          language: "id",
+          locale,"id",
+          autoclose: true,
+          todayHighlight: true,
+          format: "dd/mm/yyyy"
+    });
   });
 </script>
 
