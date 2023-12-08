@@ -278,7 +278,7 @@ setlocale(LC_TIME, 'id_ID');
         duration: '',
         changeMonth: false,
         changeYear: false,
-        yearRange: '2010:2025',
+        yearRange: '2010:2020',
         showTime: false,
         time24h: true
       });
@@ -317,13 +317,13 @@ setlocale(LC_TIME, 'id_ID');
     });
 
     $(function() {
-      $('#timepicker').timepicker(
+      $('#timepicker').timepicker({
         timeFormat: 'HH:mm',
         interval: 15,
         dynamic: false,
         dropdown: true,
         scrollbar: true
-      );
+       } );
     });
   </script>
 
