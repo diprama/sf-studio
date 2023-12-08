@@ -326,9 +326,10 @@ setlocale(LC_TIME, 'id_ID');
         scrollbar: true,
         minTime: getCurrentTime(),
         disableTimeRanges: [
-          ['12:00', '12:40'], 
-          ['13:00', '13:20']
+          ['12:00', '12:20'], // jam booking
+          ['13:00', '13:20'] // jam booking
         ],
+        maxTime: '16:00',
         change: function(time) {
           // Ensure the selected time is in the future
           if (time < getCurrentTime()) {
