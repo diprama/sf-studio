@@ -102,7 +102,9 @@ include_once "library/inc.connection.php";
                           <div class="secondary-main"></div>
                           <div class="secondary-light"></div>
                         </div>
-                        <div class="logo" style="padding-top:100px;">
+                        <div class="logo" style="">
+                        <br>
+                        <br>
                           <img src="./assets/images/logo-sf-white.png" alt="logo" />
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                         </div>
