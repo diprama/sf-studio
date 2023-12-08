@@ -272,16 +272,7 @@ include_once "library/inc.connection.php";
 
 <script>
 
-  // Initialize the datepicker
-  $(function() {
-    $("#datepicker").datepicker({
-          language: "id",
-          locale:"id",
-          autoclose: true,
-          todayHighlight: true,
-          format: "dd/mm/yyyy"
-    });
-  });
+
 </script>
 
 
