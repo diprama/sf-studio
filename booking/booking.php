@@ -275,7 +275,7 @@ setlocale(LC_TIME, 'id_ID');
 
     var dateToday = new Date();
     jQuery(function($) {
-      $('input.datetimepicker').datepicker({
+      $('input.datepicker').datepicker({
         duration: '',
         changeMonth: false,
         changeYear: false,
