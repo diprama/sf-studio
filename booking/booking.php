@@ -143,7 +143,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control datepicker date" type="text" name="txtTanggal" autocomplete="off" required>
+                                <input class="form-control" id="datepicker" type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -259,25 +259,42 @@ setlocale(LC_TIME, 'id_ID');
 
 
   <!-- Datepicker -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->
   <!-- timepicker -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
 </body>
 
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Include jQuery UI library -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+  // Set the Indonesian language for jQuery UI Datepicker
+  $.datepicker.setDefaults($.datepicker.regional['id']);
+
+  // Initialize the datepicker
+  $(function() {
+    $("#datepicker").datepicker();
+  });
+</script>
+
 <script>
   // Set the Indonesian language for jQuery UI Datepicker
   // $.datepicker.setDefaults($.datepicker.regional['id']);
 
-  $(function() {
-    $('.datepicker').datepicker({
-      language: "id",
-      autoclose: true,
-      format: "dd/mm/yyyy"
-    });
+  // $(function() {
+  //   $('.datepicker').datepicker({
+  //     language: "id",
+  //     autoclose: true,
+  //     format: "dd/mm/yyyy"
+  //   });
 
 
-  });
+  // });
 
   $(function() {
     $('.timepicker').timepicker();
