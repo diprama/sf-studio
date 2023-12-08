@@ -9,7 +9,7 @@ include_once "library/inc.connection.php";
 inputan datepicker/htmlnya:
 <tr>
   <td width='200'>Tgl Pembuatan </td>
-  <td><input type="text" class="form-control" name="tgl_pembuatan" id="tgl_pembuatan" placeholder="Tgl Pembuatan" value="<?php echo $tgl_pembuatan; ?>" /></td>
+  <td><input type="text" class="form-control" name="tgl_pembuatan" id="tgl_pembuatan" placeholder="Tgl Pembuatan" value="" /></td>
 </tr>
 ////////////////////////////////////////////////////////////////////////////////
 
