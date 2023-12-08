@@ -269,40 +269,40 @@ setlocale(LC_TIME, 'id_ID');
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
- 
+
   <script>
-  // Initialize the datepicker
+    // Initialize the datepicker
 
-  jQuery(function($) {
-  $('input.datetimepicker').datepicker({
-  duration: '',
-  changeMonth: false,
-  changeYear: false,
-  yearRange: '2010:2020',
-  showTime: false,
-  time24h: true
-  });
+    jQuery(function($) {
+      $('input.datetimepicker').datepicker({
+        duration: '',
+        changeMonth: false,
+        changeYear: false,
+        yearRange: '2010:2025',
+        showTime: false,
+        time24h: true
+      });
 
-  $.datepicker.regional['cs'] = {
-  monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
-  'September', 'Oktober', 'November', 'Desember'
-  ],
-  monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
-  dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-  dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
-  dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
-  firstDay: 1,
-  isRTL: false,
-  showMonthAfterYear: false,
-  yearSuffix: ''
-  };
+      $.datepicker.regional['cs'] = {
+        monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+          'September', 'Oktober', 'November', 'Desember'
+        ],
+        monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+        dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+        dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+        dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+      };
 
-  $.datepicker.setDefaults($.datepicker.regional['cs']);
-  });
+      $.datepicker.setDefaults($.datepicker.regional['cs']);
+    });
 
-  // $(function() {
+    // $(function() {
 
-  // });
+    // });
   </script>
 
   <script>
@@ -317,7 +317,13 @@ setlocale(LC_TIME, 'id_ID');
     });
 
     $(function() {
-      $('#timepicker').timepicker();
+      $('#timepicker').timepicker(
+        timeFormat: 'HH:mm',
+        interval: 15,
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+      );
     });
   </script>
 
