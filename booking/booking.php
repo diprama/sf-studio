@@ -155,8 +155,8 @@ include_once "library/inc.connection.php";
 
                             <div class="col-sm-12">
                               <div class="input-field filled dark">
-                                <input class="" id="name" type="text" name="txtNama" required>
                                 <label for="email">Nama*</label>
+                                <input class="" id="" type="text" name="txtNama" required>
                               </div>
                             </div>
 
