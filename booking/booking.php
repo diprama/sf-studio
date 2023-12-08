@@ -280,7 +280,7 @@ setlocale(LC_TIME, 'id_ID');
   $(function() {
     $("#datepicker").datepicker({
           language: "id",
-          locale,"id",
+          locale:"id",
           autoclose: true,
           todayHighlight: true,
           format: "dd/mm/yyyy"
