@@ -310,20 +310,22 @@ setlocale(LC_TIME, 'id_ID');
 
   <script>
     $(document).ready(function() {
-
-      // Menangani perubahan nilai pada datepicker
-      $('#datepicker').on('change', function() {
-        // Reset nilai pada timepicker jika isi datepicker diganti
-        $('#timepicker').val('');
-      });
       // Mendapatkan waktu sekarang
       var now = new Date();
 
-      // Jam buka dan jam tutup
+      // Jam buka dan jam tutup default
       var openingTime = new Date(now);
       var closingTime = new Date(now);
-      openingTime.setHours(0, 0, 0); // Jam buka pukul 08:00
-      closingTime.setHours(6, 0, 0); // Jam tutup pukul 16:00
+      openingTime.setHours(0, 0, 0); // Jam buka pukul 00:00
+      closingTime.setHours(2, 0, 0); // Jam tutup pukul 02:00
+
+      // Cek apakah hari ini adalah Sabtu atau Minggu
+      var dayOfWeek = now.getDay();
+      if (dayOfWeek === 0 || dayOfWeek === 6) {
+        // Jika ya, atur jam buka dan jam tutup menjadi 02:00 - 04:00
+        openingTime.setHours(2, 0, 0);
+        closingTime.setHours(4, 0, 0);
+      }
 
       // Inisialisasi datepicker
       $('#datepicker').datepicker({
@@ -341,24 +343,26 @@ setlocale(LC_TIME, 'id_ID');
         dynamic: false,
         dropdown: true,
         scrollbar: true,
-        minTime: '08:00',
-        maxTime: '10:00'
+        minTime: '00:00',
+        maxTime: '02:00'
       });
 
       // Fungsi untuk mengelola perubahan tanggal
       function handleDateChange(selectedDate) {
-        // Reset timepicker ke rentang jam 08:00 - 10:00
+        // Reset timepicker ke rentang jam buka dan jam tutup default
         $('#timepicker').timepicker('option', {
-          minTime: '08:00',
-          maxTime: '10:00'
+          minTime: formatTime(openingTime),
+          maxTime: formatTime(closingTime),
+          disableTimeRanges: []
         });
 
-        // Cek apakah tanggal yang dipilih adalah 11 Desember 2023
-        if (selectedDate === '12/11/2023') {
-          // Jika ya, batasi waktu pada jam 12:00 - 14:00
+        // Cek apakah tanggal yang dipilih adalah 12 Desember 2023
+        if (selectedDate === '12/12/2023') {
+          // Jika ya, nonaktifkan waktu pada jam 00:20 - 01:40
           $('#timepicker').timepicker('option', {
-            minTime: '12:00',
-            maxTime: '14:00'
+            disableTimeRanges: [
+              ['12:20am', '01:40am']
+            ]
           });
         }
 
@@ -377,7 +381,11 @@ setlocale(LC_TIME, 'id_ID');
         return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
       }
 
-
+      // Menangani perubahan nilai pada datepicker
+      $('#datepicker').on('change', function() {
+        // Reset nilai pada timepicker jika isi datepicker diganti
+        $('#timepicker').val('');
+      });
     });
   </script>
 
