@@ -326,16 +326,16 @@ setlocale(LC_TIME, 'id_ID');
         }
       });
 
-      // Inisialisasi timepicker
-      $('#timepicker').timepicker({
-        timeFormat: 'H:i',
-        interval: 20,
-        step: 20,
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true,
-        disableTimeRanges: getDisabledRanges()
-      });
+      // // Inisialisasi timepicker
+      // $('#timepicker').timepicker({
+      //   timeFormat: 'H:i',
+      //   interval: 20,
+      //   step: 20,
+      //   dynamic: false,
+      //   dropdown: true,
+      //   scrollbar: true,
+      //   disableTimeRanges: getDisabledRanges()
+      // });
 
       // Fungsi untuk mengelola perubahan tanggal / set non aktif di jam jam tertentu untuk tanggal khusus yang di set
       function handleDateChange(selectedDate) {
