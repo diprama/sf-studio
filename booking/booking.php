@@ -322,8 +322,8 @@ setlocale(LC_TIME, 'id_ID');
       // Jam buka dan jam tutup
       var openingTime = new Date(now);
       var closingTime = new Date(now);
-      openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
-      closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
+      openingTime.setHours(0, 0, 0); // Jam buka pukul 08:00
+      closingTime.setHours(6, 0, 0); // Jam tutup pukul 16:00
 
       // Inisialisasi datepicker
       $('#datepicker').datepicker({
