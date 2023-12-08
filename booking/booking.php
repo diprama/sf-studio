@@ -1,5 +1,8 @@
 <?php
 include_once "library/inc.connection.php";
+
+// Set the locale to a foreign language (e.g., French)
+setlocale(LC_TIME, 'id_ID');
 ?>
 
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
@@ -53,7 +56,7 @@ include_once "library/inc.connection.php";
   <title>SF Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
-  <link href="./assets/css/vendors/materialize.css" rel="stylesheet">
+  <!-- <link href="./assets/css/vendors/materialize.css" rel="stylesheet"> -->
   <link href="./assets/css/vendors/hamburger-menu.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate.css" rel="stylesheet">
   <link href="./assets/css/vendors/animate-extends.css" rel="stylesheet">
@@ -62,11 +65,11 @@ include_once "library/inc.connection.php";
   <link href="./assets/css/styles.css" rel="stylesheet">
   <!-- font-awesome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- datepicker styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css">
   <!-- timepicker style -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- bahasa indonesia for datepicker -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
 
 
 </head>
@@ -102,7 +105,18 @@ include_once "library/inc.connection.php";
                           <div class="secondary-main"></div>
                           <div class="secondary-light"></div>
                         </div>
-                        <div class="logo">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="logo" style="">
+
                           <img src="./assets/images/logo-sf-white.png" alt="logo" />
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
                         </div>
@@ -125,33 +139,33 @@ include_once "library/inc.connection.php";
                         <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
                           <div class="row spacing3">
 
-                            <div class="col-sm-5">
-                              <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Tanggal" name="txtTanggal" class="form-control datepicker date" id="fecha1" required>
+
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Tanggal*</label>
+                                <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
-                            <div class="col-sm-1">
-                            </div>
 
-
-                            <div class="col-sm-5">
-                              <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Waktu" name="txtWaktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1" required>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label>Waktu*</label>
+                                <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
                               </div>
                             </div>
 
 
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="name" type="text" name="txtNama" required>
-                                <label for="email">Nama*</label>
+                              <div class="form-group">
+                                <label>Nama*</label>
+                                <input class="form-control" type="text" name="txtNama" autocomplete="off" required>
                               </div>
                             </div>
 
                             <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
-                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
+                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
@@ -167,7 +181,7 @@ include_once "library/inc.connection.php";
 
                             <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
-                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled required>
+                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                               </select>
                             </div>
@@ -175,7 +189,7 @@ include_once "library/inc.connection.php";
 
                             <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Background*</label>
-                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" required>
+                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
@@ -190,24 +204,23 @@ include_once "library/inc.connection.php";
                             </div>
 
                             <div class="col-sm-12" style="padding-top: 15px">
-                              <div class="input-field filled dark">
-                                <input class="" id="email" type="email" name="txtEmail" required>
-                                <label for="email">Email*</label>
+                              <div class="form-group">
+                                <label>Email*</label>
+                                <input class="form-control" type="text" name="txtEmail" autocomplete="off" required>
                               </div>
                             </div>
 
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="whatsapp" type="number" name="txtWhatsapp" required>
-                                <label for="whatsapp">No Whatsapp*</label>
+                              <div class="form-group">
+                                <label>Whatsapp*</label>
+                                <input class="form-control" type="text" name="txtWhatsapp" autocomplete="off" required>
                               </div>
                             </div>
 
-
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="instagram" type="text" name="txtInstagram">
-                                <label for="instagram">Username Instagram</label>
+                              <div class="form-group">
+                                <label>Instagram</label>
+                                <input class="form-control" type="text" autocomplete="off" name="txtInstagram">
                               </div>
                             </div>
                           </div>
@@ -239,22 +252,64 @@ include_once "library/inc.connection.php";
   <script src="./assets/js/vendors/jquery.navScroll.min.js"></script>
   <script src="./assets/js/vendors/parallax.min.js"></script><!-- This assets are not avalaible in npm.js or it has been costumized-->
   <script src="./assets/js/vendors/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-  <script src="./assets/js/vendors/materialize.js"></script>
+  <!-- <script src="./assets/js/vendors/materialize.js"></script> -->
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
 
 
   <!-- Datepicker -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->\
   <!-- timepicker -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
 </body>
 
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Include jQuery UI library -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+  // Initialize the datepicker
+
+  jQuery(function($) {
+    $('input.datetimepicker').datepicker({
+      duration: '',
+      changeMonth: false,
+      changeYear: false,
+      yearRange: '2010:2020',
+      showTime: false,
+      time24h: true
+    });
+
+    $.datepicker.regional['cs'] = {
+      monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+        'September', 'Oktober', 'November', 'Desember'
+      ],
+      monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+      dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+      dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+      dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+      firstDay: 1,
+      isRTL: false,
+      showMonthAfterYear: false,
+      yearSuffix: ''
+    };
+
+    $.datepicker.setDefaults($.datepicker.regional['cs']);
+  });
+
+  // $(function() {
+
+  // });
+</script>
+
 <script>
   $(function() {
-    $('.datepicker').datepicker({
+    $('#datepicker').datepicker({
       language: "es",
       autoclose: true,
       format: "dd/mm/yyyy"
@@ -264,8 +319,9 @@ include_once "library/inc.connection.php";
   });
 
   $(function() {
-    $('.timepicker').timepicker();
+    $('#timepicker').timepicker();
   });
 </script>
+
 
 </html>
