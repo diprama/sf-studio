@@ -73,164 +73,47 @@ include_once "library/inc.connection.php";
 
 <body>
   <div id="preloader" style="position: fixed; z-index: 10000; background: #fafafa; width: 100%; height: 100%"><img style="opacity: 0.5; position: fixed; top: calc(50% - 50px); left: calc(50% - 50px)" src="./assets/images/loading.gif" alt="loading"></div>
-  <div class="m-application theme--light transition-page" id="app">
-    <div class="loading"></div>
-    <div class="m-content smart smart-var" id="main-wrap">
-      <div class="form-page">
-        <div class="page-wrap">
-          <div class="hidden-md-up">
-            <div class="logo logo-header">
-              <a href="index.html">
-                <img src="./assets/images/logox2.png" alt="logo">
-              </a>
+  <!-- Main content area -->
+  <div class="app-content content">
+    <div class="content-wrapper">
+
+      <!-- Page header -->
+      <div class="content-header row">
+        <div class="content-header-left col-md-9 col-12 mb-2">
+          <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Booking</li>
+              </ol>
             </div>
           </div>
-          <div class="container max-lg inner-wrap">
-            <div class="card form-box fragment-fadeUp">
-              <div class="hidden-sm-down">
-                <a class="waves-effect btn-icon backtohome" href="index.html">
-                  <span><i class="ion-ios-home-outline"></i><i class="ion-ios-arrow-thin-left"></i></span>
-                </a>
-              </div>
-              <div class="auth-frame">
-                <div class="row">
-                  <div class="col-md-5">
-                    <div class="hidden-sm-down">
-                      <div class="greeting">
-                        <div class="deco">
-                          <div class="primary-light"></div>
-                          <div class="secondary-main"></div>
-                          <div class="secondary-light"></div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="logo" style="">
-
-                          <img src="./assets/images/logo-sf-white.png" alt="logo" />
-                          <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
-                        </div>
-                        <!-- <a href="" class="use-text-subtitle2">Lihat harga</a> -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-7">
-                    <div class="form-wrap">
-                      <div>
-                        <div class="head">
-                          <div class="title-main align-left">
-                            <h4 class="secondary"><span>BOOKING</span></h4>
-                            <p class="desc use-text-subtitle2"></p>
-                          </div>
-                          <!-- <a class="btn btn-flat waves-effect button-link" href="register.html">
-                            <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
-                          </a> -->
-                        </div>
-                        <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
-                          <div class="row spacing3">
-
-                            <div class="col-sm-5">
-                              <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Tanggal" name="txtTanggal" class="form-control datepicker date" id="fecha1" required>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-1">
-                            </div>
-
-
-                            <div class="col-sm-5">
-                              <div class="input-field filled dark input-group">
-                                <input type="text" placeholder="Pilih Waktu" name="txtWaktu" class="form-control timepicker timepicker-with-dropdown" id="fecha1" required>
-                              </div>
-                            </div>
-
-
-                            <div class="col-sm-12">
-                              <label for="">Nama*</label>
-                              <input class="form-control" id="" type="text" name="txtNama" required>
-                            </div>
-
-                            <div class="col-sm-12">
-                              <label for="">Jenis Foto*</label>
-                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
-                                <option selected>Pilih</option>
-                                <?php
-                                // panggil database
-                                $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
-                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                  <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
-                                <?php
-                                };
-                                ?>
-                              </select>
-                            </div>
-
-                            <div class="col-sm-12" style="padding-top: 15px">
-                              <label for="email">Pilihan Paket*</label>
-                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled required>
-                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
-                              </select>
-                            </div>
-
-
-                            <div class="col-sm-12" style="padding-top: 15px">
-                              <label for="email">Background*</label>
-                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" required>
-                                <option selected>Pilih</option>
-                                <?php
-                                // panggil database
-                                $mySql  = "SELECT * from master_background  order by background asc";
-                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                  <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
-                                <?php
-                                };
-                                ?>
-                              </select>
-                            </div>
-
-                            <div class="col-sm-12" style="padding-top: 15px">
-                              <input class="form-control" id="email" type="email" name="txtEmail" required>
-                              <label for="email">Email*</label>
-                            </div>
-
-                            <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="whatsapp" type="number" name="txtWhatsapp" required>
-                                <label for="whatsapp">No Whatsapp*</label>
-                              </div>
-
-
-                              <div class="col-sm-12">
-                                <input class="" id="instagram" type="text" name="txtInstagram">
-                                <label for="instagram">Username Instagram</label>
-                              </div>
-                            </div>
-
-                            <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
-                            </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2 class="content-header-title mb-0">Booking Menu</h2>
         </div>
       </div>
+
+      <!-- Main content -->
+      <div class="content-body">
+
+        <!-- Booking Calendar -->
+        <div class="row">
+          <div class="col-12">
+            <!-- Include your booking calendar component here -->
+            <!-- You may use a library like FullCalendar or build your own -->
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="row">
+          <div class="col-12">
+            <!-- Include your booking form component here -->
+            <!-- You can create a form using HTML, Vue.js, or any other framework you prefer -->
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
+  </div>
   <script src="./assets/js/vendors/jquery.min.js"></script>
   <script src="./assets/js/vendors/bootstrap.min.js"></script>
   <script src="./assets/js/vendors/enquire.min.js"></script>
