@@ -326,7 +326,8 @@ setlocale(LC_TIME, 'id_ID');
         scrollbar: true,
         minTime: getCurrentTime(),
         disableTimeRanges: [
-          ['12:00','12:40']
+          ['12:00', '12:40'], 
+          ['12:40', '13:20']
         ],
         change: function(time) {
           // Ensure the selected time is in the future
