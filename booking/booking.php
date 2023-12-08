@@ -307,6 +307,12 @@ setlocale(LC_TIME, 'id_ID');
 
     $("#datepicker").datepicker();
   });
+
+  $(function() {
+    $('.timepicker').timepicker({
+      'step': '20'
+    });
+  });
 </script>
 
 
