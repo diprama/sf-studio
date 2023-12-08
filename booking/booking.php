@@ -286,19 +286,13 @@ setlocale(LC_TIME, 'id_ID');
     });
 
     $.datepicker.regional['cs'] = {
-      closeText: 'Zavřít',
-      prevText: '&#x3c;Dříve',
-      nextText: 'Později&#x3e;',
-      currentText: 'Nyní',
-      monthNames: ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen',
-        'září', 'říjen', 'listopad', 'prosinec'
+      monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+        'September', 'Oktober', 'November', 'Desember'
       ],
       monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
-      dayNames: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
-      dayNamesShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
-      dayNamesMin: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
-      weekHeader: 'Týd',
-      dateFormat: 'dd/mm/yy',
+      dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+      dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+      dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
       firstDay: 1,
       isRTL: false,
       showMonthAfterYear: false,
