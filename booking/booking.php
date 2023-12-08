@@ -321,9 +321,9 @@ setlocale(LC_TIME, 'id_ID');
       $('#timepicker').timepicker({
         timeFormat: 'H:i',
         interval: 60,
-        minTime: '9',
+        minTime: '0',
         maxTime: '4:00pm',
-        defaultTime: '9',
+        defaultTime: '0',
         startTime: '9:00',
         dynamic: false,
         dropdown: true,
