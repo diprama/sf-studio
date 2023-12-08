@@ -154,14 +154,12 @@ include_once "library/inc.connection.php";
 
 
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <label for="email">Nama*</label>
+                                <label for="">Nama*</label>
                                 <input class="" id="" type="text" name="txtNama" required>
-                              </div>
                             </div>
 
                             <div class="col-sm-12">
-                              <label for="email">Jenis Foto*</label>
+                              <label for="">Jenis Foto*</label>
                               <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
                                 <?php
@@ -201,25 +199,19 @@ include_once "library/inc.connection.php";
                             </div>
 
                             <div class="col-sm-12" style="padding-top: 15px">
-                              <div class="input-field filled dark">
                                 <input class="" id="email" type="email" name="txtEmail" required>
                                 <label for="email">Email*</label>
-                              </div>
                             </div>
 
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
                                 <input class="" id="whatsapp" type="number" name="txtWhatsapp" required>
                                 <label for="whatsapp">No Whatsapp*</label>
-                              </div>
                             </div>
 
 
                             <div class="col-sm-12">
-                              <div class="input-field filled dark">
                                 <input class="" id="instagram" type="text" name="txtInstagram">
                                 <label for="instagram">Username Instagram</label>
-                              </div>
                             </div>
                           </div>
 
