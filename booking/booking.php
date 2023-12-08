@@ -112,8 +112,6 @@ include_once "library/inc.connection.php";
                         <br>
                         <br>
                         <br>
-                        <br>
-                        <br>
                         <div class="logo" style="">
 
                           <img src="./assets/images/logo-sf-white.png" alt="logo" />
