@@ -308,7 +308,7 @@ setlocale(LC_TIME, 'id_ID');
     // });
   </script>
 
-  <script>
+  <!-- <script>
     $(function() {
       $('#datepicker').datepicker({
         minDate: 0
@@ -358,6 +358,44 @@ setlocale(LC_TIME, 'id_ID');
       function formatTime(date) {
         return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
       }
+    });
+  </script> -->
+
+  <script>
+    $(document).ready(function() {
+      // Inisialisasi datepicker
+      $('#datepicker').datepicker({
+        minDate: new Date(),
+        onSelect: function(selectedDate) {
+          // Ketika tanggal dipilih, atur pembatasan waktu pada timepicker
+          if (selectedDate === '12/11/2023') {
+            // Jika tanggal adalah 11 Desember 2023, batasi waktu pada jam 12:00 - 14:00
+            $('#timepicker').timepicker({
+              timeFormat: 'H:i',
+              interval: 20,
+              step: 20,
+              dynamic: false,
+              dropdown: true,
+              scrollbar: true,
+              minTime: '12:00',
+              maxTime: '14:00'
+            });
+          } else {
+            // Jika tanggal lain dipilih, reset timepicker
+            $('#timepicker').timepicker('destroy');
+          }
+        }
+      });
+
+      // Inisialisasi timepicker
+      $('#timepicker').timepicker({
+        timeFormat: 'H:i',
+        interval: 20,
+        step: 20,
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+      });
     });
   </script>
 
