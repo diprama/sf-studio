@@ -319,7 +319,7 @@ setlocale(LC_TIME, 'id_ID');
     $(document).ready(function() {
       $('#timepicker').timepicker({
         timeFormat: 'H:i',
-        interval: 60,
+        interval: 20,
         minTime: getCurrentTime(), // Set minimum time to current time
         maxTime: '4:00pm',
         defaultTime: '0',
