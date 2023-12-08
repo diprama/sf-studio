@@ -318,11 +318,8 @@ setlocale(LC_TIME, 'id_ID');
 
     $(function() {
       $('#timepicker').timepicker({
-        interval: 15,
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true
-       } );
+        'step': '15'
+      });
     });
   </script>
 
