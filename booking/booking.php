@@ -313,13 +313,24 @@ setlocale(LC_TIME, 'id_ID');
       $('#datepicker').datepicker({
         minDate: 0
       });
-
-
     });
 
-    $(function() {
+    
+
+    $(document).ready(function() {
       $('#timepicker').timepicker({
-        'step': '20 '
+        timeFormat: 'h:mm a',
+        interval: 60,
+        minTime: '9',
+        maxTime: '4:00pm',
+        defaultTime: '9',
+        startTime: '9:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+        disableTimeRanges: [
+          ['12:00pm', '12:01pm']
+        ]
       });
     });
   </script>
