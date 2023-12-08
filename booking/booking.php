@@ -328,6 +328,7 @@ setlocale(LC_TIME, 'id_ID');
       $('#timepicker').timepicker({
         timeFormat: 'H:i',
         interval: 20,
+        step: 20,
         dynamic: false,
         dropdown: true,
         scrollbar: true,
