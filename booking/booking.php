@@ -153,14 +153,14 @@ include_once "library/inc.connection.php";
                             </div>
 
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <div class="form-group">
-                                <label >Nama*</label>
+                                <label>Nama*</label>
                                 <input class="form-control" type="text" name="txtNama" required>
                               </div>
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Jenis Foto*</label>
                               <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" required>
                                 <option selected>Pilih</option>
@@ -201,16 +201,16 @@ include_once "library/inc.connection.php";
                             </div>
 
                             <div class="col-sm-12" style="padding-top: 15px">
-                              <div class="input-field filled dark">
-                                <input class="" id="email" type="email" name="txtEmail" required>
-                                <label for="email">Email*</label>
+                              <div class="form-group">
+                                <label>Email*</label>
+                                <input class="form-control" type="text" name="txtEmail" required>
                               </div>
                             </div>
 
-                            <div class="col-sm-12">
-                              <div class="input-field filled dark">
-                                <input class="" id="whatsapp" type="number" name="txtWhatsapp" required>
-                                <label for="whatsapp">No Whatsapp*</label>
+                            <div class="col-sm-12" style="padding-top: 15px">
+                              <div class="form-group">
+                                <label>Whatsapp*</label>
+                                <input class="form-control" type="text" name="txtWhatsapp" required>
                               </div>
                             </div>
 
