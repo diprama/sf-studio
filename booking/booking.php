@@ -8,13 +8,13 @@ include_once "library/inc.connection.php";
 <html lang="in" dir="ltr">
 inputan datepicker/htmlnya:
 <tr>
-  <td width='200'>Tgl Pembuatan <?php echo form_error('tgl_pembuatan') ?></td>
+  <td width='200'>Tgl Pembuatan </td>
   <td><input type="text" class="form-control" name="tgl_pembuatan" id="tgl_pembuatan" placeholder="Tgl Pembuatan" value="<?php echo $tgl_pembuatan; ?>" /></td>
 </tr>
 ////////////////////////////////////////////////////////////////////////////////
 
 javascript :
-<script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+<script src="<?php echo ('assets/js/vendors/jquery-1.11.2.min.js') ?>"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.id.min.js" charset="UTF-8"></script>
