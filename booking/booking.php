@@ -310,6 +310,12 @@ setlocale(LC_TIME, 'id_ID');
 
   <script>
     $(document).ready(function() {
+
+      // Menangani perubahan nilai pada datepicker
+      $('#datepicker').on('change', function() {
+        // Reset nilai pada timepicker jika isi datepicker diganti
+        $('#timepicker').val('');
+      });
       // Mendapatkan waktu sekarang
       var now = new Date();
 
@@ -371,11 +377,7 @@ setlocale(LC_TIME, 'id_ID');
         return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
       }
 
-      // Menangani perubahan nilai pada datepicker
-      $('#datepicker').on('change', function() {
-        // Reset nilai pada timepicker jika isi datepicker diganti
-        $('#timepicker').val('');
-      });
+
     });
   </script>
 
