@@ -318,28 +318,26 @@ setlocale(LC_TIME, 'id_ID');
 
     $(document).ready(function() {
       $('#timepicker').timepicker({
-        timeFormat: 'H:i',
+        timeFormat: 'HH:mm',
         interval: 20,
-        step:20,
-        minTime: getCurrentTime(), // Set minimum time to current time
-        maxTime: '4:00pm',
-        defaultTime: '0',
-        startTime: '9:00',
         dynamic: false,
         dropdown: true,
         scrollbar: true,
-        disableTimeRanges: [
-          ['12:00pm', '12:01pm']
-        ]
+        minTime: getCurrentTime(),
+        change: function(time) {
+          // Ensure the selected time is in the future
+          if (time < getCurrentTime()) {
+            $('#timepicker').val(getCurrentTime());
+          }
+        }
       });
 
       function getCurrentTime() {
         var now = new Date();
-        var hours = now.getHours();
-        var minutes = now.getMinutes();
-
+        var roundedMinutes = Math.ceil(now.getMinutes() / 20) * 20;
+        now.setMinutes(roundedMinutes);
         // Format time as HH:mm
-        return hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+        return now.getHours() + ':' + (roundedMinutes < 10 ? '0' : '') + roundedMinutes;
       }
     });
   </script>
