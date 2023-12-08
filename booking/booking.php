@@ -258,70 +258,85 @@ setlocale(LC_TIME, 'id_ID');
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
 
 
-  <!-- Datepicker -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> -->\
-  <!-- timepicker -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-</body>
+  <!-- Include jQuery UI library -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<!-- Include jQuery library -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- Include jQuery UI Timepicker Addon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
-<!-- Include jQuery UI library -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      // Set the Indonesian language for jQuery UI Datepicker
+      $.datepicker.setDefaults($.datepicker.regional['id']);
 
-<script>
+      // Initialize the datepicker
+      $("#datepicker").datepicker();
+
+      // Initialize the timepicker
+      $('#timepicker').timepicker({
+        timeFormat: 'HH:mm',
+        interval: 15,
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+      });
+    });
+  </script>
+  <script>
   // Initialize the datepicker
 
   jQuery(function($) {
-    $('input.datetimepicker').datepicker({
-      duration: '',
-      changeMonth: false,
-      changeYear: false,
-      yearRange: '2010:2020',
-      showTime: false,
-      time24h: true
-    });
+  $('input.datetimepicker').datepicker({
+  duration: '',
+  changeMonth: false,
+  changeYear: false,
+  yearRange: '2010:2020',
+  showTime: false,
+  time24h: true
+  });
 
-    $.datepicker.regional['cs'] = {
-      monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
-        'September', 'Oktober', 'November', 'Desember'
-      ],
-      monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
-      dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-      dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
-      dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
-      firstDay: 1,
-      isRTL: false,
-      showMonthAfterYear: false,
-      yearSuffix: ''
-    };
+  $.datepicker.regional['cs'] = {
+  monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+  'September', 'Oktober', 'November', 'Desember'
+  ],
+  monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+  dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+  dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+  dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+  firstDay: 1,
+  isRTL: false,
+  showMonthAfterYear: false,
+  yearSuffix: ''
+  };
 
-    $.datepicker.setDefaults($.datepicker.regional['cs']);
+  $.datepicker.setDefaults($.datepicker.regional['cs']);
   });
 
   // $(function() {
 
   // });
-</script>
+  </script>
 
-<script>
-  $(function() {
-    $('#datepicker').datepicker({
-      language: "es",
-      autoclose: true,
-      format: "dd/mm/yyyy"
+  <script>
+    $(function() {
+      $('#datepicker').datepicker({
+        language: "es",
+        autoclose: true,
+        format: "dd/mm/yyyy"
+      });
+
+
     });
 
-
-  });
-
-  $(function() {
-    $('#timepicker').timepicker();
-  });
-</script>
+    $(function() {
+      $('#timepicker').timepicker();
+    });
+  </script>
 
 
 </html>
