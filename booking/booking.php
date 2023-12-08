@@ -5,7 +5,7 @@ include_once "library/inc.connection.php";
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
 <!-- Dilarang mengcopy , memperbanyak atau menggunakan source code ini dalam bentuk apapun tanpa izin tertulis dari PT. Rentas Media Indonesia. -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="in" dir="ltr">
 
 <head>
   <meta charset="utf-8">
