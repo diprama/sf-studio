@@ -16,9 +16,6 @@ if (isset($_POST['btnSubmit'])) {
   // ganti format tanggal
   $originalDate = "$txtTanggal";
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
-
-
-
 }
 ?>
 
@@ -167,98 +164,106 @@ if (isset($_POST['btnSubmit'])) {
                                   <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
                                 </div>
                               </div>
+
+
+                              <div class="btn-area mt-10">
+                                <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
+                              </div>
                             </form>
 
-                            <div class="col-6">
-                              <div class="form-group">
-                                <label>Waktu*</label>
-                                <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
+                            <?php if ($txtTanggal != '') { ?>
+                              <div class="col-6">
+                                <div class="form-group">
+                                  <label>Waktu*</label>
+                                  <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
+                                    <?php
+                                    if ($txtTanggal != '') {
+                                      # code...
+                                      // panggil database
+                                      $mySql  = "SELECT * from jadwal j join booking b where  j.status ='0' and j.availability ='0' and tanggal !='$txtTanggal' order by jam asc";
+                                      $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                      while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                        <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
+                                      <?php
+                                      };
+                                    } else { ?>
+                                      <option selected>Pilih Tanggal Terlebih Dahulu</option>
+
+                                    <?php
+                                    }
+
+                                    ?>
+                                  </select>
+                                </div>
+                              </div>
+
+
+                              <div class="col-lg-12 col-sm-6">
+                                <div class="form-group">
+                                  <label>Nama*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-12 col-sm-6">
+                                <label for="email">Jenis Foto*</label>
+                                <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                                  <option selected>Pilih</option>
                                   <?php
-                                  if ($txtTanggal!='') {
-                                    # code...
                                   // panggil database
-                                  $mySql  = "SELECT * from jadwal j join booking b where  j.status ='0' and j.availability ='0' and tanggal !='$txtTanggal' order by jam asc";
+                                  $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
                                   $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                   while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                    <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
+                                    <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
                                   <?php
                                   };
-                                } else { ?>
-                                  <option selected>Pilih Tanggal Terlebih Dahulu</option>
-
-                                <?php
-                                }
-
                                   ?>
                                 </select>
                               </div>
-                            </div>
 
-
-                            <div class="col-lg-12 col-sm-6">
-                              <div class="form-group">
-                                <label>Nama*</label>
-                                <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
+                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                                <label for="email">Pilihan Paket*</label>
+                                <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
+                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                                </select>
                               </div>
-                            </div>
-
-                            <div class="col-lg-12 col-sm-6">
-                              <label for="email">Jenis Foto*</label>
-                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
-                                <option selected>Pilih</option>
-                                <?php
-                                // panggil database
-                                $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
-                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                  <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
-                                <?php
-                                };
-                                ?>
-                              </select>
-                            </div>
-
-                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
-                              <label for="email">Pilihan Paket*</label>
-                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
-                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
-                              </select>
-                            </div>
 
 
-                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
-                              <label for="email">Background*</label>
-                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" disabled autocomplete="off" required>
-                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                                <label for="email">Background*</label>
+                                <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" disabled autocomplete="off" required>
+                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
 
-                              </select>
-                            </div>
-
-                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
-                              <div class="form-group">
-                                <label>Email*</label>
-                                <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
+                                </select>
                               </div>
-                            </div>
 
-                            <div class="col-lg-12 col-sm-6">
-                              <div class="form-group">
-                                <label>Whatsapp*</label>
-                                <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
+                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                                <div class="form-group">
+                                  <label>Email*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
+                                </div>
                               </div>
-                            </div>
 
-                            <div class="col-lg-12 col-sm-6">
-                              <div class="form-group">
-                                <label>Instagram</label>
-                                <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
+                              <div class="col-lg-12 col-sm-6">
+                                <div class="form-group">
+                                  <label>Whatsapp*</label>
+                                  <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
+                                </div>
                               </div>
-                            </div>
+
+                              <div class="col-lg-12 col-sm-6">
+                                <div class="form-group">
+                                  <label>Instagram</label>
+                                  <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
+                                </div>
+                              </div>
                           </div>
 
                           <div class="btn-area mt-10">
                             <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
                           </div>
+                        <?php }
+                        ?>
                         </form>
                       </div>
                     </div>
