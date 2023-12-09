@@ -198,7 +198,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
                               <div class="form-group">
                                 <label>Email*</label>
-                                <input class="form-control" type="text" placeholder="masukkin no Email kamu" name="txtEmail" autocomplete="off" required>
+                                <input class="form-control" type="text" placeholder="masukkin Email kamu" name="txtEmail" autocomplete="off" required>
                               </div>
                             </div>
 
