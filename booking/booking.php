@@ -306,6 +306,14 @@ setlocale(LC_TIME, 'id_ID');
     $(document).ready(function() {
       // Mendapatkan waktu sekarang
       var now = new Date();
+      var currentDate = new Date();
+
+      // Mendapatkan jam buka dan jam tutup
+      var openingTime = new Date(currentDate);
+      openingTime.setHours(8, 0, 0, 0);
+
+      var closingTime = new Date(currentDate);
+      closingTime.setHours(16, 0, 0, 0);
       // Inisialisasi datepicker
       // Inisialisasi datepicker
       $('#datepicker').datepicker({
