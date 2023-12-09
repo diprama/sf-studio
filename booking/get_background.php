@@ -25,7 +25,7 @@ if ($validasi != 'YES') {
 	$html .= "Jenis Foto belum ditentukan."; // Tambahkan tag option ke variabel $htm
 } else {
 	while ($data = mysqli_fetch_array($sql)) { // Ambil semua data dari hasil eksekusi $sql
-		$html .= "<option value='" . $data['background'] . "'>" . $jenis. "    </option>"; // Tambahkan tag option ke variabel $html
+		$html .= "<option value='" . $data['background'] . "'>" .'test1 test 2'. "    </option>"; // Tambahkan tag option ke variabel $html
 	}
 }
 // // Buat query untuk menampilkan data sub part dengan part number alias tertentu(sesuai yang dipilih user pada form)
