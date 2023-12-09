@@ -4,19 +4,6 @@ include_once "library/inc.connection.php";
 
 // Set the locale to a foreign language (e.g., French)
 setlocale(LC_TIME, 'id_ID');
-
-$txtTanggal = '';
-if (isset($_POST['btnSubmit'])) {
-
-
-  $pesanError = array();
-  // set validasi
-  # Baca variabel form
-  $txtTanggal   = $_POST['txtTanggal'];
-  // ganti format tanggal
-  $originalDate = "$txtTanggal";
-  $txtTanggal = date("Y-m-d", strtotime($originalDate));
-}
 ?>
 
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
@@ -150,65 +137,26 @@ if (isset($_POST['btnSubmit'])) {
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
                           </a> -->
                         </div>
-
-
-                        <?php if ($txtTanggal != '') {
-                        ?>
-
-
+                        <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
                           <div class="row spacing3">
-                            <!-- jika tanggal sudah diisi -->
-                            <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
 
-                              <div class="col-12">
-                                <div class="form-group">
-                                  <label>Waktu*</label>
-                                  <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
-                                    <?php
-                                    if ($txtTanggal != '') {
-                                      # code...
-                                      // panggil database
-                                      $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
-                                      $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                      while ($myData = mysqli_fetch_array($myQry)) {
-                                         $jamsekarang = date("H:i", strtotime("+60 minutes"));
 
-                                        $jam = date("H:i", strtotime($myData['jam']));
-                                        if ($jam > $jamsekarang) {
-                                       ?>
-                                      
-                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
-                                      <?php
-                                      }  
-                                    };
-                                    } else { ?>
-                                      <option selected>Pilih Tanggal Terlebih Dahulu</option>
-
-                                    <?php
-                                    }
-
-                                    ?>
-                                  </select>
-                                </div>
+                            <div class="col-6 ">
+                              <div class="form-group">
+                                <label>Tanggal*</label>
+                                <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
+                            </div>
 
 
-                              <div class="col-lg-12 col-sm-6">
-                                <div class="form-group">
-                                  <label>Nama*</label>
-                                  <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
-                                  <input class="form-control" type="hidden" placeholder="" name="txtTanggal" value="<?php echo $txtTanggal ?>" autocomplete="off" required>
-
-                                </div>
-                              </div>
-
-                              <div class="col-lg-12 col-sm-6">
-                                <label for="email">Jenis Foto*</label>
-                                <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label>Waktu*</label>
+                                <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                   <option selected>Pilih</option>
                                   <?php
                                   // panggil database
-                                  $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                  $mySql  = "SELECT * from jadwal  order by jenis asc";
                                   $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                   while ($myData = mysqli_fetch_array($myQry)) { ?>
                                     <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
@@ -217,73 +165,74 @@ if (isset($_POST['btnSubmit'])) {
                                   ?>
                                 </select>
                               </div>
+                            </div>
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
-                                <label for="email">Pilihan Paket*</label>
-                                <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
-                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
-                                </select>
+
+                            <div class="col-lg-12 col-sm-6">
+                              <div class="form-group">
+                                <label>Nama*</label>
+                                <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
                               </div>
+                            </div>
+
+                            <div class="col-lg-12 col-sm-6">
+                              <label for="email">Jenis Foto*</label>
+                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                                <option selected>Pilih</option>
+                                <?php
+                                // panggil database
+                                $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                  <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
+                                <?php
+                                };
+                                ?>
+                              </select>
+                            </div>
+
+                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <label for="email">Pilihan Paket*</label>
+                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
+                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                              </select>
+                            </div>
 
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
-                                <label for="email">Background*</label>
-                                <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" disabled autocomplete="off" required>
-                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <label for="email">Background*</label>
+                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" disabled autocomplete="off" required>
+                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
 
-                                </select>
+                              </select>
+                            </div>
+
+                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <div class="form-group">
+                                <label>Email*</label>
+                                <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
                               </div>
+                            </div>
 
-                              <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
-                                <div class="form-group">
-                                  <label>Email*</label>
-                                  <input class="form-control" type="text" placeholder="masukkin alamat Email kamu" name="txtEmail" autocomplete="off" required>
-                                </div>
+                            <div class="col-lg-12 col-sm-6">
+                              <div class="form-group">
+                                <label>Whatsapp*</label>
+                                <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
                               </div>
+                            </div>
 
-                              <div class="col-lg-12 col-sm-6">
-                                <div class="form-group">
-                                  <label>Whatsapp*</label>
-                                  <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
-                                </div>
+                            <div class="col-lg-12 col-sm-6">
+                              <div class="form-group">
+                                <label>Instagram</label>
+                                <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
                               </div>
-
-                              <div class="col-lg-12 col-sm-6">
-                                <div class="form-group">
-                                  <label>Instagram</label>
-                                  <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
-                                </div>
-                              </div>
+                            </div>
                           </div>
 
                           <div class="btn-area mt-10">
                             <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
-
                           </div>
-                          <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>
-
-                          </form>
-
-
-                        <?php } else { ?>
-                          <!-- jika tanggal belum diisi -->
-                          <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
-
-                            <div class="col-12 ">
-                              <div class="form-group">
-                                <label>Tanggal*</label>
-                                <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
-                              </div>
-                            </div>
-
-
-                            <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
-                            </div>
-                          </form>
-                        <?php  }
-                        ?>
-
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -311,7 +260,7 @@ if (isset($_POST['btnSubmit'])) {
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
-  <!-- <script src="js3/chaindropdown/config.js" type="text/javascript"></script> -->
+  <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
 
 
   <!-- Include jQuery library -->
