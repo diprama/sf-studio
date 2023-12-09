@@ -129,7 +129,7 @@ $nama = isset($_GET['name']) ? $_GET['name'] : '';
                             <p> Sampai berjumpa di Self Studio :)</p>
                           </div>
                           <div class="btn-area mt-10">
-                            <a href="https://wa.me/081284005402?text=Hallo%20saya%20mau%20konfirmasi" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
+                            <a href="https://wa.me/085173158153?text=Hallo%20saya%20mau%20konfirmasi" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
                           </div>
                         </form>
                       </div>
