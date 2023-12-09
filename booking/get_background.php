@@ -5,7 +5,7 @@ include "library/inc.connection.php";
 
 // Ambil data ID kategori yang dikirim via ajax post
 // $part_number = $_POST['kategori'];
-$Channel    = explode("|", $_POST['kategori']);
+$Channel    = explode("|", $_POST['kategori1']);
 $jenis   = $Channel[0];
 // 28250-K0J -N000
 
