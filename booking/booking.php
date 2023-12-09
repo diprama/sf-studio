@@ -152,8 +152,11 @@ if (isset($_POST['btnSubmit'])) {
                         </div>
                         <div class="row spacing3">
 
-
-                          <?php if ($txtTanggal != '') { ?>
+  
+                          <?php if ($txtTanggal != '') { 
+                            echo $txtTanggal;
+                            exit;
+                            ?>
                             <!-- jika tanggal sudah diisi -->
                             <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
 
