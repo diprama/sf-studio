@@ -306,7 +306,6 @@ setlocale(LC_TIME, 'id_ID');
     $(document).ready(function() {
       // Mendapatkan waktu sekarang
       var now = new Date();
-
       // Inisialisasi datepicker
       $('#datepicker').datepicker({
         minDate: now
@@ -319,7 +318,7 @@ setlocale(LC_TIME, 'id_ID');
         var closingTime = new Date(now);
 
         openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
-        closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
+        closingTime.setHours(20, 0, 0); // Jam tutup pukul 16:00
 
         // Initialize the timepicker with a 20-minute interval
         $('#timepicker').timepicker({
