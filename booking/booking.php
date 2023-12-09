@@ -307,15 +307,42 @@ setlocale(LC_TIME, 'id_ID');
       // Mendapatkan waktu sekarang
       var now = new Date();
       // Inisialisasi datepicker
+      // Inisialisasi datepicker
       $('#datepicker').datepicker({
-        minDate: now
-      });
+        minDate: 0, // Tidak bisa memilih tanggal kemarin
+        // Fungsi yang dipanggil setiap kali datepicker diubah
+        onSelect: function(dateText, inst) {
+          // Mendapatkan tanggal yang dipilih dari datepicker
+          var selectedDate = $(this).datepicker('getDate');
 
+          // Jika tanggal yang dipilih sama dengan hari ini
+          if (selectedDate.getTime() === currentDate.getTime()) {
+            // Menyaring waktu yang sudah berlalu
+            var disabledTimes = [];
+            for (var i = currentDate.getHours(); i < 24; i++) {
+              disabledTimes.push(i + ':00');
+            }
+            // Mengatur waktu yang sudah berlalu untuk dinonaktifkan
+            inst.settings.disableTimeRanges = [disabledTimes];
+          } else {
+            // Jika bukan hari ini, munculkan semua waktu
+            inst.settings.minTime = '08:00';
+            inst.settings.maxTime = '16:00';
+            // Reset waktu yang sudah berlalu
+            inst.settings.disableTimeRanges = [];
+          }
+
+          // Reset nilai pada timepicker jika tanggal diganti
+          $('#timepicker').val('');
+        }
+      });
 
       $(function() {
         var now = new Date();
         var openingTime = new Date(now);
         var closingTime = new Date(now);
+
+
 
         openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
         closingTime.setHours(20, 0, 0); // Jam tutup pukul 16:00
@@ -360,7 +387,7 @@ setlocale(LC_TIME, 'id_ID');
 
     });
   </script>
-  
+
 
 
 </html>
