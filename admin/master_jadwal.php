@@ -77,12 +77,12 @@ $jam_tutup = $myData['jam_tutup'];
                 <div class="row g-1">
                     <div class="col-md-4 col-12 mb-3 position-relative">
                         <label class="form-label" for="validationTooltip01">Jam Buka</label>
-                        <input type="text" id="timepicker" class="form-control" placeholder="Jam Buka" value="<?= $jam_buka ?>" required />
+                        <input type="time"  class="form-control" placeholder="Jam Buka" value="<?= $jam_buka ?>" required />
                         <div class="valid-tooltip">Looks good!</div>
                     </div>
                     <div class="col-md-4 col-12 mb-3 position-relative">
                         <label class="form-label" for="validationTooltip02">Jam Tutup</label>
-                        <input type="text" id="timepicker" class="form-control" placeholder="Jam Tutup" value="<?= $jam_tutup ?>" required />
+                        <input type="time"  class="form-control" placeholder="Jam Tutup" value="<?= $jam_tutup ?>" required />
                         <div class="valid-tooltip">Looks good!</div>
                     </div>
                 </div>
