@@ -186,7 +186,8 @@ if (isset($_POST['btnSubmit'])) {
                                 } else { ?>
                                   <option selected>Pilih Tanggal Terlebih Dahulu</option>
 
-                                <?php}
+                                <?php
+                                }
 
                                   ?>
                                 </select>
