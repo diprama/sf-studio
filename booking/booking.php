@@ -170,8 +170,13 @@ if (isset($_POST['btnSubmit'])) {
                                       // panggil database
                                       $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                      while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                        <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
+                                      while ($myData = mysqli_fetch_array($myQry)) {
+
+                                        $jam = date("H:i", strtotime($myData['jam']));
+
+                                       ?>
+                                      
+                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                       <?php
                                       };
                                     } else { ?>
@@ -190,6 +195,8 @@ if (isset($_POST['btnSubmit'])) {
                                 <div class="form-group">
                                   <label>Nama*</label>
                                   <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
+                                  <input class="form-control" type="hidden" placeholder="" name="txtTanggal" value="<?php echo $txtTanggal ?>" autocomplete="off" required>
+
                                 </div>
                               </div>
 
