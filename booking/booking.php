@@ -164,21 +164,26 @@ setlocale(LC_TIME, 'id_ID');
                               </div>
                             </div>
 
-
-                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
-                              <label for="email">Pilihan Paket*</label>
-                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1"  autocomplete="off" required>
+                            <div class="col-lg-12 col-sm-6">
+                              <label for="email">Jenis Foto*</label>
+                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
                                 <?php
                                 // panggil database
-                                $mySql  = "SELECT * from master_jenis group by paket order by jenis asc";
+                                $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
                                 $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                 while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                  <option value="<?php echo $myData['paket']  ?>"><?php echo $myData['paket'] ?></option>;
+                                  <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
                                 <?php
                                 };
                                 ?>
                               </select>
+                            </div>
+
+                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                              <label for="email">Pilihan Paket*</label>
+                              <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
+                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                               </select>
                             </div>
 
@@ -243,8 +248,8 @@ setlocale(LC_TIME, 'id_ID');
   <!-- <script src="./assets/js/vendors/materialize.js"></script> -->
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
-  <!-- <script src="js2/chaindropdown/config.js" type="text/javascript"></script> -->
-  <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
+  <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
+  <!-- <script src="js3/chaindropdown/config.js" type="text/javascript"></script> -->
 
 
   <!-- Include jQuery library -->
