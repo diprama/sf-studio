@@ -52,7 +52,7 @@ if (isset($_POST['btnSubmit'])) {
     $mail->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
     $mail->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
     $mail->SMTPSecure = 'TLS';
-    $mail->Port = 465;
+    $mail->Port = 587;
 
     // Set informasi pengirim dan penerima
     $mail->setFrom('official@sf-selfstudio.com', 'Admin');
