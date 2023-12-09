@@ -389,13 +389,6 @@ setlocale(LC_TIME, 'id_ID');
         }
       });
 
-      // Inisialisasi timepicker
-      $("#timepicker").timepicker({
-        timeFormat: 'H:i',
-        minTime: getCurrentTime(),
-        maxTime: '16:00'
-      });
-
       // Fungsi untuk mendapatkan waktu saat ini
       function getCurrentTime() {
         var now = new Date();
