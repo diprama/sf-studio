@@ -302,7 +302,7 @@ setlocale(LC_TIME, 'id_ID');
     // });
   </script>
 
-  <script>
+  <!-- <script>
     $(document).ready(function() {
       // Mendapatkan waktu sekarang
       var now = new Date();
@@ -358,6 +358,55 @@ setlocale(LC_TIME, 'id_ID');
 
 
 
+    });
+  </script> -->
+
+
+  <script>
+    $(document).ready(function() {
+      // Inisialisasi datepicker
+      $("#datepicker").datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: 0, // Tidak memperbolehkan memilih tanggal sebelum hari ini
+        onSelect: function(selectedDate) {
+          // Jika tanggal yang dipilih adalah hari ini
+          if (selectedDate === $.datepicker.formatDate('yy-mm-dd', new Date())) {
+            // Set timepicker dengan batas waktu saat ini
+            $("#timepicker").timepicker({
+              timeFormat: 'HH:mm',
+              minTime: getCurrentTime(),
+              maxTime: '16:00'
+            });
+          } else {
+            // Jika tanggal yang dipilih bukan hari ini
+            // Set timepicker dengan batas waktu buka dan tutup
+            $("#timepicker").timepicker({
+              timeFormat: 'HH:mm',
+              minTime: '08:00',
+              maxTime: '16:00'
+            });
+          }
+        }
+      });
+
+      // Inisialisasi timepicker
+      $("#timepicker").timepicker({
+        timeFormat: 'HH:mm',
+        minTime: getCurrentTime(),
+        maxTime: '16:00'
+      });
+
+      // Fungsi untuk mendapatkan waktu saat ini
+      function getCurrentTime() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+
+        // Format jam dan menit ke dalam format HH:mm
+        var formattedTime = (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+
+        return formattedTime;
+      }
     });
   </script>
 
