@@ -158,7 +158,7 @@ if (isset($_POST['btnSubmit'])) {
 
                             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
 
-                              <div class="col-6 ">
+                              <div class="col-12 ">
                                 <div class="form-group">
                                   <label>Tanggal*</label>
                                   <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
