@@ -321,6 +321,7 @@ setlocale(LC_TIME, 'id_ID');
         closingTime.setHours(20, 0, 0); // Jam tutup pukul 16:00
 
         // Initialize the timepicker with a 20-minute interval
+        // Inisialisasi timepicker
         $('#timepicker').timepicker({
           timeFormat: 'H:i',
           interval: 20,
@@ -328,9 +329,29 @@ setlocale(LC_TIME, 'id_ID');
           dynamic: false,
           dropdown: true,
           scrollbar: true,
-          minTime: openingTime,
-          maxTime: closingTime,
-          disableTimeRanges: getDisabledRanges()
+          // Fungsi yang dipanggil sebelum menampilkan timepicker
+          beforeShow: function(input, inst) {
+            // Mendapatkan tanggal yang dipilih dari datepicker
+            var selectedDate = $('#datepicker').datepicker('getDate');
+
+            // Mendapatkan waktu saat ini
+            var currentTime = new Date();
+
+            // Menyaring waktu yang sudah berlalu
+            var disabledTimes = [];
+            for (var i = 0; i < 24; i++) {
+              var time = new Date(selectedDate);
+              time.setHours(i, 0, 0, 0);
+
+              if (time > currentTime) {
+                // Jika waktu masih akan datang, tambahkan ke daftar
+                disabledTimes.push(i + ':00');
+              }
+            }
+
+            // Mengatur waktu yang sudah berlalu untuk dinonaktifkan
+            inst.settings.disableTimeRanges = [disabledTimes];
+          }
         });
 
         function getDisabledRanges() {
@@ -348,6 +369,11 @@ setlocale(LC_TIME, 'id_ID');
             disabledRanges.push(['12:00am', formatTime(currentTime)]);
           }
 
+          // Menonaktifkan jam yang lalu dan tanggal yang sudah lewat
+          if (date < new Date()) {
+            return [false];
+          }
+
           return disabledRanges;
         }
 
@@ -355,6 +381,8 @@ setlocale(LC_TIME, 'id_ID');
           return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
         }
       });
+
+
 
 
 
