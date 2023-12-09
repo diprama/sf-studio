@@ -97,10 +97,11 @@ if (isset($_POST['btnSubmit'])) {
       ('$txtNama','$txtEmail','$txtWhatsapp','$txtJenis','$txtPaket','$txtBackground','$txtInstagram','$txtTanggal','$txtWaktu','$txtStatus') ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
-
+   echo  $last_id = mysqli_insert_id($conn);
+exit;
    # Validasi Insert Sukses
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success&name=$txtNama'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success&id=$last_id'>";
     }
     else {
       echo "Query Gagal";
