@@ -148,7 +148,7 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-lg-6 col-sm-6">
+                            <div class="col-lg-12 col-sm-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
                                 <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
@@ -308,7 +308,7 @@ setlocale(LC_TIME, 'id_ID');
     // });
   </script>
 
-  <!-- <script>
+  <script>
     $(function() {
       $('#datepicker').datepicker({
         minDate: 0
@@ -359,7 +359,7 @@ setlocale(LC_TIME, 'id_ID');
         return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
       }
     });
-  </script> -->
+  </script>
 
 
 </html>
