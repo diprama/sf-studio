@@ -152,17 +152,8 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
-                                <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
-                                  <option selected>Pilih</option>
-                                  <?php
-                                  // panggil database
-                                  $mySql  = "SELECT * from jadwal where status ='0' and availability ='0' order by jam asc";
-                                  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                  while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                    <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
-                                  <?php
-                                  };
-                                  ?>
+                                <select class="form-select" name="txtWaktu" id="waktu" class="form-control" tabindex="-1" disabled autocomplete="off" required>
+                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
                                 </select>
                               </div>
                             </div>
@@ -261,6 +252,7 @@ setlocale(LC_TIME, 'id_ID');
   <!-- Chaindrop -->
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
   <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
+  <script src="js_tanggal/chaindropdown/config.js" type="text/javascript"></script>
 
 
   <!-- Include jQuery library -->
