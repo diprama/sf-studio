@@ -5,7 +5,7 @@ include "library/inc.connection.php";
 
 // Ambil data ID kategori yang dikirim via ajax post
 // $part_number = $_POST['kategori'];
-$Channel    = explode("|", $_POST['kategori2']);
+$Channel    = explode("|", $_POST['kategori']);
 $jenis   = $Channel[0];
 // 28250-K0J -N000
 
@@ -13,7 +13,7 @@ $jenis   = $Channel[0];
 $validasi = 'NO';
 $html2 = "";
 // validasi apakah mempunya sub part atau tidak
-$sql2 = mysqli_query($koneksidb, "SELECT * FROM master_background where jenis='$jenis' ORDER BY jenis asc");
+$sql2 = mysqli_query($koneksidb, "SELECT * FROM master_background where jenis='Photo Session' ORDER BY jenis asc");
 // $cekQry = mysqli_query($koneksidb, $sql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 if (mysqli_num_rows($sql2) >= 1) {
 	$validasi2 = 'YES';
