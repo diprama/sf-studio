@@ -361,7 +361,6 @@ setlocale(LC_TIME, 'id_ID');
     });
   </script> -->
 
-
   <script>
     $(document).ready(function() {
       // Inisialisasi datepicker
@@ -407,8 +406,20 @@ setlocale(LC_TIME, 'id_ID');
 
         return formattedTime;
       }
+
+      // Reset timepicker jika tanggal diubah
+      $('#datepicker').on('change', function() {
+        // Hapus timepicker yang sudah ada
+        $("#timepicker").timepicker('destroy');
+
+        // Inisialisasi kembali timepicker
+        $("#timepicker").timepicker({
+          timeFormat: 'H:i',
+          minTime: getCurrentTime(),
+          maxTime: '16:00'
+        });
+      });
     });
   </script>
-
 
 </html>
