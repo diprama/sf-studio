@@ -164,11 +164,6 @@ setlocale(LC_TIME, 'id_ID');
                               </div>
                             </div>
 
-                            <div class="col-lg-12 col-sm-6">
-                              <label for="email">Jenis Foto*</label>
-                              <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
-                      
-                            </div>
 
                             <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
