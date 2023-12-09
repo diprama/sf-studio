@@ -143,7 +143,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-lg-6 col-sm-6 ">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control" id='datepicker'  type="text" name="txtTanggal" autocomplete="off" required>
+                                <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -310,79 +310,64 @@ setlocale(LC_TIME, 'id_ID');
 
   <script>
     $(document).ready(function() {
-      // Mendapatkan waktu sekarang
-      var now = new Date();
+          // Mendapatkan waktu sekarang
+          var now = new Date();
 
-      // Inisialisasi datepicker
-      $('#datepicker').datepicker({
-        minDate: now,
-        onSelect: function(selectedDate) {
-          handleDateChange(selectedDate);
-        }
-      });
-
-      // Fungsi untuk mengelola perubahan tanggal
-      function handleDateChange(selectedDate) {
-        // Reset timepicker
-        $('#timepicker').val('');
-
-        // Cek hari yang dipilih
-        var dayOfWeek = new Date(selectedDate).getDay();
-
-        // Set jam buka dan jam tutup berdasarkan hari
-        var openingTime, closingTime;
-        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
-          // Hari Senin sampai Jumat
-          openingTime = new Date(now);
-          closingTime = new Date(now);
-          openingTime.setHours(0, 0, 0); // Jam buka pukul 00:00
-          closingTime.setHours(3, 0, 0); // Jam tutup pukul 03:00
-        } else if (dayOfWeek === 0 || dayOfWeek === 6) {
-          // Hari Sabtu dan Minggu
-          openingTime = new Date(now);
-          closingTime = new Date(now);
-          openingTime.setHours(2, 0, 0); // Jam buka pukul 02:00
-          closingTime.setHours(4, 0, 0); // Jam tutup pukul 04:00
-        }
-
-        // Cek apakah tanggal yang dipilih adalah 12 Desember 2023
-        if (selectedDate === '12/12/2023') {
-          // Jika ya, nonaktifkan waktu pada jam 00:20 - 01:40
-          $('#timepicker').timepicker('option', {
-            disableTimeRanges: [
-              ['12:20am', '01:40am']
-            ]
+          // Inisialisasi datepicker
+          $('#datepicker').datepicker({
+            minDate: now,
+            onSelect: function(selectedDate) {
+              handleDateChange(selectedDate);
+            }
           });
-        }
 
-        // Cek apakah sekarang lebih dari jam buka
-        if (now >= openingTime) {
-          // Jika ya, batasi waktu pada jam buka dan jam tutup
-          $('#timepicker').timepicker('option', {
-            minTime: formatTime(openingTime),
-            maxTime: formatTime(closingTime)
-          });
-        }
-      }
+    
+            $(function() {
+              var now = new Date();
+              var openingTime = new Date(now);
+              var closingTime = new Date(now);
 
-      // Fungsi untuk memformat waktu
-      function formatTime(date) {
-        return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
-      }
+              openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
+              closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
 
-      // Menangani perubahan nilai pada datepicker
-      $('#datepicker').on('change', function() {
-        // Reset nilai pada timepicker jika isi datepicker diganti
-        $('#timepicker').val('');
+              // Initialize the timepicker with a 20-minute interval
+              $('#timepicker').timepicker({
+                timeFormat: 'HH:mm',
+                interval: 20,
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true,
+                minTime: openingTime,
+                maxTime: closingTime,
+                disableTimeRanges: getDisabledRanges()
+              });
 
-        // Disable timepicker jika tanggal belum dipilih
-        if (!$(this).val()) {
-          $('#timepicker').prop('disabled', true);
-        } else {
-          $('#timepicker').prop('disabled', false);
-        }
-      });
-    });
+              function getDisabledRanges() {
+                var disabledRanges = [];
+                var currentTime = new Date();
+
+                if (currentTime < openingTime) {
+                  // Jika sekarang sebelum jam buka, nonaktifkan waktu sampai jam buka
+                  disabledRanges.push(['12:00am', formatTime(openingTime)]);
+                } else if (currentTime >= closingTime) {
+                  // Jika sekarang setelah jam tutup, nonaktifkan semua waktu
+                  disabledRanges.push(['12:00am', '11:59pm']);
+                } else {
+                  // Jika sekarang di antara jam buka dan jam tutup, nonaktifkan waktu sampai sekarang
+                  disabledRanges.push(['12:00am', formatTime(currentTime)]);
+                }
+
+                return disabledRanges;
+              }
+
+              function formatTime(date) {
+                return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+              }
+            });
+  
+
+
+  });
   </script>
 
 
