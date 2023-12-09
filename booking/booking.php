@@ -269,16 +269,6 @@ setlocale(LC_TIME, 'id_ID');
 
     var dateToday = new Date();
     jQuery(function($) {
-      $('input.datepicker').datepicker({
-        duration: '',
-        changeMonth: false,
-        changeYear: false,
-        yearRange: '2010:2020',
-        showTime: false,
-        time24h: true,
-        minDate: dateToday
-      });
-
       $.datepicker.regional['in'] = {
         monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
           'September', 'Oktober', 'November', 'Desember'
@@ -301,93 +291,62 @@ setlocale(LC_TIME, 'id_ID');
 
     // });
   </script>
-
   <script>
     $(document).ready(function() {
-      // Mendapatkan waktu sekarang
-      var now = new Date();
       // Inisialisasi datepicker
       $('#datepicker').datepicker({
-        minDate: now
-      });
-
-
-      $(function() {
-        var now = new Date();
-        var openingTime = new Date(now);
-        var closingTime = new Date(now);
-
-        openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
-        closingTime.setHours(20, 0, 0); // Jam tutup pukul 16:00
-
-        // Initialize the timepicker with a 20-minute interval
-        // Inisialisasi timepicker
-        $('#timepicker').timepicker({
-          timeFormat: 'H:i',
-          interval: 20,
-          step: 20,
-          dynamic: false,
-          dropdown: true,
-          scrollbar: true,
-          minTime: openingTime,
-          maxTime: closingTime,
-          // Fungsi yang dipanggil sebelum menampilkan timepicker
-          beforeShow: function(input, inst) {
-            // Mendapatkan tanggal yang dipilih dari datepicker
-            var selectedDate = $('#datepicker').datepicker('getDate');
-
-            // Mendapatkan waktu saat ini
-            var currentTime = new Date();
-
-            // Menyaring waktu yang sudah berlalu
-            var disabledTimes = [];
-            for (var i = 0; i < 24; i++) {
-              var time = new Date(selectedDate);
-              time.setHours(i, 0, 0, 0);
-
-              if (time > currentTime) {
-                // Jika waktu masih akan datang, tambahkan ke daftar
-                disabledTimes.push(i + ':00');
-              }
-            }
-
-            // Mengatur waktu yang sudah berlalu untuk dinonaktifkan
-            inst.settings.disableTimeRanges = [disabledTimes];
-          }
-        });
-
-        function getDisabledRanges() {
-          var disabledRanges = [];
+        minDate: 0,
+        // Fungsi yang dipanggil setiap kali datepicker diubah
+        onSelect: function(dateText, inst) {
+          // Mendapatkan waktu saat ini
           var currentTime = new Date();
 
-          if (currentTime < openingTime) {
-            // Jika sekarang sebelum jam buka, nonaktifkan waktu sampai jam buka
-            disabledRanges.push(['12:00am', formatTime(openingTime)]);
-          } else if (currentTime >= closingTime) {
-            // Jika sekarang setelah jam tutup, nonaktifkan semua waktu
-            disabledRanges.push(['12:00am', '11:59pm']);
-          } else {
-            // Jika sekarang di antara jam buka dan jam tutup, nonaktifkan waktu sampai sekarang
-            disabledRanges.push(['12:00am', formatTime(currentTime)]);
+          // Mendapatkan tanggal yang dipilih dari datepicker
+          var selectedDate = $(this).datepicker('getDate');
+
+          // Menentukan jam buka dan jam tutup
+          var openingTime = new Date(selectedDate);
+          openingTime.setHours(8, 0, 0, 0);
+
+          var closingTime = new Date(selectedDate);
+          closingTime.setHours(16, 0, 0, 0);
+
+          // Menyaring waktu yang sudah berlalu
+          var disabledTimes = [];
+          for (var i = 0; i < 24; i++) {
+            var time = new Date(selectedDate);
+            time.setHours(i, 0, 0, 0);
+
+            if (selectedDate.getTime() === currentTime.getTime() && time < currentTime) {
+              // Jika hari ini dan waktu sudah berlalu, lewati
+              continue;
+            }
+
+            if (time < openingTime || time > closingTime) {
+              // Jika di luar jam buka dan jam tutup, lewati
+              continue;
+            }
+
+            disabledTimes.push(i + ':00');
           }
 
-          // Menonaktifkan jam yang lalu dan tanggal yang sudah lewat
-          if (date < new Date()) {
-            return [false];
-          }
+          // Mengatur waktu yang sudah berlalu untuk dinonaktifkan
+          inst.settings.disableTimeRanges = [disabledTimes];
 
-          return disabledRanges;
-        }
-
-        function formatTime(date) {
-          return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+          // Reset nilai pada timepicker jika tanggal diganti
+          $('#timepicker').val('');
         }
       });
 
-
-
-
-
+      // Inisialisasi timepicker
+      $('#timepicker').timepicker({
+        timeFormat: 'H:i',
+        interval: 20,
+        step: 20,
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+      });
     });
   </script>
 
