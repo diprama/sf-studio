@@ -155,7 +155,7 @@ if (isset($_POST['btnSubmit'])) {
                         <?php if ($txtTanggal != '') {
                         ?>
 
-                          <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>
+
                           <div class="row spacing3">
                             <!-- jika tanggal sudah diisi -->
                             <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
@@ -249,6 +249,7 @@ if (isset($_POST['btnSubmit'])) {
 
                           <div class="btn-area mt-10">
                             <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
+                            <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>
                           </div>
 
                           </form>
