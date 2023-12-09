@@ -152,18 +152,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
-                                <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
-                                  <option selected>Pilih</option>
-                                  <?php
-                                  // panggil database
-                                  $mySql  = "SELECT * from jadwal  order by jenis asc";
-                                  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                  while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                    <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
-                                  <?php
-                                  };
-                                  ?>
-                                </select>
+                                <input class="form-control" id='timepicker' placeholder="Pilih Waktu" type="text" name="txtWaktu" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -356,7 +345,7 @@ setlocale(LC_TIME, 'id_ID');
         }
       });
 
-
+  
 
 
     });
