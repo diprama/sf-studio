@@ -2,7 +2,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 	// Kita sembunyikan dulu untuk loadingnya
 	$("#loading").hide();
 
-	var date_input = document.getElementById('datepicker');
+	var date_input = document.getElementById('date_input');
 
 	date_input.onchange = function () {
 		console.log(this.value);
@@ -13,7 +13,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		$.ajax({
 			type: "POST", // Method pengiriman data bisa dengan GET atau POST
 			url: "get_datepicker.php", // Isi dengan url/path file php yang dituju
-			data: { kategori: $("#datepicker").val() }, // data yang akan dikirim ke file yang dituju
+			data: { kategori: $("#date_input").val() }, // data yang akan dikirim ke file yang dituju
 			dataType: "json",
 			beforeSend: function (e) {
 				if (e && e.overrideMimeType) {
