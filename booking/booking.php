@@ -171,14 +171,13 @@ if (isset($_POST['btnSubmit'])) {
                                       $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                       while ($myData = mysqli_fetch_array($myQry)) {
-                                        $jamsekarang = date("H:i", strtotime("+60 minutes"));
+                                         $jamsekarang = date("H:i", strtotime("+60 minutes"));
 
                                         $jam = date("H:i", strtotime($myData['jam']));
                                         if ($jam > $jamsekarang) {
-                                          # code...
                                        ?>
                                       
-                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                        <option value="<?php echo $jam  ?>"><?php echo $jamsekarang ?></option>;
                                       <?php
                                       }  
                                     };
