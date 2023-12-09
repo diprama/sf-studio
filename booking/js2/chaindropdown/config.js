@@ -26,7 +26,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 
 				// set isi dari combobox subkategori
 				// lalu munculkan kembali combobox subkategorinya
-				$("#paket").html(response.data_subkategori1).show();
+				$("#paket").html(response.data_subkategori).show();
 			},
 			error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
 				alert(thrownError); // Munculkan alert error
