@@ -190,7 +190,7 @@ setlocale(LC_TIME, 'id_ID');
 
                             <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
                               <label for="email">Background*</label>
-                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" disabled autocomplete="off" required>
+                              <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
 
                               </select>
@@ -249,7 +249,7 @@ setlocale(LC_TIME, 'id_ID');
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
-  <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
+  <!-- <script src="js3/chaindropdown/config.js" type="text/javascript"></script> -->
 
 
   <!-- Include jQuery library -->
