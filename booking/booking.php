@@ -143,7 +143,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-6 ">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
+                                <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -151,7 +151,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
-                                <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
+                                <input class="form-control" id='timepicker' placeholder="Pilih Waktu" type="text" name="txtWaktu" autocomplete="off" required>
                               </div>
                             </div>
 
