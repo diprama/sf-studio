@@ -4,7 +4,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 
 
 	
-	$("#datepicker").change(function(){ // Ketika user mengganti atau memilih data kategori
+	$("#tanggal").change(function(){ // Ketika user mengganti atau memilih data kategori
 		// $("#subkategori").hide(); // Sembunyikan dulu combobox subkategori nya
 		// // $("#loading").show(); // Tampilkan loadingnya
 		// $("#subkategoriform").show(); // munculkan box subkategori
@@ -14,7 +14,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 		$.ajax({
 			type: "POST", // Method pengiriman data bisa dengan GET atau POST
 			url: "get_tanggal.php", // Isi dengan url/path file php yang dituju
-			data: {kategori : $("#datepicker").val()}, // data yang akan dikirim ke file yang dituju
+			data: {kategori : $("#tanggal").val()}, // data yang akan dikirim ke file yang dituju
 			dataType: "json",
 			beforeSend: function(e) {
 				if(e && e.overrideMimeType) {
@@ -26,7 +26,7 @@ $(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di loa
 
 				// set isi dari combobox subkategori
 				// lalu munculkan kembali combobox subkategorinya
-				$("#waktu").html(response.data_subkategori).show();
+				$("#waktu").html(response.datajam).show();
 			},
 			error: function (xhr, ajaxOptions, thrownError) { // Ketika ada error
 				alert(thrownError); // Munculkan alert error
