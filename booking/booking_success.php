@@ -1,4 +1,5 @@
 <?php
+include "library/inc.connection.php";
 $nama = isset($_GET['name']) ? $_GET['name'] : '';
 ?>
 
@@ -129,7 +130,7 @@ $nama = isset($_GET['name']) ? $_GET['name'] : '';
                             <p> Sampai berjumpa di Self Studio :)</p>
                           </div>
                           <div class="btn-area mt-10">
-                            <a href="https://wa.me/6285173158153?text=Hallo%20saya%20mau%20konfirmasi" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
+                            <a href="https://wa.me/6285173158153?text=Tanggal%3A+%0D%0AWaktu%3A%0D%0ANama%3A%0D%0AJenis+Foto%3A+%0D%0APilihan+Paket%3A%0D%0ABackground%3A%0D%0AEmail%3A+%0D%0ANo+WA%3A+%0D%0AUsername%C2%A0IG%3A%C2%A0" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
                           </div>
                         </form>
                       </div>
