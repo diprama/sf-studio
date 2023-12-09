@@ -315,10 +315,7 @@ setlocale(LC_TIME, 'id_ID');
 
       // Inisialisasi datepicker
       $('#datepicker').datepicker({
-        minDate: now,
-        onSelect: function(selectedDate) {
-          handleDateChange(selectedDate);
-        }
+        minDate: now
       });
 
 
