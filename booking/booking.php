@@ -150,28 +150,13 @@ if (isset($_POST['btnSubmit'])) {
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
                           </a> -->
                         </div>
-                        <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
-                          <div class="row spacing3">
+                        <div class="row spacing3">
 
 
+                          <?php if ($txtTanggal != '') { ?>
+                            <!-- jika tanggal sudah diisi -->
+                            <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
 
-
-                            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
-
-                              <div class="col-12 ">
-                                <div class="form-group">
-                                  <label>Tanggal*</label>
-                                  <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
-                                </div>
-                              </div>
-
-
-                              <div class="btn-area mt-10">
-                                <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
-                              </div>
-                            </form>
-
-                            <?php if ($txtTanggal != '') { ?>
                               <div class="col-6">
                                 <div class="form-group">
                                   <label>Waktu*</label>
@@ -257,14 +242,31 @@ if (isset($_POST['btnSubmit'])) {
                                   <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
                                 </div>
                               </div>
+                        </div>
+
+                        <div class="btn-area mt-10">
+                          <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
+                        </div>
+                        </form>
+                      <?php } else { ?>
+                        <!-- jika tanggal belum diisi -->
+                        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
+
+                          <div class="col-12 ">
+                            <div class="form-group">
+                              <label>Tanggal*</label>
+                              <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
+                            </div>
                           </div>
 
+
                           <div class="btn-area mt-10">
-                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
                           </div>
-                        <?php }
-                        ?>
                         </form>
+                      <?php  }
+                      ?>
+
                       </div>
                     </div>
                   </div>
