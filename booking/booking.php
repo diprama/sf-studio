@@ -293,6 +293,15 @@ setlocale(LC_TIME, 'id_ID');
   </script>
 
   <script>
+    // Inisialisasi timepicker
+    $('#timepicker').timepicker({
+      timeFormat: 'H:i',
+      interval: 20,
+      step: 20,
+      dynamic: false,
+      dropdown: true,
+      scrollbar: true
+    });
     $(document).ready(function() {
       // Mendapatkan tanggal hari ini
       var currentDate = new Date();
@@ -334,15 +343,7 @@ setlocale(LC_TIME, 'id_ID');
         }
       });
 
-      // Inisialisasi timepicker
-      $('#timepicker').timepicker({
-        timeFormat: 'H:i',
-        interval: 20,
-        step: 20,
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true
-      });
+
     });
   </script>
 
