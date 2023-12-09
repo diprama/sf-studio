@@ -41,34 +41,34 @@ if (isset($_POST['btnSubmit'])) {
 
 
 
-  // Inisialisasi PHPMailer
-  $mail = new PHPMailer(true);
+  // // Inisialisasi PHPMailer
+  // $mail = new PHPMailer(true);
 
-  try {
-    // Set pengaturan SMTP
-    $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
-    $mail->SMTPAuth = true;
-    $mail->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
-    $mail->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
-    $mail->SMTPSecure = 'SSL';
-    $mail->Port = 465;
+  // try {
+  //   // Set pengaturan SMTP
+  //   $mail->isSMTP();
+  //   $mail->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
+  //   $mail->SMTPAuth = true;
+  //   $mail->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
+  //   $mail->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
+  //   $mail->SMTPSecure = 'SSL';
+  //   $mail->Port = 465;
 
-    // Set informasi pengirim dan penerima
-    $mail->setFrom('official@sf-selfstudio.com', 'Admin');
-    $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
+  //   // Set informasi pengirim dan penerima
+  //   $mail->setFrom('official@sf-selfstudio.com', 'Admin');
+  //   $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
 
-    // Set informasi email
-    $mail->isHTML(true);
-    $mail->Subject = 'Test';
-    $mail->Body = 'Test';
+  //   // Set informasi email
+  //   $mail->isHTML(true);
+  //   $mail->Subject = 'Test';
+  //   $mail->Body = 'Test';
 
-    // Kirim email
-    $mail->send();
-    echo "Email berhasil dikirim";
-  } catch (Exception $e) {
-    echo "Gagal mengirim email: {$mail->ErrorInfo}";
-  }
+  //   // Kirim email
+  //   $mail->send();
+  //   echo "Email berhasil dikirim";
+  // } catch (Exception $e) {
+  //   echo "Gagal mengirim email: {$mail->ErrorInfo}";
+  // }
 
 
   # Baca IP Address
