@@ -173,7 +173,6 @@ if (isset($_POST['btnSubmit'])) {
                               <div class="form-group">
                                 <label>Waktu*</label>
                                 <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
-                                  <option selected>Pilih</option>
                                   <?php
                                   if ($txtTanggal!='') {
                                     # code...
@@ -184,7 +183,10 @@ if (isset($_POST['btnSubmit'])) {
                                     <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
                                   <?php
                                   };
-                                }
+                                } else { ?>
+                                  <option selected>Pilih Tanggal Terlebih Dahulu</option>
+
+                                <?php}
 
                                   ?>
                                 </select>
