@@ -1,7 +1,40 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
+
+
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Include jQuery UI library -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- Include jQuery UI Timepicker Addon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+
+
 <?php
 include "header.php";
+
+if (isset($_POST['btnSubmit'])) {
+    $pesanError = array();
+    # Baca variabel form
+    $txtBuka   = $_POST['jam_buka'];
+    $txtTutup = $_POST['jam_tutup'];
+    // updated
+    $mySql = "UPDATE `master_jamkerja` SET `jam_buka`='$txtBuka',`jam_tutup`='$txtTutup',`updated_date`= now() WHERE id='1'";
+    $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
+} // End POST
+
+// ambil data
+$mySql = "SELECT * FROM master_jamkerja'";
+$myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
+$myData = mysqli_fetch_array($myQry);
+
+$myData['jam_buka'];
+$myData['jam_tutup'];
+
 
 ?>
 
@@ -44,16 +77,16 @@ include "header.php";
                 <div class="row g-1">
                     <div class="col-md-4 col-12 mb-3 position-relative">
                         <label class="form-label" for="validationTooltip01">Jam Buka</label>
-                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Jam Buka" value="" required />
+                        <input type="text" id="timepicker" class="form-control" placeholder="Jam Buka" value="" required />
                         <div class="valid-tooltip">Looks good!</div>
                     </div>
                     <div class="col-md-4 col-12 mb-3 position-relative">
                         <label class="form-label" for="validationTooltip02">Jam Tutup</label>
-                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Jam Tutup" value="" required />
+                        <input type="text" id="timepicker" class="form-control" placeholder="Jam Tutup" value="" required />
                         <div class="valid-tooltip">Looks good!</div>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" name='btnSubmit' type="submit">Update</button>
             </form>
 
         </div>
@@ -63,6 +96,84 @@ include "header.php";
 
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
+
+
+<script>
+    // Initialize the datepicker
+
+    var dateToday = new Date();
+    jQuery(function($) {
+        $('input.datepicker').datepicker({
+            duration: '',
+            changeMonth: false,
+            changeYear: false,
+            yearRange: '2010:2020',
+            showTime: false,
+            time24h: true,
+            minDate: dateToday
+        });
+
+        $.datepicker.regional['in'] = {
+            monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+                'September', 'Oktober', 'November', 'Desember'
+            ],
+            monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+            dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+            dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+            dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+
+
+        $.datepicker.setDefaults($.datepicker.regional['in']);
+    });
+
+    // $(function() {
+
+    // });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Mendapatkan waktu sekarang
+        var now = new Date();
+
+        // Inisialisasi datepicker
+        $('#datepicker').datepicker({
+            minDate: now
+        });
+
+
+        $(function() {
+            var now = new Date();
+            var openingTime = new Date(now);
+            var closingTime = new Date(now);
+
+            openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
+            closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
+
+            // Initialize the timepicker with a 20-minute interval
+            $('#timepicker').timepicker({
+                timeFormat: 'H:i',
+                interval: 20,
+                step: 20,
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true,
+            });
+
+
+
+        });
+
+
+
+    });
+</script>
+
 
 <!-- footer -->
 <?php
