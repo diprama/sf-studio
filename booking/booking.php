@@ -153,7 +153,6 @@ if (isset($_POST['btnSubmit'])) {
                         
                         
                         <?php if ($txtTanggal != '') { 
-                          echo $txtTanggal;
                           ?>
                           <div class="row spacing3">
                             <!-- jika tanggal sudah diisi -->
@@ -164,22 +163,22 @@ if (isset($_POST['btnSubmit'])) {
                                   <label>Waktu*</label>
                                   <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                     <?php
-                                    if ($txtTanggal != '') {
-                                      # code...
-                                      // panggil database
-                                      $mySql  = "SELECT * from jadwal j join booking b where  j.status ='0' and j.availability ='0' and tanggal !='$txtTanggal' order by jam asc";
-                                      $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                      while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                        <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
-                                      <?php
-                                      };
-                                    } else { ?>
-                                      <option selected>Pilih Tanggal Terlebih Dahulu</option>
+                                    // if ($txtTanggal != '') {
+                                    //   # code...
+                                    //   // panggil database
+                                    //   $mySql  = "SELECT * from jadwal j join booking b where  j.status ='0' and j.availability ='0' and tanggal !='$txtTanggal' order by jam asc";
+                                    //   $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                    //   while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                    //     <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
+                                    //   <?php
+                                    //   };
+                                    // } else { ?>
+                                    //   <option selected>Pilih Tanggal Terlebih Dahulu</option>
 
-                                    <?php
-                                    }
+                                    // <?php
+                                    // }
 
-                                    ?>
+                                    // ?>
                                   </select>
                                 </div>
                               </div>
