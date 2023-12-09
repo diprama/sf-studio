@@ -18,11 +18,11 @@ include "header.php";
                         <h2 class="content-header-title float-start mb-0">DataTables</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="index.html">Master Data</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Datatable</a>
+                                <li class="breadcrumb-item"><a href="#">Jadwal Buka</a>
                                 </li>
-                                <li class="breadcrumb-item active">Basic
+                                <li class="breadcrumb-item active">Setting
                                 </li>
                             </ol>
                         </div>
@@ -39,22 +39,17 @@ include "header.php";
             </div>
         </div>
         <div class="content-body">
-            <div class="row">
-                <div class="col-12">
-                    <p>Read full documnetation <a href="https://datatables.net/" target="_blank">here</a></p>
-                </div>
-            </div>
 
             <form class="needs-validation" novalidate>
                 <div class="row g-1">
                     <div class="col-md-4 col-12 mb-3 position-relative">
                         <label class="form-label" for="validationTooltip01">Jam Buka</label>
-                        <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required />
+                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Jam Buka" value="" required />
                         <div class="valid-tooltip">Looks good!</div>
                     </div>
                     <div class="col-md-4 col-12 mb-3 position-relative">
                         <label class="form-label" for="validationTooltip02">Jam Tutup</label>
-                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required />
+                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Jam Tutup" value="" required />
                         <div class="valid-tooltip">Looks good!</div>
                     </div>
                 </div>
