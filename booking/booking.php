@@ -183,7 +183,17 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
                               <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
-                                <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                                <option selected>Pilih</option>
+                                <?php
+                                // panggil database
+                                $mySql  = "SELECT * from master_jenis group by paket order by jenis asc";
+                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                  <option value="<?php echo $myData['paket']  ?>"><?php echo $myData['paket'] ?></option>;
+                                <?php
+                                };
+                                ?>
+                              </select>
                               </select>
                             </div>
 
@@ -249,7 +259,7 @@ setlocale(LC_TIME, 'id_ID');
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
-  <!-- <script src="js3/chaindropdown/config.js" type="text/javascript"></script> -->
+  <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
 
 
   <!-- Include jQuery library -->
