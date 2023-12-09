@@ -154,7 +154,6 @@ if (isset($_POST['btnSubmit'])) {
                         
                         <?php if ($txtTanggal != '') { 
                           echo $txtTanggal;
-                          exit;
                           ?>
                           <div class="row spacing3">
                             <!-- jika tanggal sudah diisi -->
