@@ -115,22 +115,28 @@ $jam_tutup = $myData['jam_tutup'];
                                 while ($myData = mysqli_fetch_array($myQry)) {
                                     $nomor++;
                                     $Code = $myData['id'];
+
+                                    // validasi status
+                                    if ($myData['status'] ==0) {
+                                       $status = "<span class='badge rounded-pill badge-glow bg-success'>Aktif</span>";
+                                    } else {
+                                       $status = "<span class='badge rounded-pill badge-glow bg-danger'>Tidak Aktif</span>";
+                                    }
+
+                                    // validasi ketersediaan
+                                    if ($myData['availability'] == 0) {
+                                        $availability = "<span class='badge rounded-pill badge-glow bg-success'>Tersedia</span>";
+                                    } else {
+                                        $availability = "<span class='badge rounded-pill badge-glow bg-danger'>Tidak Tersedia</span>";
+                                    }
+
                                 ?>
 
                                     <tr>
                                         <td><?php echo $nomor; ?></td>
-                                        <td><?php echo $myData['nama']; ?></td>
-                                        <td><?php echo $myData['tanggal']; ?></td>
                                         <td><?php echo $myData['jam']; ?></td>
-                                        <td><?php echo $myData['no_wa']; ?></td>
-                                        <td><?php echo $myData['paket']; ?></td>
-                                        <td><?php echo $myData['background']; ?></td>
-                                        <td><?php echo $myData['status']; ?></td>
-                                        <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
-                                            <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
-                                        <?php } else { ?>
-                                            <td></td>
-                                        <?php } ?>
+                                        <td><?php echo $status; ?></td>
+                                        <td><?php echo $availability; ?></td>
                                     </tr>
                                 <?php }
                                 ?>
