@@ -249,7 +249,7 @@ setlocale(LC_TIME, 'id_ID');
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
   <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
-  <!-- <script src="js3/chaindropdown/config.js" type="text/javascript"></script> -->
+  <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
 
 
   <!-- Include jQuery library -->
