@@ -159,7 +159,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-lg-12 col-sm-6">
                               <div class="form-group">
                                 <label>Nama*</label>
-                                <input class="form-control" type="text" name="txtNama" autocomplete="off" required>
+                                <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -198,21 +198,21 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
                               <div class="form-group">
                                 <label>Email*</label>
-                                <input class="form-control" type="text" name="txtEmail" autocomplete="off" required>
+                                <input class="form-control" type="text" placeholder="masukkin no Email kamu" name="txtEmail" autocomplete="off" required>
                               </div>
                             </div>
 
                             <div class="col-lg-12 col-sm-6">
                               <div class="form-group">
                                 <label>Whatsapp*</label>
-                                <input class="form-control" type="text" name="txtWhatsapp" autocomplete="off" required>
+                                <input class="form-control" type="text" placeholder="masukkin no Whatsapp kamu" name="txtWhatsapp" autocomplete="off" required>
                               </div>
                             </div>
 
                             <div class="col-lg-12 col-sm-6">
                               <div class="form-group">
                                 <label>Instagram</label>
-                                <input class="form-control" type="text" autocomplete="off" name="txtInstagram">
+                                <input class="form-control" type="text" placeholder="Opsional" autocomplete="off" name="txtInstagram">
                               </div>
                             </div>
                           </div>
