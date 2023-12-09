@@ -124,7 +124,7 @@ setlocale(LC_TIME, 'id_ID');
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm-6">
                     <div class="form-wrap">
                       <div>
                         <div class="head">
@@ -140,7 +140,7 @@ setlocale(LC_TIME, 'id_ID');
                           <div class="row spacing3">
 
 
-                            <div class="col-lg-6 col-sm-6 ">
+                            <div class="col-lg-4 col-sm-4 ">
                               <div class="form-group">
                                 <label>Tanggal*</label>
                                 <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
@@ -148,7 +148,7 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-lg-12 col-sm-6">
+                            <div class="col-lg-4 col-sm-4">
                               <div class="form-group">
                                 <label>Waktu*</label>
                                 <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
@@ -309,55 +309,65 @@ setlocale(LC_TIME, 'id_ID');
   </script>
 
   <script>
-    $(function() {
-      $('#datepicker').datepicker({
-        minDate: 0
-      });
-    });
-
-
     $(document).ready(function() {
+      // Mendapatkan waktu sekarang
       var now = new Date();
-      var openingTime = new Date(now);
-      var closingTime = new Date(now);
 
-      openingTime.setHours(0, 0, 0); // Jam buka pukul 08:00
-      closingTime.setHours(8, 0, 0); // Jam tutup pukul 16:00
-
-      // Initialize the timepicker with a 20-minute interval
-      $('#timepicker').timepicker({
-        timeFormat: 'H:i',
-        interval: 20,
-        step: 20,
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true,
-        minTime: openingTime,
-        maxTime: closingTime,
-        disableTimeRanges: getDisabledRanges()
+      // Inisialisasi datepicker
+      $('#datepicker').datepicker({
+        minDate: now,
+        onSelect: function(selectedDate) {
+          handleDateChange(selectedDate);
+        }
       });
 
-      function getDisabledRanges() {
-        var disabledRanges = [];
-        var currentTime = new Date();
 
-        if (currentTime < openingTime) {
-          // Jika sekarang sebelum jam buka, nonaktifkan waktu sampai jam buka
-          disabledRanges.push(['12:00am', formatTime(openingTime)]);
-        } else if (currentTime >= closingTime) {
-          // Jika sekarang setelah jam tutup, nonaktifkan semua waktu
-          disabledRanges.push(['12:00am', '11:59pm']);
-        } else {
-          // Jika sekarang di antara jam buka dan jam tutup, nonaktifkan waktu sampai sekarang
-          disabledRanges.push(['12:00am', formatTime(currentTime)]);
+      $(function() {
+        var now = new Date();
+        var openingTime = new Date(now);
+        var closingTime = new Date(now);
+
+        openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
+        closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
+
+        // Initialize the timepicker with a 20-minute interval
+        $('#timepicker').timepicker({
+          timeFormat: 'H:i',
+          interval: 20,
+          step: 20,
+          dynamic: false,
+          dropdown: true,
+          scrollbar: true,
+          minTime: openingTime,
+          maxTime: closingTime,
+          disableTimeRanges: getDisabledRanges()
+        });
+
+        function getDisabledRanges() {
+          var disabledRanges = [];
+          var currentTime = new Date();
+
+          if (currentTime < openingTime) {
+            // Jika sekarang sebelum jam buka, nonaktifkan waktu sampai jam buka
+            disabledRanges.push(['12:00am', formatTime(openingTime)]);
+          } else if (currentTime >= closingTime) {
+            // Jika sekarang setelah jam tutup, nonaktifkan semua waktu
+            disabledRanges.push(['12:00am', '11:59pm']);
+          } else {
+            // Jika sekarang di antara jam buka dan jam tutup, nonaktifkan waktu sampai sekarang
+            disabledRanges.push(['12:00am', formatTime(currentTime)]);
+          }
+
+          return disabledRanges;
         }
 
-        return disabledRanges;
-      }
+        function formatTime(date) {
+          return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+        }
+      });
 
-      function formatTime(date) {
-        return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
-      }
+
+
     });
   </script>
 
