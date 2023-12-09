@@ -373,7 +373,7 @@ setlocale(LC_TIME, 'id_ID');
           if (selectedDate === $.datepicker.formatDate('yy-mm-dd', new Date())) {
             // Set timepicker dengan batas waktu saat ini
             $("#timepicker").timepicker({
-              timeFormat: 'HH:mm',
+              timeFormat: 'H:i',
               minTime: getCurrentTime(),
               maxTime: '16:00'
             });
@@ -381,7 +381,7 @@ setlocale(LC_TIME, 'id_ID');
             // Jika tanggal yang dipilih bukan hari ini
             // Set timepicker dengan batas waktu buka dan tutup
             $("#timepicker").timepicker({
-              timeFormat: 'HH:mm',
+              timeFormat: 'H:i',
               minTime: '08:00',
               maxTime: '16:00'
             });
@@ -391,7 +391,7 @@ setlocale(LC_TIME, 'id_ID');
 
       // Inisialisasi timepicker
       $("#timepicker").timepicker({
-        timeFormat: 'HH:mm',
+        timeFormat: 'H:i',
         minTime: getCurrentTime(),
         maxTime: '16:00'
       });
