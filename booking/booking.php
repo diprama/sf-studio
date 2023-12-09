@@ -153,7 +153,7 @@ setlocale(LC_TIME, 'id_ID');
                               <div class="form-group">
                                 <label>Waktu*</label>
                                 <select class="form-select" name="txtWaktu" id="waktu" class="form-control" tabindex="-1" disabled autocomplete="off" required>
-                                  <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
+                                  <option selected="selected">Silahkan pilih tanggal terlebih dahulu</option>
                                 </select>
                               </div>
                             </div>
