@@ -176,12 +176,12 @@ if (isset($_POST['btnSubmit'])) {
                                         $jam = date("H:i", strtotime($myData['jam']));
                                         if ($jam > $jamsekarang) {
                                           # code...
-                                        }
                                        ?>
                                       
                                         <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                       <?php
-                                      };
+                                      }  
+                                    };
                                     } else { ?>
                                       <option selected>Pilih Tanggal Terlebih Dahulu</option>
 
