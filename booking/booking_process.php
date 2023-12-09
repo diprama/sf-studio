@@ -1,7 +1,17 @@
 <?php
 include "library/inc.connection.php";
 
+// set untuk email 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'library/PHPMailer/src/Exception.php';
+require 'library/PHPMailer/src/PHPMailer.php';
+require 'library/PHPMailer/src/SMTP.php';
+
 if (isset($_POST['btnSubmit'])) {
+
+
   $pesanError = array();
   // set validasi
   // if (trim($_POST['txtUser']) == "") {
@@ -25,6 +35,40 @@ if (isset($_POST['btnSubmit'])) {
   $txtWhatsapp = $_POST['txtWhatsapp'];
   $txtInstagram = isset($_POST['txtInstagram']) ? $_POST['txtInstagram']:'';
   $txtStatus = 'Dibuat';
+
+
+  // Kirim email
+
+
+
+  // Inisialisasi PHPMailer
+  $mail = new PHPMailer(true);
+
+  try {
+    // Set pengaturan SMTP
+    $mail->isSMTP();
+    $mail->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
+    $mail->SMTPAuth = true;
+    $mail->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
+    $mail->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
+    $mail->SMTPSecure = 'SSL';
+    $mail->Port = 465;
+
+    // Set informasi pengirim dan penerima
+    $mail->setFrom('official@sf-selfstudio.com', 'Admin');
+    $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
+
+    // Set informasi email
+    $mail->isHTML(true);
+    $mail->Subject = 'Test';
+    $mail->Body = 'Test';
+
+    // Kirim email
+    $mail->send();
+    echo "Email berhasil dikirim";
+  } catch (Exception $e) {
+    echo "Gagal mengirim email: {$mail->ErrorInfo}";
+  }
 
 
   # Baca IP Address
