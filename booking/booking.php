@@ -329,6 +329,8 @@ setlocale(LC_TIME, 'id_ID');
           dynamic: false,
           dropdown: true,
           scrollbar: true,
+          minTime: openingTime,
+          maxTime: closingTime,
           // Fungsi yang dipanggil sebelum menampilkan timepicker
           beforeShow: function(input, inst) {
             // Mendapatkan tanggal yang dipilih dari datepicker
