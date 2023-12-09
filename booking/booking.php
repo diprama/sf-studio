@@ -177,7 +177,7 @@ if (isset($_POST['btnSubmit'])) {
                                         if ($jam > $jamsekarang) {
                                        ?>
                                       
-                                        <option value="<?php echo $jam  ?>"><?php echo $jamsekarang ?></option>;
+                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                       <?php
                                       }  
                                     };
