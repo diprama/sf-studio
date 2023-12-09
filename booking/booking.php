@@ -124,7 +124,7 @@ setlocale(LC_TIME, 'id_ID');
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-lg-7 col-sm-12">
                     <div class="form-wrap">
                       <div>
                         <div class="head">
