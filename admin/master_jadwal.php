@@ -28,7 +28,7 @@ if (isset($_POST['btnSubmit'])) {
 } // End POST
 
 // ambil data
-$mySql = "SELECT * FROM master_jamkerja'";
+$mySql = "SELECT * FROM master_jamkerja";
 $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
 $myData = mysqli_fetch_array($myQry);
 
