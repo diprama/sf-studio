@@ -150,13 +150,13 @@ if (isset($_POST['btnSubmit'])) {
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
                           </a> -->
                         </div>
-                        <div class="row spacing3">
-
-  
-                          <?php if ($txtTanggal != '') { 
-                            echo $txtTanggal;
-                            exit;
-                            ?>
+                        
+                        
+                        <?php if ($txtTanggal != '') { 
+                          echo $txtTanggal;
+                          exit;
+                          ?>
+                          <div class="row spacing3">
                             <!-- jika tanggal sudah diisi -->
                             <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
 
@@ -250,7 +250,10 @@ if (isset($_POST['btnSubmit'])) {
                         <div class="btn-area mt-10">
                           <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
                         </div>
+
                         </form>
+
+
                       <?php } else { ?>
                         <!-- jika tanggal belum diisi -->
                         <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
