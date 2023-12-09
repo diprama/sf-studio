@@ -4,6 +4,22 @@ include_once "library/inc.connection.php";
 
 // Set the locale to a foreign language (e.g., French)
 setlocale(LC_TIME, 'id_ID');
+
+$txtTanggal = '';
+if (isset($_POST['btnSubmit'])) {
+
+
+  $pesanError = array();
+  // set validasi
+  # Baca variabel form
+  $txtTanggal   = $_POST['txtTanggal'];
+  // ganti format tanggal
+  $originalDate = "$txtTanggal";
+  $txtTanggal = date("Y-m-d", strtotime($originalDate));
+
+
+
+}
 ?>
 
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
@@ -141,13 +157,17 @@ setlocale(LC_TIME, 'id_ID');
                           <div class="row spacing3">
 
 
-                            <div class="col-6 ">
-                              <div class="form-group">
-                                <label>Tanggal*</label>
-                                <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
-                              </div>
-                            </div>
 
+
+                            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
+
+                              <div class="col-6 ">
+                                <div class="form-group">
+                                  <label>Tanggal*</label>
+                                  <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
+                                </div>
+                              </div>
+                            </form>
 
                             <div class="col-6">
                               <div class="form-group">
@@ -155,13 +175,17 @@ setlocale(LC_TIME, 'id_ID');
                                 <select class="form-select" id="waktu" name="txtWaktu" aria-label="Default select example" autocomplete="off" required>
                                   <option selected>Pilih</option>
                                   <?php
+                                  if ($txtTanggal!='') {
+                                    # code...
                                   // panggil database
-                                  $mySql  = "SELECT * from jadwal where status ='0' and availability ='0' order by jam asc";
+                                  $mySql  = "SELECT * from jadwal j join booking b where  j.status ='0' and j.availability ='0' and tanggal !='$txtTanggal' order by jam asc";
                                   $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                   while ($myData = mysqli_fetch_array($myQry)) { ?>
                                     <option value="<?php echo $myData['jam']  ?>"><?php echo $myData['jam'] ?></option>;
                                   <?php
                                   };
+                                }
+
                                   ?>
                                 </select>
                               </div>
