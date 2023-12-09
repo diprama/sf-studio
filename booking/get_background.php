@@ -31,7 +31,7 @@ if ($validasi != 'YES') {
 // // Buat query untuk menampilkan data sub part dengan part number alias tertentu(sesuai yang dipilih user pada form)
 // $sql = mysqli_query($koneksidb, "SELECT * FROM master_material where product_id='$part_number' ORDER BY product_id");
 
-$callback = array('data_subkategori' => $html); // Masukan variabel html tadi ke dalam array $callback dengan index array : data_kota
+$callback = array('data_subkategori2' => $html); // Masukan variabel html tadi ke dalam array $callback dengan index array : data_kota
 
 echo json_encode($callback); // konversi varibael $callback menjadi JSON
 
