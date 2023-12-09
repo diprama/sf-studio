@@ -124,7 +124,7 @@ setlocale(LC_TIME, 'id_ID');
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-7 col-sm-6">
+                  <div class="col-md-7">
                     <div class="form-wrap">
                       <div>
                         <div class="head">
@@ -140,7 +140,7 @@ setlocale(LC_TIME, 'id_ID');
                           <div class="row spacing3">
 
 
-                            <div class="col-lg-4 col-sm-4 ">
+                            <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Tanggal*</label>
                                 <input class="form-control" id='datepicker' type="text" name="txtTanggal" autocomplete="off" required>
@@ -148,7 +148,7 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-lg-4 col-sm-4">
+                            <div class="col-sm-6">
                               <div class="form-group">
                                 <label>Waktu*</label>
                                 <input class="form-control" id='timepicker' type="text" name="txtWaktu" autocomplete="off" required>
@@ -156,14 +156,14 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-lg-12 col-sm-6">
+                            <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Nama*</label>
                                 <input class="form-control" type="text" name="txtNama" autocomplete="off" required>
                               </div>
                             </div>
 
-                            <div class="col-lg-12 col-sm-6">
+                            <div class="col-sm-12">
                               <label for="email">Jenis Foto*</label>
                               <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
@@ -179,7 +179,7 @@ setlocale(LC_TIME, 'id_ID');
                               </select>
                             </div>
 
-                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Pilihan Paket*</label>
                               <select class="form-select" name="txtPaket" id="paket" class="form-control" tabindex="-1" disabled autocomplete="off" required>
                                 <option selected="selected">Silahkan pilih jenis foto terlebih dahulu</option>
@@ -187,7 +187,7 @@ setlocale(LC_TIME, 'id_ID');
                             </div>
 
 
-                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <label for="email">Background*</label>
                               <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
                                 <option selected>Pilih</option>
@@ -203,21 +203,21 @@ setlocale(LC_TIME, 'id_ID');
                               </select>
                             </div>
 
-                            <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
+                            <div class="col-sm-12" style="padding-top: 15px">
                               <div class="form-group">
                                 <label>Email*</label>
                                 <input class="form-control" type="text" name="txtEmail" autocomplete="off" required>
                               </div>
                             </div>
 
-                            <div class="col-lg-12 col-sm-6">
+                            <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Whatsapp*</label>
                                 <input class="form-control" type="text" name="txtWhatsapp" autocomplete="off" required>
                               </div>
                             </div>
 
-                            <div class="col-lg-12 col-sm-6">
+                            <div class="col-sm-12">
                               <div class="form-group">
                                 <label>Instagram</label>
                                 <input class="form-control" type="text" autocomplete="off" name="txtInstagram">
@@ -273,19 +273,17 @@ setlocale(LC_TIME, 'id_ID');
   <script>
     // Initialize the datepicker
 
-    var dateToday = new Date();
     jQuery(function($) {
-      $('input.datepicker').datepicker({
+      $('input.datetimepicker').datepicker({
         duration: '',
         changeMonth: false,
         changeYear: false,
         yearRange: '2010:2020',
         showTime: false,
-        time24h: true,
-        minDate: dateToday
+        time24h: true
       });
 
-      $.datepicker.regional['in'] = {
+      $.datepicker.regional['cs'] = {
         monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
           'September', 'Oktober', 'November', 'Desember'
         ],
@@ -299,8 +297,7 @@ setlocale(LC_TIME, 'id_ID');
         yearSuffix: ''
       };
 
-
-      $.datepicker.setDefaults($.datepicker.regional['in']);
+      $.datepicker.setDefaults($.datepicker.regional['cs']);
     });
 
     // $(function() {
@@ -309,65 +306,24 @@ setlocale(LC_TIME, 'id_ID');
   </script>
 
   <script>
-    $(document).ready(function() {
-      // Mendapatkan waktu sekarang
-      var now = new Date();
-
-      // Inisialisasi datepicker
+    $(function() {
       $('#datepicker').datepicker({
-        minDate: now,
-        onSelect: function(selectedDate) {
-          handleDateChange(selectedDate);
-        }
+        language: "es",
+        autoclose: true,
+        format: "dd/mm/yyyy"
       });
 
 
-      $(function() {
-        var now = new Date();
-        var openingTime = new Date(now);
-        var closingTime = new Date(now);
+    });
 
-        openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
-        closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
-
-        // Initialize the timepicker with a 20-minute interval
-        $('#timepicker').timepicker({
-          timeFormat: 'H:i',
-          interval: 20,
-          step: 20,
-          dynamic: false,
-          dropdown: true,
-          scrollbar: true,
-          minTime: openingTime,
-          maxTime: closingTime,
-          disableTimeRanges: getDisabledRanges()
-        });
-
-        function getDisabledRanges() {
-          var disabledRanges = [];
-          var currentTime = new Date();
-
-          if (currentTime < openingTime) {
-            // Jika sekarang sebelum jam buka, nonaktifkan waktu sampai jam buka
-            disabledRanges.push(['12:00am', formatTime(openingTime)]);
-          } else if (currentTime >= closingTime) {
-            // Jika sekarang setelah jam tutup, nonaktifkan semua waktu
-            disabledRanges.push(['12:00am', '11:59pm']);
-          } else {
-            // Jika sekarang di antara jam buka dan jam tutup, nonaktifkan waktu sampai sekarang
-            disabledRanges.push(['12:00am', formatTime(currentTime)]);
-          }
-
-          return disabledRanges;
-        }
-
-        function formatTime(date) {
-          return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
-        }
-      });
-
-
-
+    $(function() {
+      $('#timepicker').timepicker(
+        timeFormat: 'HH:mm',
+        interval: 15,
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+      );
     });
   </script>
 
