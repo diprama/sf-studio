@@ -249,8 +249,9 @@ if (isset($_POST['btnSubmit'])) {
 
                           <div class="btn-area mt-10">
                             <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
-                            <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>
+
                           </div>
+                          <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>
 
                           </form>
 
