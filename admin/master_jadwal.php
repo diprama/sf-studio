@@ -48,7 +48,7 @@ $jam_tutup = $myData['jam_tutup'];
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">DataTables</h2>
+                        <h2 class="content-header-title float-start mb-0">Settings</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Master Data</a>
