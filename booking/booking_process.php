@@ -97,6 +97,7 @@ if (isset($_POST['btnSubmit'])) {
       ('$txtNama','$txtEmail','$txtWhatsapp','$txtJenis','$txtPaket','$txtBackground','$txtInstagram','$txtTanggal','$txtWaktu','$txtStatus') ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
+    // ambil id nya
      $last_id = mysqli_insert_id($koneksidb);
    # Validasi Insert Sukses
     if ($myQry) {

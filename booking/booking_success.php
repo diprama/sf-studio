@@ -1,6 +1,25 @@
 <?php
 include "library/inc.connection.php";
-$nama = isset($_GET['name']) ? $_GET['name'] : '';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+
+// panggil data dari database
+$mySql  = "SELECT * from booking where id ='$id'";
+$myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+$myData = mysqli_fetch_array($myQry);
+
+// ambil data by id nya
+
+$nama = $myData['nama'];
+$email = $myData['email'];
+$no_wa = $myData['no_wa'];
+$jenis = $myData['jenis'];
+$paket = $myData['paket'];
+$background = $myData['background'];
+$tanggal = $myData['tanggal'];
+$jam = $myData['jam'];
+$username = isset($myData['username']) ? $myData['username'] :'';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -129,8 +148,9 @@ $nama = isset($_GET['name']) ? $_GET['name'] : '';
                               3. Kirim bukti pembayaran melalui no WhatsApp: 085173158153</p>
                             <p> Sampai berjumpa di Self Studio :)</p>
                           </div>
+
                           <div class="btn-area mt-10">
-                            <a href="https://wa.me/6285173158153?text=Tanggal%3A+%0D%0AWaktu%3A%0D%0ANama%3A%0D%0AJenis+Foto%3A+%0D%0APilihan+Paket%3A%0D%0ABackground%3A%0D%0AEmail%3A+%0D%0ANo+WA%3A+%0D%0AUsername%C2%A0IG%3A%C2%A0" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
+                            <a href="https://wa.me/6285173158153?text=Tanggal%3A+<?= $tanggal; ?>%0D%0AWaktu%3A+<?= $jam; ?>%0D%0ANama%3A+<?= $nama; ?>%0D%0AJenis+Foto%3A+<?= $jenis; ?>%0D%0APilihan+Paket%3A+<?= $paket; ?>%0D%0ABackground%3A+<?= $background; ?>%0D%0AEmail%3A+<?= $email; ?>%0D%0ANo+WA%3A+<?= $no_wa; ?>%0D%0AUsername%C2%A0IG%3A%C2%A0<?= $username; ?>" class="btn secondary btn-large block waves-effect">Confirm Melalui WA</a>
                           </div>
                         </form>
                       </div>
