@@ -13,7 +13,7 @@ $jenis   = $Channel[0];
 $validasi = 'NO';
 $html = "";
 // validasi apakah mempunya sub part atau tidak
-$sql = mysqli_query($koneksidb, "SELECT * FROM master_jenis where jenis='$jenis' ORDER BY jenis asc");
+$sql = mysqli_query($koneksidb, "SELECT * FROM master_background where jenis='$jenis' ORDER BY jenis asc");
 // $cekQry = mysqli_query($koneksidb, $sql) or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 if (mysqli_num_rows($sql) >= 1) {
 	$validasi = 'YES';
@@ -25,7 +25,7 @@ if ($validasi != 'YES') {
 	$html .= "Jenis Foto belum ditentukan."; // Tambahkan tag option ke variabel $htm
 } else {
 	while ($data = mysqli_fetch_array($sql)) { // Ambil semua data dari hasil eksekusi $sql
-		$html .= "<option value='" . $data['paket'] . "'>" . $data['paket'] . "    </option>"; // Tambahkan tag option ke variabel $html
+		$html .= "<option value='" . $data['background'] . "'>" . $data['background'] . "    </option>"; // Tambahkan tag option ke variabel $html
 	}
 }
 // // Buat query untuk menampilkan data sub part dengan part number alias tertentu(sesuai yang dipilih user pada form)
