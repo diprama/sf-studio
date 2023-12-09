@@ -310,64 +310,65 @@ setlocale(LC_TIME, 'id_ID');
 
   <script>
     $(document).ready(function() {
-          // Mendapatkan waktu sekarang
-          var now = new Date();
+      // Mendapatkan waktu sekarang
+      var now = new Date();
 
-          // Inisialisasi datepicker
-          $('#datepicker').datepicker({
-            minDate: now,
-            onSelect: function(selectedDate) {
-              handleDateChange(selectedDate);
-            }
-          });
-
-    
-            $(function() {
-              var now = new Date();
-              var openingTime = new Date(now);
-              var closingTime = new Date(now);
-
-              openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
-              closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
-
-              // Initialize the timepicker with a 20-minute interval
-              $('#timepicker').timepicker({
-                timeFormat: 'HH:mm',
-                interval: 20,
-                dynamic: false,
-                dropdown: true,
-                scrollbar: true,
-                minTime: openingTime,
-                maxTime: closingTime,
-                disableTimeRanges: getDisabledRanges()
-              });
-
-              function getDisabledRanges() {
-                var disabledRanges = [];
-                var currentTime = new Date();
-
-                if (currentTime < openingTime) {
-                  // Jika sekarang sebelum jam buka, nonaktifkan waktu sampai jam buka
-                  disabledRanges.push(['12:00am', formatTime(openingTime)]);
-                } else if (currentTime >= closingTime) {
-                  // Jika sekarang setelah jam tutup, nonaktifkan semua waktu
-                  disabledRanges.push(['12:00am', '11:59pm']);
-                } else {
-                  // Jika sekarang di antara jam buka dan jam tutup, nonaktifkan waktu sampai sekarang
-                  disabledRanges.push(['12:00am', formatTime(currentTime)]);
-                }
-
-                return disabledRanges;
-              }
-
-              function formatTime(date) {
-                return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
-              }
-            });
-  
+      // Inisialisasi datepicker
+      $('#datepicker').datepicker({
+        minDate: now,
+        onSelect: function(selectedDate) {
+          handleDateChange(selectedDate);
+        }
+      });
 
 
-  });
+      $(function() {
+        var now = new Date();
+        var openingTime = new Date(now);
+        var closingTime = new Date(now);
+
+        openingTime.setHours(8, 0, 0); // Jam buka pukul 08:00
+        closingTime.setHours(16, 0, 0); // Jam tutup pukul 16:00
+
+        // Initialize the timepicker with a 20-minute interval
+        $('#timepicker').timepicker({
+          timeFormat: 'H:i',
+          interval: 20,
+          step: 20,
+          dynamic: false,
+          dropdown: true,
+          scrollbar: true,
+          minTime: openingTime,
+          maxTime: closingTime,
+          disableTimeRanges: getDisabledRanges()
+        });
+
+        function getDisabledRanges() {
+          var disabledRanges = [];
+          var currentTime = new Date();
+
+          if (currentTime < openingTime) {
+            // Jika sekarang sebelum jam buka, nonaktifkan waktu sampai jam buka
+            disabledRanges.push(['12:00am', formatTime(openingTime)]);
+          } else if (currentTime >= closingTime) {
+            // Jika sekarang setelah jam tutup, nonaktifkan semua waktu
+            disabledRanges.push(['12:00am', '11:59pm']);
+          } else {
+            // Jika sekarang di antara jam buka dan jam tutup, nonaktifkan waktu sampai sekarang
+            disabledRanges.push(['12:00am', formatTime(currentTime)]);
+          }
+
+          return disabledRanges;
+        }
+
+        function formatTime(date) {
+          return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+        }
+      });
+
+
+
+    });
   </script>
 
 
