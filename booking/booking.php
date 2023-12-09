@@ -4,6 +4,24 @@ include_once "library/inc.connection.php";
 
 // Set the locale to a foreign language (e.g., French)
 setlocale(LC_TIME, 'id_ID');
+
+
+session_start();
+
+// Inisialisasi variabel
+$selectedDate = null;
+
+// Cek apakah bidang diisi
+if (isset($_POST['namaField']) && !empty($_POST['namaField'])) {
+  // Jika diisi, simpan tanggal yang dipilih
+  $selectedDate = $_POST['selectedDate'];
+  $_SESSION['selectedDate'] = $selectedDate;
+}
+
+// Handle reset tanggal jika bidang diubah
+if (isset($_POST['namaField']) && empty($_POST['namaField'])) {
+  $_SESSION['selectedDate'] = null;
+}
 ?>
 
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
@@ -144,7 +162,7 @@ setlocale(LC_TIME, 'id_ID');
                             <div class="col-6 ">
                               <div class="form-group">
                                 <label>Tanggal*</label>
-                                <input class="form-control" id='tanggal' placeholder="Pilih Tanggal" type="date" name="txtTanggal" autocomplete="off" required>
+                                <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="date" name="txtTanggal" autocomplete="off" required>
                               </div>
                             </div>
 
@@ -224,6 +242,16 @@ setlocale(LC_TIME, 'id_ID');
                             <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Booking</button>
                           </div>
                         </form>
+
+                        <form method="post" action="">
+                          <label for="namaField">Nama Field:</label>
+                          <input type="text" id="namaField" name="namaField" required>
+
+                          <label for="datepicker">Pilih Tanggal:</label>
+                          <input type="text" id="datepicker" name="selectedDate" value="<?= $selectedDate ?>">
+
+                          <button type="submit">Submit</button>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -250,9 +278,9 @@ setlocale(LC_TIME, 'id_ID');
   <!-- <script src="./assets/js/vendors/materialize.js"></script> -->
   <script src="./assets/js/scripts.js"></script>
   <!-- Chaindrop -->
+  <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
+  <script src="js3/chaindropdown/config.js" type="text/javascript"></script>
   <script src="js_tanggal/chaindropdown/config.js" type="text/javascript"></script>
-  <!-- <script src="js2/chaindropdown/config.js" type="text/javascript"></script>
-  <script src="js3/chaindropdown/config.js" type="text/javascript"></script> -->
 
 
   <!-- Include jQuery library -->
