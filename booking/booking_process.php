@@ -69,7 +69,6 @@ if (isset($_POST['btnSubmit'])) {
   } catch (Exception $e) {
     echo "Gagal mengirim email: {$mail->ErrorInfo}";
   }
-  exit;
 
 
   # Baca IP Address
