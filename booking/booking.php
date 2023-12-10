@@ -191,7 +191,11 @@ if (isset($_POST['btnSubmit'])) {
                                         }
                                         // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
                                       }
-                                      else { ?>
+                                      else {
+                                          // jadwal jam yang tersedia
+                                          $jam = date("H:i", strtotime($myData['jam']));
+                                        ?>
+                                      
                                         <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                      <?php } 
                                       }
