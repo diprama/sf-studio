@@ -67,13 +67,13 @@ if (isset($_POST['btnSubmit'])) {
     else
     die("Unable to locate your template file");
 
-    $formfields = "Nama: $txtNama
-Pilihan Paket: $txtPaket
-Alamat Email: $txtEmail
-No WhatsApp: $txtWhatsapp
-Background: $txtBackground
-Username Instagram: $txtInstagram
-Appointment Type: $txtJenis"; 
+    $formfields = "Nama: $txtNama <br>
+Pilihan Paket: $txtPaket <br>
+Alamat Email: $txtEmail <br>
+No WhatsApp: $txtWhatsapp <br>
+Background: $txtBackground <br>
+Username Instagram: $txtInstagram <br>
+Appointment Type: $txtJenis <br>"; 
 
     // set variable 
     $swap_var = array(
@@ -107,7 +107,7 @@ Appointment Type: $txtJenis";
     echo "Gagal mengirim email: {$mail->ErrorInfo}";
   }
 
-  exit;
+  
 
   # Baca IP Address
   $ip = $_SERVER['REMOTE_ADDR'];
