@@ -31,30 +31,42 @@
 
 			<!-- <h1 style="font-size: 22px;"><center>{EMAIL_TITLE}</center></h1> -->
 
-			<p class="stylefont">{TO_NAME}</p>
-			<p class="stylefont">{HEADER}</p>
+			<p class="stylefont">{NAME}</p>
+			<p class="stylefont">Terimakasih, kamu sudah melakukan booking pada {DATE}. </p>
 
 
-			<p class="stylefont">{ISI_PESAN}.</p>
+			<p class="stylefont">Tim kami akan segera menghubungi kamu melalui no WhatsApp
+				<b>0851-7315-8153</b>
+
+				Silahkan langsung bertanya jika ada yang ingin dikonfirmasi melalui Instagram atau WhatsApp yaa :)
+
+				Terimakasih dan sampai berjumpa di SF Studio :D
+
+				<hr />
+
+				<b>Ketentuan:</b>
+				1. Pembayaran yang sudah dilakukan tidak bisa dikembalikan.
+				2. Kamu bisa mengatur ulang jadwal hanya 1x dalam rentang waktu 1 hari sebelum hari foto.
+				3. Dianjurkan 10 menit sebelumnya sudah berada di studio.
+				4. Keterlambatan tanpa konfirmasi dianggap membatalkan booking dan pembayaran tidak bisa dikembalikan.
+				5. Anak dibawah 1 tahun tidak dikenakan biaya tambahan.
+
+
+				<hr/>
+
+				<b>Formulir Booking</b>
+				{FORMFIELDS}
+			</p>
 
 
 
-			<p style="justify-content: center; margin-top: 10px;">
+			<!-- <p style="justify-content: center; margin-top: 10px;">
 				<center>
 					<a href="{URLTIKETV}" target="_blank" style="border: 1px solid #0561B3; background-color: #238CEA; 
 					color: #fff; text-decoration: none; font-size: 18px; padding: 10px 20px;">Closed Your Ticket</a>
 				</center>
-			</p>
+			</p> -->
 
-
-			<p class="stylefont">----------------- </p>
-			<p class="stylefont">ID Tiket: {ID_TIKET} <br>
-				Subyek: {SUBYEK} <br>
-				Status: {STATUS} <br>
-				URL Ticket: {URLTIKET} <br>
-			</p>
-			<p class="stylefont">----------------- </p>
-			<p class="stylefont">{FOOTER}</p>
 
 
 
