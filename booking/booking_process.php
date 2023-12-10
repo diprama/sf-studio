@@ -58,10 +58,27 @@ if (isset($_POST['btnSubmit'])) {
     $mail->setFrom('official@sf-selfstudio.com', 'Admin');
     $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
 
+
+    // set lokasi template email
+      $template_file = "email_customer.php";
+    // cek template nya ready atau tidak
+    if (file_exists($template_file))
+      $email_message = file_get_contents($template_file);
+    else
+    die("Unable to locate your template file");
+
+    // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
+    foreach (array_keys($swap_var) as $key) {
+      if (strlen($key) > 2 && trim($swap_var[$key]) != '')
+      $email_message = str_replace($key, $swap_var[$key], $email_message);
+    }
+
+
+
     // Set informasi email
     $mail->isHTML(true);
-    $mail->Subject = 'Test';
-    $mail->Body = 'Test';
+    $mail->MsgHTML($email_message);
+    $mail->Subject = 'Notifikasi Email Customer';
 
     // Kirim email
     $mail->send();
