@@ -107,6 +107,7 @@ Appointment Type: $txtJenis";
     echo "Gagal mengirim email: {$mail->ErrorInfo}";
   }
 
+  exit;
 
   # Baca IP Address
   $ip = $_SERVER['REMOTE_ADDR'];
