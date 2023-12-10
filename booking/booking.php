@@ -169,20 +169,32 @@ if (isset($_POST['btnSubmit'])) {
                                       # code...
                                       // panggil database
                                       echo "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
-
-                                      $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' order by j.jam asc;";
+                                      
+                                      $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                       while ($myData = mysqli_fetch_array($myQry)) {
-                                        $jamsekarang = date("H:i", strtotime("+60 minutes"));
 
+                                        // set tanggal hari ini
+                                        $hariini = date('Y-m-d');
+
+                                        // jika tanggal yang dipilih hari ini, set validasi
+                                        if ($hariini == $txtTanggal) {
+                                        // set jam sekarang tambah 1 jam
+                                        $jamsekarang = date("H:i", strtotime("+60 minutes"));
+                                        // jadwal jam yang tersedia
                                         $jam = date("H:i", strtotime($myData['jam']));
+                                        // tampilkan daftar jam minimal 1 jam dari jam sekarang
                                         if ($jam > $jamsekarang) {
                                     ?>
-
                                           <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                       <?php
                                         }
-                                      };
+                                        // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
+                                      }
+                                      else { ?>
+                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                     <?php } 
+                                      }
                                     } else { ?>
                                       <option selected>Pilih Tanggal Terlebih Dahulu</option>
 
