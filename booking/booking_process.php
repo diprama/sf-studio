@@ -95,7 +95,7 @@ Appointment Type: $txtJenis <br>";
     // Set informasi email
     $mail->isHTML(true);
     $mail->MsgHTML($email_message);
-    $mail->Subject = 'SF Self Photo Studio Booking';
+    $mail->Subject = 'SF Self Photo Studio Booking';
 
     // Kirim email
     $mail->send();
@@ -129,7 +129,7 @@ Appointment Type: $txtJenis <br>";
 
 
     // set lokasi template email
-    $template_file = "email_customer.php";
+    $template_file = "email_admin.php";
     // cek template nya ready atau tidak
     if (file_exists($template_file))
     $email_message = file_get_contents($template_file);
