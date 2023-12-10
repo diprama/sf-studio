@@ -31,6 +31,7 @@
 
 			<p class="stylefont">
 				<b>{NAME}</b> Booking pada <b>{DATE}</b>
+				<hr />
 				<br>
 
 				<b>Formulir Booking</b>
@@ -38,7 +39,6 @@
 
 				{FORMFIELDS}
 
-				<hr />
 			</p>
 
 
