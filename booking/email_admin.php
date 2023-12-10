@@ -29,36 +29,16 @@
 				moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; -khtml-border-radius: 10px;
 				border-color: #A3D0F8; border-width: 4px 1px; border-style: solid;">
 
-			<!-- <h1 style="font-size: 22px;"><center>{EMAIL_TITLE}</center></h1> -->
-
-			<p class="stylefont">{NAME}</p>
-			<p class="stylefont">Terimakasih, kamu sudah melakukan booking pada <b>{DATE}.</b> </p>
-
-
-			<p class="stylefont">Tim kami akan segera menghubungi kamu <br>
-				melalui no WhatsApp <b>0851-7315-8153</b>
+			<p class="stylefont">
+				<b>{NAME}</b> Booking pada <b>{DATE}</b>
 				<br>
-				Silahkan langsung bertanya jika ada yang ingin dikonfirmasi melalui Instagram atau WhatsApp yaa :)
-				<br>
-
-				Terimakasih dan sampai berjumpa di SF Studio :D
-
-				<hr />
-
-				<b>Ketentuan:</b><br>
-				1. Pembayaran yang sudah dilakukan tidak bisa dikembalikan. <br>
-				2. Kamu bisa mengatur ulang jadwal hanya 1x dalam rentang waktu 1 hari sebelum hari foto. <br>
-				3. Dianjurkan 10 menit sebelumnya sudah berada di studio. <br>
-				4. Keterlambatan tanpa konfirmasi dianggap membatalkan booking dan pembayaran tidak bisa dikembalikan. <br>
-				5. Anak dibawah 1 tahun tidak dikenakan biaya tambahan. <br>
-
-
-				<hr />
 
 				<b>Formulir Booking</b>
 				<br>
 
 				{FORMFIELDS}
+
+				<hr />
 			</p>
 
 
