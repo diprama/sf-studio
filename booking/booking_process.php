@@ -67,6 +67,15 @@ if (isset($_POST['btnSubmit'])) {
     else
     die("Unable to locate your template file");
 
+    // set variable 
+    $swap_var = array(
+      "{SITE_ADDR}" => "https://www.heytuts.com",
+      "{EMAIL_LOGO}" => "uploads/NEX.png",
+      "{EMAIL_TITLE}" => "Notification",
+      "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
+      "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png"
+    );
+
     // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
     foreach (array_keys($swap_var) as $key) {
       if (strlen($key) > 2 && trim($swap_var[$key]) != '')
