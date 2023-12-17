@@ -15,10 +15,10 @@ if (isset($_POST['btnSubmit'])) {
   $txtTanggal   = $_POST['txtTanggal'];
   // ganti format tanggal
   $originalDate = "$txtTanggal";
-  echo $txtTanggal = date("Y-m-d", strtotime($originalDate));
+  $txtTanggal = date("Y-m-d", strtotime($originalDate));
 
 
-  echo $nama_hari = date("I", strtotime($txtTanggal));
+  echo $nama_hari = date("l", strtotime($txtTanggal));
   // echo "Hari ini adalah: " . $nama_hari;
   exit;
 }
