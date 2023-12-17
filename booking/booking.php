@@ -196,22 +196,28 @@ if (isset($_POST['btnSubmit'])) {
                                         $jam = date("H:i", strtotime($myData['jam']));
                                         // tampilkan daftar jam minimal 1 jam dari jam sekarang
                                         if ($jam > $jamsekarang) {
+                                          // jika hari seniin maka tutup
+                                       if ($nama_hari =='Monday') { ?>
+                                        <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
+                                     <?php } else {
                                     ?>
                                           <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                       <?php
                                         }
-                                        // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
                                       }
-                                      else if ($nama_hari =='Monday') { ?>
-                                        <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
-                                        
-                                     <?php } else {
+                                        // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
+                                      } else {
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
                                         ?>
-                                      
-                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
-                                     <?php } 
+                                   <?php    if ($nama_hari =='Monday') { ?>
+                                        <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
+                                     <?php } else {
+                                    ?>
+                                          <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                      <?php
+                                        }
+                                      }
                                       }
                                     } else { ?>
                                       <option selected>Pilih Tanggal Terlebih Dahulu</option>
