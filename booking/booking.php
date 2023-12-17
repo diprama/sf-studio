@@ -202,7 +202,10 @@ if (isset($_POST['btnSubmit'])) {
                                         }
                                         // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
                                       }
-                                      else {
+                                      else if ($nama_hari =='Monday') { ?>
+                                        <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
+                                        
+                                     <?php } else {
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
                                         ?>
