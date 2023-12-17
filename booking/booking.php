@@ -18,9 +18,8 @@ if (isset($_POST['btnSubmit'])) {
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
 
 
-  echo $nama_hari = date("l", strtotime($txtTanggal));
+  $nama_hari = date("l", strtotime($txtTanggal));
   // echo "Hari ini adalah: " . $nama_hari;
-  exit;
 }
 ?>
 
@@ -175,8 +174,12 @@ if (isset($_POST['btnSubmit'])) {
                                       // panggil database
                                       echo "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
 
+                                      if ($nama_hari == 'Sunday') {
+                                        $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam >='12:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                      } else {
+                                        $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                      }
 
-                                      $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                       while ($myData = mysqli_fetch_array($myQry)) {
 
