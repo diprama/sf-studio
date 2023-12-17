@@ -30,7 +30,7 @@
 				border-color: #A3D0F8; border-width: 4px 1px; border-style: solid;">
 
 			<p class="stylefont">
-				<b>{NAME}</b> Booking pada <b>{DATE}</b>
+				<b>{NAME}</b> Booking pada tanggal <b>{DATE}</b> di jam <b>{TIME}</b>
 				<hr />
 				<br>
 
