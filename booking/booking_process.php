@@ -81,6 +81,7 @@ Appointment Type: $txtJenis <br>";
       "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png",
       "{NAME}" => 'Hi ' . $txtNama,
       "{DATE}" =>  $txtTanggal,
+      "{TIME}" =>  $txtWaktu,
       "{FORMFIELDS}" => $formfields
     );
 
@@ -123,8 +124,8 @@ Appointment Type: $txtJenis <br>";
 
     // Set informasi pengirim dan penerima
     $mail2->setFrom('official@sf-selfstudio.com', 'Admin');
-    // $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
-    $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
+    $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
+    // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
 
 
 
