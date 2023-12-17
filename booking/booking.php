@@ -18,7 +18,7 @@ if (isset($_POST['btnSubmit'])) {
   echo $txtTanggal = date("Y-m-d", strtotime($originalDate));
 
 
-  $nama_hari = date("I", strtotime($txtTanggal));
+  echo $nama_hari = date("I", strtotime($txtTanggal));
   // echo "Hari ini adalah: " . $nama_hari;
   exit;
 }
