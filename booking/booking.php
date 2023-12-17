@@ -16,6 +16,11 @@ if (isset($_POST['btnSubmit'])) {
   // ganti format tanggal
   $originalDate = "$txtTanggal";
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
+
+
+  $nama_hari = date("I", strtotime($txtTanggal));
+  echo "Hari ini adalah: " . $nama_hari;
+  exit;
 }
 ?>
 
@@ -169,7 +174,8 @@ if (isset($_POST['btnSubmit'])) {
                                       # code...
                                       // panggil database
                                       echo "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
-                                      
+
+
                                       $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                       while ($myData = mysqli_fetch_array($myQry)) {
