@@ -69,7 +69,7 @@ include "library/inc.connection.php";
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking order by updated_date desc";
+                                    $mySql   = "SELECT * FROM booking order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
