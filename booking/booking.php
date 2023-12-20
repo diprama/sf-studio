@@ -7,7 +7,6 @@ setlocale(LC_TIME, 'id_ID');
 
 $txtTanggal = '';
 if (isset($_POST['btnSubmit'])) {
-exit;
 
   $pesanError = array();
   // set validasi
