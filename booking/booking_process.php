@@ -11,7 +11,6 @@ require 'library/PHPMailer/src/SMTP.php';
 
 if (isset($_POST['btnSubmit'])) {
 
-exit;
   $pesanError = array();
   // set validasi
   // if (trim($_POST['txtUser']) == "") {
