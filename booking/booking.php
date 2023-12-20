@@ -7,7 +7,7 @@ setlocale(LC_TIME, 'id_ID');
 
 $txtTanggal = '';
 if (isset($_POST['btnSubmit'])) {
-
+exit;
 
   $pesanError = array();
   // set validasi
@@ -190,34 +190,34 @@ if (isset($_POST['btnSubmit'])) {
 
                                         // jika tanggal yang dipilih hari ini, set validasi
                                         if ($hariini == $txtTanggal) {
-                                        // set jam sekarang tambah 1 jam
-                                        $jamsekarang = date("H:i", strtotime("+60 minutes"));
-                                        // jadwal jam yang tersedia
-                                        $jam = date("H:i", strtotime($myData['jam']));
-                                        // tampilkan daftar jam minimal 1 jam dari jam sekarang
-                                        if ($jam > $jamsekarang) {
-                                          // jika hari seniin maka tutup
-                                       if ($nama_hari =='Monday') { ?>
-                                        <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
-                                     <?php } else {
-                                    ?>
-                                          <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
-                                      <?php
-                                        }
-                                      }
-                                        // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
-                                      } else {
+                                          // set jam sekarang tambah 1 jam
+                                          $jamsekarang = date("H:i", strtotime("+60 minutes"));
                                           // jadwal jam yang tersedia
                                           $jam = date("H:i", strtotime($myData['jam']));
-                                        ?>
-                                   <?php    if ($nama_hari =='Monday') { ?>
-                                        <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
-                                     <?php } else {
-                                    ?>
-                                          <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                          // tampilkan daftar jam minimal 1 jam dari jam sekarang
+                                          if ($jam > $jamsekarang) {
+                                            // jika hari seniin maka tutup
+                                            if ($nama_hari == 'Monday') { ?>
+                                              <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
+                                            <?php } else {
+                                            ?>
+                                              <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                          <?php
+                                            }
+                                          }
+                                          // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
+                                        } else {
+                                          // jadwal jam yang tersedia
+                                          $jam = date("H:i", strtotime($myData['jam']));
+                                          ?>
+                                          <?php if ($nama_hari == 'Monday') { ?>
+                                            <option value="#"><?php echo 'Mohon maaf studio tutup' ?></option>;
+                                          <?php } else {
+                                          ?>
+                                            <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                       <?php
+                                          }
                                         }
-                                      }
                                       }
                                     } else { ?>
                                       <option selected>Pilih Tanggal Terlebih Dahulu</option>
@@ -243,7 +243,7 @@ if (isset($_POST['btnSubmit'])) {
                               <div class="col-lg-12 col-sm-6">
                                 <label for="email">Jenis Foto*</label>
                                 <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
-                                  <option selected>Pilih</option>
+                                  <option selected value="">Pilih</option>
                                   <?php
                                   // panggil database
                                   $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
@@ -267,7 +267,7 @@ if (isset($_POST['btnSubmit'])) {
                               <div class="col-lg-12 col-sm-6" style="padding-top: 15px">
                                 <label for="email">Background*</label>
                                 <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
-                                  <option selected>Pilih</option>
+                                  <option selected value="">Pilih</option>
                                   <?php
                                   // panggil database
                                   $mySql  = "SELECT * from master_background order by id asc";
