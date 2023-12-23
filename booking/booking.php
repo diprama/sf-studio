@@ -29,7 +29,7 @@ if (isset($_POST['btnSubmit'])) {
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Alexstrap Education - HTML5 Bootstrap Landing Page Template">
+  <meta name="description" content="SF SELFSTUDIO">
   <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"><!-- Favicon-->
   <link rel="shortcut icon" href="./assets/favicons/favicon.ico">
   <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicons/apple-icon-57x57.png">

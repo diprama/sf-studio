@@ -23,8 +23,9 @@ if (isset($_POST['btnSubmit'])) {
   # Baca variabel form
   $txtTanggal   = $_POST['txtTanggal'];
   // ganti format tanggal
-  $originalDate = "$txtTanggal";
-   $txtTanggal = date("Y-m-d", strtotime($originalDate));
+  $originalDate = $txtTanggal;
+  echo  $txtTanggal = date("Y-m-d", strtotime($originalDate));
+  exit;
    $txtWaktu = $_POST['txtWaktu'];
   $txtJenis = $_POST['txtJenis'];
   $txtPaket = $_POST['txtPaket'];
