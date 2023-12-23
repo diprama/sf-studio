@@ -78,8 +78,7 @@ if (isset($_POST['btnSubmit'])) {
   }
 
   $hari_ini = hari_ini();
-  echo $hari_ini;
-exit;
+
 
   // Kirim email customer
   // Inisialisasi PHPMailer
@@ -199,7 +198,7 @@ Appointment Type: $txtJenis <br>";
       "{NAME}" => 'Hi ' . $txtNama,
       "{DATE}" =>  $txtTanggal,
       "{TIME}" =>  $txtWaktu,
-      "{HARI}" =>  $txtWaktu,
+      "{HARI}" =>  $hari_ini,
       "{FORMFIELDS}" => $formfields
     );
 
