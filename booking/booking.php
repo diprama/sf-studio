@@ -62,8 +62,8 @@ if (isset($_POST['btnSubmit'])) {
   <meta property="twitter:card" content="summary">
   <meta property="twitter:image:src" content="./assets/images/logo.png">
   <meta property="og:url" content="alexstrap.ux-maestro.com/education">
-  <meta property="og:title" content="Education">
-  <meta property="og:description" content="Alexstrap Education - HTML5 Bootstrap Landing Page Template">
+  <meta property="og:title" content="SELF STUDIO">
+  <meta property="og:description" content="SELFSTUDIO - Photo Studio & Event Photobooth">
   <meta name="twitter:site" content="alexstrap.ux-maestro.com/education">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/education-logo.png">
