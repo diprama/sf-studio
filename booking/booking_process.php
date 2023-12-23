@@ -37,7 +37,8 @@ if (isset($_POST['btnSubmit'])) {
 
   function hari_ini()
   {
-    $hari = date("D", strtotime($originalDate));
+    $txtTanggal = $_POST['txtTanggal'];
+    $hari = date("D", strtotime($txtTanggal));
 
     switch ($hari) {
       case 'Sun':
