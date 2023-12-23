@@ -35,6 +35,49 @@ if (isset($_POST['btnSubmit'])) {
   $txtInstagram = isset($_POST['txtInstagram']) ? $_POST['txtInstagram']:'';
   $txtStatus = 'Dibuat';
 
+  function hari_ini()
+  {
+    $hari = date("D", strtotime($originalDate));
+
+    switch ($hari) {
+      case 'Sun':
+        $hari_ini = "Minggu";
+        break;
+
+      case 'Mon':
+        $hari_ini = "Senin";
+        break;
+
+      case 'Tue':
+        $hari_ini = "Selasa";
+        break;
+
+      case 'Wed':
+        $hari_ini = "Rabu";
+        break;
+
+      case 'Thu':
+        $hari_ini = "Kamis";
+        break;
+
+      case 'Fri':
+        $hari_ini = "Jumat";
+        break;
+
+      case 'Sat':
+        $hari_ini = "Sabtu";
+        break;
+
+      default:
+        $hari_ini = "Tidak di ketahui";
+        break;
+    }
+
+    return "<b>" . $hari_ini . "</b>";
+  }
+
+  echo "Hari ini adalah " . hari_ini();
+exit;
 
   // Kirim email customer
   // Inisialisasi PHPMailer
@@ -154,6 +197,7 @@ Appointment Type: $txtJenis <br>";
       "{NAME}" => 'Hi ' . $txtNama,
       "{DATE}" =>  $txtTanggal,
       "{TIME}" =>  $txtWaktu,
+      "{HARI}" =>  $txtWaktu,
       "{FORMFIELDS}" => $formfields
     );
 
