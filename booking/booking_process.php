@@ -77,7 +77,8 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
-  echo "Hari ini adalah " . hari_ini();
+  $hari_ini = hari_ini();
+  echo $hari_ini;
 exit;
 
   // Kirim email customer
