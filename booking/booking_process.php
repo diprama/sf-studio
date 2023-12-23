@@ -167,8 +167,8 @@ Appointment Type: $txtJenis <br>";
 
     // Set informasi pengirim dan penerima
     $mail2->setFrom('official@sf-selfstudio.com', 'Admin');
-    // $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
-    $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
+    $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
+    // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
 
 
 
