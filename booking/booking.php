@@ -8,6 +8,7 @@ setlocale(LC_TIME, 'id_ID');
 $txtTanggal = '';
 if (isset($_POST['btnSubmit'])) {
 
+  $tanggal_sekarang = date('Y-m-d');
   $pesanError = array();
   // set validasi
   # Baca variabel form
@@ -19,6 +20,10 @@ if (isset($_POST['btnSubmit'])) {
 
   $nama_hari = date("l", strtotime($txtTanggal));
   // echo "Hari ini adalah: " . $nama_hari;
+
+  if ($txtTanggal < $tanggal_sekarang) {
+    $txtTanggal ='';
+  }
 }
 ?>
 
