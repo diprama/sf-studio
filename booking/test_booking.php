@@ -33,17 +33,39 @@ if (isset($_POST['btnSubmit'])) {
     font-family: Arial, sans-serif;
   }
 
-  .container {
-    text-align: center;
+  #calendar-container {
+    max-width: 300px;
+    margin: 20px auto;
   }
 
   #calendar {
-    display: none;
-    position: absolute;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #fff;
-    z-index: 1;
+    display: inline-block;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #calendar th,
+  #calendar td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  #calendar th {
+    background-color: #f2f2f2;
+  }
+
+  #calendar td {
+    cursor: pointer;
+  }
+
+  #selected-date {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  #month-year-select {
+    margin-bottom: 10px;
   }
 </style>
 
@@ -105,6 +127,8 @@ if (isset($_POST['btnSubmit'])) {
   <link href="./assets/css/vendors/slick-carousel/slick.css" rel="stylesheet">
   <link href="./assets/css/vendors/slick-carousel/slick-theme.css" rel="stylesheet">
   <link href="./assets/css/styles.css" rel="stylesheet">
+  <link href="assets/css/date-picker.css" rel="stylesheet">
+
   <!-- font-awesome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- timepicker style -->
@@ -343,11 +367,78 @@ if (isset($_POST['btnSubmit'])) {
                           <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
 
                             <div class="col-12 ">
-                              <div class="container">
-                                <label for="tanggal">Pilih Tanggal:</label>
-                                <input type="text" id="tanggal" name="tanggal" readonly>
-                                <button onclick="showCalendar()">Pilih Tanggal</button>
-                                <div id="calendar" class="calendar"></div>
+                              <div class="wrapper">
+
+                                <h1>Simple Calendar Date Picker Example</h1>
+
+                                <div class="container-calendar">
+
+                                  <div class="button-container-calendar">
+
+                                    <button id="previous">&#8249;</button>
+
+                                    <button id="next">&#8250;</button>
+
+                                    <h3 id="monthHeader"></h3>
+
+                                    <p id="yearHeader"></p>
+
+                                  </div>
+
+
+
+                                  <table class="table-calendar" id="calendar">
+
+                                    <thead id="thead-month"></thead>
+
+                                    <tbody id="calendar-body"></tbody>
+
+                                  </table>
+
+
+
+                                  <div class="footer-container-calendar">
+
+                                    <label for="month">Jump To: </label>
+
+                                    <select id="month">
+
+                                      <option value=0>Jan</option>
+
+                                      <option value=1>Feb</option>
+
+                                      <option value=2>Mar</option>
+
+                                      <option value=3>Apr</option>
+
+                                      <option value=4>May</option>
+
+                                      <option value=5>Jun</option>
+
+                                      <option value=6>Jul</option>
+
+                                      <option value=7>Aug</option>
+
+                                      <option value=8>Sep</option>
+
+                                      <option value=9>Oct</option>
+
+                                      <option value=10>Nov</option>
+
+                                      <option value=11>Dec</option>
+
+                                    </select>
+
+                                    <select id="year"></select>
+
+                                  </div>
+
+
+
+                                  <p id="date-picked"></p>
+
+                                </div>
+
                               </div>
                             </div>
 
@@ -370,6 +461,7 @@ if (isset($_POST['btnSubmit'])) {
       </div>
     </div>
   </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
+  <script src="assets/js/date-picker.js"></script>
   <script src="./assets/js/vendors/jquery.min.js"></script>
   <script src="./assets/js/vendors/bootstrap.min.js"></script>
   <script src="./assets/js/vendors/enquire.min.js"></script>
@@ -401,56 +493,52 @@ if (isset($_POST['btnSubmit'])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const inputTanggal = document.getElementById('tanggal');
-      const calendar = document.getElementById('calendar');
+    document.addEventListener("DOMContentLoaded", function() {
+      const calendarContainer = document.getElementById("calendar-container");
+      const calendarBody = document.querySelector("#calendar tbody");
+      const selectedDateElement = document.getElementById("selected-date");
+      const monthSelect = document.getElementById("month");
+      const yearInput = document.getElementById("year");
 
-      inputTanggal.addEventListener('focus', function() {
-        showCalendar();
-      });
-
-      function showCalendar() {
-        calendar.style.display = 'block';
-        drawCalendar();
-        document.addEventListener('click', closeCalendar);
-      }
-
-      function drawCalendar() {
+      function generateCalendar() {
         const currentDate = new Date();
-        const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth();
+        const year = parseInt(yearInput.value) || currentDate.getFullYear();
+        const month = parseInt(monthSelect.value) || currentDate.getMonth();
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const daysInMonth = lastDay.getDate();
+        const startDay = firstDay.getDay();
 
-        let calendarHTML = '<table>';
-        calendarHTML += '<tr><th>Min</th><th>Sen</th><th>Sel</th><th>Rab</th><th>Kam</th><th>Jum</th><th>Sab</th></tr>';
+        calendarBody.innerHTML = "";
+
+        let date = 1;
         for (let i = 0; i < 6; i++) {
-          calendarHTML += '<tr>';
+          const row = document.createElement("tr");
           for (let j = 0; j < 7; j++) {
-            const dayIndex = i * 7 + j;
-            const day = dayIndex - (currentDate.getDay() - 1);
-            const displayDate = new Date(currentYear, currentMonth, day);
-            if (displayDate.getMonth() === currentMonth) {
-              calendarHTML += '<td onclick="selectDate(' + displayDate.getTime() + ')">' + displayDate.getDate() + '</td>';
+            const cell = document.createElement("td");
+            if ((i === 0 && j < startDay) || date > daysInMonth) {
+              cell.textContent = "";
             } else {
-              calendarHTML += '<td></td>';
+              cell.textContent = date;
+              cell.addEventListener("click", function() {
+                const selectedDate = new Date(year, month, date);
+                selectedDateElement.textContent = `Selected Date: ${selectedDate.toDateString()}`;
+                simulateFormSubmission(selectedDate);
+              });
+              date++;
             }
+            row.appendChild(cell);
           }
-          calendarHTML += '</tr>';
+          calendarBody.appendChild(row);
         }
-        calendarHTML += '</table>';
-        calendar.innerHTML = calendarHTML;
       }
 
-      function selectDate(timestamp) {
-        const selectedDate = new Date(timestamp);
-        const formattedDate = selectedDate.toLocaleDateString();
-        inputTanggal.value = formattedDate;
-        closeCalendar();
+      function simulateFormSubmission(selectedDate) {
+        console.log("Submitting form with selected date:", selectedDate.toISOString());
+        // Add your actual form submission logic here
       }
 
-      function closeCalendar() {
-        calendar.style.display = 'none';
-        document.removeEventListener('click', closeCalendar);
-      }
+      generateCalendar();
     });
   </script>
 
