@@ -366,7 +366,7 @@ if (isset($_POST['btnSubmit'])) {
                           <!-- jika tanggal belum diisi -->
                           
                           <div class="">
-                                <div class="container-calendar">
+                                <div class="">
                                   
                                   <div class="button-container-calendar">
                                     
