@@ -33,39 +33,17 @@ if (isset($_POST['btnSubmit'])) {
     font-family: Arial, sans-serif;
   }
 
-  #calendar-container {
-    max-width: 300px;
-    margin: 20px auto;
-  }
-
-  #calendar {
-    display: inline-block;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  #calendar th,
-  #calendar td {
-    border: 1px solid #ddd;
-    padding: 8px;
+  .container {
     text-align: center;
   }
 
-  #calendar th {
-    background-color: #f2f2f2;
-  }
-
-  #calendar td {
-    cursor: pointer;
-  }
-
-  #selected-date {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-
-  #month-year-select {
-    margin-bottom: 10px;
+  #calendar {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 1;
   }
 </style>
 
@@ -364,41 +342,13 @@ if (isset($_POST['btnSubmit'])) {
                           <!-- jika tanggal belum diisi -->
                           <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
 
-                            <div id="calendar-container">
-                              <div id="month-year-select">
-                                <label for="month">Month:</label>
-                                <select id="month" onchange="generateCalendar()">
-                                  <option value="0">January</option>
-                                  <option value="1">February</option>
-                                  <option value="2">March</option>
-                                  <option value="3">April</option>
-                                  <option value="4">May</option>
-                                  <option value="5">June</option>
-                                  <option value="6">July</option>
-                                  <option value="7">August</option>
-                                  <option value="8">September</option>
-                                  <option value="9">October</option>
-                                  <option value="10">November</option>
-                                  <option value="11">December</option>
-                                </select>
-                                <label for="year">Year:</label>
-                                <input type="number" id="year" min="1970" value="2024" oninput="generateCalendar()">
+                            <div class="col-12 ">
+                              <div class="container">
+                                <label for="tanggal">Pilih Tanggal:</label>
+                                <input type="text" id="tanggal" name="tanggal" readonly>
+                                <button onclick="showCalendar()">Pilih Tanggal</button>
+                                <div id="calendar" class="calendar"></div>
                               </div>
-                              <table id="calendar">
-                                <thead>
-                                  <tr>
-                                    <th>Sun</th>
-                                    <th>Mon</th>
-                                    <th>Tue</th>
-                                    <th>Wed</th>
-                                    <th>Thu</th>
-                                    <th>Fri</th>
-                                    <th>Sat</th>
-                                  </tr>
-                                </thead>
-                                <tbody></tbody>
-                              </table>
-                              <div id="selected-date"></div>
                             </div>
 
 
@@ -451,52 +401,56 @@ if (isset($_POST['btnSubmit'])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const calendarContainer = document.getElementById("calendar-container");
-      const calendarBody = document.querySelector("#calendar tbody");
-      const selectedDateElement = document.getElementById("selected-date");
-      const monthSelect = document.getElementById("month");
-      const yearInput = document.getElementById("year");
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputTanggal = document.getElementById('tanggal');
+      const calendar = document.getElementById('calendar');
 
-      function generateCalendar() {
+      inputTanggal.addEventListener('focus', function() {
+        showCalendar();
+      });
+
+      function showCalendar() {
+        calendar.style.display = 'block';
+        drawCalendar();
+        document.addEventListener('click', closeCalendar);
+      }
+
+      function drawCalendar() {
         const currentDate = new Date();
-        const year = parseInt(yearInput.value) || currentDate.getFullYear();
-        const month = parseInt(monthSelect.value) || currentDate.getMonth();
-        const firstDay = new Date(year, month, 1);
-        const lastDay = new Date(year, month + 1, 0);
-        const daysInMonth = lastDay.getDate();
-        const startDay = firstDay.getDay();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
 
-        calendarBody.innerHTML = "";
-
-        let date = 1;
+        let calendarHTML = '<table>';
+        calendarHTML += '<tr><th>Min</th><th>Sen</th><th>Sel</th><th>Rab</th><th>Kam</th><th>Jum</th><th>Sab</th></tr>';
         for (let i = 0; i < 6; i++) {
-          const row = document.createElement("tr");
+          calendarHTML += '<tr>';
           for (let j = 0; j < 7; j++) {
-            const cell = document.createElement("td");
-            if ((i === 0 && j < startDay) || date > daysInMonth) {
-              cell.textContent = "";
+            const dayIndex = i * 7 + j;
+            const day = dayIndex - (currentDate.getDay() - 1);
+            const displayDate = new Date(currentYear, currentMonth, day);
+            if (displayDate.getMonth() === currentMonth) {
+              calendarHTML += '<td onclick="selectDate(' + displayDate.getTime() + ')">' + displayDate.getDate() + '</td>';
             } else {
-              cell.textContent = date;
-              cell.addEventListener("click", function() {
-                const selectedDate = new Date(year, month, date);
-                selectedDateElement.textContent = `Selected Date: ${selectedDate.toDateString()}`;
-                simulateFormSubmission(selectedDate);
-              });
-              date++;
+              calendarHTML += '<td></td>';
             }
-            row.appendChild(cell);
           }
-          calendarBody.appendChild(row);
+          calendarHTML += '</tr>';
         }
+        calendarHTML += '</table>';
+        calendar.innerHTML = calendarHTML;
       }
 
-      function simulateFormSubmission(selectedDate) {
-        console.log("Submitting form with selected date:", selectedDate.toISOString());
-        // Add your actual form submission logic here
+      function selectDate(timestamp) {
+        const selectedDate = new Date(timestamp);
+        const formattedDate = selectedDate.toLocaleDateString();
+        inputTanggal.value = formattedDate;
+        closeCalendar();
       }
 
-      generateCalendar();
+      function closeCalendar() {
+        calendar.style.display = 'none';
+        document.removeEventListener('click', closeCalendar);
+      }
     });
   </script>
 
