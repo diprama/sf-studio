@@ -366,11 +366,7 @@ if (isset($_POST['btnSubmit'])) {
                           <!-- jika tanggal belum diisi -->
                           <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
 
-                            <div class="col-12 ">
                               <div class="wrapper">
-
-                                <h1>Simple Calendar Date Picker Example</h1>
-
                                 <div class="container-calendar">
 
                                   <div class="button-container-calendar">
@@ -440,7 +436,6 @@ if (isset($_POST['btnSubmit'])) {
                                 </div>
 
                               </div>
-                            </div>
 
 
                             <div class="btn-area mt-10">
