@@ -29,10 +29,6 @@ if (isset($_POST['btnSubmit'])) {
 ?>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-  }
-
   #calendar-container {
     max-width: 300px;
     margin: 20px auto;
