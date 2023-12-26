@@ -29,6 +29,10 @@ if (isset($_POST['btnSubmit'])) {
 ?>
 
 <style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
   #calendar-container {
     max-width: 300px;
     margin: 20px auto;
@@ -58,6 +62,10 @@ if (isset($_POST['btnSubmit'])) {
   #selected-date {
     margin-top: 10px;
     font-weight: bold;
+  }
+
+  #month-year-select {
+    margin-bottom: 10px;
   }
 </style>
 
@@ -358,6 +366,25 @@ if (isset($_POST['btnSubmit'])) {
 
                             <div class="col-12 ">
                               <div id="calendar-container">
+                                <div id="month-year-select">
+                                  <label for="month">Month:</label>
+                                  <select id="month" onchange="generateCalendar()">
+                                    <option value="0">January</option>
+                                    <option value="1">February</option>
+                                    <option value="2">March</option>
+                                    <option value="3">April</option>
+                                    <option value="4">May</option>
+                                    <option value="5">June</option>
+                                    <option value="6">July</option>
+                                    <option value="7">August</option>
+                                    <option value="8">September</option>
+                                    <option value="9">October</option>
+                                    <option value="10">November</option>
+                                    <option value="11">December</option>
+                                  </select>
+                                  <label for="year">Year:</label>
+                                  <input type="number" id="year" min="1970" value="2023" oninput="generateCalendar()">
+                                </div>
                                 <table id="calendar">
                                   <thead>
                                     <tr>
@@ -430,8 +457,12 @@ if (isset($_POST['btnSubmit'])) {
       const calendarContainer = document.getElementById("calendar-container");
       const calendarBody = document.querySelector("#calendar tbody");
       const selectedDateElement = document.getElementById("selected-date");
+      const monthSelect = document.getElementById("month");
+      const yearInput = document.getElementById("year");
 
-      function generateCalendar(year, month) {
+      function generateCalendar() {
+        const year = parseInt(yearInput.value);
+        const month = parseInt(monthSelect.value);
         const firstDay = new Date(year, month, 1);
         const lastDay = new Date(year, month + 1, 0);
         const daysInMonth = lastDay.getDate();
@@ -445,15 +476,12 @@ if (isset($_POST['btnSubmit'])) {
           for (let j = 0; j < 7; j++) {
             const cell = document.createElement("td");
             if ((i === 0 && j < startDay) || date > daysInMonth) {
-              // Add empty cells before the first day and after the last day
               cell.textContent = "";
             } else {
               cell.textContent = date;
               cell.addEventListener("click", function() {
                 const selectedDate = new Date(year, month, date);
                 selectedDateElement.textContent = `Selected Date: ${selectedDate.toDateString()}`;
-                // You can perform auto-submit or any other action here
-                // For demonstration, let's simulate a form submission
                 simulateFormSubmission(selectedDate);
               });
               date++;
@@ -465,41 +493,11 @@ if (isset($_POST['btnSubmit'])) {
       }
 
       function simulateFormSubmission(selectedDate) {
-        // Replace this with your actual form submission logic
         console.log("Submitting form with selected date:", selectedDate.toISOString());
+        // Add your actual form submission logic here
       }
 
-      const currentDate = new Date();
-      let currentYear = currentDate.getFullYear();
-      let currentMonth = currentDate.getMonth();
-
-      generateCalendar(currentYear, currentMonth);
-
-      // Example: Next month button
-      const nextMonthButton = document.createElement("button");
-      nextMonthButton.textContent = "Next Month";
-      nextMonthButton.addEventListener("click", function() {
-        currentMonth++;
-        if (currentMonth > 11) {
-          currentMonth = 0;
-          currentYear++;
-        }
-        generateCalendar(currentYear, currentMonth);
-      });
-      calendarContainer.appendChild(nextMonthButton);
-
-      // Example: Previous month button
-      const prevMonthButton = document.createElement("button");
-      prevMonthButton.textContent = "Previous Month";
-      prevMonthButton.addEventListener("click", function() {
-        currentMonth--;
-        if (currentMonth < 0) {
-          currentMonth = 11;
-          currentYear--;
-        }
-        generateCalendar(currentYear, currentMonth);
-      });
-      calendarContainer.appendChild(prevMonthButton);
+      generateCalendar();
     });
   </script>
 
