@@ -136,23 +136,7 @@ if (isset($_POST['btnSubmit'])) {
 
 <body>
 
-  <div id="calendar-container">
-    <table id="calendar">
-      <thead>
-        <tr>
-          <th>Sun</th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thu</th>
-          <th>Fri</th>
-          <th>Sat</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <div id="selected-date"></div>
-  </div>
+
 
   <div id="preloader" style="position: fixed; z-index: 10000; background: #fafafa; width: 100%; height: 100%"><img style="opacity: 0.5; position: fixed; top: calc(50% - 50px); left: calc(50% - 50px)" src="./assets/images/loading.gif" alt="loading"></div>
   <div class="m-application theme--light transition-page" id="app">
@@ -377,9 +361,22 @@ if (isset($_POST['btnSubmit'])) {
                           <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
 
                             <div class="col-12 ">
-                              <div class="form-group">
-                                <label>Tanggal*</label>
-                                <input class="form-control" id='datepicker' placeholder="Pilih Tanggal" type="text" name="txtTanggal" autocomplete="off" required>
+                              <div id="calendar-container">
+                                <table id="calendar">
+                                  <thead>
+                                    <tr>
+                                      <th>Sun</th>
+                                      <th>Mon</th>
+                                      <th>Tue</th>
+                                      <th>Wed</th>
+                                      <th>Thu</th>
+                                      <th>Fri</th>
+                                      <th>Sat</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody></tbody>
+                                </table>
+                                <div id="selected-date"></div>
                               </div>
                             </div>
 
