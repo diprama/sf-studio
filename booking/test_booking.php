@@ -375,19 +375,14 @@ if (isset($_POST['btnSubmit'])) {
                                     <button id="next">&#8250;</button>
                                     
                                     <h3 id="monthHeader"></h3>
-                                    
                                     <p id="yearHeader"></p>
-                                    
                                   </div>
-                                  
-                                  
-                                  
                                   <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
                                   <table class="table-calendar" id="calendar">
 
                                     <thead id="thead-month"></thead>
 
-                                    <tbody id="calendar-body"></tbody>
+                                    <!-- <tbody id="calendar-body"></tbody> -->
 
                                   </table>
 
