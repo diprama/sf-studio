@@ -68,7 +68,7 @@ function showCalendar(month, year) {
   var monthString = monthsArr[month];
 
   table = document.getElementById("calendar-body");
-  table.innerHTML = ""; 
+  table.innerHTML = "";
   monthHeader.innerHTML = monthString.substring(0, 3);
   yearHeader.innerHTML = year;
   selectYear.value = year;
@@ -76,7 +76,7 @@ function showCalendar(month, year) {
 
   var date = 1;
 
-  for (var i = 0; i < 6; i++ ) {
+  for (var i = 0; i < 6; i++) {
     var row = document.createElement("tr");
 
     for (var j = 0; j < 7; j++) {
@@ -95,22 +95,37 @@ function showCalendar(month, year) {
         cell.setAttribute("data-month-name", months[month]);
         cell.className = "date-picker";
         cell.innerHTML = "<span>" + date + "</span>";
-        cell.onclick = function(event) {
-          var dates = document.querySelectorAll(".date-picker");
-          var currentTarget = event.currentTarget;
-          var date = currentTarget.dataset.date;
-          var month = currentTarget.dataset.month - 1;
-          var year = currentTarget.dataset.year;
 
-          for (var i = 0; i < dates.length; i++) {
-            dates[i].classList.remove("selected");
-          }
+        // Tambahkan validasi tanggal yang sudah lewat
+        var currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0); // Set jam ke 00:00:00
 
-          currentTarget.classList.add("selected");
-          datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
+        var cellDate = new Date(year, month, date);
+        if (cellDate < currentDate) {
+          cell.classList.add("disabled");
+          cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
+        } else {
+          cell.onclick = function (event) {
+            var dates = document.querySelectorAll(".date-picker");
+            var currentTarget = event.currentTarget;
+            var date = currentTarget.dataset.date;
+            var month = currentTarget.dataset.month - 1;
+            var year = currentTarget.dataset.year;
+
+            for (var i = 0; i < dates.length; i++) {
+              dates[i].classList.remove("selected");
+            }
+
+            currentTarget.classList.add("selected");
+            datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
+          };
         }
 
-        if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+        if (
+          date === today.getDate() &&
+          year === today.getFullYear() &&
+          month === today.getMonth()
+        ) {
           cell.className = "date-picker selected";
         }
 
@@ -118,6 +133,10 @@ function showCalendar(month, year) {
         date++;
       }
     }
+
+    table.appendChild(row);
+  }
+}
 
     table.appendChild(row);
   }
