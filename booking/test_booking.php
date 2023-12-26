@@ -2,6 +2,7 @@
 include_once "library/inc.connection.php";
 
 
+
 // Set the locale to a foreign language (e.g., French)
 setlocale(LC_TIME, 'id_ID');
 
@@ -22,10 +23,52 @@ if (isset($_POST['btnSubmit'])) {
   // echo "Hari ini adalah: " . $nama_hari;
 
   if ($txtTanggal < $tanggal_sekarang) {
-    $txtTanggal ='';
+    $txtTanggal = '';
   }
 }
 ?>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  #calendar-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  #calendar {
+    display: none;
+    margin-top: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid #ddd;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  td:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+  }
+</style>
 
 <!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
 <!-- Dilarang mengcopy , memperbanyak atau menggunakan source code ini dalam bentuk apapun tanpa izin tertulis dari PT. Rentas Media Indonesia. -->
@@ -97,6 +140,15 @@ if (isset($_POST['btnSubmit'])) {
 </head>
 
 <body>
+
+  <div id="calendar-container">
+    <form method="post" action="process.php">
+      <input type="text" id="date-input" name="selected_date" placeholder="Pilih tanggal" readonly>
+      <div id="calendar"></div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
   <div id="preloader" style="position: fixed; z-index: 10000; background: #fafafa; width: 100%; height: 100%"><img style="opacity: 0.5; position: fixed; top: calc(50% - 50px); left: calc(50% - 50px)" src="./assets/images/loading.gif" alt="loading"></div>
   <div class="m-application theme--light transition-page" id="app">
     <div class="loading"></div>
@@ -375,91 +427,62 @@ if (isset($_POST['btnSubmit'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
-
   <script>
-    // Initialize the datepicker
+    document.addEventListener("DOMContentLoaded", function() {
+      const dateInput = document.getElementById("date-input");
+      const calendarContainer = document.getElementById("calendar");
 
-    var dateToday = new Date();
-    jQuery(function($) {
-      $('input.datepicker').datepicker({
-        duration: '',
-        changeMonth: false,
-        changeYear: false,
-        yearRange: '2010:2020',
-        showTime: false,
-        time24h: true,
-        minDate: dateToday
+      dateInput.addEventListener("focus", function() {
+        calendarContainer.style.display = "block";
+        generateCalendar();
       });
 
-      $.datepicker.regional['in'] = {
-        monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
-          'September', 'Oktober', 'November', 'Desember'
-        ],
-        monthNamesShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čer', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
-        dayNames: ['Minggi', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-        dayNamesShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
-        dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
-        firstDay: 1,
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: ''
-      };
+      document.addEventListener("click", function(event) {
+        const isCalendarClick = calendarContainer.contains(event.target);
+        const isInputClick = dateInput.contains(event.target);
 
-
-      $.datepicker.setDefaults($.datepicker.regional['in']);
-    });
-
-    // $(function() {
-
-    // });
-  </script>
-
-  <script>
-    $(document).ready(function() {
-      // Mendapatkan waktu sekarang
-      var now = new Date();
-      var currentDate = new Date();
-
-      // Mendapatkan jam buka dan jam tutup
-      var openingTime = new Date(currentDate);
-      openingTime.setHours(8, 0, 0, 0);
-
-      var closingTime = new Date(currentDate);
-      closingTime.setHours(16, 0, 0, 0);
-      // Inisialisasi datepicker
-      // Inisialisasi datepicker
-      $('#datepicker').datepicker({
-        minDate: 0, // Tidak bisa memilih tanggal kemarin
-        // Fungsi yang dipanggil setiap kali datepicker diubah
-        onSelect: function(dateText, inst) {
-          // Mendapatkan tanggal yang dipilih dari datepicker
-          var selectedDate = $(this).datepicker('getDate');
-
-          // Jika tanggal yang dipilih sama dengan hari ini
-          if (selectedDate.getTime() === currentDate.getTime()) {
-            // Menyaring waktu yang sudah berlalu
-            var disabledTimes = [];
-            for (var i = currentDate.getHours(); i < 24; i++) {
-              disabledTimes.push(i + ':00');
-            }
-            // Mengatur waktu yang sudah berlalu untuk dinonaktifkan
-            inst.settings.disableTimeRanges = [disabledTimes];
-          } else {
-            // Jika bukan hari ini, munculkan semua waktu
-            inst.settings.minTime = '08:00';
-            inst.settings.maxTime = '16:00';
-            // Reset waktu yang sudah berlalu
-            inst.settings.disableTimeRanges = [];
-          }
-
-          // Reset nilai pada timepicker jika tanggal diganti
-          $('#timepicker').val('');
+        if (!isCalendarClick && !isInputClick) {
+          calendarContainer.style.display = "none";
         }
       });
 
+      function generateCalendar() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
 
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
 
+        let calendarHTML = "<table>";
+        calendarHTML += "<tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr>";
 
+        let day = 1;
+        for (let i = 0; i < 6; i++) {
+          calendarHTML += "<tr>";
+          for (let j = 0; j < 7; j++) {
+            if (day <= daysInMonth) {
+              calendarHTML += `<td>${day}</td>`;
+              day++;
+            } else {
+              calendarHTML += "<td></td>";
+            }
+          }
+          calendarHTML += "</tr>";
+        }
+
+        calendarHTML += "</table>";
+
+        calendarContainer.innerHTML = calendarHTML;
+
+        const days = document.querySelectorAll("#calendar td:not(:empty)");
+        days.forEach((day) => {
+          day.addEventListener("click", function() {
+            const selectedDate = new Date(year, month, this.innerText);
+            dateInput.value = selectedDate.toISOString().split("T")[0];
+            calendarContainer.style.display = "none";
+          });
+        });
+      }
     });
   </script>
 
