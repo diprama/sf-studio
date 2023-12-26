@@ -34,39 +34,34 @@ if (isset($_POST['btnSubmit'])) {
   }
 
   #calendar-container {
-    text-align: center;
-    margin-top: 50px;
+    max-width: 300px;
+    margin: 20px auto;
   }
 
   #calendar {
-    display: none;
-    margin-top: 10px;
-  }
-
-  table {
+    display: inline-block;
     border-collapse: collapse;
     width: 100%;
   }
 
-  table,
-  th,
-  td {
+  #calendar th,
+  #calendar td {
     border: 1px solid #ddd;
-  }
-
-  th,
-  td {
-    padding: 10px;
+    padding: 8px;
     text-align: center;
   }
 
-  th {
+  #calendar th {
     background-color: #f2f2f2;
   }
 
-  td:hover {
-    background-color: #e6e6e6;
+  #calendar td {
     cursor: pointer;
+  }
+
+  #selected-date {
+    margin-top: 10px;
+    font-weight: bold;
   }
 </style>
 
@@ -142,11 +137,21 @@ if (isset($_POST['btnSubmit'])) {
 <body>
 
   <div id="calendar-container">
-    <form method="post" action="process.php">
-      <input type="text" id="date-input" name="selected_date" placeholder="Pilih tanggal" readonly>
-      <div id="calendar"></div>
-      <input type="submit" value="Submit">
-    </form>
+    <table id="calendar">
+      <thead>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="selected-date"></div>
   </div>
 
   <div id="preloader" style="position: fixed; z-index: 10000; background: #fafafa; width: 100%; height: 100%"><img style="opacity: 0.5; position: fixed; top: calc(50% - 50px); left: calc(50% - 50px)" src="./assets/images/loading.gif" alt="loading"></div>
@@ -429,60 +434,79 @@ if (isset($_POST['btnSubmit'])) {
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const dateInput = document.getElementById("date-input");
-      const calendarContainer = document.getElementById("calendar");
+      const calendarContainer = document.getElementById("calendar-container");
+      const calendarBody = document.querySelector("#calendar tbody");
+      const selectedDateElement = document.getElementById("selected-date");
 
-      dateInput.addEventListener("focus", function() {
-        calendarContainer.style.display = "block";
-        generateCalendar();
-      });
+      function generateCalendar(year, month) {
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const daysInMonth = lastDay.getDate();
+        const startDay = firstDay.getDay();
 
-      document.addEventListener("click", function(event) {
-        const isCalendarClick = calendarContainer.contains(event.target);
-        const isInputClick = dateInput.contains(event.target);
+        calendarBody.innerHTML = "";
 
-        if (!isCalendarClick && !isInputClick) {
-          calendarContainer.style.display = "none";
-        }
-      });
-
-      function generateCalendar() {
-        const currentDate = new Date();
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth();
-
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-        let calendarHTML = "<table>";
-        calendarHTML += "<tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr>";
-
-        let day = 1;
+        let date = 1;
         for (let i = 0; i < 6; i++) {
-          calendarHTML += "<tr>";
+          const row = document.createElement("tr");
           for (let j = 0; j < 7; j++) {
-            if (day <= daysInMonth) {
-              calendarHTML += `<td>${day}</td>`;
-              day++;
+            const cell = document.createElement("td");
+            if ((i === 0 && j < startDay) || date > daysInMonth) {
+              // Add empty cells before the first day and after the last day
+              cell.textContent = "";
             } else {
-              calendarHTML += "<td></td>";
+              cell.textContent = date;
+              cell.addEventListener("click", function() {
+                const selectedDate = new Date(year, month, date);
+                selectedDateElement.textContent = `Selected Date: ${selectedDate.toDateString()}`;
+                // You can perform auto-submit or any other action here
+                // For demonstration, let's simulate a form submission
+                simulateFormSubmission(selectedDate);
+              });
+              date++;
             }
+            row.appendChild(cell);
           }
-          calendarHTML += "</tr>";
+          calendarBody.appendChild(row);
         }
-
-        calendarHTML += "</table>";
-
-        calendarContainer.innerHTML = calendarHTML;
-
-        const days = document.querySelectorAll("#calendar td:not(:empty)");
-        days.forEach((day) => {
-          day.addEventListener("click", function() {
-            const selectedDate = new Date(year, month, this.innerText);
-            dateInput.value = selectedDate.toISOString().split("T")[0];
-            calendarContainer.style.display = "none";
-          });
-        });
       }
+
+      function simulateFormSubmission(selectedDate) {
+        // Replace this with your actual form submission logic
+        console.log("Submitting form with selected date:", selectedDate.toISOString());
+      }
+
+      const currentDate = new Date();
+      let currentYear = currentDate.getFullYear();
+      let currentMonth = currentDate.getMonth();
+
+      generateCalendar(currentYear, currentMonth);
+
+      // Example: Next month button
+      const nextMonthButton = document.createElement("button");
+      nextMonthButton.textContent = "Next Month";
+      nextMonthButton.addEventListener("click", function() {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        generateCalendar(currentYear, currentMonth);
+      });
+      calendarContainer.appendChild(nextMonthButton);
+
+      // Example: Previous month button
+      const prevMonthButton = document.createElement("button");
+      prevMonthButton.textContent = "Previous Month";
+      prevMonthButton.addEventListener("click", function() {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        generateCalendar(currentYear, currentMonth);
+      });
+      calendarContainer.appendChild(prevMonthButton);
     });
   </script>
 
