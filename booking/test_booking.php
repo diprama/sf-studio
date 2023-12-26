@@ -364,43 +364,41 @@ if (isset($_POST['btnSubmit'])) {
                           <!-- jika tanggal belum diisi -->
                           <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
 
-                            <div class="col-12 ">
-                              <div id="calendar-container">
-                                <div id="month-year-select">
-                                  <label for="month">Month:</label>
-                                  <select id="month" onchange="generateCalendar()">
-                                    <option value="0">January</option>
-                                    <option value="1">February</option>
-                                    <option value="2">March</option>
-                                    <option value="3">April</option>
-                                    <option value="4">May</option>
-                                    <option value="5">June</option>
-                                    <option value="6">July</option>
-                                    <option value="7">August</option>
-                                    <option value="8">September</option>
-                                    <option value="9">October</option>
-                                    <option value="10">November</option>
-                                    <option value="11">December</option>
-                                  </select>
-                                  <label for="year">Year:</label>
-                                  <input type="number" id="year" min="1970" value="2023" oninput="generateCalendar()">
-                                </div>
-                                <table id="calendar">
-                                  <thead>
-                                    <tr>
-                                      <th>Sun</th>
-                                      <th>Mon</th>
-                                      <th>Tue</th>
-                                      <th>Wed</th>
-                                      <th>Thu</th>
-                                      <th>Fri</th>
-                                      <th>Sat</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody></tbody>
-                                </table>
-                                <div id="selected-date"></div>
+                            <div id="calendar-container">
+                              <div id="month-year-select">
+                                <label for="month">Month:</label>
+                                <select id="month" onchange="generateCalendar()">
+                                  <option value="0">January</option>
+                                  <option value="1">February</option>
+                                  <option value="2">March</option>
+                                  <option value="3">April</option>
+                                  <option value="4">May</option>
+                                  <option value="5">June</option>
+                                  <option value="6">July</option>
+                                  <option value="7">August</option>
+                                  <option value="8">September</option>
+                                  <option value="9">October</option>
+                                  <option value="10">November</option>
+                                  <option value="11">December</option>
+                                </select>
+                                <label for="year">Year:</label>
+                                <input type="number" id="year" min="1970" value="2024" oninput="generateCalendar()">
                               </div>
+                              <table id="calendar">
+                                <thead>
+                                  <tr>
+                                    <th>Sun</th>
+                                    <th>Mon</th>
+                                    <th>Tue</th>
+                                    <th>Wed</th>
+                                    <th>Thu</th>
+                                    <th>Fri</th>
+                                    <th>Sat</th>
+                                  </tr>
+                                </thead>
+                                <tbody></tbody>
+                              </table>
+                              <div id="selected-date"></div>
                             </div>
 
 
@@ -461,8 +459,9 @@ if (isset($_POST['btnSubmit'])) {
       const yearInput = document.getElementById("year");
 
       function generateCalendar() {
-        const year = parseInt(yearInput.value);
-        const month = parseInt(monthSelect.value);
+        const currentDate = new Date();
+        const year = parseInt(yearInput.value) || currentDate.getFullYear();
+        const month = parseInt(monthSelect.value) || currentDate.getMonth();
         const firstDay = new Date(year, month, 1);
         const lastDay = new Date(year, month + 1, 0);
         const daysInMonth = lastDay.getDate();
