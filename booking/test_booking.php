@@ -492,55 +492,6 @@ if (isset($_POST['btnSubmit'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const calendarContainer = document.getElementById("calendar-container");
-      const calendarBody = document.querySelector("#calendar tbody");
-      const selectedDateElement = document.getElementById("selected-date");
-      const monthSelect = document.getElementById("month");
-      const yearInput = document.getElementById("year");
-
-      function generateCalendar() {
-        const currentDate = new Date();
-        const year = parseInt(yearInput.value) || currentDate.getFullYear();
-        const month = parseInt(monthSelect.value) || currentDate.getMonth();
-        const firstDay = new Date(year, month, 1);
-        const lastDay = new Date(year, month + 1, 0);
-        const daysInMonth = lastDay.getDate();
-        const startDay = firstDay.getDay();
-
-        calendarBody.innerHTML = "";
-
-        let date = 1;
-        for (let i = 0; i < 6; i++) {
-          const row = document.createElement("tr");
-          for (let j = 0; j < 7; j++) {
-            const cell = document.createElement("td");
-            if ((i === 0 && j < startDay) || date > daysInMonth) {
-              cell.textContent = "";
-            } else {
-              cell.textContent = date;
-              cell.addEventListener("click", function() {
-                const selectedDate = new Date(year, month, date);
-                selectedDateElement.textContent = `Selected Date: ${selectedDate.toDateString()}`;
-                simulateFormSubmission(selectedDate);
-              });
-              date++;
-            }
-            row.appendChild(cell);
-          }
-          calendarBody.appendChild(row);
-        }
-      }
-
-      function simulateFormSubmission(selectedDate) {
-        console.log("Submitting form with selected date:", selectedDate.toISOString());
-        // Add your actual form submission logic here
-      }
-
-      generateCalendar();
-    });
-  </script>
 
 
 
