@@ -364,25 +364,25 @@ if (isset($_POST['btnSubmit'])) {
 
                         <?php } else { ?>
                           <!-- jika tanggal belum diisi -->
-                          <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
-
-                              <div class="wrapper">
+                          
+                          <div class="wrapper">
                                 <div class="container-calendar">
-
+                                  
                                   <div class="button-container-calendar">
-
-                                    <div id="previous">&#8249;</div>
-
-                                    <div id="next">&#8250;</div>
-
+                                    
+                                    <button id="previous">&#8249;</button>
+                                    
+                                    <button id="next">&#8250;</button>
+                                    
                                     <h3 id="monthHeader"></h3>
-
+                                    
                                     <p id="yearHeader"></p>
-
+                                    
                                   </div>
-
-
-
+                                  
+                                  
+                                  
+                                  <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
                                   <table class="table-calendar" id="calendar">
 
                                     <thead id="thead-month"></thead>
