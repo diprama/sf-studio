@@ -100,10 +100,7 @@ function showCalendar(month, year) {
         currentDate.setHours(0, 0, 0, 0); // Set jam ke 00:00:00
 
         var cellDate = new Date(year, month, date);
-        if (cellDate < currentDate) {
-          cell.classList.add("disabled");
-          cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
-        }
+      
 
 
         cell.onclick = function(event) {
@@ -123,6 +120,11 @@ function showCalendar(month, year) {
 
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "date-picker selected";
+        }
+
+        if (cellDate < currentDate) {
+          cell.classList.add("disabled");
+          cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
         }
 
         row.appendChild(cell);
