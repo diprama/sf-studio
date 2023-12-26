@@ -365,7 +365,7 @@ if (isset($_POST['btnSubmit'])) {
                         <?php } else { ?>
                           <!-- jika tanggal belum diisi -->
                           
-                          <div class="">
+                          <div class="wrapper">
                                 <div class="container-calendar">
                                   
                                   <div class="button-container-calendar">
@@ -378,7 +378,7 @@ if (isset($_POST['btnSubmit'])) {
                                     <p id="yearHeader"></p>
                                   </div>
                                   <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
-                                  <table class="table-calendar" id="calendar">
+                                  <table class="table-calendar" id="">
 
                                     <thead id="thead-month"></thead>
 
