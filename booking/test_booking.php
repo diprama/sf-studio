@@ -426,7 +426,7 @@ if (isset($_POST['btnSubmit'])) {
 
 
 
-                                  <p id="date-picked"></p>
+                                  <div name="txtTanggal" id="date-picked"></div>
 
                                 </div>
 
