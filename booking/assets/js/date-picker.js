@@ -103,23 +103,41 @@ function showCalendar(month, year) {
       
 
 
-        cell.onclick = function(event) {
-          var dates = document.querySelectorAll(".date-picker");
+        cell.onclick = function (event) {
+          var dates = document.querySelectorAll('.date-picker');
           var currentTarget = event.currentTarget;
           var date = currentTarget.dataset.date;
           var month = currentTarget.dataset.month - 1;
           var year = currentTarget.dataset.year;
 
           for (var i = 0; i < dates.length; i++) {
-            dates[i].classList.remove("selected");
+            dates[i].classList.remove('selected');
           }
 
-          currentTarget.classList.add("selected");
-          datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
+          currentTarget.classList.add('selected');
+          datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
 
           // Save to the form input
           document.getElementById('selectedDate').value = date + ' ' + monthsArr[month] + ' ' + year;
-        }
+        };
+
+        // Add an event listener for form submission
+        document.getElementById('calendarForm').addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          // You can use AJAX or fetch to send the form data to your server
+          // Example using fetch:
+          fetch('/submit-date', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(new FormData(event.target)),
+          })
+            .then(response => response.json())
+            .then(data => console.log('Data submitted:', data))
+            .catch(error => console.error('Error:', error));
+        });
 
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "date-picker selected";
