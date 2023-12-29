@@ -116,6 +116,9 @@ function showCalendar(month, year) {
 
           currentTarget.classList.add("selected");
           datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
+
+          // Save to the form input
+          document.getElementById('selectedDate').value = date + ' ' + monthsArr[month] + ' ' + year;
         }
 
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
