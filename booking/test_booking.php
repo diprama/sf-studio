@@ -429,7 +429,6 @@ if (isset($_POST['btnSubmit'])) {
 
                               <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                                 <div>
-                                  <label for="selectedDate">Selected Date:</label>
                                   <span id="date-picked"></span>
                                 </div>
 
