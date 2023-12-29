@@ -365,9 +365,9 @@ if (isset($_POST['btnSubmit'])) {
                         <?php } else { ?>
                           <!-- jika tanggal belum diisi -->
 
-                          <h2>Jam Buka</h2>
+                          <!-- <h2>Jam Buka</h2>
                           <h4>Senin 09:00 - 18:00</h4>
-                          <h4>Senin 09:00 - 18:00</h4>
+                          <h4>Senin 09:00 - 18:00</h4> -->
 
 
                           <div class="wrapper">
