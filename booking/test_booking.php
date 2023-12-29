@@ -13,7 +13,8 @@ if (isset($_POST['btnSubmit'])) {
   $pesanError = array();
   // set validasi
   # Baca variabel form
-  $txtTanggal   = $_POST['txtTanggal'];
+  echo$txtTanggal   = $_POST['selectedDate'];
+  exit;
   // ganti format tanggal
   $originalDate = "$txtTanggal";
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
@@ -364,78 +365,78 @@ if (isset($_POST['btnSubmit'])) {
 
                         <?php } else { ?>
                           <!-- jika tanggal belum diisi -->
-                          
+
                           <div class="wrapper">
-                                <div class="container-calendar">
-                                  
-                                  <div class="button-container-calendar">
-                                    
-                                    <button id="previous">&#8249;</button>
-                                    
-                                    <button id="next">&#8250;</button>
-                                    
-                                    <h3 id="monthHeader"></h3>
-                                    <p id="yearHeader"></p>
-                                  </div>
-                                  <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
-                                  <table class="table-calendar" id="">
+                            <div class="container-calendar">
 
-                                    <thead id="thead-month"></thead>
+                              <div class="button-container-calendar">
 
-                                    <tbody id="calendar-body"></tbody>
+                                <button id="previous">&#8249;</button>
 
-                                  </table>
+                                <button id="next">&#8250;</button>
 
+                                <h3 id="monthHeader"></h3>
+                                <p id="yearHeader"></p>
+                              </div>
+                              <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="form2" target="_self">
+                                <table class="table-calendar" id="">
 
+                                  <thead id="thead-month"></thead>
 
-                                  <div class="footer-container-calendar">
+                                  <tbody id="calendar-body"></tbody>
 
-                                    <label for="month">Jump To: </label>
-
-                                    <select id="month">
-
-                                      <option value=0>Jan</option>
-
-                                      <option value=1>Feb</option>
-
-                                      <option value=2>Mar</option>
-
-                                      <option value=3>Apr</option>
-
-                                      <option value=4>May</option>
-
-                                      <option value=5>Jun</option>
-
-                                      <option value=6>Jul</option>
-
-                                      <option value=7>Aug</option>
-
-                                      <option value=8>Sep</option>
-
-                                      <option value=9>Oct</option>
-
-                                      <option value=10>Nov</option>
-
-                                      <option value=11>Dec</option>
-
-                                    </select>
-
-                                    <select id="year"></select>
-
-                                  </div>
+                                </table>
 
 
 
-                                  <div name="txtTanggal" id="date-picked"></div>
+                                <div class="footer-container-calendar">
+
+                                  <label for="month">Jump To: </label>
+
+                                  <select id="month">
+
+                                    <option value=0>Jan</option>
+
+                                    <option value=1>Feb</option>
+
+                                    <option value=2>Mar</option>
+
+                                    <option value=3>Apr</option>
+
+                                    <option value=4>May</option>
+
+                                    <option value=5>Jun</option>
+
+                                    <option value=6>Jul</option>
+
+                                    <option value=7>Aug</option>
+
+                                    <option value=8>Sep</option>
+
+                                    <option value=9>Oct</option>
+
+                                    <option value=10>Nov</option>
+
+                                    <option value=11>Dec</option>
+
+                                  </select>
+
+                                  <select id="year"></select>
 
                                 </div>
 
-                              </div>
 
 
-                            <div class="btn-area mt-10">
-                              <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
+                                <div id="date-picked"></div>
+                                <input type="hidden" id="selectedDate" name="selectedDate">
                             </div>
+
+                          </div>
+
+
+                          <div class="btn-area mt-10">
+                            <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
+                          </div>
                           </form>
                         <?php  }
                         ?>
