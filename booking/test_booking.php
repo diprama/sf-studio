@@ -434,7 +434,7 @@ if (isset($_POST['btnSubmit'])) {
                                 </div>
 
                                 <!-- Hidden input field to store the selected date -->
-                                <input type="hidden" id="selectedDate" name="selectedDate">
+                                <input type="text" id="selectedDate" name="selectedDate">
 
                                 <!-- Your existing calendar code here -->
 
