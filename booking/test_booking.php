@@ -201,9 +201,9 @@ if (isset($_POST['btnSubmit'])) {
                             <h4 class="secondary"><span>BOOKING</span></h4>
                             <p class="desc use-text-subtitle2"></p>
                           </div>
-                          <!-- <a class="btn btn-flat waves-effect button-link" href="register.html">
+                          <a class="btn btn-flat waves-effect button-link" href="register.html">
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
-                          </a> -->
+                          </a>
                         </div>
 
 
