@@ -103,6 +103,7 @@ function showCalendar(month, year) {
       
 
 
+        // Modify the onclick function to include saving to the form input
         cell.onclick = function (event) {
           var dates = document.querySelectorAll('.date-picker');
           var currentTarget = event.currentTarget;
@@ -118,26 +119,17 @@ function showCalendar(month, year) {
           datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
 
           // Save to the form input
-          document.getElementById('selectedDate').value = date + ' ' + monthsArr[month] + ' ' + year;
+          document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
         };
 
-        // Add an event listener for form submission
-        document.getElementById('calendarForm').addEventListener('submit', function (event) {
-          event.preventDefault();
+        function pad(number, length) {
+          var str = '' + number;
+          while (str.length < length) {
+            str = '0' + str;
+          }
+          return str;
+        }
 
-          // You can use AJAX or fetch to send the form data to your server
-          // Example using fetch:
-          fetch('/submit-date', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(new FormData(event.target)),
-          })
-            .then(response => response.json())
-            .then(data => console.log('Data submitted:', data))
-            .catch(error => console.error('Error:', error));
-        });
 
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "date-picker selected";

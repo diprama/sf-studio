@@ -378,57 +378,68 @@ if (isset($_POST['btnSubmit'])) {
                                 <h3 id="monthHeader"></h3>
                                 <p id="yearHeader"></p>
                               </div>
-                              <form id="calendarForm" method="post" action="/submit-date">
-                                <table class="table-calendar" id="">
+                              <!-- <form id="calendarForm" method="post" action="/submit-date"> -->
+                              <table class="table-calendar" id="">
 
-                                  <thead id="thead-month"></thead>
+                                <thead id="thead-month"></thead>
 
-                                  <tbody id="calendar-body"></tbody>
+                                <tbody id="calendar-body"></tbody>
 
-                                </table>
+                              </table>
 
 
 
-                                <div class="footer-container-calendar">
+                              <div class="footer-container-calendar">
 
-                                  <label for="month">Jump To: </label>
+                                <label for="month">Jump To: </label>
 
-                                  <select id="month">
+                                <select id="month">
 
-                                    <option value=0>Jan</option>
+                                  <option value=0>Jan</option>
 
-                                    <option value=1>Feb</option>
+                                  <option value=1>Feb</option>
 
-                                    <option value=2>Mar</option>
+                                  <option value=2>Mar</option>
 
-                                    <option value=3>Apr</option>
+                                  <option value=3>Apr</option>
 
-                                    <option value=4>May</option>
+                                  <option value=4>May</option>
 
-                                    <option value=5>Jun</option>
+                                  <option value=5>Jun</option>
 
-                                    <option value=6>Jul</option>
+                                  <option value=6>Jul</option>
 
-                                    <option value=7>Aug</option>
+                                  <option value=7>Aug</option>
 
-                                    <option value=8>Sep</option>
+                                  <option value=8>Sep</option>
 
-                                    <option value=9>Oct</option>
+                                  <option value=9>Oct</option>
 
-                                    <option value=10>Nov</option>
+                                  <option value=10>Nov</option>
 
-                                    <option value=11>Dec</option>
+                                  <option value=11>Dec</option>
 
-                                  </select>
+                                </select>
 
-                                  <select id="year"></select>
+                                <select id="year"></select>
 
+                              </div>
+
+
+
+                              <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+                                <div>
+                                  <label for="selectedDate">Selected Date:</label>
+                                  <span id="date-picked"></span>
                                 </div>
 
-
-
-                                <div id="date-picked"></div>
+                                <!-- Hidden input field to store the selected date -->
                                 <input type="hidden" id="selectedDate" name="selectedDate">
+
+                                <!-- Your existing calendar code here -->
+
+                                <button type="submit">Submit</button>
+
                             </div>
 
                           </div>
