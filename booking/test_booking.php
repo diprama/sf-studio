@@ -14,7 +14,6 @@ if (isset($_POST['btnSubmit'])) {
   // set validasi
   # Baca variabel form
   echo $txtTanggal   = $_POST['selectedDate'];
-  exit;
   // ganti format tanggal
   $originalDate = "$txtTanggal";
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
