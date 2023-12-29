@@ -13,7 +13,7 @@ if (isset($_POST['btnSubmit'])) {
   $pesanError = array();
   // set validasi
   # Baca variabel form
-   $txtTanggal   = $_POST['selectedDate'];
+  $txtTanggal   = $_POST['selectedDate'];
   // ganti format tanggal
   $originalDate = "$txtTanggal";
   $txtTanggal = date("Y-m-d", strtotime($originalDate));
@@ -201,9 +201,9 @@ if (isset($_POST['btnSubmit'])) {
                             <h4 class="secondary"><span>BOOKING</span></h4>
                             <p class="desc use-text-subtitle2"></p>
                           </div>
-                          <a class="btn btn-flat waves-effect button-link" href="register.html">
+                          <!-- <a class="btn btn-flat waves-effect button-link" href="register.html">
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
-                          </a>
+                          </a> -->
                         </div>
 
 
@@ -365,6 +365,11 @@ if (isset($_POST['btnSubmit'])) {
                         <?php } else { ?>
                           <!-- jika tanggal belum diisi -->
 
+                          <h1>Jam Buka</h1>
+                          <h2>Senin 09:00 - 18:00</h2>
+                          <h2>Senin 09:00 - 18:00</h2>
+
+
                           <div class="wrapper">
                             <div class="container-calendar">
 
@@ -427,7 +432,7 @@ if (isset($_POST['btnSubmit'])) {
 
 
                               <form id="calendarForm" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-                                  <div id="date-picked"></div>
+                                <div id="date-picked"></div>
 
                                 <input type="hidden" id="selectedDate" name="selectedDate">
 
