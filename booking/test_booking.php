@@ -152,9 +152,9 @@ if (isset($_POST['btnSubmit'])) {
         <div class="page-wrap">
           <div class="hidden-md-up">
             <div class="logo logo-header">
-              <a href="index.html">
+              <!-- <a href="index.html">
                 <img src="./assets/images/logox2.png" alt="logo">
-              </a>
+              </a> -->
             </div>
           </div>
           <div class="container max-lg inner-wrap">
@@ -177,13 +177,7 @@ if (isset($_POST['btnSubmit'])) {
                         <br>
                         <br>
                         <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                     
                         <div class="logo" style="">
 
                           <img src="./assets/images/logo-sf-white.png" alt="logo" />
