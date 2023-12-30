@@ -177,7 +177,7 @@ if (isset($_POST['btnSubmit'])) {
                         <br>
                         <br>
                         <br>
-                     
+
                         <div class="logo" style="">
 
                           <img src="./assets/images/logo-sf-white.png" alt="logo" />
@@ -193,7 +193,9 @@ if (isset($_POST['btnSubmit'])) {
                         <div class="head">
                           <div class="title-main align-left">
                             <h4 class="secondary"><span>BOOKING</span></h4>
-                            <p class="desc use-text-subtitle2">teST 1</p>
+                            <p class="desc use-text-subtitle2">Jam Buka : Senin 08:00 - 19:00</p>
+                            <p class="desc use-text-subtitle2">Jam Buka : Selasa 08:00 - 19:00</p>
+
                           </div>
                           <!-- <a class="btn btn-flat waves-effect button-link" href="register.html">
                             <i class="material-icons icon left mr-1">arrow_forward</i>Create new account
@@ -352,7 +354,7 @@ if (isset($_POST['btnSubmit'])) {
                           </div>
                           <br>
                           <div>
-                            <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>    
+                            <a class="btn primary btn-large block waves-effect" href="https://sf-selfstudio.com/booking/">Pilih Ulang Tanggal</a>
                           </div>
 
                           </form>
