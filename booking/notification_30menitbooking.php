@@ -21,11 +21,10 @@ require 'library/PHPMailer/src/SMTP.php';
     $mySql   = "SELECT * FROM booking where alert_notification = 0 and status ='Dikonfirmasi' and tanggal >= '$tanggalHariIni' order by tanggal desc";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
-    $myData = mysqli_fetch_array($myQry);
     $JumlahData = mysqli_num_rows($myQry);
     // kalau data lebih dari satu, langsung sikat kirim email
     if ($JumlahData >= 1) {
-    while ($myData) {
+    while ($myData = mysqli_fetch_array($myQry)) {
 
       # Baca variabel form
       $txtTanggal   = $myData['tanggal'];
@@ -52,7 +51,8 @@ require 'library/PHPMailer/src/SMTP.php';
         $txtEmail = $myData['email'];
         $txtWhatsapp = $myData['whatsapp'];
         $txtInstagram = isset($myData['instagram']) ? $myData['instagram'] : '';
-        $txtStatus = 'Dibuat';
+      echo  $txtStatus = 'Dibuat';
+      exit;
 
         // Kirim email customer
         // Inisialisasi PHPMailer
