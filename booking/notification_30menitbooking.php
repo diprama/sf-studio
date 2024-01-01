@@ -44,7 +44,8 @@ require 'library/PHPMailer/src/SMTP.php';
       // Pengecekan kondisi
       if ($txtWaktu == $newDate) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
-        $txtJenis = $myData['jenis'];
+       echo $txtJenis = $myData['jenis'];
+       exit;
         $txtPaket = $myData['paket'];
         $txtBackground = $myData['background'];
         $txtNama = $myData['nama'];
