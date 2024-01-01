@@ -38,7 +38,7 @@ require 'library/PHPMailer/src/SMTP.php';
   echo   $waktuLimaMenitSebelum = date("H:i", strtotime("-5 minutes", strtotime($jamTentukan)));
   echo "<br>" . $waktuSekarang;
       // Pengecekan kondisi
-      if ($waktuLimaMenitSebelum == $waktuSekarang) {
+      if ('00:13' == '00:13') {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
