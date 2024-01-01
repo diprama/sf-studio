@@ -82,7 +82,7 @@ $hari_ini = hari_ini();
       // Pengecekan kondisi
       if ($waktuLimaMenitSebelum == $waktuSekarang) {
       // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
-      $no_id = $myData['id'];
+        $no_id = $myData['id'];
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
         $txtBackground = $myData['background'];
