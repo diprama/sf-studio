@@ -40,7 +40,7 @@ require 'library/PHPMailer/src/SMTP.php';
      echo $waktuLimaMenitSebelum = date("H:i:s", strtotime("-5 minutes", strtotime($txtWaktu)));
 
       // Pengecekan kondisi
-      if ($waktuLimaMenitSebelum == $waktuSekarang) {
+      if ($waktuSekarang <= $waktuLimaMenitSebelum) {
       // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
      echo   $no_id = $myData['id'];
         $txtJenis = $myData['jenis'];
