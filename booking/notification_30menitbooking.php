@@ -29,8 +29,8 @@ require 'library/PHPMailer/src/SMTP.php';
       # Baca variabel form
       $txtTanggal   = $myData['tanggal'];
       // ganti format tanggal
-      $txtWaktu = $myData['jam'];
-
+     echo $txtWaktu = $myData['jam'];
+'<br>';
       // Waktu sekarang
       $waktuSekarang = date("H:i:00");
     // Get the current timestamp
@@ -40,7 +40,7 @@ require 'library/PHPMailer/src/SMTP.php';
     $newTimestamp = strtotime('-5 minutes', $currentTimestamp);
 
     // Format the new timestamp as a date string
-     $newDate = date('H:i:00', $newTimestamp);
+   echo  $newDate = date('H:i:00', $newTimestamp);
       // Pengecekan kondisi
       if ($txtWaktu == $newDate) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
