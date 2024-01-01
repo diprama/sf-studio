@@ -37,14 +37,14 @@ require 'library/PHPMailer/src/SMTP.php';
     // Menghitung waktu lima menit sebelumnya
   echo   $waktuLimaMenitSebelum = date("H:i", strtotime("-5 minutes", strtotime($jamTentukan)));
   echo "<br>" . $waktuSekarang;
-  exit;
       // Pengecekan kondisi
       if ($waktuLimaMenitSebelum == $waktuSekarang) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
         $txtBackground = $myData['background'];
-        $txtNama = $myData['nama'];
+       echo $txtNama = $myData['nama'];
+       exit;
         $txtEmail = $myData['email'];
         $txtWhatsapp = $myData['whatsapp'];
         $txtInstagram = isset($myData['instagram']) ? $myData['instagram'] : '';
