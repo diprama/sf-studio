@@ -41,8 +41,7 @@ require 'library/PHPMailer/src/SMTP.php';
     $newTimestamp = strtotime('-5 minutes', $currentTimestamp);
 
     // Format the new timestamp as a date string
-   echo  $newDate = date('H:i:00', $newTimestamp);
-   exit;
+     $newDate = date('H:i:00', $newTimestamp);
       // Pengecekan kondisi
       if ($waktuSetengahJamSebelum == $newDate) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
