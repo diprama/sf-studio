@@ -18,8 +18,7 @@ require 'library/PHPMailer/src/SMTP.php';
 
 
   // ngecek apakah ada email yang harus di kirim atau tidak 
-   echo $mySql   = "SELECT * FROM booking where alert_notification = 0 and status ='Dikonfirmasi' and tanggal >= '$tanggalHariIni' order by tanggal desc";
-   exit;
+    $mySql   = "SELECT * FROM booking where alert_notification = 0 and status ='Dikonfirmasi' and tanggal >= '$tanggalHariIni' order by tanggal desc";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
     $myData = mysqli_fetch_array($myQry);
