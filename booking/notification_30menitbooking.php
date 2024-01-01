@@ -17,47 +17,7 @@ require 'library/PHPMailer/src/SMTP.php';
 
 function hari_ini()
 {
-  $txtTanggal = $_POST['txtTanggal'];
-  $hari = date("D", strtotime($txtTanggal));
 
-  switch ($hari) {
-    case 'Sun':
-      $hari_ini = "Minggu";
-      break;
-
-    case 'Mon':
-      $hari_ini = "Senin";
-      break;
-
-    case 'Tue':
-      $hari_ini = "Selasa";
-      break;
-
-    case 'Wed':
-      $hari_ini = "Rabu";
-      break;
-
-    case 'Thu':
-      $hari_ini = "Kamis";
-      break;
-
-    case 'Fri':
-      $hari_ini = "Jumat";
-      break;
-
-    case 'Sat':
-      $hari_ini = "Sabtu";
-      break;
-
-    default:
-      $hari_ini = "Tidak di ketahui";
-      break;
-  }
-
-  return "<b>" . $hari_ini . "</b>";
-}
-
-$hari_ini = hari_ini();
 
   // ngecek apakah ada email yang harus di kirim atau tidak 
      $mySql   = "SELECT * FROM booking where alert_notification = 0 and status ='Dikonfirmasi' and tanggal >= '$tanggalHariIni' order by tanggal desc";
@@ -91,6 +51,47 @@ $hari_ini = hari_ini();
         $txtWhatsapp = $myData['no_wa'];
         $txtInstagram = isset($myData['instagram']) ? $myData['instagram'] : '';
         $txtStatus = 'Dibuat';
+
+        $hari = date("D", strtotime($txtTanggal));
+
+        switch ($hari) {
+          case 'Sun':
+            $hari_ini = "Minggu";
+            break;
+
+          case 'Mon':
+            $hari_ini = "Senin";
+            break;
+
+          case 'Tue':
+            $hari_ini = "Selasa";
+            break;
+
+          case 'Wed':
+            $hari_ini = "Rabu";
+            break;
+
+          case 'Thu':
+            $hari_ini = "Kamis";
+            break;
+
+          case 'Fri':
+            $hari_ini = "Jumat";
+            break;
+
+          case 'Sat':
+            $hari_ini = "Sabtu";
+            break;
+
+          default:
+            $hari_ini = "Tidak di ketahui";
+            break;
+        }
+
+        return "<b>" . $hari_ini . "</b>";
+      }
+
+      $hari_ini = hari_ini();
 
         // Kirim email customer
         // Inisialisasi PHPMailer
