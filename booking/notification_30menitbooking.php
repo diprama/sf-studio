@@ -15,8 +15,6 @@ require 'library/PHPMailer/src/SMTP.php';
   $tanggalHariIni = date("Y-m-d");
 // set nama hari
 
-function hari_ini()
-{
 
 
   // ngecek apakah ada email yang harus di kirim atau tidak 
@@ -52,6 +50,10 @@ function hari_ini()
         $txtInstagram = isset($myData['instagram']) ? $myData['instagram'] : '';
         $txtStatus = 'Dibuat';
 
+
+      function hari_ini()
+      {
+        $txtTanggal = $_POST['txtTanggal'];
         $hari = date("D", strtotime($txtTanggal));
 
         switch ($hari) {
