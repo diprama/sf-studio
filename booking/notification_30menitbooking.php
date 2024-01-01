@@ -34,7 +34,7 @@ require 'library/PHPMailer/src/SMTP.php';
 
      '<br>';
     // Waktu sekarang
-  echo  $waktuSekarang = date("H:i");
+  echo  $waktuSekarang = date("H:i:00");
 exit;
       // Waktu setengah jam sebelumnya dari jam yang sudah di set customer
       $waktuSetengahJamSebelum = strtotime('-5 minutes', $txtWaktu);
