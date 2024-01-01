@@ -44,6 +44,11 @@ if ($_GET) {
       include "booking_success.php";
       break;
 
+    case 'Booking-Notification':
+      if (!file_exists("notification_30menitbooking.php")) die("Sorry Empty Page!");
+      include "notification_30menitbooking.php";
+      break;
+
 
       
     default:
