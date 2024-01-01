@@ -30,9 +30,11 @@ require 'library/PHPMailer/src/SMTP.php';
       # Baca variabel form
       $txtTanggal   = $myData['tanggal'];
       // ganti format tanggal
-      $txtWaktu = $myData['jam'];
-      // Waktu sekarang
-      $waktuSekarang = time();
+     echo $txtWaktu = $myData['jam'];
+
+     '<br>';
+     // Waktu sekarang
+    echo  $waktuSekarang = time();
       // Waktu setengah jam sebelumnya dari jam yang sudah di set customer
       $waktuSetengahJamSebelum = strtotime('-5 minutes', $txtWaktu);
       // Pengecekan kondisi
