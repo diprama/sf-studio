@@ -95,7 +95,7 @@ if (isset($_POST['btnSubmit'])) {
     $mail->Port = 587;
 
     // Set informasi pengirim dan penerima
-    $mail->setFrom('official@sf-selfstudio.com', 'Admin');
+    $mail->setFrom('official@sf-selfstudio.com', 'Self Studio');
     $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
 
 
@@ -166,7 +166,7 @@ Appointment Type: $txtJenis <br>";
     $mail2->Port = 587;
 
     // Set informasi pengirim dan penerima
-    $mail2->setFrom('official@sf-selfstudio.com', 'Admin');
+    $mail2->setFrom('official@sf-selfstudio.com', 'Self Studio');
     $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
     // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
 
