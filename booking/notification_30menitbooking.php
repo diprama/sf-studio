@@ -18,8 +18,7 @@ require 'library/PHPMailer/src/SMTP.php';
 
 
   // ngecek apakah ada email yang harus di kirim atau tidak 
-   echo $mySql   = "SELECT * FROM booking where alert_notification = 0 and status ='Dikonfirmasi' and date >= '$tanggalHariIni' order by tanggal desc";
-   exit;
+    $mySql   = "SELECT * FROM booking where alert_notification = 0 and status ='Dikonfirmasi' and date >= '$tanggalHariIni' order by tanggal desc";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
     $myData = mysqli_fetch_array($myQry);
@@ -35,8 +34,7 @@ require 'library/PHPMailer/src/SMTP.php';
       // Waktu sekarang
       $waktuSekarang = time();
       // Waktu setengah jam sebelumnya dari jam yang sudah di set customer
-     echo $waktuSetengahJamSebelum = strtotime('-30 minutes', $txtWaktu);
-exit;
+      $waktuSetengahJamSebelum = strtotime('-5 minutes', $txtWaktu);
       // Pengecekan kondisi
       if ($waktuSetengahJamSebelum == $waktuSekarang) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
