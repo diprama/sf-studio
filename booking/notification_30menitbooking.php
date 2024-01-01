@@ -35,8 +35,8 @@ if (isset($_POST['btnSubmit'])) {
       // Waktu sekarang
       $waktuSekarang = time();
       // Waktu setengah jam sebelumnya dari jam yang sudah di set customer
-      $waktuSetengahJamSebelum = strtotime('-30 minutes', $txtWaktu);
-
+     echo $waktuSetengahJamSebelum = strtotime('-30 minutes', $txtWaktu);
+exit;
       // Pengecekan kondisi
       if ($waktuSetengahJamSebelum == $waktuSekarang) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
