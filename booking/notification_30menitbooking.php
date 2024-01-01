@@ -31,16 +31,16 @@ require 'library/PHPMailer/src/SMTP.php';
        $txtWaktu = $myData['jam'];
       "<br>";
       // Waktu sekarang
-      $waktuSekarang = date("H:i");
+     echo $waktuSekarang = date("H:i");
     // Jam yang sudah ditentukan (misalnya, "13:30:00")
     // $jamTentukan = $txtWaktu . ':00';
     // Menghitung waktu lima menit sebelumnya
-     $waktuLimaMenitSebelum = date("H:i:s", strtotime("-5 minutes", strtotime($txtWaktu)));
+   echo  $waktuLimaMenitSebelum = date("H:i:s", strtotime("-5 minutes", strtotime($txtWaktu)));
 
       // Pengecekan kondisi
       if ($waktuLimaMenitSebelum == $waktuSekarang) {
       // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
-        $no_id = $myData['id'];
+     echo   $no_id = $myData['id'];
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
         $txtBackground = $myData['background'];
