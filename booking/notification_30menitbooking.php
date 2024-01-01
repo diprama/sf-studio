@@ -275,8 +275,8 @@ require 'library/PHPMailer/src/SMTP.php';
         } else {
           # INSERT KE DATABASE BOOKING
 
-          $mySql = "UPDATE `booking` SET `alert_notification`='1',`alert_date`=now() WHERE id ='$no_id' ";
-          $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
+          // $mySql = "UPDATE `booking` SET `alert_notification`='1',`alert_date`=now() WHERE id ='$no_id' ";
+          // $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
           // ambil id nya
           $last_id = mysqli_insert_id($koneksidb);
