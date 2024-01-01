@@ -36,8 +36,18 @@ require 'library/PHPMailer/src/SMTP.php';
       $waktuSekarang = date("H:i:00");
       // Waktu setengah jam sebelumnya dari jam yang sudah di set customer
       $waktuSetengahJamSebelum = strtotime('-5 minutes', $txtWaktu);
+
+    // Get the current timestamp
+    $currentTimestamp = time();
+
+    // Calculate the timestamp for 5 minutes before the current time
+    $newTimestamp = strtotime('-5 minutes', $currentTimestamp);
+
+    // Format the new timestamp as a date string
+   echo  $newDate = date('H:i:00', $newTimestamp);
+   exit;
       // Pengecekan kondisi
-      if ($waktuSetengahJamSebelum == $waktuSekarang) {
+      if ($waktuSetengahJamSebelum == $newDate) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
