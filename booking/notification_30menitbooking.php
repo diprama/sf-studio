@@ -44,7 +44,7 @@ require 'library/PHPMailer/src/SMTP.php';
     // Format the new timestamp as a date string
      $newDate = date('H:i:00', $newTimestamp);
       // Pengecekan kondisi
-      if ($waktuSetengahJamSebelum == $newDate) {
+      if ($txtWaktu == $newDate) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
