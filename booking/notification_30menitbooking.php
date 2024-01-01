@@ -51,8 +51,7 @@ require 'library/PHPMailer/src/SMTP.php';
         $txtEmail = $myData['email'];
         $txtWhatsapp = $myData['whatsapp'];
         $txtInstagram = isset($myData['instagram']) ? $myData['instagram'] : '';
-      echo  $txtStatus = 'Dibuat';
-      exit;
+        $txtStatus = 'Dibuat';
 
         // Kirim email customer
         // Inisialisasi PHPMailer
