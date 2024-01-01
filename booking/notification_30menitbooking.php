@@ -53,7 +53,8 @@ require 'library/PHPMailer/src/SMTP.php';
 
       function hari_ini()
       {
-        $txtTanggal = $_POST['txtTanggal'];
+        $txtTanggal   = $myData['tanggal'];
+
         $hari = date("D", strtotime($txtTanggal));
 
         switch ($hari) {
