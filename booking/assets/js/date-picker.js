@@ -103,20 +103,33 @@ function showCalendar(month, year) {
       
 
 
-        cell.onclick = function(event) {
-          var dates = document.querySelectorAll(".date-picker");
+        // Modify the onclick function to include saving to the form input
+        cell.onclick = function (event) {
+          var dates = document.querySelectorAll('.date-picker');
           var currentTarget = event.currentTarget;
           var date = currentTarget.dataset.date;
           var month = currentTarget.dataset.month - 1;
           var year = currentTarget.dataset.year;
 
           for (var i = 0; i < dates.length; i++) {
-            dates[i].classList.remove("selected");
+            dates[i].classList.remove('selected');
           }
 
-          currentTarget.classList.add("selected");
-          datePicked.innerHTML = date + " " + monthsArr[month] + " " + year;
+          currentTarget.classList.add('selected');
+          datePicked.innerHTML = date + ' ' + monthsArr[month] + ' ' + year;
+
+          // Save to the form input
+          document.getElementById('selectedDate').value = year + '-' + pad(month + 1, 2) + '-' + pad(date, 2);
+        };
+
+        function pad(number, length) {
+          var str = '' + number;
+          while (str.length < length) {
+            str = '0' + str;
+          }
+          return str;
         }
+
 
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "date-picker selected";
