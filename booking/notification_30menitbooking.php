@@ -28,7 +28,8 @@ require 'library/PHPMailer/src/SMTP.php';
       # Baca variabel form
       $txtTanggal   = $myData['tanggal'];
       // ganti format tanggal
-      $txtWaktu = $myData['jam'];
+      echo $txtWaktu = $myData['jam'];
+      echo "<br>";
       // Waktu sekarang
       $waktuSekarang = date("H:i");
     // Jam yang sudah ditentukan (misalnya, "13:30:00")
