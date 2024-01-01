@@ -121,7 +121,7 @@ require 'library/PHPMailer/src/SMTP.php';
           $template_file = "email_customer_30min.php";
           // cek template nya ready atau tidak
           // if (file_exists($template_file))
-          $email_message = file_get_contents($template_file);
+          $email_message = "test oke";
           // else
           // die("Unable to locate your template file");
 
@@ -198,7 +198,8 @@ require 'library/PHPMailer/src/SMTP.php';
           $template_file = "email_admin_30min.php";
           // cek template nya ready atau tidak
           // if (file_exists($template_file))
-          $email_message = file_get_contents($template_file);
+              $email_message = "test oke";
+
           // else
           // die("Unable to locate your template file");
 
