@@ -35,7 +35,9 @@ require 'library/PHPMailer/src/SMTP.php';
     // Jam yang sudah ditentukan (misalnya, "13:30:00")
     $jamTentukan = $txtWaktu;
     // Menghitung waktu lima menit sebelumnya
-     $waktuLimaMenitSebelum = date("H:i", strtotime("-5 minutes", strtotime($jamTentukan)));
+  echo   $waktuLimaMenitSebelum = date("H:i", strtotime("-5 minutes", strtotime($jamTentukan)));
+  echo "<br>" . $waktuSekarang;
+  exit;
       // Pengecekan kondisi
       if ($waktuLimaMenitSebelum == $waktuSekarang) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
