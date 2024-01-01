@@ -29,18 +29,15 @@ require 'library/PHPMailer/src/SMTP.php';
       # Baca variabel form
       $txtTanggal   = $myData['tanggal'];
       // ganti format tanggal
-     echo $txtWaktu = $myData['jam'];
+      $txtWaktu = $myData['jam'];
       // Waktu sekarang
-      $waktuSekarang = date("H:i:00");
+     echo $waktuSekarang = date("H:i") . "<br>";
     // Jam yang sudah ditentukan (misalnya, "13:30:00")
     $jamTentukan = $txtWaktu;
     // Menghitung waktu lima menit sebelumnya
-  echo  $waktuLimaMenitSebelum = date("H:i", strtotime("-5 minutes", strtotime($jamTentukan)));
-exit;
-    // Format the new timestamp as a date string
-   echo  $newDate = date('H:i:00', $newTimestamp);
+    echo $waktuLimaMenitSebelum = date("H:i", strtotime("-5 minutes", strtotime($jamTentukan)));
       // Pengecekan kondisi
-      if ($txtWaktu == $newDate) {
+      if ($waktuLimaMenitSebelum == $waktuSekarang) {
         // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
        echo $txtJenis = $myData['jenis'];
        exit;
