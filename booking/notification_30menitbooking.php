@@ -23,7 +23,6 @@ require 'library/PHPMailer/src/SMTP.php';
     $nomor  = 0;
     $JumlahData = mysqli_num_rows($myQry);
     // kalau data lebih dari satu, langsung sikat kirim email
-    if ($JumlahData >= 1) {
     while ($myData = mysqli_fetch_array($myQry)) {
 
       # Baca variabel form
@@ -288,7 +287,7 @@ require 'library/PHPMailer/src/SMTP.php';
       
       }
     }
-    }
+    
     
 
 
