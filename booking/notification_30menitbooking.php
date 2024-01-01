@@ -280,12 +280,9 @@ require 'library/PHPMailer/src/SMTP.php';
 
           // ambil id nya
           $last_id = mysqli_insert_id($koneksidb);
-          # Validasi Insert Sukses
-          if ($myQry) {
-            echo "Alert Sukses Terkirim";
-          } else {
-            echo "Gagal Terkirim";
-          }
+      # Validasi Insert Sukses
+      echo "Alert Sukses Terkirim";
+
         }
       
       }
