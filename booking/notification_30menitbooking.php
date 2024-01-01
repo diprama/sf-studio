@@ -34,11 +34,10 @@ require 'library/PHPMailer/src/SMTP.php';
       // Waktu sekarang
       $waktuSekarang = date("H:i:00");
     // Jam yang sudah ditentukan (misalnya, "13:30:00")
-   echo $jamTentukan = "$txtWaktu:00";
-exit;
+    $jamTentukan = "$txtWaktu:00";
     // Menghitung waktu lima menit sebelumnya
-    $waktuLimaMenitSebelum = date("H:i:s", strtotime("-5 minutes", strtotime($jamTentukan)));
-
+  echo  $waktuLimaMenitSebelum = date("H:i:s", strtotime("-5 minutes", strtotime($jamTentukan)));
+exit;
     // Format the new timestamp as a date string
    echo  $newDate = date('H:i:00', $newTimestamp);
       // Pengecekan kondisi
