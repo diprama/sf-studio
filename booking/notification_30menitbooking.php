@@ -42,7 +42,7 @@ require 'library/PHPMailer/src/SMTP.php';
       // Pengecekan kondisi
       if ($waktuSekarang <= $waktuLimaMenitSebelum) {
       // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
-     echo   $no_id = $myData['id'];
+        $no_id = $myData['id'];
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
         $txtBackground = $myData['background'];
@@ -120,10 +120,10 @@ require 'library/PHPMailer/src/SMTP.php';
           // set lokasi template email
           $template_file = "email_customer_30min.php";
           // cek template nya ready atau tidak
-          if (file_exists($template_file))
-          $email_message = file_get_contents($template_file);
-          else
-          die("Unable to locate your template file");
+          // if (file_exists($template_file))
+          // $email_message = file_get_contents($template_file);
+          // else
+          // die("Unable to locate your template file");
 
           $formfields = "Nama: $txtNama <br>
                           Pilihan Paket: $txtPaket <br>
@@ -197,10 +197,10 @@ require 'library/PHPMailer/src/SMTP.php';
           // set lokasi template email
           $template_file = "email_admin_30min.php";
           // cek template nya ready atau tidak
-          if (file_exists($template_file))
-          $email_message = file_get_contents($template_file);
-          else
-          die("Unable to locate your template file");
+          // if (file_exists($template_file))
+          // $email_message = file_get_contents($template_file);
+          // else
+          // die("Unable to locate your template file");
 
           $formfields = "Nama: $txtNama <br>
                           Pilihan Paket: $txtPaket <br>
