@@ -13,9 +13,51 @@ require 'library/PHPMailer/src/SMTP.php';
   $pesanError = array();
   // tanggal sekarang
   $tanggalHariIni = date("Y-m-d");
-  // Set waktu 30 menit sebelum jam booking
+// set nama hari
 
+function hari_ini()
+{
+  $txtTanggal = $_POST['txtTanggal'];
+  $hari = date("D", strtotime($txtTanggal));
 
+  switch ($hari) {
+    case 'Sun':
+      $hari_ini = "Minggu";
+      break;
+
+    case 'Mon':
+      $hari_ini = "Senin";
+      break;
+
+    case 'Tue':
+      $hari_ini = "Selasa";
+      break;
+
+    case 'Wed':
+      $hari_ini = "Rabu";
+      break;
+
+    case 'Thu':
+      $hari_ini = "Kamis";
+      break;
+
+    case 'Fri':
+      $hari_ini = "Jumat";
+      break;
+
+    case 'Sat':
+      $hari_ini = "Sabtu";
+      break;
+
+    default:
+      $hari_ini = "Tidak di ketahui";
+      break;
+  }
+
+  return "<b>" . $hari_ini . "</b>";
+}
+
+$hari_ini = hari_ini();
 
   // ngecek apakah ada email yang harus di kirim atau tidak 
      $mySql   = "SELECT * FROM booking where alert_notification = 0 and status ='Dikonfirmasi' and tanggal >= '$tanggalHariIni' order by tanggal desc";
@@ -39,13 +81,14 @@ require 'library/PHPMailer/src/SMTP.php';
 
       // Pengecekan kondisi
       if ($waktuLimaMenitSebelum == $waktuSekarang) {
-        // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
+      // Jika waktu setengah jam sebelumnya kurang dari waktu yang sudah di set customer
+      $no_id = $myData['id'];
         $txtJenis = $myData['jenis'];
         $txtPaket = $myData['paket'];
         $txtBackground = $myData['background'];
         $txtNama = $myData['nama'];
         $txtEmail = $myData['email'];
-        $txtWhatsapp = $myData['whatsapp'];
+        $txtWhatsapp = $myData['no_wa'];
         $txtInstagram = isset($myData['instagram']) ? $myData['instagram'] : '';
         $txtStatus = 'Dibuat';
 
