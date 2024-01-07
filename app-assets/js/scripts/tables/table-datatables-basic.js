@@ -23,11 +23,7 @@ $(function () {
 
   if (dt_basic_table.length) {
     var dt_basic = dt_basic_table.DataTable({
-      ajax: {
-        url: '../../../data_booking.php', // Ganti dengan path yang sesuai
-        type: 'GET',
-        dataType: 'json'
-      },
+      ajax: assetPath + 'data/table-datatable.json',
       columns: [
         { data: 'responsive_id' },
         { data: 'id' },
