@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <?php
+include_once "library/inc.seslogin.php";
 include "header.php";
+include "library/inc.connection.php";
 
 ?>
+
 
 
 <!-- BEGIN: Content-->
@@ -22,21 +25,21 @@ include "header.php";
                                 </li>
                                 <li class="breadcrumb-item"><a href="#">Management</a>
                                 </li>
-                                <li class="breadcrumb-item active">History
+                                <li class="breadcrumb-item active">Booking
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+            <!-- <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
                 <div class="mb-1 breadcrumb-right">
                     <div class="dropdown">
                         <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="grid"></i></button>
                         <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html"><i class="me-1" data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item" href="app-chat.html"><i class="me-1" data-feather="message-square"></i><span class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html"><i class="me-1" data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item" href="app-calendar.html"><i class="me-1" data-feather="calendar"></i><span class="align-middle">Calendar</span></a></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="content-body">
             <div class="row">
@@ -45,25 +48,54 @@ include "header.php";
                 </div>
             </div>
             <!-- Basic table -->
-            <section id="basic-datatable">
+            <section id="">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class="datatables-basic table">
+                            <table class=" table">
                                 <thead>
                                     <tr>
-                                        <th></th>
-                                        <th></th>
+                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>Tanggal</th>
                                         <th>Jam</th>
                                         <th>No WA</th>
-                                        <th>Instagram</th>
                                         <th>Paket</th>
-                                        <th>Order</th>
+                                        <th>Background</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+
+                                    <?php
+                                    $mySql   = "SELECT * FROM booking order by tanggal desc";
+                                    $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+                                    $nomor  = 0;
+                                    while ($myData = mysqli_fetch_array($myQry)) {
+                                        $nomor++;
+                                        $Code = $myData['id'];
+                                    ?>
+
+                                        <tr>
+                                            <td><?php echo $nomor; ?></td>
+                                            <td><?php echo $myData['nama']; ?></td>
+                                            <td><?php echo $myData['tanggal']; ?></td>
+                                            <td><?php echo $myData['jam']; ?></td>
+                                            <td><?php echo $myData['no_wa']; ?></td>
+                                            <td><?php echo $myData['paket']; ?></td>
+                                            <td><?php echo $myData['background']; ?></td>
+                                            <td><?php echo $myData['status']; ?></td>
+                                            <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
+                                                <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
+                                            <?php } else { ?>
+                                                <td></td>
+                                            <?php } ?>
+                                        </tr>
+                                    <?php }
+                                    ?>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
