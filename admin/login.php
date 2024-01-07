@@ -59,7 +59,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="index.html" class="brand-logo">
-                                    <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
+                                    <!-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                         <defs>
                                             <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
                                                 <stop stop-color="#000000" offset="0%"></stop>
@@ -81,7 +81,7 @@
                                                 </g>
                                             </g>
                                         </g>
-                                    </svg>
+                                    </svg> -->
                                     <h2 class="brand-text text-primary ms-1">SF Studio</h2>
                                 </a>
 
