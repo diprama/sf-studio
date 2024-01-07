@@ -48,6 +48,12 @@ if ($_GET) {
       include "management_booking_update.php";
       break;
 
+    case 'Panggil-Data':
+      if (!file_exists("app-assets/data/data_booking.php")) die("Sorry Empty Page!");
+      include "app-assets/data/data_booking.php";
+      break;
+      
+
     case 'Management-History':
       if (!file_exists("management_history.php")) die("Sorry Empty Page!");
       include "management_history.php";
