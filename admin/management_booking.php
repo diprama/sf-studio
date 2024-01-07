@@ -50,9 +50,9 @@ include "library/inc.connection.php";
             <!-- Basic table -->
             <section id="">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12">    
                         <div class="card">
-                            <table class="datatables-basic table">
+                            <table class=" table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -86,11 +86,11 @@ include "library/inc.connection.php";
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
-                                                <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
-                                            <?php } else { ?>
-                                                <td></td>
-                                            <?php } ?>
+                                            <?php if ($myData['status'] !='Dikonfirmasi') {?>
+                                            <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')"  role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
+                                           <?php } else { ?>
+                                            <td></td>
+                                            <?php }?>
                                         </tr>
                                     <?php }
                                     ?>
