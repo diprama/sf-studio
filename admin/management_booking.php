@@ -79,7 +79,7 @@ include "library/inc.connection.php";
 
                                         // ganti format jam
                                         $Jam = $Jam;
-                                        $Jam = date("g:i a", strtotime($Jam));
+                                        $Jam = date("G:i", strtotime($Jam));
 
                                     ?>
 
