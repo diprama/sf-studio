@@ -6,8 +6,8 @@ include "header.php";
 include "library/inc.connection.php";
 
 function hari_ini($tanggal)
-
 {
+    $tanggal = 
     $hari = date("D", strtotime($tanggal));
 
     switch ($hari) {
@@ -47,7 +47,7 @@ function hari_ini($tanggal)
     return "<b>" . $hari_ini . "</b>";
 }
 
-$hari_ini = hari_ini();
+// $hari_ini = hari_ini();
 
 ?>
 
