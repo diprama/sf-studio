@@ -122,7 +122,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking order by tanggal desc";
+                                    $mySql   = "SELECT * FROM booking where status !='Dikonfirmasi' order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
