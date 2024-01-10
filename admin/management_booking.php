@@ -75,13 +75,19 @@ include "library/inc.connection.php";
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
                                         $Code = $myData['id'];
+                                        $Jam = $myData['jam'];
+
+                                        // ganti format jam
+                                        $Jam = $Jam;
+                                        $Jam = date("g:i a", strtotime($Jam));
+
                                     ?>
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['nama']; ?></td>
                                             <td><?php echo $myData['tanggal']; ?></td>
-                                            <td><?php echo $myData['jam']; ?></td>
+                                            <td><?php echo $Jam; ?></td>
                                             <td><?php echo $myData['no_wa']; ?></td>
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
