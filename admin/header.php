@@ -37,6 +37,8 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- END: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
 
 </head>
 <!-- END: Head-->

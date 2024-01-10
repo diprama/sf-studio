@@ -35,6 +35,9 @@
    <script src="/app-assets/js/scripts/tables/table-datatables-basic.js"></script>
    <!-- END: Page JS-->
 
+   <script src="cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+
    <script>
        $(window).on('load', function() {
            if (feather) {
