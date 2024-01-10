@@ -8,9 +8,10 @@ include "library/inc.connection.php";
 
 ?>
 
+<!-- Memasukkan library jQuery dan DataTables CSS & JS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -54,7 +55,7 @@ include "library/inc.connection.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class="table dataTablesExample ">
+                            <table id='dataTable' class="display">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -154,28 +155,11 @@ include "footer.php";
 <!-- END: Body-->
 
 <script>
-    // Mengambil data JSON dari server dan menampilkannya menggunakan DataTables
+    // Inisialisasi DataTable
     $(document).ready(function() {
-        $('#dataTablesExample').DataTable({
-            "ajax": {
-                "url": "test_management_booking.php", // Ganti dengan path sesuai dengan lokasi script PHP Anda
-                "dataSrc": ""
-            },
-            "columns": [{
-                    "data": "id"
-                },
-                {
-                    "data": "nama"
-                },
-                {
-                    "data": "email"
-                },
-                {
-                    "data": "no_wa"
-                }
-            ]
-        });
+        $('#dataTable').DataTable();
     });
 </script>
+
 
 </html>
