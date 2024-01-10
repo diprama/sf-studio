@@ -54,7 +54,7 @@ include "library/inc.connection.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class="dataTablesExample">
+                            <table class="table dataTablesExample ">
                                 <thead>
                                     <tr>
                                         <th>No</th>
