@@ -5,6 +5,50 @@ include_once "library/inc.seslogin.php";
 include "header.php";
 include "library/inc.connection.php";
 
+function hari_ini($tanggal)
+
+{
+    $hari = date("D", strtotime($tanggal));
+
+    switch ($hari) {
+        case 'Sun':
+            $hari_ini = "Minggu";
+            break;
+
+        case 'Mon':
+            $hari_ini = "Senin";
+            break;
+
+        case 'Tue':
+            $hari_ini = "Selasa";
+            break;
+
+        case 'Wed':
+            $hari_ini = "Rabu";
+            break;
+
+        case 'Thu':
+            $hari_ini = "Kamis";
+            break;
+
+        case 'Fri':
+            $hari_ini = "Jumat";
+            break;
+
+        case 'Sat':
+            $hari_ini = "Sabtu";
+            break;
+
+        default:
+            $hari_ini = "Tidak di ketahui";
+            break;
+    }
+
+    return "<b>" . $hari_ini . "</b>";
+}
+
+$hari_ini = hari_ini();
+
 ?>
 
 
@@ -50,13 +94,14 @@ include "library/inc.connection.php";
             <!-- Basic table -->
             <section id="">
                 <div class="row">
-                    <div class="col-12">    
+                    <div class="col-12">
                         <div class="card">
                             <table class=" table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Hari</th>
                                         <th>Tanggal</th>
                                         <th>Jam</th>
                                         <th>No WA</th>
@@ -80,23 +125,27 @@ include "library/inc.connection.php";
                                         // ganti format jam
                                         $Jam = $Jam;
                                         $Jam = date("G:i", strtotime($Jam));
+                                        // set hari
+                                        $tanggal = $myData['tanggal'];
+                                        $hari = hari_ini($tanggal);
 
                                     ?>
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['nama']; ?></td>
+                                            <td><?php echo $hari; ?></td>
                                             <td><?php echo $myData['tanggal']; ?></td>
                                             <td><?php echo $Jam; ?></td>
                                             <td><?php echo $myData['no_wa']; ?></td>
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <?php if ($myData['status'] !='Dikonfirmasi') {?>
-                                            <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')"  role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
-                                           <?php } else { ?>
-                                            <td></td>
-                                            <?php }?>
+                                            <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
+                                                <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
+                                            <?php } else { ?>
+                                                <td></td>
+                                            <?php } ?>
                                         </tr>
                                     <?php }
                                     ?>
