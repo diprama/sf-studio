@@ -5,9 +5,11 @@ include_once "library/inc.seslogin.php";
 include "header.php";
 include "library/inc.connection.php";
 
+
 ?>
 
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -52,18 +54,13 @@ include "library/inc.connection.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class="datatables-basic table">
+                            <table class="dataTablesExample table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Tanggal</th>
                                         <th>Jam</th>
-                                        <th>No WA</th>
-                                        <th>Paket</th>
-                                        <th>Background</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,9 +69,11 @@ include "library/inc.connection.php";
                                     $mySql   = "SELECT * FROM booking order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
+                                    $data = array();
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
                                         $Code = $myData['id'];
+                                        $data[] = $myData;
                                     ?>
 
                                         <tr>
@@ -153,5 +152,30 @@ include "footer.php";
 ?>
 </body>
 <!-- END: Body-->
+
+<script>
+    // Mengambil data JSON dari server dan menampilkannya menggunakan DataTables
+    $(document).ready(function() {
+        $('#dataTablesExample').DataTable({
+            "ajax": {
+                "url": "test_management_booking.php", // Ganti dengan path sesuai dengan lokasi script PHP Anda
+                "dataSrc": ""
+            },
+            "columns": [{
+                    "data": "id"
+                },
+                {
+                    "data": "nama"
+                },
+                {
+                    "data": "email"
+                },
+                {
+                    "data": "no_wa"
+                }
+            ]
+        });
+    });
+</script>
 
 </html>
