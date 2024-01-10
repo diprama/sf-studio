@@ -114,7 +114,9 @@ function hari_ini($tanggal)
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Delete</th>
+                                        <th>Hapus</th>
+                                        <th>Reschedule</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,7 +151,13 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['status']; ?></td>
                                             <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
                                                 <td>
-                                                    <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a> || <a href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Delete</a>
+                                                    <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a>
+                                                </td>
+                                                <td>
+                                                    <a href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Delete</a>
+                                                </td>
+                                                <td>
+                                                    <a href="?page=#" role="button"><i class="fa fa-pencil fa-fw"></i>Reschedule</a>
                                                 </td>
                                             <?php } else { ?>
                                                 <td></td>
