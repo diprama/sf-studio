@@ -5,10 +5,13 @@ include_once "library/inc.seslogin.php";
 include "header.php";
 include "library/inc.connection.php";
 
+
+
+
 function hari_ini($tanggal)
 {
-    $tanggal = 
-    $hari = date("D", strtotime($tanggal));
+    $tanggal =
+        $hari = date("D", strtotime($tanggal));
 
     switch ($hari) {
         case 'Sun':
@@ -49,9 +52,12 @@ function hari_ini($tanggal)
 
 // $hari_ini = hari_ini();
 
+
 ?>
 
+<style>
 
+</style>
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -96,7 +102,7 @@ function hari_ini($tanggal)
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table class=" table">
+                            <table class="datatable-responsive-b table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -201,6 +207,75 @@ function hari_ini($tanggal)
 
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
+
+
+<script>
+    $(document).ready(function() {
+
+        $('#datatable-responsive-b').DataTable({
+            "pageLength": 200,
+            dom: "Bfrtip<'clear'>B",
+            buttons: [
+
+                {
+                    extend: "copy",
+                    className: "btn-sm",
+                    exportOptions: {
+                        orthogonal: 'export'
+                    }
+                },
+                {
+                    extend: "csv",
+                    className: "btn-sm",
+                    exportOptions: {
+                        orthogonal: 'export'
+                    }
+                },
+                {
+                    className: "btn-sm",
+                    exportOptions: {
+                        orthogonal: 'export'
+                    }
+                },
+                {
+                    extend: "pdf",
+                    className: "btn-sm",
+                    exportOptions: {
+                        orthogonal: 'export'
+                    }
+                },
+                {
+                    extend: "print",
+                    className: "btn-sm",
+                    exportOptions: {
+                        orthogonal: 'export'
+                    }
+                },
+            ],
+            responsive: true,
+        });
+
+        $('#datatable-responsive-a').dataTable({
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf'
+            ]
+        });
+
+        // $(document).ready(function() {
+        // 	var table = $('#example').DataTable({
+        // 		responsive: true
+        // 	});
+
+        // 	new $.fn.dataTable.FixedHeader(table);
+        // });
+    });
+</script>
 
 <!-- footer -->
 <?php
