@@ -8,10 +8,9 @@ include "library/inc.connection.php";
 
 ?>
 
-<!-- Memasukkan library jQuery dan DataTables CSS & JS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -55,7 +54,7 @@ include "library/inc.connection.php";
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <table id='dataTable' class="display">
+                            <table id='' class="dataTable" c>
                                 <thead>
                                     <tr>
                                         <th>No</th>
