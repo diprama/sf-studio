@@ -116,7 +116,7 @@ function hari_ini($tanggal)
                                         <th>Status</th>
                                         <th>Delete</th>
                                         <th>Hapus</th>
-                                        <th>Reschedule</th>
+                                        <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -156,9 +156,9 @@ function hari_ini($tanggal)
                                                 <td>
                                                     <a href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Delete</a>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <a href="?page=#" role="button"><i class="fa fa-pencil fa-fw"></i>Reschedule</a>
-                                                </td>
+                                                </td> -->
                                             <?php } else { ?>
                                                 <td></td>
                                             <?php } ?>
