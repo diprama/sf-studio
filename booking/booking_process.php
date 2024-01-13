@@ -24,17 +24,19 @@ if (isset($_POST['btnSubmit'])) {
   $txtTanggal   = $_POST['txtTanggal'];
   // ganti format tanggal
   $originalDate = $txtTanggal;
-   $txtTanggal = date("Y-m-d", strtotime($originalDate));
-   $txtWaktu = $_POST['txtWaktu'];
+  $txtTanggal = date("Y-m-d", strtotime($originalDate));
+  $txtWaktu = $_POST['txtWaktu'];
   $txtJenis = $_POST['txtJenis'];
   $txtPaket = $_POST['txtPaket'];
   $txtBackground = $_POST['txtBackground'];
   $txtNama = $_POST['txtNama'];
   $txtEmail = $_POST['txtEmail'];
   $txtWhatsapp = $_POST['txtWhatsapp'];
-  $txtInstagram = isset($_POST['txtInstagram']) ? $_POST['txtInstagram']:'';
+  $txtInstagram = isset($_POST['txtInstagram']) ? $_POST['txtInstagram'] : '';
   $txtStatus = 'Dibuat';
+  $txtToken = $_POST['txtToken'];
 
+  // ambil nama hari ini
   function hari_ini()
   {
     $txtTanggal = $_POST['txtTanggal'];
@@ -77,110 +79,73 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
+  // set ke variabel 
   $hari_ini = hari_ini();
 
+  // cek apakah detail transaksi dengan token yang diset sudah ada di database
+  $mySql  = "SELECT token from booking where token ='$txtToken'";
+  $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+  $JumlahData = mysqli_num_rows($myQry);
 
-  // Kirim email customer
-  // Inisialisasi PHPMailer
-  $mail = new PHPMailer(true);
-
-  try {
-    // Set pengaturan SMTP
-    $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
-    $mail->SMTPAuth = true;
-    $mail->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
-    $mail->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
-    $mail->SMTPSecure = 'TLS';
-    $mail->Port = 587;
-
-    // Set informasi pengirim dan penerima
-    $mail->setFrom('official@sf-selfstudio.com', 'Self Studio');
-    $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
-
-
-    // set lokasi template email
-      $template_file = "email_customer.php";
-    // cek template nya ready atau tidak
-    if (file_exists($template_file))
-      $email_message = file_get_contents($template_file);
-    else
-    die("Unable to locate your template file");
-
-    $formfields = "Nama: $txtNama <br>
-Pilihan Paket: $txtPaket <br>
-Alamat Email: $txtEmail <br>
-No WhatsApp: $txtWhatsapp <br>
-Background: $txtBackground <br>
-Username Instagram: $txtInstagram <br>
-Appointment Type: $txtJenis <br>"; 
-
-    // set variable 
-    $swap_var = array(
-      "{SITE_ADDR}" => "https://www.heytuts.com",
-      "{EMAIL_LOGO}" => "uploads/NEX.png",
-      "{EMAIL_TITLE}" => "Notification",
-      "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
-      "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png",
-      "{NAME}" => 'Hi ' . $txtNama,
-      "{DATE}" =>  $txtTanggal,
-      "{TIME}" =>  $txtWaktu,
-      "{FORMFIELDS}" => $formfields
-    );
-
-    // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
-    foreach (array_keys($swap_var) as $key) {
-      if (strlen($key) > 2 && trim($swap_var[$key]) != '')
-      $email_message = str_replace($key, $swap_var[$key], $email_message);
-    }
-
-
-
-    // Set informasi email
-    $mail->isHTML(true);
-    $mail->MsgHTML($email_message);
-    $mail->Subject = 'SF Self Photo Studio Booking';
-
-    // Kirim email
-    $mail->send();
-    // echo "Email berhasil dikirim";
-  } catch (Exception $e) {
-    echo "Gagal mengirim email: {$mail->ErrorInfo}";
+  // jalankan proses submit jika data = 0
+  if ($JumlahData >= 1) {
+    $pesanError[] = "Tidak good";
   }
 
-  // end kirim email customer
+  # JIKA ADA PESAN ERROR DARI VALIDASI
+  if (count($pesanError) >= 1) {
+
+    // ambil data sesuai token yang sudah ada di set
+    $mySql  = "SELECT id, token from booking where token ='$txtToken'";
+    $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+    $Ambildata = mysqli_fetch_array($myQry);
+
+    $last_id = $Ambildata['id'];
+    // echo "<div class='panel-body'><div class='alert alert-warning' align='center'>";
+    // $noPesan = 0;
+    // foreach ($pesanError as $indeks => $pesan_tampil) {
+    //   $noPesan++;
+    //   echo "&nbsp;&nbsp; $noPesan. $pesan_tampil<br>";
+    // }
+    // echo "</div>";
+
+    // Tampilkan booking success tanpa submit
+    echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success&id=$last_id'>";
+  } else {
+    # INSERT KE DATABASE BOOKING DAN KIRIM EMAIL
+
+    $mySql = "INSERT INTO `booking`( `nama`, `email`, `no_wa`, `jenis`, `paket`, `background`, `instagram`, `tanggal`, `jam`, `status`, `updated_date`,`token`) VALUES 
+      ('$txtNama','$txtEmail','$txtWhatsapp','$txtJenis','$txtPaket','$txtBackground','$txtInstagram','$txtTanggal','$txtWaktu','$txtStatus', now(),'$txtToken') ";
+    $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
+
+    // Kirim email customer
+    // Inisialisasi PHPMailer
+    $mail = new PHPMailer(true);
+
+    try {
+      // Set pengaturan SMTP
+      $mail->isSMTP();
+      $mail->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
+      $mail->SMTPAuth = true;
+      $mail->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
+      $mail->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
+      $mail->SMTPSecure = 'TLS';
+      $mail->Port = 587;
+
+      // Set informasi pengirim dan penerima
+      $mail->setFrom('official@sf-selfstudio.com', 'Self Studio');
+      $mail->addAddress($txtEmail); // Ganti dengan alamat email tujuan
 
 
-  // Kirim email customer
-  // Inisialisasi PHPMailer
-  $mail2 = new PHPMailer(true);
+      // set lokasi template email
+      $template_file = "email_customer.php";
+      // cek template nya ready atau tidak
+      if (file_exists($template_file))
+        $email_message = file_get_contents($template_file);
+      else
+        die("Unable to locate your template file");
 
-  try {
-    // Set pengaturan SMTP
-    $mail2->isSMTP();
-    $mail2->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
-    $mail2->SMTPAuth = true;
-    $mail2->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
-    $mail2->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
-    $mail2->SMTPSecure = 'TLS';
-    $mail2->Port = 587;
-
-    // Set informasi pengirim dan penerima
-    $mail2->setFrom('official@sf-selfstudio.com', 'Self Studio');
-    $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
-    // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
-
-
-
-    // set lokasi template email
-    $template_file = "email_admin.php";
-    // cek template nya ready atau tidak
-    if (file_exists($template_file))
-    $email_message = file_get_contents($template_file);
-    else
-    die("Unable to locate your template file");
-
-    $formfields = "Nama: $txtNama <br>
+      $formfields = "Nama: $txtNama <br>
 Pilihan Paket: $txtPaket <br>
 Alamat Email: $txtEmail <br>
 No WhatsApp: $txtWhatsapp <br>
@@ -188,81 +153,120 @@ Background: $txtBackground <br>
 Username Instagram: $txtInstagram <br>
 Appointment Type: $txtJenis <br>";
 
-    // set variable 
-    $swap_var = array(
-      "{SITE_ADDR}" => "https://www.heytuts.com",
-      "{EMAIL_LOGO}" => "uploads/NEX.png",
-      "{EMAIL_TITLE}" => "Notification",
-      "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
-      "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png",
-      "{NAME}" => 'Hi ' . $txtNama,
-      "{DATE}" =>  $txtTanggal,
-      "{TIME}" =>  $txtWaktu,
-      "{HARI}" =>  $hari_ini,
-      "{FORMFIELDS}" => $formfields
-    );
+      // set variable 
+      $swap_var = array(
+        "{SITE_ADDR}" => "https://www.heytuts.com",
+        "{EMAIL_LOGO}" => "uploads/NEX.png",
+        "{EMAIL_TITLE}" => "Notification",
+        "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
+        "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png",
+        "{NAME}" => 'Hi ' . $txtNama,
+        "{DATE}" =>  $txtTanggal,
+        "{TIME}" =>  $txtWaktu,
+        "{FORMFIELDS}" => $formfields
+      );
 
-    // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
-    foreach (array_keys($swap_var) as $key) {
-      if (strlen($key) > 2 && trim($swap_var[$key]) != '')
-      $email_message = str_replace($key, $swap_var[$key], $email_message);
+      // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
+      foreach (array_keys($swap_var) as $key) {
+        if (strlen($key) > 2 && trim($swap_var[$key]) != '')
+          $email_message = str_replace($key, $swap_var[$key], $email_message);
+      }
+
+
+
+      // Set informasi email
+      $mail->isHTML(true);
+      $mail->MsgHTML($email_message);
+      $mail->Subject = 'SF Self Photo Studio Booking';
+
+      // Kirim email
+      $mail->send();
+      // echo "Email berhasil dikirim";
+    } catch (Exception $e) {
+      echo "Gagal mengirim email: {$mail->ErrorInfo}";
     }
 
+    // end kirim email customer
 
 
-    // Set informasi email
-    $mail2->isHTML(true);
-    $mail2->MsgHTML($email_message);
-    $mail2->Subject = $txtNama.' booking';
+    // Kirim email customer
+    // Inisialisasi PHPMailer
+    $mail2 = new PHPMailer(true);
 
-    // Kirim email
-    $mail2->send();
-    // echo "Email berhasil dikirim";
-  } catch (Exception $e) {
-    echo "Gagal mengirim email: {$mail2->ErrorInfo}";
-  }
+    try {
+      // Set pengaturan SMTP
+      $mail2->isSMTP();
+      $mail2->Host = 'smtp.hostinger.com'; // Ganti dengan alamat SMTP server Anda
+      $mail2->SMTPAuth = true;
+      $mail2->Username = 'official@sf-selfstudio.com'; // Ganti dengan username SMTP Anda
+      $mail2->Password = 'SELFstudio123!'; // Ganti dengan password SMTP Anda
+      $mail2->SMTPSecure = 'TLS';
+      $mail2->Port = 587;
 
-  // end kirim email customer
+      // Set informasi pengirim dan penerima
+      $mail2->setFrom('official@sf-selfstudio.com', 'Self Studio');
+      $mail2->addAddress('sf.selfstudio@gmail.com'); // Ganti dengan alamat email tujuan
+      // $mail2->addAddress('dickypramanasukma@gmail.com'); // Ganti dengan alamat email tujuan
 
 
 
-  
+      // set lokasi template email
+      $template_file = "email_admin.php";
+      // cek template nya ready atau tidak
+      if (file_exists($template_file))
+        $email_message = file_get_contents($template_file);
+      else
+        die("Unable to locate your template file");
 
-  # Baca IP Address
-  $ip = $_SERVER['REMOTE_ADDR'];
+      $formfields = "Nama: $txtNama <br>
+Pilihan Paket: $txtPaket <br>
+Alamat Email: $txtEmail <br>
+No WhatsApp: $txtWhatsapp <br>
+Background: $txtBackground <br>
+Username Instagram: $txtInstagram <br>
+Appointment Type: $txtJenis <br>";
 
-  #$cmbLevel	=$_POST['cmbLevel'];
+      // set variable 
+      $swap_var = array(
+        "{SITE_ADDR}" => "https://www.heytuts.com",
+        "{EMAIL_LOGO}" => "uploads/NEX.png",
+        "{EMAIL_TITLE}" => "Notification",
+        "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
+        "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png",
+        "{NAME}" => 'Hi ' . $txtNama,
+        "{DATE}" =>  $txtTanggal,
+        "{TIME}" =>  $txtWaktu,
+        "{HARI}" =>  $hari_ini,
+        "{FORMFIELDS}" => $formfields
+      );
 
-  # JIKA ADA PESAN ERROR DARI VALIDASI
-  if (count($pesanError) >= 1) {
+      // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
+      foreach (array_keys($swap_var) as $key) {
+        if (strlen($key) > 2 && trim($swap_var[$key]) != '')
+          $email_message = str_replace($key, $swap_var[$key], $email_message);
+      }
 
-    echo "<div class='panel-body'><div class='alert alert-warning' align='center'>";
-    $noPesan = 0;
-    foreach ($pesanError as $indeks => $pesan_tampil) {
-      $noPesan++;
-      echo "&nbsp;&nbsp; $noPesan. $pesan_tampil<br>";
+
+
+      // Set informasi email
+      $mail2->isHTML(true);
+      $mail2->MsgHTML($email_message);
+      $mail2->Subject = $txtNama . ' booking';
+
+      // Kirim email
+      $mail2->send();
+      // echo "Email berhasil dikirim";
+    } catch (Exception $e) {
+      echo "Gagal mengirim email: {$mail2->ErrorInfo}";
     }
-    echo "</div>";
-
-    // Tampilkan lagi form login
-    echo "<meta http-equiv='refresh' content='0; url=?page=Booking'>";
-
-  } else {
-    # INSERT KE DATABASE BOOKING
-
-      $mySql = "INSERT INTO `booking`( `nama`, `email`, `no_wa`, `jenis`, `paket`, `background`, `instagram`, `tanggal`, `jam`, `status`, `updated_date`) VALUES 
-      ('$txtNama','$txtEmail','$txtWhatsapp','$txtJenis','$txtPaket','$txtBackground','$txtInstagram','$txtTanggal','$txtWaktu','$txtStatus', now()) ";
-    $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
 
     // ambil id nya
-     $last_id = mysqli_insert_id($koneksidb);
-   # Validasi Insert Sukses
+    $last_id = mysqli_insert_id($koneksidb);
+    # Validasi Insert Sukses
     if ($myQry) {
       echo "<meta http-equiv='refresh' content='0; url=?page=Booking-Success&id=$last_id'>";
-    }
-    else {
+    } else {
       echo "Query Gagal";
     }
- 
   }
 } // End POST
