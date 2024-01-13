@@ -34,8 +34,7 @@ if (isset($_POST['btnSubmit'])) {
   $txtWhatsapp = $_POST['txtWhatsapp'];
   $txtInstagram = isset($_POST['txtInstagram']) ? $_POST['txtInstagram']:'';
   $txtStatus = 'Dibuat';
-  echo $txtToken = $_POST['txtToken'];
-  exit;
+   $txtToken = $_POST['txtToken'];
 
   // ambil nama hari ini
   function hari_ini()
