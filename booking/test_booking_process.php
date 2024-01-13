@@ -89,7 +89,9 @@ if (isset($_POST['btnSubmit'])) {
     $JumlahData = mysqli_num_rows($myQry);
 
     // jalankan proses submit jika data = 0
-    if ($JumlahData <= 0) 
+    if ($JumlahData >= 0) {
+    $pesanError[] = "Tidak good";
+    }
 
   # JIKA ADA PESAN ERROR DARI VALIDASI
   if (count($pesanError) >= 1) {
