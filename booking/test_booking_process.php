@@ -96,12 +96,11 @@ if (isset($_POST['btnSubmit'])) {
   if (count($pesanError) >= 1) {
 
     // ambil data sesuai token yang sudah ada di set
-    $mySql  = "SELECT token from test_booking where token ='$txtToken'";
+    $mySql  = "SELECT id, token from test_booking where token ='$txtToken'";
     $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
     $Ambildata = mysqli_fetch_array($myQry);
 
     $last_id = $Ambildata['id'];
-
     // echo "<div class='panel-body'><div class='alert alert-warning' align='center'>";
     // $noPesan = 0;
     // foreach ($pesanError as $indeks => $pesan_tampil) {
