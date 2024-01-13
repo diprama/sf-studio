@@ -88,7 +88,7 @@ if (isset($_POST['btnSubmit'])) {
     $JumlahData = mysqli_num_rows($myQry);
 
     // jalankan proses submit jika data = 0
-    if ($JumlahData >= 0) {
+    if ($JumlahData >= 1) {
     $pesanError[] = "Tidak good";
     }
 
