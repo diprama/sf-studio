@@ -3,7 +3,7 @@ include "library/inc.connection.php";
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 
 // panggil data dari database
-$mySql  = "SELECT * from booking where id ='$id'";
+$mySql  = "SELECT * from test_booking where id ='$id'";
 $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 $myData = mysqli_fetch_array($myQry);
 
