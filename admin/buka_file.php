@@ -86,6 +86,11 @@ if ($_GET) {
       include "master_jadwal_update_status.php";
       break;
 
+    case 'Master-Jadwal-Add':
+      if (!file_exists("master_jadwal_add.php")) die("Sorry Empty Page!");
+      include "master_jadwal_add.php";
+      break;
+
 
     case 'Master-Kategori':
       if (!file_exists("master_kategori.php")) die("Sorry Empty Page!");

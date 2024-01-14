@@ -39,9 +39,9 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                 }
                 // jika s = deleted
                 else 
-                 if ($status == 'deleted') {
+                 if ($status == 'tambah') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Tambahkan<br>";
                     echo "</div>";
                 }
                 // jika s = deleted
@@ -67,16 +67,23 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                 <h4 class="card-title"></h4>
                             </div>
                             <div class="content-header-right text-md-end col-md-8 col-12 d-md-block d-none">
-                                <form role="form" action="?page=Management-Admin-Add" method="POST" name="form1" target="_self" id="form1">
+                                <form role="form" action="?page=Master-Jadwal-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
-                                        <div class="col-md-5 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-3 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-4 col-12 ps-25">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-md-2 col-12">
+                                                    <label>Jam</label>
+                                                    <input type="time" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJam' aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-1">
+                                                    <br>
+                                                    <button type="submit" name="btnHistory" style="width: 100%;" class="btn btn-success">Tambah Jam</button>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
-                                </form>
                             </div>
                         </div>
                         <div class="card-datatable">
