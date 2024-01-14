@@ -579,6 +579,54 @@ if ($_GET) {
 			break;
 
 
+			#MANAGEMENT
+
+		case 'Management-Booking':
+			if (!file_exists("management_booking.php")) die("Sorry Empty Page!");
+			include "management_booking.php";
+			break;
+
+		case 'Test-Management-Booking':
+			if (!file_exists("test_management_booking.php")) die("Sorry Empty Page!");
+			include "test_management_booking.php";
+			break;
+
+		case 'Management-Booking-Update':
+			if (!file_exists("management_booking_update.php")) die("Sorry Empty Page!");
+			include "management_booking_update.php";
+			break;
+
+		case 'Management-Booking-Delete':
+			if (!file_exists("management_booking_delete.php")) die("Sorry Empty Page!");
+			include "management_booking_delete.php";
+			break;
+
+		case 'Panggil-Data':
+			if (!file_exists("app-assets/data/data_booking.php")) die("Sorry Empty Page!");
+			include "app-assets/data/data_booking.php";
+			break;
+
+
+		case 'Management-History':
+			if (!file_exists("management_history.php")) die("Sorry Empty Page!");
+			include "management_history.php";
+			break;
+
+			#MASTER
+
+		case 'Master-Jadwal':
+			if (!file_exists("master_jadwal.php")) die("Sorry Empty Page!");
+			include "master_jadwal.php";
+			break;
+
+		case 'Master-Kategori':
+			if (!file_exists("master_kategori.php")) die("Sorry Empty Page!");
+			include "master_kategori.php";
+			break;
+
+
+
+
 
 
 		default:
