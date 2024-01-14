@@ -32,9 +32,9 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
             $status = isset($_GET['s']) ? $_GET['s'] : '';
             if ($status != '') {
                 // jika s = success
-                if ($status == 'success') {
+                if ($status == 'ok') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Berhasil di Re-Schedule<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Update<br>";
                     echo "</div>";
                 }
                 // jika s = deleted
