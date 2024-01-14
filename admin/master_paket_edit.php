@@ -116,7 +116,7 @@ $id = $_GET['id'];
                             $mySql  = "SELECT * from master_jenis_head order by jenis asc";
                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                             while ($myData = mysqli_fetch_array($myQry)) {
-                              if ($myData['jenis'] == $DataJenis) {
+                              if ($myData['jenis'] == $dataJenis ) {
                                 $cek = 'Selected';
                               } else {
                                 $cek = '';
