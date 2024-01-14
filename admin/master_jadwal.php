@@ -104,7 +104,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                         $Jam = date("G:i", strtotime($Jam));
 
                                         // validasi status
-                                        if ($myData['status'] == 0) {
+                                        if ($myData['status'] == 1) {
                                             $status = "<span class='badge rounded-pill badge-glow bg-success'>Aktif</span>";
                                         } else {
                                             $status = "<span class='badge rounded-pill badge-glow bg-danger'>Tidak Aktif</span>";
