@@ -1,92 +1,125 @@
-<!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="ltr">
 <?php
+$_SESSION['SES_TITLE'] = "Management Admin";
 include_once "library/inc.seslogin.php";
-include "header.php";
-include "library/inc.connection.php";
-
-
+include "header_difan.php";
+$_SESSION['SES_PAGE'] = "?page=Management Admin";
 ?>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
-    <div class="content-wrapper container-xxl p-0">
+    <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Management</h2>
+                        <h2 class="content-header-title float-start mb-0">Management Admin</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item active"><a>User Management</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Management</a>
-                                </li>
-                                <li class="breadcrumb-item active">Booking
+                                <li class="breadcrumb-item active"><a>Management Admin</a>
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                <div class="mb-1 breadcrumb-right">
-                    <div class="dropdown">
-                        <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="grid"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html"><i class="me-1" data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item" href="app-chat.html"><i class="me-1" data-feather="message-square"></i><span class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html"><i class="me-1" data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item" href="app-calendar.html"><i class="me-1" data-feather="calendar"></i><span class="align-middle">Calendar</span></a></div>
-                    </div>
-                </div>
-            </div> -->
+
         </div>
+
         <div class="content-body">
             <div class="row">
                 <div class="col-12">
-                    <!-- <p>Read full documnetation <a href="https://datatables.net/" target="_blank">here</a></p> -->
-                </div>
-            </div>
-            <!-- Basic table -->
-            <section id="">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <table id='' class="dataTable" c>
+                    <div class="card">
+                        <div class="card-header border-bottom">
+                            <div class="content-header-left col-md-4 col-12">
+                                <h4 class="card-title"></h4>
+                            </div>
+                            <div class="content-header-right text-md-end col-md-8 col-12 d-md-block d-none">
+                                <form role="form" action="?page=Management-Admin-Add" method="POST" name="form1" target="_self" id="form1">
+                                    <div class="row">
+                                        <div class="col-md-5 col-12 px-25">
+                                            <!-- <div class="mb-1">
+                        <select id="code" class="form-select select2" tabindex="-1" name="txtCode">
+                          <option value='' selected>[ Semua Kategori ]</option>
+                        </select>
+                      </div> -->
+                                        </div>
+                                        <div class="col-md-3 col-12 px-25">
+                                            <!-- <div class="mb-1">
+                        <select id="subcategory" class="form-select select2" tabindex="-1" name="txtSubCategory">
+                          <option value='' selected>[ Semua Pelanggan ]</option>
+                        </select>
+                      </div> -->
+                                        </div>
+                                        <div class="col-md-4 col-12 ps-25">
+                                            <!-- <div class="mb-1">
+                                                <a href='?page=Management-Admin-Add' type="submit" class="btn btn-danger w-100" name=""><i data-feather='plus'></i> Add Admin</a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-datatable">
+                            <table class="table datatables-basic table-striped table-bordered dt-responsive " cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Hari</th>
                                         <th>Tanggal</th>
                                         <th>Jam</th>
+                                        <th>No WA</th>
+                                        <th>Paket</th>
+                                        <th>Background</th>
+                                        <th>Status</th>
+                                        <th>Delete</th>
+                                        <th>Hapus</th>
+                                        <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking order by tanggal desc";
+                                    $mySql   = "SELECT * FROM booking where status !='Dikonfirmasi' order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
-                                    $data = array();
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
                                         $Code = $myData['id'];
-                                        $data[] = $myData;
+                                        $Jam = $myData['jam'];
+
+                                        // ganti format jam
+                                        $Jam = $Jam;
+                                        $Jam = date("G:i", strtotime($Jam));
+                                        // set hari
+                                        $tanggal = $myData['tanggal'];
+                                        $hari = hari_ini($tanggal);
+
                                     ?>
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['nama']; ?></td>
+                                            <td><?php echo $hari; ?></td>
                                             <td><?php echo $myData['tanggal']; ?></td>
-                                            <td><?php echo $myData['jam']; ?></td>
+                                            <td><?php echo $Jam; ?></td>
                                             <td><?php echo $myData['no_wa']; ?></td>
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
                                             <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
-                                                <td> <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMAI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a></td>
+                                                <td>
+                                                    <a href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Konfirmasi</a>
+                                                </td>
+                                                <td>
+                                                    <a href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Delete</a>
+                                                </td>
+                                                <!-- <td>
+                                                    <a href="?page=#" role="button"><i class="fa fa-pencil fa-fw"></i>Reschedule</a>
+                                                </td> -->
                                             <?php } else { ?>
                                                 <td></td>
                                             <?php } ?>
@@ -99,66 +132,16 @@ include "library/inc.connection.php";
                         </div>
                     </div>
                 </div>
-                <!-- Modal to add new record -->
-                <!-- <div class="modal modal-slide-in fade" id="modals-slide-in">
-                        <div class="modal-dialog sidebar-sm">
-                            <form class="add-new-record modal-content pt-0">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-                                <div class="modal-header mb-1">
-                                    <h5 class="modal-title" id="exampleModalLabel">New Record</h5>
-                                </div>
-                                <div class="modal-body flex-grow-1">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
-                                        <input type="text" class="form-control dt-full-name" id="basic-icon-default-fullname" placeholder="John Doe" aria-label="John Doe" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="basic-icon-default-post">Post</label>
-                                        <input type="text" id="basic-icon-default-post" class="form-control dt-post" placeholder="Web Developer" aria-label="Web Developer" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="basic-icon-default-email">Email</label>
-                                        <input type="text" id="basic-icon-default-email" class="form-control dt-email" placeholder="john.doe@example.com" aria-label="john.doe@example.com" />
-                                        <small class="form-text"> You can use letters, numbers & periods </small>
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="basic-icon-default-date">Joining Date</label>
-                                        <input type="text" class="form-control dt-date" id="basic-icon-default-date" placeholder="MM/DD/YYYY" aria-label="MM/DD/YYYY" />
-                                    </div>
-                                    <div class="mb-4">
-                                        <label class="form-label" for="basic-icon-default-salary">Salary</label>
-                                        <input type="text" id="basic-icon-default-salary" class="form-control dt-salary" placeholder="$12000" aria-label="$12000" />
-                                    </div>
-                                    <button type="button" class="btn btn-primary data-submit me-1">Submit</button>
-                                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
-            </section>
-            <!--/ Basic table -->
-
+            </div>
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 <!-- END: Content-->
 
-<div class="sidenav-overlay"></div>
-<div class="drag-target"></div>
-
-<!-- footer -->
 <?php
-include "footer.php";
+include "footer_difan.php";
 ?>
-</body>
-<!-- END: Body-->
-
-<script>
-    // Inisialisasi DataTable
-    $(document).ready(function() {
-        $('#dataTable').DataTable();
-    });
-</script>
-
-
-</html>
