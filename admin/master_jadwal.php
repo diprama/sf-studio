@@ -46,9 +46,9 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                 }
                 // jika s = deleted
                 else 
-                 if ($status == 'confirmation') {
+                 if ($status == 'deleted') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Berhasil di Konfirmasi<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
                     echo "</div>";
                 }
             }
@@ -94,6 +94,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                         <th>Jam</th>
                                         <th>Status</th>
                                         <th>Ketersediaan</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -133,6 +134,23 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                                 <a href="?page=Master-Jadwal-Update-Status&id=<?php echo $Code; ?>" onclick="return confirm('INGIN UPDATE STATUS?')"><?= $status ?></a>
                                             </td>
                                             <td><?php echo $availability; ?></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="?page=Master-Jadwal-Edit&id=<?php echo $Code; ?>" role="button"><i class="fa fa-pencil fa-fw">
+                                                                <i data-feather="edit-2" class="me-50"></i>
+                                                                <span>Edit</span>
+                                                        </a>
+                                                        <a class="dropdown-item" href="?page=Master-Jadwal-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                <i data-feather="trash" class="me-50"></i>
+                                                                <span>Hapus</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
 
                                         </tr>
                                     <?php }

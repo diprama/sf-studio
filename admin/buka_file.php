@@ -91,6 +91,16 @@ if ($_GET) {
       include "master_jadwal_add.php";
       break;
 
+    case 'Master-Jadwal-Edit':
+      if (!file_exists("master_jadwal_edit.php")) die("Sorry Empty Page!");
+      include "master_jadwal_edit.php";
+      break;
+
+    case 'Master-Jadwal-Delete':
+      if (!file_exists("master_jadwal_delete.php")) die("Sorry Empty Page!");
+      include "master_jadwal_delete.php";
+      break;
+
 
     case 'Master-Kategori':
       if (!file_exists("master_kategori.php")) die("Sorry Empty Page!");
