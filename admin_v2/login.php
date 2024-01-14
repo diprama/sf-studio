@@ -39,29 +39,29 @@ while ($myData = mysqli_fetch_array($myQry)) {
   <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
   <meta name="author" content="PIXINVENT">
   <title>Login Page - Libra</title>
-  <link rel="apple-touch-icon" href="../app-assets/images/logo/libra2.png">
-  <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/libra3.png">
+  <link rel="apple-touch-icon" href="../base-app-assets/images/logo/libra2.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../base-app-assets/images/logo/libra3.png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
   <!-- BEGIN: Vendor CSS-->
-  <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/vendors.min.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/vendors/css/vendors.min.css">
   <!-- END: Vendor CSS-->
 
   <!-- BEGIN: Theme CSS-->
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/bootstrap-extended.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/colors.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/components.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/themes/dark-layout.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/themes/bordered-layout.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/themes/semi-dark-layout.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/bootstrap-extended.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/colors.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/components.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/themes/dark-layout.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/themes/bordered-layout.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/themes/semi-dark-layout.css">
 
   <!-- BEGIN: Page CSS-->
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/core/menu/menu-types/vertical-menu.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/plugins/forms/form-validation.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/pages/authentication.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/extensions/swiper.min.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/plugins/extensions/ext-component-swiper.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/core/menu/menu-types/vertical-menu.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/plugins/forms/form-validation.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/pages/authentication.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/vendors/css/extensions/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/plugins/extensions/ext-component-swiper.css">
 
 
   <!-- END: Page CSS-->
@@ -93,8 +93,8 @@ while ($myData = mysqli_fetch_array($myQry)) {
               <div class=" d-lg-flex align-items-center p-5">
 
                 <div class="row match-height">
-                  <img style='width:20%' src="../app-assets/images/logo/libra1.png">
-                  <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="../app-assets/images/pages/login-v2.svg" alt="Login V2" /></div>
+                  <img style='width:20%' src="../base-app-assets/images/logo/libra1.png">
+                  <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="../base-app-assets/images/pages/login-v2.svg" alt="Login V2" /></div>
 
                 </div>
               </div>
@@ -105,7 +105,7 @@ while ($myData = mysqli_fetch_array($myQry)) {
             <div class="col-lg-4 align-items-center  px-5 p-lg-5 ">
               <!-- User Card -->
               <div class="d-flex align-items-center flex-column">
-                <img class="img-fluid rounded mt-3 mb-2" src="../app-assets/images/logo/libra2.png" height="150" width="150" alt="User avatar" />
+                <img class="img-fluid rounded mt-3 mb-2" src="../base-app-assets/images/logo/libra2.png" height="150" width="150" alt="User avatar" />
               </div>
 
               <br>
@@ -175,22 +175,22 @@ while ($myData = mysqli_fetch_array($myQry)) {
 
 
   <!-- BEGIN: Vendor JS-->
-  <script src="../app-assets/vendors/js/vendors.min.js"></script>
+  <script src="../base-app-assets/vendors/js/vendors.min.js"></script>
   <!-- BEGIN Vendor JS-->
 
   <!-- BEGIN: Page Vendor JS-->
-  <script src="../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+  <script src="../base-app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
   <!-- END: Page Vendor JS-->
 
   <!-- BEGIN: Theme JS-->
-  <script src="../app-assets/js/core/app-menu.js"></script>
-  <script src="../app-assets/js/core/app.js"></script>
+  <script src="../base-app-assets/js/core/app-menu.js"></script>
+  <script src="../base-app-assets/js/core/app.js"></script>
   <!-- END: Theme JS-->
 
   <!-- BEGIN: Page JS-->
-  <script src="../app-assets/js/scripts/pages/auth-login.js"></script>
-  <script src="../app-assets/js/scripts/extensions/swiper.js"></script>
-  <script src="../app-assets/vendors/js/extensions/swiper.min.js"></script>
+  <script src="../base-app-assets/js/scripts/pages/auth-login.js"></script>
+  <script src="../base-app-assets/js/scripts/extensions/swiper.js"></script>
+  <script src="../base-app-assets/vendors/js/extensions/swiper.min.js"></script>
 
 
   <!-- END: Page JS-->
