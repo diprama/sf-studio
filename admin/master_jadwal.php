@@ -66,7 +66,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                             <div class="content-header-left col-md-4 col-12">
                                 <h4 class="card-title"></h4>
                             </div>
-                            <div class="content-header-right text-md-end col-md-8 col-12 d-md-block d-none">
+                            <div class="content-header-right text-md-end col-md-12 col-12 d-md-block d-none">
                                 <form role="form" action="?page=Master-Jadwal-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
                                         <div class="col-12">
@@ -75,7 +75,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                                     <label>Jam</label>
                                                     <input type="time" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJam' aria-describedby="basic-addon-name" />
                                                 </div>
-                                                <div class="col-1">
+                                                <div class="col-2">
                                                     <br>
                                                     <button type="submit" name="btnHistory" style="width: 100%;" class="btn btn-success">Tambah Jam</button>
                                                 </div>
