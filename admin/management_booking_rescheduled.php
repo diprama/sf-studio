@@ -70,69 +70,75 @@ function hari_ini($tanggal)
     </div>
 
     <div class="content-body">
-
       <div class="row">
-        <!-- row -->
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="x_panel">
-            <!-- x_panel -->
+        <div class="col-12">
+          <div class="card">
 
-            <div class="x_title">
-              <!-- x_title -->
-              <h2>Edit Data</h2>
-              <ul class="nav navbar-right panel_toolbox">
-                <a href="<?php echo $_SESSION['SES_PAGE']; ?>" class="btn btn-default btn-sm" role="button"><i class="fa fa-chevron-circle-left fa-fw"></i> Back</a>
-              </ul>
-              <div class="clearfix"></div>
-            </div><!-- /x_title -->
+            <div class="row">
+              <!-- row -->
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <!-- x_panel -->
 
-            <div class="x_content ">
-              <!-- x_content -->
-              <br />
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>ID Booking</label>
-                  <input class="form-control" name="txtCode" type="text" value="<?php echo $dataCode; ?>" maxlength="20" readonly />
-                </div>
+                  <div class="x_title">
+                    <!-- x_title -->
+                    <h2>Edit Data</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <a href="<?php echo $_SESSION['SES_PAGE']; ?>" class="btn btn-default btn-sm" role="button"><i class="fa fa-chevron-circle-left fa-fw"></i> Back</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div><!-- /x_title -->
 
+                  <div class="x_content ">
+                    <!-- x_content -->
+                    <br />
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>ID Booking</label>
+                        <input class="form-control" name="txtCode" type="text" value="<?php echo $dataCode; ?>" maxlength="20" readonly />
+                      </div>
+
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Nama <span class="required">*</span></label>
+                        <input class="form-control" placeholder="Name" name="txtNama" type="text" value="<?php echo $dataNama; ?>" maxlength="100" required readonly />
+                      </div>
+                      <div class="form-group">
+                        <label>No Whatsapp <span class="required">*</span></label>
+                        <input class="form-control" placeholder="Phone" name="txtWA" type="text" value="<?php echo $dataWA; ?>" maxlength="100" required readonly />
+                      </div>
+                      <div class="form-group">
+                        <label>Email <span class="required">*</span></label>
+                        <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
+                      </div>
+                      <div class="form-group">
+                        <label>Tanggal Booking </label>
+                        <input class="form-control" placeholder="YYYY-MM-DD" name="txtTanggal" type="date" value="<?php echo $dataTanggal; ?>" autocomplete="off" required />
+                      </div>
+                      <div class="form-group">
+                        <label>Jam Booking </label>
+                        <input class="form-control" placeholder="MM:DD" name="txtJam" type="time" value="<?php echo $dataJam; ?>" autocomplete="off" required />
+                      </div>
+
+
+                    </div>
+                    <div class="col-xs-12">
+                      <div class="ln_solid"></div>
+                      <div class="col-xs-6" align="left">
+                        <a href="?page=Management-Booking" class="btn btn-warning btn-sm" role="button"><i class="fa fa-undo fa-fw"></i> Kembali</a>
+                        <button type="submit" class="btn btn-primary btn-sm" name="btnSubmit"><i class="fa fa-check-square-o fa-fw"></i> Submit</button>
+                      </div>
+                    </div>
+
+                  </div><!-- /x_content -->
+
+                </div><!-- /x_panel -->
               </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label>Nama <span class="required">*</span></label>
-                  <input class="form-control" placeholder="Name" name="txtNama" type="text" value="<?php echo $dataNama; ?>" maxlength="100" required readonly />
-                </div>
-                <div class="form-group">
-                  <label>No Whatsapp <span class="required">*</span></label>
-                  <input class="form-control" placeholder="Phone" name="txtWA" type="text" value="<?php echo $dataWA; ?>" maxlength="100" required readonly />
-                </div>
-                <div class="form-group">
-                  <label>Email <span class="required">*</span></label>
-                  <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
-                </div>
-                <div class="form-group">
-                  <label>Tanggal Booking </label>
-                  <input class="form-control" placeholder="YYYY-MM-DD" name="txtTanggal" type="date" value="<?php echo $dataTanggal; ?>" autocomplete="off" required />
-                </div>
-                <div class="form-group">
-                  <label>Jam Booking </label>
-                  <input class="form-control" placeholder="MM:DD" name="txtJam" type="time" value="<?php echo $dataJam; ?>" autocomplete="off" required />
-                </div>
-
-
-              </div>
-              <div class="col-xs-12">
-                <div class="ln_solid"></div>
-                <div class="col-xs-6" align="left">
-                  <a href="?page=Management-Booking" class="btn btn-warning btn-sm" role="button"><i class="fa fa-undo fa-fw"></i> Kembali</a>
-                  <button type="submit" class="btn btn-primary btn-sm" name="btnSubmit"><i class="fa fa-check-square-o fa-fw"></i> Submit</button>
-                </div>
-              </div>
-
-            </div><!-- /x_content -->
-
-          </div><!-- /x_panel -->
+            </div><!-- /row -->
+          </div>
         </div>
-      </div><!-- /row -->
+      </div>
     </div>
   </div>
 </div>
