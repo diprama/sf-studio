@@ -1,8 +1,8 @@
 <?php
-$_SESSION['SES_TITLE'] = "Edit Jadwal";
+$_SESSION['SES_TITLE'] = "Edit Jenis";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Master-Jadwal-Edit";
+$_SESSION['SES_PAGE'] = "?page=Master-Jenis-Edit";
 $id = $_GET['id'];
 
 ?>
@@ -17,20 +17,23 @@ $id = $_GET['id'];
     $dataStatus  = $_POST['txtStatus'];
 
     # VALIDASI JAM 
-    # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE dan AMBIL NAMA LAMA NYA
+    # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
   
-    $mySqlCek  = "SELECT jenis FROM master_jenis_head WHERE  id ='$id'";
+    $mySqlCek  = "SELECT jenis FROM master_jenis_head WHERE  jenis ='$dataJenis'";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $JumlahDataCek = mysqli_num_rows($myQryCek);
-    $DataCek = mysqli_fetch_array($myQryCek);
-
-    $dataJenisOld = $DataCek['jenis'];
-
-
     if ($JumlahDataCek >= 1) {
       $pesanError[] = "Jam tersebut sudah diset sebelumnya";
     }
-    #VALIDASI JAM SELESAI
+
+
+    # CEK DATA AMBIL NAMA LAMA NYA
+
+    $mySqlCek  = "SELECT jenis FROM master_jenis_head WHERE  id ='$id'";
+    $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
+    $DataCek = mysqli_fetch_array($myQryCek);
+
+    $dataJenisOld = $DataCek['jenis'];
 
 
     # JIKA ADA PESAN ERROR DARI VALIDASI
@@ -53,7 +56,7 @@ $id = $_GET['id'];
       $mySql    = "UPDATE master_jenis set jenis ='$dataJenisOld' where jenis='$dataJenisOld'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jadwal&s=edited'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jenis&s=edited'>";
       }
       exit;
     }
@@ -62,13 +65,12 @@ $id = $_GET['id'];
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
   $Code  = isset($_GET['id']) ?  $_GET['id'] : '';
-  $mySql  = "SELECT * FROM jadwal WHERE id='$Code'";
+  $mySql  = "SELECT * FROM jenis WHERE id='$Code'";
   $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
   $myData = mysqli_fetch_array($myQry);
   # MASUKKAN DATA KE VARIABEL
   $dataCode    = $myData['id'];
-  $dataStatus    = $myData['status'];
-  $dataJam    = $myData['jam'];
+  $dataJenis    = $myData['jenis'];
   ?>
   <!-- BEGIN: Content-->
   <div class="content-overlay">
@@ -80,7 +82,7 @@ $id = $_GET['id'];
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
-            <h2 class="content-header-title float-start mb-0">Jadwal</h2>
+            <h2 class="content-header-title float-start mb-0">Jenis</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a>Edit</a>
@@ -107,29 +109,14 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Jam <span class="required">*</span></label>
-                            <input type="time" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJam' value="<?php echo $dataJam; ?>" aria-describedby="basic-addon-name" />
+                            <input type="time" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJenis' value="<?php echo $dataJenis; ?>" aria-describedby="basic-addon-name" />
                           </div>
                         </div>
-                        <div class="col-md-3 col-12">
-                            <div class="form-group">
-                              <label>Status*</label>
-                              <select class="form-select" id="waktu" name="txtStatus" aria-label="Default select example" autocomplete="off" required>
-                                <?php if ($dataStatus == 1) { ?>
-                                  <option value="1" selected>Aktif</option>
-                                  <option value="0">Tidak Aktif</option>
-                                <?php } else { ?>
-                                  <option value="1">Aktif</option>
-                                  <option value="0" selected>Tidak Aktif</option>
-                                <?php } ?>
-                              </select>
-                            </div>
-                        </div>
-
                       </div>
 
                     </div>
                     <div class="col-7 my-5">
-                      <a type="button" href="?page=Master-Jadwal" class="btn btn-warning me-2">Kembali</a>
+                      <a type="button" href="?page=Master-Jenis" class="btn btn-warning me-2">Kembali</a>
                       <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
                     </div>
                   </div>
