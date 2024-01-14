@@ -3,7 +3,7 @@
     <nav style='background: #436451;' class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center" data-nav="brand-center">
         <div class="navbar-container d-flex content">
             <div class="bookmark-wrapper d-flex align-items-center">
-     
+
                 <ul class="nav navbar-nav">
                     <li class="nav-item"><a class="navbar-brand" href="#"><img style='width:3%' src="../app-assets/images/logo/logo-sf-white.png"></a></li>
                 </ul>
@@ -78,7 +78,8 @@
                             <span style='color:aliceblue' class="user-status"><?php echo $_SESSION['SES_GROUP'] ?></span>
                         </div>
                         <span class="avatar">
-                            <img class="round" src="<?php echo "../uploads/user/" . $_SESSION['SES_PHOTO']; ?>" alt="avatar" height="40" width="40">
+                            <!-- <img class="round" src="<?php echo "uploads/user/" . $_SESSION['SES_PHOTO']; ?>" alt="avatar" height="40" width="40"> -->
+                            <img class="round" src="uploads/user/user.jpg" alt="avatar" height="40" width="40">
                             <span class="avatar-status-online"></span>
                         </span>
                     </a>
