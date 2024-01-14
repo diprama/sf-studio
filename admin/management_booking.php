@@ -47,6 +47,19 @@ function hari_ini($tanggal)
     return "<b>" . $hari_ini . "</b>";
 }
 ?>
+
+<!-- set notifikasi -->
+<?php
+$status = isset($_GET['s']) ? $_GET['s'] : '';
+if ($status != '') {
+    // jika s = success
+    if ($status == 'success') {
+        echo "&nbsp;<div class='alert alert-success'>";
+        echo "&nbsp;&nbsp; Re-Schedule Berhasil<br>";
+        echo "</div>";
+    }
+}
+?>
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -69,19 +82,7 @@ function hari_ini($tanggal)
 
         </div>
 
-        <!-- set notifikasi -->
-        <?php
-        $status = isset($_GET['s']) ? $_GET['s'] : '';
-        if ($status!='') {
-            // jika s = success
-            if ($status =='success') {
-                echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Re-Schedule Berhasil<br>";
-                echo "</div>";
-            }
-           
-        }
-        ?>
+
 
         <div class="content-body">
             <div class="row">
