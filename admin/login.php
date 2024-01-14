@@ -112,7 +112,7 @@
                                             <label class="form-check-label" for="remember-me"> Remember Me </label>
                                         </div>
                                     </div>
-                                    <button class="btn w-100" style='background: #436451;' type=" submit" name="btnLogin" tabindex="4">Sign in</button>
+                                    <button class="btn w-100" style='background: #436451; color:white' type=" submit" name="btnLogin" tabindex="4">Sign in</button>
                                 </form>
 
 
