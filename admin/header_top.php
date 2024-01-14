@@ -87,7 +87,7 @@
                         <div class="dropdown-divider"></div>
                         <!-- <a class="dropdown-item" href="uploads/Rentas_ERP_user_guide.pdf" target="_blank"><i class="me-50" data-feather="settings"></i> User Guide</a> -->
                         <!-- <a class="dropdown-item" href="page-pricing.html"><i class="me-50" data-feather="credit-card"></i> Pricing</a> -->
-                        <a class="dropdown-item" href="?page=Help"><i class="me-50" data-feather="help-circle"></i> Help</a>
+                        <!-- <a class="dropdown-item" href="?page=Help"><i class="me-50" data-feather="help-circle"></i> Help</a> -->
                         <a class="dropdown-item" href="?page=Logout"><i class="me-50" data-feather="power"></i> Logout</a>
                     </div>
                 </li>
