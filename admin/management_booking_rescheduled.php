@@ -146,12 +146,10 @@ $id = $_GET['id'];
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
-            <h2 class="content-header-title float-start mb-0">User Management</h2>
+            <h2 class="content-header-title float-start mb-0">Booking</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="?page=Management-User"> User</a>
-                </li>
-                <li class="breadcrumb-item"><a href="#"> User Add</a>
+                <li class="breadcrumb-item"><a>Re-Schedule</a>
                 </li>
               </ol>
             </div>
