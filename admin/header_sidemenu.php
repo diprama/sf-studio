@@ -61,11 +61,12 @@
                         </ul>
                     </li> -->
 
-                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>User Management</a>
+                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>Booking Management</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="#" data-bs-toggle="">Role Permission</a>
-                            <a class="dropdown-item" href="#" data-bs-toggle="">Admin Management</a>
-                            <a class="dropdown-item" href="#" data-bs-toggle="">Booking Management</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">Jenis</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">Paket</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">Background</a>
+                            <a class="dropdown-item" href="Master-Jadwal" data-bs-toggle="">Jadwal</a>
                         </ul>
                     </li>
 
