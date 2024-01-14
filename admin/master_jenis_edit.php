@@ -108,7 +108,7 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Jam <span class="required">*</span></label>
+                            <label>Jenis <span class="required">*</span></label>
                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJenis' value="<?php echo $dataJenis; ?>" aria-describedby="basic-addon-name" />
                           </div>
                         </div>
