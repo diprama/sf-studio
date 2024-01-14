@@ -37,7 +37,7 @@
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="layers"></i>Dashboard</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item xx" href="?page=Main" data-bs-toggle="">Dashboard</a>
+                            <a class="dropdown-item xx" href="#" data-bs-toggle="">Dashboard</a>
                             <!-- <a class="dropdown-item" href="?page=Information" data-bs-toggle="">Information, News & Article</a> -->
                         </ul>
                     </li>
@@ -45,8 +45,8 @@
                    
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="database"></i>Booking</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Content-Categories&code=Digital" data-bs-toggle="">Booking</a>
-                            <a class="dropdown-item" href="?page=Content-Management-Digital" data-bs-toggle="">History</a>
+                            <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Booking</a>
+                            <a class="dropdown-item" href="?#" data-bs-toggle="">History</a>
                         </ul>
                     </li>
 
@@ -63,9 +63,9 @@
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>User Management</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Role-Permission" data-bs-toggle="">Role Permission</a>
-                            <a class="dropdown-item" href="?page=Management-Admin" data-bs-toggle="">Admin Management</a>
-                            <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Booking Management</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">Role Permission</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">Admin Management</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">Booking Management</a>
                         </ul>
                     </li>
 
@@ -78,7 +78,7 @@
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="book"></i>Report</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Report-Booking" data-bs-toggle="">Booking</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">Booking</a>
                         </ul>
                     </li>
                     <!-- 
