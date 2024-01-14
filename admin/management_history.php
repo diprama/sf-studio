@@ -111,11 +111,57 @@ function hari_ini($tanggal)
                             <div class="content-header-right text-md-end col-md-8 col-12 d-md-block d-none">
                                 <form role="form" action="?page=Management-Admin-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
-                                        <div class="col-md-5 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-3 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-4 col-12 ps-25">
+                                        <div class="col-12">
+                                            <form role="form" action="?page=Validasi" method="POST" name="form3" target="_self" id="form3">
+                                                <div class="row">
+                                                    <div class="col-md-2 col-12">
+                                                        <label>From</label>
+                                                        <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $date ?>' aria-describedby="basic-addon-name" required />
+                                                    </div>
+                                                    <div class="col-md-2 col-12">
+                                                        <label>To</label>
+                                                        <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate2' value='<?php echo $date2 ?>' aria-describedby="basic-addon-name" required />
+                                                    </div>
+                                                    <div class="col-md-2 col-12">
+
+                                                        <label>Paket</label>
+                                                        <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                                                            <option selected value="">Pilih</option>
+                                                            <?php
+                                                            // panggil database
+                                                            $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                                            $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                                            while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                                                <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
+                                                            <?php
+                                                            };
+                                                            ?>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-2 col-12">
+
+                                                        <label>Background</label>
+                                                        <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
+                                                            <option selected value="">Pilih</option>
+                                                            <?php
+                                                            // panggil database
+                                                            $mySql  = "SELECT * from master_background order by id asc";
+                                                            $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                                            while ($myData = mysqli_fetch_array($myQry)) { ?>
+                                                                <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
+                                                            <?php
+                                                            };
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-1">
+                                                    <br>
+                                                    <button type="submit" name="btnActivityUser" class="btn btn-primary">Filter</button>
+                                                </div>
+
                                         </div>
                                     </div>
                                 </form>
