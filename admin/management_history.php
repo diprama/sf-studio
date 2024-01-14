@@ -117,60 +117,57 @@ function hari_ini($tanggal)
                                 <form role="form" action="?page=Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
                                         <div class="col-12">
-                                                <div class="row">
-                                                    <div class="col-md-2 col-12">
-                                                        <label>Tanggal</label>
-                                                        <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $Date ?>' aria-describedby="basic-addon-name"   />
-                                                    </div>
-                                                    <div class="col-md-2 col-12">
-
-                                                        <label>Paket</label>
-                                                        <select class="form-select" id="paketfoto" name="txtPaket" aria-label="Default select example" autocomplete="off">
-                                                            <option selected value="">Semua</option>
-                                                            <?php
-                                                            // panggil database
-                                                            $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
-                                                            $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                                            while ($myData = mysqli_fetch_array($myQry)) {
-                                                                if ($myData['paket'] == $DataPaket) {
-                                                                    $cek = 'Selected';
-                                                                } else {
-                                                                    $cek = '';
-                                                                }
-                                                                echo "<option value='$myData[paket]' $cek> $myData[paket] </option>";
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-2 col-12">
-
-                                                        <label>Background</label>
-                                                        <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off">
-                                                            <option selected value="">Semua</option>
-                                                            <?php
-                                                            // panggil database
-                                                            $mySql  = "SELECT * from master_background order by id asc";
-                                                            $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                                            while ($myData = mysqli_fetch_array($myQry)) {
-                                                                if ($myData['background'] == $DataBackground) {
-                                                                    $cek = 'Selected';
-                                                                } else {
-                                                                    $cek = '';
-                                                                }
-                                                                echo "<option value='$myData[background]' $cek> $myData[background] </option>";
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
+                                            <div class="row">
+                                                <div class="col-md-2 col-12">
+                                                    <label>Tanggal</label>
+                                                    <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" />
                                                 </div>
-                                                <div class="row">
+                                                <div class="col-md-2 col-12">
 
-                                                    <div class="col-1">
-                                                        <br>
-                                                        <button type="submit" name="btnHistory" class="btn btn-primary">Filter</button>
-                                                    </div>
+                                                    <label>Paket</label>
+                                                    <select class="form-select" id="paketfoto" name="txtPaket" aria-label="Default select example" autocomplete="off">
+                                                        <option selected value="">Semua</option>
+                                                        <?php
+                                                        // panggil database
+                                                        $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
+                                                        $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                                        while ($myData = mysqli_fetch_array($myQry)) {
+                                                            if ($myData['paket'] == $DataPaket) {
+                                                                $cek = 'Selected';
+                                                            } else {
+                                                                $cek = '';
+                                                            }
+                                                            echo "<option value='$myData[paket]' $cek> $myData[paket] </option>";
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </div>
+
+                                                <div class="col-md-2 col-12">
+
+                                                    <label>Background</label>
+                                                    <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off">
+                                                        <option selected value="">Semua</option>
+                                                        <?php
+                                                        // panggil database
+                                                        $mySql  = "SELECT * from master_background order by id asc";
+                                                        $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                                        while ($myData = mysqli_fetch_array($myQry)) {
+                                                            if ($myData['background'] == $DataBackground) {
+                                                                $cek = 'Selected';
+                                                            } else {
+                                                                $cek = '';
+                                                            }
+                                                            echo "<option value='$myData[background]' $cek> $myData[background] </option>";
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-1">
+                                                    <br>
+                                                    <button type="submit" name="btnHistory" style="width: 100%;" class="btn btn-primary">Filter</button>
+                                                </div>
+                                            </div>
 
 
                                         </div>
@@ -200,7 +197,7 @@ function hari_ini($tanggal)
                                     <?php
                                     $mySql   = "SELECT * FROM booking WHERE id!=''";
                                     // jika tanggal, tipe dan paket !=''
-                                    if ($Date!='') {
+                                    if ($Date != '') {
                                         $mySql .=  " AND tanggal ='$Date'";
                                     }
                                     if ($DataPaket != '') {
