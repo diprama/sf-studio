@@ -2,8 +2,13 @@
 $_SESSION['SES_TITLE'] = "History";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Management-Booking";
+$_SESSION['SES_PAGE'] = "?page=Management-History";
 
+# untuk validasi
+$Date = isset($_GET['date']) ? $_GET['date'] : '';
+$DataJenis = isset($_GET['j']) ? $_GET['j'] : '';
+$DataBackground = isset($_GET['b']) ? $_GET['b'] : '';
+#
 
 function hari_ini($tanggal)
 {
@@ -116,7 +121,7 @@ function hari_ini($tanggal)
                                                 <div class="row">
                                                     <div class="col-md-2 col-12">
                                                         <label>Tanggal</label>
-                                                        <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $date ?>' aria-describedby="basic-addon-name" required />
+                                                        <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" required />
                                                     </div>
                                                     <div class="col-md-2 col-12">
 
@@ -127,10 +132,14 @@ function hari_ini($tanggal)
                                                             // panggil database
                                                             $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
                                                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                                            while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                                                <option value="<?php echo $myData['jenis']  ?>"><?php echo $myData['jenis'] ?></option>;
-                                                            <?php
-                                                            };
+                                                            while ($myData = mysqli_fetch_array($myQry)) {
+                                                                if ($dataRow['jenis'] == $DataJenis) {
+                                                                    $cek = 'Selected';
+                                                                } else {
+                                                                    $cek = '';
+                                                                }
+                                                                echo "<option value='$dataRow[jenis]' $cek> $dataRow[jenis] </option>";
+                                                            }
                                                             ?>
                                                         </select>
                                                     </div>
@@ -144,10 +153,14 @@ function hari_ini($tanggal)
                                                             // panggil database
                                                             $mySql  = "SELECT * from master_background order by id asc";
                                                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                                            while ($myData = mysqli_fetch_array($myQry)) { ?>
-                                                                <option value="<?php echo $myData['background']  ?>"><?php echo $myData['background'] ?></option>;
-                                                            <?php
-                                                            };
+                                                            while ($myData = mysqli_fetch_array($myQry)) {
+                                                                if ($dataRow['background'] == $DataBackground) {
+                                                                    $cek = 'Selected';
+                                                                } else {
+                                                                    $cek = '';
+                                                                }
+                                                                echo "<option value='$dataRow[background]' $cek> $dataRow[background] </option>";
+                                                            }
                                                             ?>
                                                         </select>
                                                     </div>
