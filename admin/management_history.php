@@ -6,7 +6,7 @@ $_SESSION['SES_PAGE'] = "?page=Management-History";
 
 # untuk validasi
 $Date = isset($_GET['date']) ? $_GET['date'] : '';
-$DataJenis = isset($_GET['j']) ? $_GET['j'] : '';
+$DataPaket = isset($_GET['p']) ? $_GET['p'] : '';
 $DataBackground = isset($_GET['b']) ? $_GET['b'] : '';
 #
 
@@ -125,19 +125,19 @@ function hari_ini($tanggal)
                                                     <div class="col-md-2 col-12">
 
                                                         <label>Paket</label>
-                                                        <select class="form-select" id="jenisfoto" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                                                        <select class="form-select" id="paketfoto" name="txtPaket" aria-label="Default select example" autocomplete="off" required>
                                                             <option selected value="">Pilih</option>
                                                             <?php
                                                             // panggil database
-                                                            $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
+                                                            $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
                                                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                                             while ($myData = mysqli_fetch_array($myQry)) {
-                                                                if ($myData['jenis'] == $DataJenis) {
+                                                                if ($myData['paket'] == $DataPaket) {
                                                                     $cek = 'Selected';
                                                                 } else {
                                                                     $cek = '';
                                                                 }
-                                                                echo "<option value='$myData[jenis]' $cek> $myData[jenis] </option>";
+                                                                echo "<option value='$myData[paket]' $cek> $myData[paket] </option>";
                                                             }
                                                             ?>
                                                         </select>
@@ -198,7 +198,15 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking  order by tanggal desc";
+                                    $mySql   = "SELECT * FROM booking WHERE id!=''";
+                                    // jika tanggal, tipe dan paket !=''
+                                    if ($Date!='') {
+                                        $mySql .=  " AND tanggal ='$Date'";
+                                    }
+                                    if ($DataPaket != '') {
+                                        $mySql .=  " AND paket ='$Date'";
+                                    }
+                                    $mySql .=  " order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
