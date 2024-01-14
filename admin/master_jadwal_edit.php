@@ -104,37 +104,20 @@ $id = $_GET['id'];
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Status <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Phone" name="txtWA" type="text" value="<?php echo $dataWA; ?>" maxlength="100" required readonly />
-                          </div>
+                            <div class="form-group">
+                              <label>Status*</label>
+                              <select class="form-select" id="waktu" name="txtStatus" aria-label="Default select example" autocomplete="off" required>
+                                <?php if ($dataStatus == 1) { ?>
+                                  <option value="1" selected>Aktif</option>
+                                  <option value="0">Tidak Aktif</option>
+                                <?php } else { ?>
+                                  <option value="1">Aktif</option>
+                                  <option value="0" selected>Tidak Aktif</option>
+                                <?php } ?>
+                              </select>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Email <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
-                          </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Tanggal Booking </label>
-                            <input class="form-control" placeholder="YYYY-MM-DD" name="txtTanggal" type="date" value="<?php echo $dataTanggal; ?>" autocomplete="off" required />
-                          </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>Status*</label>
-                            <select class="form-select" id="waktu" name="txtStatus" aria-label="Default select example" autocomplete="off" required>
-                              <?php if ($dataStatus == 1) { ?>
-                                <option value="1" selected>Aktif</option>
-                                <option value="0">Tidak Aktif</option>
-                              <?php } else { ?>
-                                <option value="1">Aktif</option>
-                                <option value="0" selected>Tidak Aktif</option>
-                              <?php } ?>
-                            </select>
-                          </div>
-                        </div>
+
                       </div>
 
                     </div>
