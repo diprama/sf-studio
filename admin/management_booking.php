@@ -185,7 +185,7 @@ function hari_ini($tanggal)
                                                             </a>
                                                             <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                     <i data-feather="trash" class="me-50"></i>
-                                                                    <span>Delete</span>
+                                                                    <span>Hapus</span>
                                                             </a>
                                                         </div>
                                                     </div>
