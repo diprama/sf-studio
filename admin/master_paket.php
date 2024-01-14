@@ -1,51 +1,8 @@
 <?php
-$_SESSION['SES_TITLE'] = "Booking";
+$_SESSION['SES_TITLE'] = "Master Paket";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Management-Booking";
-
-
-function hari_ini($tanggal)
-{
-    $tanggal =
-        $hari = date("D", strtotime($tanggal));
-
-    switch ($hari) {
-        case 'Sun':
-            $hari_ini = "Minggu";
-            break;
-
-        case 'Mon':
-            $hari_ini = "Senin";
-            break;
-
-        case 'Tue':
-            $hari_ini = "Selasa";
-            break;
-
-        case 'Wed':
-            $hari_ini = "Rabu";
-            break;
-
-        case 'Thu':
-            $hari_ini = "Kamis";
-            break;
-
-        case 'Fri':
-            $hari_ini = "Jumat";
-            break;
-
-        case 'Sat':
-            $hari_ini = "Sabtu";
-            break;
-
-        default:
-            $hari_ini = "Tidak di ketahui";
-            break;
-    }
-
-    return "<b>" . $hari_ini . "</b>";
-}
+$_SESSION['SES_PAGE'] = "?page=Master-Paket";
 ?>
 
 
@@ -58,10 +15,10 @@ function hari_ini($tanggal)
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Booking</h2>
+                        <h2 class="content-header-title float-start mb-0">Booking Management</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>Booking</a>
+                                <li class="breadcrumb-item"><a>Paket</a>
                                 </li>
                             </ol>
                         </div>
@@ -74,9 +31,16 @@ function hari_ini($tanggal)
             $status = isset($_GET['s']) ? $_GET['s'] : '';
             if ($status != '') {
                 // jika s = success
-                if ($status == 'success') {
+                if ($status == 'ok') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Berhasil di Re-Schedule<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Update<br>";
+                    echo "</div>";
+                }
+                // jika s = deleted
+                else 
+                 if ($status == 'tambah') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Berhasil di Tambahkan<br>";
                     echo "</div>";
                 }
                 // jika s = deleted
@@ -86,13 +50,11 @@ function hari_ini($tanggal)
                     echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
                     echo "</div>";
                 }
-                // jika s = deleted
-                else 
-                 if ($status == 'confirmation') {
+                if ($status == 'edited') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Berhasil di Konfirmasi<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Edit<br>";
                     echo "</div>";
-                } 
+                }
             }
             ?>
 
@@ -108,14 +70,20 @@ function hari_ini($tanggal)
                             <div class="content-header-left col-md-4 col-12">
                                 <h4 class="card-title"></h4>
                             </div>
-                            <div class="content-header-right text-md-end col-md-8 col-12 d-md-block d-none">
-                                <form role="form" action="?page=Management-Admin-Add" method="POST" name="form1" target="_self" id="form1">
+                            <div class="content-header-left text-md-end col-md-12 col-12 d-md-block d-none">
+                                <form role="form" action="?page=Master-Paket-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
-                                        <div class="col-md-5 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-3 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-4 col-12 ps-25">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-md-2 col-12">
+                                                    <label>Paket</label>
+                                                    <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtPaket' aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-2">
+                                                    <br>
+                                                    <button type="submit" style="width: 100%;" class="btn btn-success">Tambah</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -126,14 +94,8 @@ function hari_ini($tanggal)
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Hari</th>
-                                        <th>Tanggal</th>
-                                        <th>Jam</th>
-                                        <th>No WA</th>
-                                        <th>Paket</th>
-                                        <th>Background</th>
-                                        <th>Status</th>
+                                        <th>Nama Jenis</th>
+                                        <th>Nama Paket</th>
                                         <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
@@ -141,58 +103,36 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking where status !='Dikonfirmasi' order by tanggal desc";
+                                    $mySql   = "SELECT * FROM master_jenis order by jenis desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
-                                        $Code = $myData['id'];
-                                        $Jam = $myData['jam'];
-
-                                        // ganti format jam
-                                        $Jam = $Jam;
-                                        $Jam = date("G:i", strtotime($Jam));
-                                        // set hari
-                                        $tanggal = $myData['tanggal'];
-                                        $hari = hari_ini($tanggal);
+                                        $Code =  $myData['id'];
 
                                     ?>
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
-                                            <td><?php echo $myData['nama']; ?></td>
-                                            <td><?php echo $hari; ?></td>
-                                            <td><?php echo $myData['tanggal']; ?></td>
-                                            <td><?php echo $Jam; ?></td>
-                                            <td><?php echo $myData['no_wa']; ?></td>
+                                            <td><?php echo $myData['jenis']; ?></td>
                                             <td><?php echo $myData['paket']; ?></td>
-                                            <td><?php echo $myData['background']; ?></td>
-                                            <td><?php echo $myData['status']; ?></td>
-                                            <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                                                            <i data-feather="more-vertical"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="check" class="me-50"></i>
-                                                                    <span>Konfirmasi</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="edit-2" class="me-50"></i>
-                                                                    <span>Re-Schedule</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="trash" class="me-50"></i>
-                                                                    <span>Hapus</span>
-                                                            </a>
-                                                        </div>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="?page=Master-Paket-Edit&id=<?php echo $Code; ?>" onclick="return confirm('INGIN EDIT DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                <i data-feather="edit-2" class="me-50"></i>
+                                                                <span>Edit</span>
+                                                        </a>
+                                                        <a class="dropdown-item" href="?page=Master-Paket-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                <i data-feather="trash" class="me-50"></i>
+                                                                <span>Hapus</span>
+                                                        </a>
                                                     </div>
-                                                </td>
-                                            <?php } else { ?>
-                                                <td></td>
-                                            <?php } ?>
+                                                </div>
+                                            </td>
                                         </tr>
                                     <?php }
                                     ?>

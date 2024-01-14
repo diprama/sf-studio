@@ -123,7 +123,30 @@ if ($_GET) {
       include "master_jenis_delete.php";
       break;
 
+      # MASTER PAKET
 
+    case 'Master-Paket':
+      if (!file_exists("master_paket.php")) die("Sorry Empty Page!");
+      include "master_paket.php";
+      break;
+
+    case 'Master-Paket-Add':
+      if (!file_exists("master_paket_add.php")) die("Sorry Empty Page!");
+      include "master_paket_add.php";
+      break;
+
+    case 'Master-Paket-Edit':
+      if (!file_exists("master_paket_edit.php")) die("Sorry Empty Page!");
+      include "master_paket_edit.php";
+      break;
+
+    case 'Master-Paket-Delete':
+      if (!file_exists("master_paket_delete.php")) die("Sorry Empty Page!");
+      include "master_paket_delete.php";
+      break;
+
+
+      # Master 
     case 'Master-Kategori':
       if (!file_exists("master_kategori.php")) die("Sorry Empty Page!");
       include "master_kategori.php";
