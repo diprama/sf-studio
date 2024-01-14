@@ -143,8 +143,14 @@ $id = $_GET['id'];
                                   $hariini = date('Y-m-d');
                                     // jadwal jam yang tersedia
                                     $jam = date("H:i", strtotime($myData['jam']));
+                                      #jam sesuaikan dengan jam yang diset sebelumnya
+                                      if ($jam == $dataJam) {
+                                        $selected = "selected";
+                                      } else {
+                                        $selected = "";
+                                      }
                                       ?>
-                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                        <option <?=$selected ?> value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
                                     <?php
                                     // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
                                   
