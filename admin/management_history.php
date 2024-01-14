@@ -134,6 +134,7 @@ function hari_ini($tanggal)
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
@@ -167,7 +168,12 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                          
+                                            <td>
+                                                <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                        <i data-feather="trash" class="me-50"></i>
+                                                        <span>Hapus</span>
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php }
                                     ?>
