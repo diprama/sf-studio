@@ -76,9 +76,23 @@ function hari_ini($tanggal)
                 // jika s = success
                 if ($status == 'success') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Re-Schedule Berhasil<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Re-Schedule<br>";
                     echo "</div>";
                 }
+                // jika s = deleted
+                else 
+                 if ($status == 'deleted') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
+                    echo "</div>";
+                }
+                // jika s = deleted
+                else 
+                 if ($status == 'confirmation') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Berhasil di Konfirmasi<br>";
+                    echo "</div>";
+                } 
             }
             ?>
 
