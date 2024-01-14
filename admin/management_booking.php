@@ -1,5 +1,5 @@
 <?php
-$_SESSION['SES_TITLE'] = "Management Booking";
+$_SESSION['SES_TITLE'] = "Booking";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking";
