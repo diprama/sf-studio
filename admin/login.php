@@ -58,7 +58,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="index.html" class="brand-logo">
-                                    <img src="./assets/images/logo-sf.png./assets/images/logo-sf.png" alt="">
+                                    <img src="../app-assets/images/logo/logo-sf.png" alt="">
                                     <!-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                         <defs>
                                             <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -82,7 +82,6 @@
                                             </g>
                                         </g>
                                     </svg> -->
-                                        <img class="img-fluid rounded mt-3 mb-2" src="../app-assets/images/logo/logo-sf.png" height="150" width="150" alt="User avatar" />
                                     <h2 style='color: #436451;'>SF Studio</h2>
                                 </a>
 
