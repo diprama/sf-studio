@@ -9,12 +9,8 @@
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
-                <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i style='color:aliceblue' class="ficon" data-feather="search"></i></a>
-                    <form role="form" action="?page=Validasi" method="POST" name="form3" target="_self" id="form3">
 
-                    </form>
-                </li>
-                <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i style='color:aliceblue' class="ficon" data-feather="moon"></i></a></li>
+                <!-- <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i style='color:aliceblue' class="ficon" data-feather="moon"></i></a></li> -->
                 <?php
                 $Totalall = 0;
                 $TotalExpiry = 0;
