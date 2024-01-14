@@ -51,6 +51,11 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                     echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
                     echo "</div>";
                 }
+                if ($status == 'edited') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Berhasil di Edit<br>";
+                    echo "</div>";
+                }
             }
             ?>
 

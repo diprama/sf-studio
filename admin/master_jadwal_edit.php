@@ -1,8 +1,8 @@
 <?php
-$_SESSION['SES_TITLE'] = "Re-Schedule Booking";
+$_SESSION['SES_TITLE'] = "Edit Jadwal";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Management-Booking-Rescheduled";
+$_SESSION['SES_PAGE'] = "?page=Master-Jadwal-Edit";
 $id = $_GET['id'];
 
 ?>
@@ -14,17 +14,17 @@ $id = $_GET['id'];
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
     $dataCode  = $_POST['txtCode'];
-    $dataTanggal  = $_POST['txtTanggal'];
     $dataJam  = $_POST['txtJam'];
+    $dataStatus  = $_POST['txtStatus'];
 
     # VALIDASI JAM 
     # CEK APAKAH JAM TERSEBUT SUDAH DIGUNAKAN DI HARI YANG DIPILIH
-    $mySqlCek  = "SELECT tanggal, jam FROM booking WHERE tanggal='$dataTanggal' and jam ='$dataJam'";
+    $mySqlCek  = "SELECT jam FROM jadwal WHERE  jam ='$dataJam'";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $JumlahDataCek = mysqli_num_rows($myQryCek);
 
     if ($JumlahDataCek >= 1) {
-      $pesanError[] = "Jam tersebut tidak tersedia untuk tanggal yang dipilih";
+      $pesanError[] = "Jam tersebut sudah diset sebelumnya";
     }
     #VALIDASI JAM SELESAI
 
@@ -43,10 +43,10 @@ $id = $_GET['id'];
       // Jika tidak menemukan error, simpan data ke database
 
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE booking set tanggal ='$dataTanggal', jam ='$dataJam' where id='$dataCode'";
+      $mySql    = "UPDATE jadwal set jam ='$dataJam' where id='$dataCode'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking&s=success'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jadwal&s=edited'>";
       }
       exit;
     }
@@ -55,15 +55,12 @@ $id = $_GET['id'];
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
   $Code  = isset($_GET['id']) ?  $_GET['id'] : $_POST['txtCode'];
-  $mySql  = "SELECT * FROM booking WHERE id='$Code'";
+  $mySql  = "SELECT * FROM jadwal WHERE id='$Code'";
   $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
   $myData = mysqli_fetch_array($myQry);
   # MASUKKAN DATA KE VARIABEL
   $dataCode    = $myData['id'];
-  $dataNama    = $myData['nama'];
-  $dataEmail    = $myData['email'];
-  $dataWA    = $myData['no_wa'];
-  $dataTanggal    = $myData['tanggal'];
+  $dataStatus    = $myData['status'];
   $dataJam    = $myData['jam'];
   ?>
   <!-- BEGIN: Content-->
@@ -76,10 +73,10 @@ $id = $_GET['id'];
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
-            <h2 class="content-header-title float-start mb-0">Booking</h2>
+            <h2 class="content-header-title float-start mb-0">Jadwal</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a>Re-Schedule</a>
+                <li class="breadcrumb-item"><a>Edit</a>
                 </li>
               </ol>
             </div>
@@ -101,20 +98,14 @@ $id = $_GET['id'];
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-3 col-12">
-                          <div class="mb-1">
-                            <label class="form-label" for="User ID">Booking ID</label>
-                            <input class="form-control" name="txtCode" type="text" value="<?php echo $dataCode; ?>" maxlength="20" required readonly />
+                          <div class="form-group">
+                            <label>Jam <span class="required">*</span></label>
+                            <input type="time" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJam' value="<?php echo $dataJam; ?>" aria-describedby="basic-addon-name" />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Nama <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Name" name="txtNama" type="text" value="<?php echo $dataNama; ?>" maxlength="100" required readonly />
-                          </div>
-                        </div>
-                        <div class="col-md-3 col-12">
-                          <div class="form-group">
-                            <label>No Whatsapp <span class="required">*</span></label>
+                            <label>Status <span class="required">*</span></label>
                             <input class="form-control" placeholder="Phone" name="txtWA" type="text" value="<?php echo $dataWA; ?>" maxlength="100" required readonly />
                           </div>
                         </div>
@@ -132,33 +123,15 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Jam Booking*</label>
-                            <select class="form-select" id="waktu" name="txtJam" aria-label="Default select example" autocomplete="off" required>
-                              <?php
-                                  $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0'  order by j.jam asc;";
-                    
-                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                while ($myData = mysqli_fetch_array($myQry)) {
-                                  // set tanggal hari ini
-                                  $hariini = date('Y-m-d');
-                                    // jadwal jam yang tersedia
-                                    $jam = date("H:i", strtotime($myData['jam']));
-                                    $dataJam = date("H:i", strtotime($dataJam));
-                                      #jam sesuaikan dengan jam yang diset sebelumnya
-                                      if ($jam == $dataJam) {
-                                        $selected = "selected";
-                                      } else {
-                                        $selected = "";
-                                      }
-                                      ?>
-                                        <option <?=$selected ?> value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
-                                    <?php
-                                    // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
-                                  
-                                }
-                            
-
-                              ?>
+                            <label>Status*</label>
+                            <select class="form-select" id="waktu" name="txtStatus" aria-label="Default select example" autocomplete="off" required>
+                              <?php if ($dataStatus == 1) { ?>
+                                <option value="1" selected>Aktif</option>
+                                <option value="0">Tidak Aktif</option>
+                              <?php } else { ?>
+                                <option value="1">Aktif</option>
+                                <option value="0" selected>Tidak Aktif</option>
+                              <?php } ?>
                             </select>
                           </div>
                         </div>
@@ -166,8 +139,8 @@ $id = $_GET['id'];
 
                     </div>
                     <div class="col-7 my-5">
-                      <a type="button" href="?page=Management-Booking" class="btn btn-warning me-2">Kembali</a>
-                      <button type="submit" name="btnSubmit" class="btn btn-success me-3">Re-Schedule</button>
+                      <a type="button" href="?page=Master-Jadwal" class="btn btn-warning me-2">Kembali</a>
+                      <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
                     </div>
                   </div>
                 </div>
