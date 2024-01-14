@@ -35,7 +35,7 @@ $id = $_GET['id'];
       $noPesan = 0;
       foreach ($pesanError as $indeks => $pesan_tampil) {
         $noPesan++;
-        echo "&nbsp;&nbsp; $noPesan. $pesan_tampil<br>";
+        echo "&nbsp;&nbsp; $pesan_tampil<br>";
       }
       echo "</div>";
     } else {
