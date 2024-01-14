@@ -40,7 +40,6 @@ $id = $_GET['id'];
     } else {
       # SIMPAN DATA KE DATABASE. 
       // Jika tidak menemukan error, simpan data ke database
-exit;
       $ses_nama  = $_SESSION['SES_NAMA'];
       $mySql    = "UPDATE jadwal set jam ='$dataJam' where id='$id'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
