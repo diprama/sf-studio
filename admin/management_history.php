@@ -120,7 +120,7 @@ function hari_ini($tanggal)
                                                 <div class="row">
                                                     <div class="col-md-2 col-12">
                                                         <label>Tanggal</label>
-                                                        <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $Date ?>' aria-describedby="basic-addon-name" required />
+                                                        <input type="date" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtDate' value='<?php echo $Date ?>' aria-describedby="basic-addon-name"   />
                                                     </div>
                                                     <div class="col-md-2 col-12">
 
@@ -204,7 +204,10 @@ function hari_ini($tanggal)
                                         $mySql .=  " AND tanggal ='$Date'";
                                     }
                                     if ($DataPaket != '') {
-                                        $mySql .=  " AND paket ='$Date'";
+                                        $mySql .=  " AND paket ='$DataPaket'";
+                                    }
+                                    if ($DataBackground != '') {
+                                        $mySql .=  " AND background ='$DataBackground'";
                                     }
                                     $mySql .=  " order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
