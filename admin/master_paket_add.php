@@ -8,7 +8,7 @@ $txtPaket = $_POST['txtPaket'];
 $ses_nama = $_SESSION['SES_NAMA'];
 
     $mySql   = "INSERT INTO `master_jenis`( `jenis`,`paket`, `updated_by`, `updated_date`)
-     VALUES ('$txtJenis','','$ses_nama', now())";
+     VALUES ('$txtJenis','$txtPaket','$ses_nama', now())";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
    # Validasi Insert Sukses
