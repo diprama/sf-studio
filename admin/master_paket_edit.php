@@ -18,7 +18,7 @@ $id = $_GET['id'];
 
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
-  
+
     $mySqlCek  = "SELECT paket FROM master_jenis WHERE  jenis ='$dataJenis' and paket ='$dataPaket' ";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $JumlahDataCek = mysqli_num_rows($myQryCek);
@@ -65,12 +65,13 @@ $id = $_GET['id'];
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
   $Code  = isset($_GET['id']) ?  $_GET['id'] : '';
-  $mySql  = "SELECT * FROM master_jenis_head WHERE id='$Code'";
+  $mySql  = "SELECT * FROM master_jenis WHERE id='$Code'";
   $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
   $myData = mysqli_fetch_array($myQry);
   # MASUKKAN DATA KE VARIABEL
   $dataCode    = $myData['id'];
   $dataJenis    = $myData['jenis'];
+  $dataPaket   = $myData['paket'];
   ?>
   <!-- BEGIN: Content-->
   <div class="content-overlay">
@@ -82,7 +83,7 @@ $id = $_GET['id'];
       <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="col-12">
-            <h2 class="content-header-title float-start mb-0">Jenis</h2>
+            <h2 class="content-header-title float-start mb-0">Paket</h2>
             <div class="breadcrumb-wrapper">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a>Edit</a>
@@ -107,16 +108,35 @@ $id = $_GET['id'];
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-3 col-12">
+                          <label>Jenis</label>
+                          <select class="form-select" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
+                            <option value="">Pilih Jenis</option>
+                            <?php
+                            // panggil database
+                            $mySql  = "SELECT * from master_jenis_head order by jenis asc";
+                            $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                            while ($myData = mysqli_fetch_array($myQry)) {
+                              if ($myData['jenis'] == $DataJenis) {
+                                $cek = 'Selected';
+                              } else {
+                                $cek = '';
+                              }
+                              echo "<option value='$myData[jenis]' $cek> $myData[jenis] </option>";
+                            }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Jenis <span class="required">*</span></label>
-                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJenis' value="<?php echo $dataJenis; ?>" aria-describedby="basic-addon-name" />
+                            <label>Paket <span class="required">*</span></label>
+                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtPaket' value="<?php echo $dataPaket; ?>" aria-describedby="basic-addon-name" />
                           </div>
                         </div>
                       </div>
 
                     </div>
                     <div class="col-7 my-5">
-                      <a type="button" href="?page=Master-Jenis" class="btn btn-warning me-2">Kembali</a>
+                      <a type="button" href="?page=Master-Paket" class="btn btn-warning me-2">Kembali</a>
                       <button type="submit" name="btnSubmit" class="btn btn-success me-3">Submit</button>
                     </div>
                   </div>
