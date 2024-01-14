@@ -122,11 +122,11 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $Jam; ?></td>
-                                            <td><?php echo $status; ?></td>
-                                            <td><?php echo $availability; ?></td>
                                             <td>
-                                                <a href="?page=Master-Jadwal-Status-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN UPDATE STATUS?')"><?= $availability ?></a>
+                                                <a href="?page=Master-Jadwal-Status-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN UPDATE STATUS?')"><?= $status ?></a>
                                             </td>
+                                            <td><?php echo $availability; ?></td>
+
                                         </tr>
                                     <?php }
                                     ?>
