@@ -126,7 +126,7 @@ function hari_ini($tanggal)
 
                                                         <label>Paket</label>
                                                         <select class="form-select" id="paketfoto" name="txtPaket" aria-label="Default select example" autocomplete="off">
-                                                            <option selected value="">Pilih</option>
+                                                            <option selected value="">Semua</option>
                                                             <?php
                                                             // panggil database
                                                             $mySql  = "SELECT * from master_jenis group by paket order by paket asc";
@@ -147,7 +147,7 @@ function hari_ini($tanggal)
 
                                                         <label>Background</label>
                                                         <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off">
-                                                            <option selected value="">Pilih</option>
+                                                            <option selected value="">Semua</option>
                                                             <?php
                                                             // panggil database
                                                             $mySql  = "SELECT * from master_background order by id asc";
