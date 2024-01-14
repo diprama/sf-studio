@@ -76,25 +76,6 @@ $_SESSION['SES_PAGE'] = "?page=Master-Background";
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
-                                                    <label>Jenis</label>
-                                                    <select class="form-select" name="txtJenis" aria-label="Default select example" autocomplete="off" required>
-                                                        <option value="">Pilih Jenis</option>
-                                                        <?php
-                                                        // panggil database
-                                                        $mySql  = "SELECT * from master_jenis_head order by jenis asc";
-                                                        $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-                                                        while ($myData = mysqli_fetch_array($myQry)) {
-                                                            if ($myData['jenis'] == $DataBackground) {
-                                                                $cek = 'Selected';
-                                                            } else {
-                                                                $cek = '';
-                                                            }
-                                                            echo "<option value='$myData[jenis]' $cek> $myData[jenis] </option>";
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-2 col-12">
                                                     <label>Paket</label>
                                                     <select class="form-select" name="txtPaket" aria-label="Default select example" autocomplete="off" required>
                                                         <option value="">Pilih Jenis</option>
