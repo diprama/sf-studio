@@ -143,6 +143,7 @@ $id = $_GET['id'];
                                   $hariini = date('Y-m-d');
                                     // jadwal jam yang tersedia
                                     $jam = date("H:i", strtotime($myData['jam']));
+                                    $dataJam = date("H:i", strtotime($dataJam));
                                       #jam sesuaikan dengan jam yang diset sebelumnya
                                       if ($jam == $dataJam) {
                                         $selected = "selected";
