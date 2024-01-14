@@ -86,6 +86,15 @@ if ($_GET) {
       include "master_kategori.php";
       break;
 
+      #VALIDASI
+
+
+    case 'Validasi':
+      if (!file_exists("validasi.php")) die("Sorry Empty Page!");
+      include "validasi.php";
+      break;
+
+
 
 
 

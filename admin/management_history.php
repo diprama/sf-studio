@@ -114,10 +114,9 @@ function hari_ini($tanggal)
                                 <h4 class="card-title"></h4>
                             </div>
                             <div class="content-header-right text-md-end col-md-12 col-12 d-md-block d-none">
-                                <form role="form" action="?page=Management-Admin-Add" method="POST" name="form1" target="_self" id="form1">
+                                <form role="form" action="?page=Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
                                         <div class="col-12">
-                                            <form role="form" action="?page=Validasi" method="POST" name="form3" target="_self" id="form3">
                                                 <div class="row">
                                                     <div class="col-md-2 col-12">
                                                         <label>Tanggal</label>
