@@ -4017,11 +4017,11 @@ fieldset:disabled .btn {
 .breadcrumb-item + .breadcrumb-item::before {
   float: left;
   padding-right: 0.6rem;
-  color: #6e6b7b;
+  color: #9c333a;
   content: var(--bs-breadcrumb-divider, "/"); }
 
 .breadcrumb-item.active {
-  color: #6e6b7b; }
+  color: #9c333a; }
 
 .pagination {
   display: flex;
@@ -4031,7 +4031,7 @@ fieldset:disabled .btn {
 .page-link {
   position: relative;
   display: block;
-  color: #6e6b7b;
+  color: #9c333a;
   background-color: #f3f2f7;
   border: 0 solid #dae1e7;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }

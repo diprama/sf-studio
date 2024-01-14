@@ -97,7 +97,7 @@ $(function () {
     dt_filter_table = $('.dt-column-search'),
     dt_adv_filter_table = $('.dt-advanced-search'),
     dt_responsive_table = $('.dt-responsive'),
-    assetPath = '../../../app-assets/';
+    assetPath = '../../app-assets/';
 
   if ($('body').attr('data-framework') === 'laravel') {
     assetPath = $('body').attr('data-asset-path');
@@ -141,12 +141,12 @@ $(function () {
     var dt_filter = dt_filter_table.DataTable({
       ajax: assetPath + 'data/table-datatable.json',
       columns: [
-        { data: 'full_name' },
-        { data: 'email' },
-        { data: 'post' },
-        { data: 'city' },
-        { data: 'start_date' },
-        { data: 'salary' }
+        { data: 'no' },
+        { data: 'institution' },
+        { data: 'division' },
+        { data: 'unit' },
+        { data: 'prodi' },
+        { data: 'aksi' }
       ],
       dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
       orderCellsTop: true,

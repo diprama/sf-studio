@@ -121,14 +121,14 @@
 
 .file-manager-application .content-area-wrapper .file-manager-main-content .file-manager-content-body .view-container .file-manager-item .card-body {
   padding: 1rem;
-  padding-bottom: 0.5rem; }
+vertical-align: middle;}
 
 .file-manager-application .content-area-wrapper .file-manager-main-content .file-manager-content-body .view-container .file-manager-item .form-check-input:not(:checked) {
   background-color: transparent; }
 
 .file-manager-application .content-area-wrapper .file-manager-main-content .file-manager-content-body .view-container .file-manager-item .file-logo-wrapper {
   padding: 1rem;
-  height: 7.5rem;
+  height: 3rem;
   background-color: #f8f8f8; }
 
 .file-manager-application .content-area-wrapper .file-manager-main-content .file-manager-content-body .view-container .file-manager-item .file-logo-wrapper .feather-folder {
@@ -286,8 +286,3 @@
   .file-manager-application .content-area-wrapper .view-container.list-view .file-size,
   .file-manager-application .content-area-wrapper .view-container.list-view .file-item-size {
     display: none !important; } }
-
-@media (min-width: 576px) {
-  .file-manager-application .view-container .file-manager-item {
-    flex: 0 0 23%;
-    max-width: 25%; } }

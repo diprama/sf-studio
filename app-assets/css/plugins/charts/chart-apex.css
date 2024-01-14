@@ -44,11 +44,16 @@
   border-right-color: #f8f8f8; }
 
 .apexcharts-canvas .apexcharts-text,
-.apexcharts-canvas .apexcharts-tooltip-text,
-.apexcharts-canvas .apexcharts-datalabel-label,
-.apexcharts-canvas .apexcharts-datalabel {
+.apexcharts-canvas .apexcharts-tooltip-text{
   font-family: var(--bs-font-sans-serif) !important;
   fill: #6e6b7b;
+  font-weight: 400;
+  filter: none; }
+
+  .apexcharts-canvas .apexcharts-datalabel-label,
+.apexcharts-canvas .apexcharts-datalabel {
+  font-family: var(--bs-font-sans-serif) !important;
+  fill: #FFFFFF;
   font-weight: 400;
   filter: none; }
 

@@ -17,14 +17,21 @@ $(function () {
     checkboxTree = $('#jstree-checkbox'),
     ajaxTree = $('#jstree-ajax');
 
-  var assetPath = '../../../app-assets/';
+  var assetPath = '../../app-assets/';
   if ($('body').attr('data-framework') === 'laravel') {
     assetPath = $('body').attr('data-asset-path');
   }
 
   // Basic
   if (basicTree.length) {
-    basicTree.jstree();
+    basicTree.jstree({
+        "core" : {
+            "animation" : 0,
+            "check_callback" : true,
+            "themes" : { "stripes" : true,
+            "variant" : "large" }
+          }
+    });
   }
 
   // Custom Icons
@@ -56,7 +63,7 @@ $(function () {
                 type: 'img'
               },
               {
-                text: 'stirin-logo',
+                text: 'logo.png',
                 type: 'img'
               },
               {
@@ -146,7 +153,7 @@ $(function () {
                 type: 'img'
               },
               {
-                text: 'stirin-logo',
+                text: 'logo.png',
                 type: 'img'
               },
               {
@@ -236,7 +243,7 @@ $(function () {
                 type: 'img'
               },
               {
-                text: 'stirin-logo',
+                text: 'logo.png',
                 type: 'img'
               },
               {
@@ -325,7 +332,7 @@ $(function () {
                 type: 'img'
               },
               {
-                text: 'stirin-logo',
+                text: 'logo.png',
                 type: 'img'
               },
               {
