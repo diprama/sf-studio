@@ -69,13 +69,11 @@
                             <a class="dropdown-item" href="?page=Master-Jadwal" data-bs-toggle="">Jadwal</a>
                         </ul>
                     </li>
-
-                    <!-- <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="airplay"></i>Library Visitor</a>
+                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>User Management</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Guest-Book" data-bs-toggle="">Guest Book</a>
-                            <a class="dropdown-item" href="?page=Report-Visitor" data-bs-toggle="">Report</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="">User</a>
                         </ul>
-                    </li> -->
+                    </li>
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="book"></i>Report</a>
                         <ul class="dropdown-menu" data-bs-popper="none">

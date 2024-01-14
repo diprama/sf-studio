@@ -13,28 +13,18 @@ $id = $_GET['id'];
   if (isset($_POST['btnSubmit'])) {
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
+    $dataBackground  = $_POST['txtBackground'];
     $dataJenis  = $_POST['txtJenis'];
-    $dataPaket  = $_POST['txtPaket'];
 
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
 
-    $mySqlCek  = "SELECT paket FROM master_jenis WHERE  jenis ='$dataJenis' and paket ='$dataPaket' ";
+    $mySqlCek  = "SELECT background FROM master_background WHERE  jenis ='$dataJenis' and background ='$dataBackground' ";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $JumlahDataCek = mysqli_num_rows($myQryCek);
     if ($JumlahDataCek >= 1) {
-      $pesanError[] = "Data tersebut sudah diset sebelumnya";
+      $pesanError[] = "data tersebut sudah diset sebelumnya";
     }
-
-
-    # CEK DATA AMBIL NAMA LAMA NYA
-
-    $mySqlCek  = "SELECT paket FROM master_jenis WHERE  id ='$id'";
-    $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
-    $DataCek = mysqli_fetch_array($myQryCek);
-
-    $dataPaketOld = $DataCek['paket'];
-
 
     # JIKA ADA PESAN ERROR DARI VALIDASI
     if (count($pesanError) >= 1) {
@@ -49,14 +39,12 @@ $id = $_GET['id'];
       # SIMPAN DATA KE DATABASE. 
       // Jika tidak menemukan error, update data ke database
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE master_jenis set paket ='$dataPaket' where id='$id'";
+      $mySql    = "UPDATE master_background set background ='$dataPaket' where id='$id'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
 
-      // update ke anak id nya
-      $mySql    = "UPDATE master_background set jenis ='$dataPaket' where jenis='$dataPaketOld'";
-      $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
+    
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Paket&s=edited'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Background&s=edited'>";
       }
       exit;
     }
