@@ -14,7 +14,6 @@ $id = $_GET['id'];
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
     $dataJenis  = $_POST['txtJenis'];
-    $dataStatus  = $_POST['txtStatus'];
 
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
