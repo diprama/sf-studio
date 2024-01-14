@@ -133,12 +133,12 @@ function hari_ini($tanggal)
                                                             $mySql  = "SELECT * from master_jenis group by jenis order by jenis asc";
                                                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                                             while ($myData = mysqli_fetch_array($myQry)) {
-                                                                if ($dataRow['jenis'] == $DataJenis) {
+                                                                if ($myData['jenis'] == $DataJenis) {
                                                                     $cek = 'Selected';
                                                                 } else {
                                                                     $cek = '';
                                                                 }
-                                                                echo "<option value='$dataRow[jenis]' $cek> $dataRow[jenis] </option>";
+                                                                echo "<option value='$myData[jenis]' $cek> $myData[jenis] </option>";
                                                             }
                                                             ?>
                                                         </select>
@@ -154,23 +154,20 @@ function hari_ini($tanggal)
                                                             $mySql  = "SELECT * from master_background order by id asc";
                                                             $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                                             while ($myData = mysqli_fetch_array($myQry)) {
-                                                                if ($dataRow['background'] == $DataBackground) {
+                                                                if ($myData['background'] == $DataBackground) {
                                                                     $cek = 'Selected';
                                                                 } else {
                                                                     $cek = '';
                                                                 }
-                                                                echo "<option value='$dataRow[background]' $cek> $dataRow[background] </option>";
+                                                                echo "<option value='$myData[background]' $cek> $myData[background] </option>";
                                                             }
                                                             ?>
                                                         </select>
                                                     </div>
+                                                    <div class="col-md-2 col-12">
+                                                        <button type="submit" name="btnHistory" class="btn btn-primary">Filter</button>
+                                                    </div>
                                                 </div>
-
-                                                <div class="col-1">
-                                                    <br>
-                                                    <button type="submit" name="btnHistory" class="btn btn-primary">Filter</button>
-                                                </div>
-
                                         </div>
                                     </div>
                                 </form>
