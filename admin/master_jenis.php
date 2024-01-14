@@ -1,9 +1,8 @@
 <?php
-$_SESSION['SES_TITLE'] = "Jadwal";
+$_SESSION['SES_TITLE'] = "Master Jenis";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
-
+$_SESSION['SES_PAGE'] = "?page=Management-Booking";
 ?>
 
 
@@ -19,7 +18,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                         <h2 class="content-header-title float-start mb-0">Booking Management</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>Master Jadwal</a>
+                                <li class="breadcrumb-item"><a>Jenis</a>
                                 </li>
                             </ol>
                         </div>
@@ -84,42 +83,73 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Hari</th>
+                                        <th>Tanggal</th>
                                         <th>Jam</th>
+                                        <th>No WA</th>
+                                        <th>Paket</th>
+                                        <th>Background</th>
                                         <th>Status</th>
-                                        <th>Ketersediaan</th>
+                                        <th>Action</th>
+                                        <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM jadwal order by jam asc";
+                                    $mySql   = "SELECT * FROM booking where status !='Dikonfirmasi' order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
                                         $Code = $myData['id'];
+                                        $Jam = $myData['jam'];
 
-                                        // validasi status
-                                        if ($myData['status'] == 0) {
-                                            $status = "<span class='badge rounded-pill badge-glow bg-success'>Aktif</span>";
-                                        } else {
-                                            $status = "<span class='badge rounded-pill badge-glow bg-danger'>Tidak Aktif</span>";
-                                        }
-
-                                        // validasi ketersediaan
-                                        if ($myData['availability'] == 0) {
-                                            $availability = "<span class='badge rounded-pill badge-glow bg-success'>Tersedia</span>";
-                                        } else {
-                                            $availability = "<span class='badge rounded-pill badge-glow bg-danger'>Tidak Tersedia</span>";
-                                        }
+                                        // ganti format jam
+                                        $Jam = $Jam;
+                                        $Jam = date("G:i", strtotime($Jam));
+                                        // set hari
+                                        $tanggal = $myData['tanggal'];
+                                        $hari = hari_ini($tanggal);
 
                                     ?>
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
-                                            <td><?php echo $myData['jam']; ?></td>
-                                            <td><?php echo $status; ?></td>
-                                            <td><?php echo $availability; ?></td>
+                                            <td><?php echo $myData['nama']; ?></td>
+                                            <td><?php echo $hari; ?></td>
+                                            <td><?php echo $myData['tanggal']; ?></td>
+                                            <td><?php echo $Jam; ?></td>
+                                            <td><?php echo $myData['no_wa']; ?></td>
+                                            <td><?php echo $myData['paket']; ?></td>
+                                            <td><?php echo $myData['background']; ?></td>
+                                            <td><?php echo $myData['status']; ?></td>
+                                            <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                            <i data-feather="more-vertical"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="check" class="me-50"></i>
+                                                                    <span>Konfirmasi</span>
+                                                            </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="edit-2" class="me-50"></i>
+                                                                    <span>Re-Schedule</span>
+                                                            </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="trash" class="me-50"></i>
+                                                                    <span>Hapus</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td></td>
+                                            <?php } ?>
                                         </tr>
                                     <?php }
                                     ?>
