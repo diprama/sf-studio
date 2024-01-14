@@ -38,35 +38,19 @@
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="layers"></i>Dashboard</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
                             <a class="dropdown-item xx" href="?page=Main" data-bs-toggle="">Dashboard</a>
-                            <a class="dropdown-item xx" href="?page=Main-Digital" data-bs-toggle="">Leadarboard User</a>
                             <!-- <a class="dropdown-item" href="?page=Information" data-bs-toggle="">Information, News & Article</a> -->
                         </ul>
                     </li>
 
-                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="database"></i>Digital Content Management</a>
+                   
+                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="database"></i>Booking</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Content-Categories&code=Digital" data-bs-toggle="">Content Categories Management</a>
-                            <a class="dropdown-item" href="?page=Content-Management-Digital" data-bs-toggle="">Content Management</a>
-                            <a class="dropdown-item" href="?page=Content-Management-Approval&code=Digital" data-bs-toggle="">Content Approval Processing</a>
-                            <a class="dropdown-item" href="?page=Content-Management-Access" data-bs-toggle="">Content Previleges Management</a>
-                            <a class="dropdown-item" href="?page=Content-Management-Expiry" data-bs-toggle="">Content Expiration Management</a>
-                            <!-- <a class="dropdown-item" href="?page=Book-Management-Digital" data-bs-toggle="">Populer Content Generator</a> -->
+                            <a class="dropdown-item" href="?page=Content-Categories&code=Digital" data-bs-toggle="">Booking</a>
+                            <a class="dropdown-item" href="?page=Content-Management-Digital" data-bs-toggle="">History</a>
                         </ul>
                     </li>
 
-                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="database"></i>Education Asset Management</a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Content-Categories&code=Physical" data-bs-toggle="">Education Asset Categories Management</a>
-                            <a class="dropdown-item" href="?page=Asset-Management-Physical" data-bs-toggle="">Education Asset Management</a>
-                            <a class="dropdown-item" href="?page=Content-Management-Approval&code=Physical" data-bs-toggle="">Education Asset Approval Processing</a>
-                            <a class="dropdown-item" href="?page=Bookshelf" data-bs-toggle="">Education Asset Location Management</a>
-
-                            <a class="dropdown-item" href="?page=Asset-Management-Physical-Borrow" data-bs-toggle="">Education Asset Borrowing Process</a>
-                            <a class="dropdown-item" href="?page=Asset-Management-Physical-Return" data-bs-toggle="">Education Asset Returning Process</a>
-                            <a class="dropdown-item" href="?page=Asset-Management-Physical-Stock" data-bs-toggle="">Education Asset Inventory</a>
-                            <a class="dropdown-item" href="?page=Asset-Management-Physical-Stock-Trans" data-bs-toggle="">Education Asset Borrowing History</a>
-                        </ul>
-                    </li>
+                  
 
                     <!-- =================================================================================================================================== -->
 
