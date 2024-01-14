@@ -101,6 +101,28 @@ if ($_GET) {
       include "master_jadwal_delete.php";
       break;
 
+      # MASTER JENIS
+
+    case 'Master-Jenis':
+      if (!file_exists("master_jenis.php")) die("Sorry Empty Page!");
+      include "master_jenis.php";
+      break;
+
+    case 'Master-Jenis-Add':
+      if (!file_exists("master_jenis_add.php")) die("Sorry Empty Page!");
+      include "master_jenis_add.php";
+      break;
+
+    case 'Master-Jenis-Edit':
+      if (!file_exists("master_jenis_edit.php")) die("Sorry Empty Page!");
+      include "master_jenis_edit.php";
+      break;
+
+    case 'Master-Jenis-Delete':
+      if (!file_exists("master_jenis_delete.php")) die("Sorry Empty Page!");
+      include "master_jenis_delete.php";
+      break;
+
 
     case 'Master-Kategori':
       if (!file_exists("master_kategori.php")) die("Sorry Empty Page!");
