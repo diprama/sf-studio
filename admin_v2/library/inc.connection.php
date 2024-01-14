@@ -1,10 +1,18 @@
 <?php
-$myHost	= "103.41.205.42";
-$myUser	= "root";
-$myPass	= "Rentas123!@#";
-$myDbs	= "biblioteca"; 
-$koneksidb	= mysqli_connect($myHost, $myUser, $myPass);
-if (! $koneksidb) {
+# Konek ke Web Server Lokal
+$myHost  = "127.0.0.1";
+$myUser  = "u480352240_sf_selfstudio";
+$myPass  = "ForwardDigiCraft@123";
+$myDbs  = "u480352240_sf_selfstudio"; // nama database, disesuaikan dengan database di MySQL
+
+# Konek ke Web Server Lokal
+$koneksidb  = mysqli_connect($myHost, $myUser, $myPass);
+if (!$koneksidb) {
   echo "Failed Connection !";
 }
-mysqli_select_db($koneksidb, "biblioteca") or die ("Database not Found !");
+
+
+# Memilih database pd MySQL Server
+mysqli_select_db($koneksidb, "u480352240_sf_selfstudio") or die("Database not Found !");
+
+$link = "https://sf-selfstudio.com/";
