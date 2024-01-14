@@ -82,9 +82,7 @@
                                             </g>
                                         </g>
                                     </svg> -->
-                                    <div class="d-flex align-items-center flex-column">
-                                        <img class="img-fluid rounded mt-3 mb-2" src=".../app-assets/images/logo/logo-sf.png" height="150" width="150" alt="User avatar" />
-                                    </div>
+                                        <img class="img-fluid rounded mt-3 mb-2" src="../app-assets/images/logo/logo-sf.png" height="150" width="150" alt="User avatar" />
                                     <h2 class="brand-text text-primary ms-1" style='color: #436451;'>SF Studio</h2>
                                 </a>
 
