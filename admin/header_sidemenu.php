@@ -63,8 +63,6 @@
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>User Management</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Organization" data-bs-toggle="">Organization Management</a>
-                            <a class="dropdown-item" href="?page=Position" data-bs-toggle="">Position Management</a>
                             <a class="dropdown-item" href="?page=Role-Permission" data-bs-toggle="">Role Permission</a>
                             <a class="dropdown-item" href="?page=Management-Admin" data-bs-toggle="">Admin Management</a>
                             <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Booking Management</a>
