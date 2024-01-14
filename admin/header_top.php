@@ -7,20 +7,13 @@
                     <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <!-- <li class="nav-item"><a class="navbar-brand" href="#"><img style='width:7%' src="../app-assets/images/logo/logo-sf-white.png"></a></li> -->
+                    <li class="nav-item"><a class="navbar-brand" href="#"><img style='width:3%' src="../app-assets/images/logo/logo-sf-white.png"></a></li>
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
                 <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i style='color:aliceblue' class="ficon" data-feather="search"></i></a>
                     <form role="form" action="?page=Validasi" method="POST" name="form3" target="_self" id="form3">
 
-                        <div class="search-input">
-                            <div class="search-input-icon"><i data-feather="search"></i></div>
-                            <input class="form-control input" style="width:75%" type="text" placeholder="Search..." name='cari' tabindex="-1" data-search="search">
-                            <button type="hidden" src="?page=Validasi" name="btnCariAdmin"></i></button>
-                            <div class="search-input-close"><i data-feather="x"></i></div>
-                            <ul class="search-list search-list-main"></ul>
-                        </div>
                     </form>
                 </li>
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i style='color:aliceblue' class="ficon" data-feather="moon"></i></a></li>
