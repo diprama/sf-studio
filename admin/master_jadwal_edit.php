@@ -13,7 +13,6 @@ $id = $_GET['id'];
   if (isset($_POST['btnSubmit'])) {
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
-    $dataCode  = $_POST['txtCode'];
     $dataJam  = $_POST['txtJam'];
     $dataStatus  = $_POST['txtStatus'];
 
@@ -43,7 +42,7 @@ $id = $_GET['id'];
       // Jika tidak menemukan error, simpan data ke database
 exit;
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE jadwal set jam ='$dataJam' where id='$dataCode'";
+      $mySql    = "UPDATE jadwal set jam ='$dataJam' where id='$id'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
       if ($myQry) {
         echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jadwal&s=edited'>";
@@ -54,7 +53,7 @@ exit;
 
   # MASUKKAN DATA KE VARIABEL
   # TAMPILKAN DATA DARI DATABASE, Untuk ditampilkan kembali ke form edit
-  $Code  = isset($_GET['id']) ?  $_GET['id'] : $_POST['txtCode'];
+  $Code  = isset($_GET['id']) ?  $_GET['id'] : '';
   $mySql  = "SELECT * FROM jadwal WHERE id='$Code'";
   $myQry  = mysqli_query($koneksidb, $mySql)  or die("Query ambil data salah : " . mysqli_error());
   $myData = mysqli_fetch_array($myQry);
