@@ -22,7 +22,7 @@ include "library/inc.connection.php";
 
    # Validasi Insert Sukses
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking&status=ok'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jadwal&status=ok'>";
     }
     else {
       echo "Query Gagal";
