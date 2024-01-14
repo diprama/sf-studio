@@ -14,12 +14,12 @@ $id = $_GET['id'];
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
     $dataJenis  = $_POST['txtJenis'];
-    $dataStatus  = $_POST['txtStatus'];
+    $dataPaket  = $_POST['txtPaket'];
 
     # VALIDASI JAM 
     # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
   
-    $mySqlCek  = "SELECT jenis FROM master_jenis_head WHERE  jenis ='$dataJenis'";
+    $mySqlCek  = "SELECT paket FROM master_jenis WHERE  jenis ='$dataJenis' and paket ='$dataPaket' ";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $JumlahDataCek = mysqli_num_rows($myQryCek);
     if ($JumlahDataCek >= 1) {
@@ -29,11 +29,11 @@ $id = $_GET['id'];
 
     # CEK DATA AMBIL NAMA LAMA NYA
 
-    $mySqlCek  = "SELECT jenis FROM master_jenis_head WHERE  id ='$id'";
+    $mySqlCek  = "SELECT paket FROM master_jenis WHERE  id ='$id'";
     $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
     $DataCek = mysqli_fetch_array($myQryCek);
 
-    $dataJenisOld = $DataCek['jenis'];
+    $dataPaketOld = $DataCek['paket'];
 
 
     # JIKA ADA PESAN ERROR DARI VALIDASI
@@ -49,14 +49,14 @@ $id = $_GET['id'];
       # SIMPAN DATA KE DATABASE. 
       // Jika tidak menemukan error, update data ke database
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE master_jenis_head set jenis ='$dataJenis' where id='$id'";
+      $mySql    = "UPDATE master_jenis set paket ='$dataPaket' where id='$id'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
 
       // update ke anak id nya
-      $mySql    = "UPDATE master_jenis set jenis ='$dataJenis' where jenis='$dataJenisOld'";
+      $mySql    = "UPDATE master_background set jenis ='$dataPaket' where jenis='$dataPaketOld'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jenis&s=edited'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Master-Paket&s=edited'>";
       }
       exit;
     }
