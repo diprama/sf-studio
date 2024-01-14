@@ -64,6 +64,11 @@ if ($_GET) {
       include "management_history.php";
       break;
 
+    case 'Management-Admin':
+      if (!file_exists("management_admin.php")) die("Sorry Empty Page!");
+      include "management_admin.php";
+      break;
+
       #MASTER
 
     case 'Master-Jadwal':
