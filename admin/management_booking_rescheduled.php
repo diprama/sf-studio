@@ -1,100 +1,21 @@
 <?php
-$_SESSION['SES_TITLE'] = "Management ";
+$_SESSION['SES_TITLE'] = "Booking - Reschedule";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Management-User";
+$_SESSION['SES_PAGE'] = "?page=Management-Booking-Rescheduled";
 $id = $_GET['id'];
 
 ?>
 <div class="app-content content ">
   <?php
-  # Tombol cancel
-  if (isset($_POST['btnCancel'])) {
-    echo "<meta http-equiv='refresh' content='0; url=?page=User'>";
-  }
+
   # Tombol Submit diklik
   if (isset($_POST['btnSubmit'])) {
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
-    if (trim($_POST['txtUsername']) == "") {
-      $pesanError[] = "Data <b>User</b> tidak boleh kosong !";
-    }
     $dataCode  = $_POST['txtCode'];
-
-    # upload file 
-    $file_photo = "photo.png";
-    $wmax = 300;
-    $hmax = 300;
-
-    if ($_FILES['txtPhoto']['name'] != "") {
-      $file_size2   = $_FILES['txtPhoto']['size'];
-      echo  $file_tmp2   = $_FILES['txtPhoto']['tmp_name'];
-      $file_type2  = $_FILES['txtPhoto']['type'];
-      $tmp2 = explode('.', $_FILES['txtPhoto']['name']);
-      $file_ext2 = end($tmp2);
-      // Valid extension
-      $valid_ext = array('png', 'jpeg', 'jpg');
-      $file_name   = $dataCode . '.' . $file_ext2;
-      // Location
-      $location = "../uploads/user/" . $file_name;
-      move_uploaded_file($_FILES["txtPhoto"]["tmp_name"], $location);
-      // file extension
-      $file_extension = pathinfo($location, PATHINFO_EXTENSION);
-      $file_extension = strtolower($file_extension);
-
-      // Check extension
-      if (in_array($file_extension, $valid_ext)) {
-
-        $file_photo = $file_name;
-      } else {
-        $pesanError[] = "Invalid file type.";
-      }
-    }
-
-    # BACA DATA DALAM FORM, masukkan datake variabel
-    // $txtCompany    = $_POST['txtCompany'];
-    $txtUsergroup  = $_POST['txtAccess'];
-    $txtStatus    = 'Active';
-    $txtUsername  = $_POST['txtUsername'];
-    $txtFullname  = $_POST['txtFullname'];
-    $txtPassword  = $_POST['txtPassword'];
-    $txtPhoto    = $file_photo;
-    $txtEmail    = $_POST['txtEmail'];
-    $txtPhone    = $_POST['txtPhone'];
-    $txtDivision  = $_POST['txtDivision'];
-    $txtDepartment  = $_POST['txtDepartment'];
-    $txtUnit     = $_POST['txtUnit'];
-    $txtBranch     = $_POST['txtBranch'];
-    $txtPosition  = $_POST['txtPosition'];
-    $dataAccess  = $_POST['txtAccess'];
-    $txtActivationDate  = $_POST['txtActivationDate'];
-
-    $txtPassword = $txtPassword;
-    $setpassword = '';
-    // validasi jika password kosong, tidak perlu update password
-    if ($txtPassword != '') {
-      $uppercase = preg_match('@[A-Z]@', $txtPassword);
-      $lowercase = preg_match('@[a-z]@', $txtPassword);
-      $number    = preg_match('@[0-9]@', $txtPassword);
-      if (!$uppercase || !$lowercase || !$number || strlen($txtPassword) <= 6) {
-        $pesanError[] = "password harus lebih dari 6 karakter, mengandung huruf BESAR, huruf kecil dan angka";
-      }
-      $setpassword = ",password = " . "'" . MD5($txtPassword) .  "'";
-    }
-
-    // validasi jika file foto kosong, tidak perlu update foto
-    $setphoto = '';
-    if ($txtPhoto != 'photo.png') {
-
-      $setphoto = ",user_photo = " . "'$txtPhoto'";
-    }
-
-    # VALIDASI DATA, jika sudah ada akan ditolak
-    // $mySql = "SELECT * FROM master_user WHERE user_id='$dataCode'";
-    // $cekQry = mysqli_query($koneksidb, $mySql) or die("Eror Query" . mysqli_error($koneksidb));
-    // if (mysqli_num_rows($cekQry) >= 1) {
-    //   $pesanError[] = "data ID<b> $dataCode </b> sudah ada, ganti dengan yang lain";
-    // }
+    $dataTanggal  = $_POST['txtTanggal'];
+    $dataJam  = $_POST['txtJam'];
 
     # JIKA ADA PESAN ERROR DARI VALIDASI
     if (count($pesanError) >= 1) {
@@ -110,13 +31,10 @@ $id = $_GET['id'];
       // Jika tidak menemukan error, simpan data ke database
 
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE master_user set user_id = '$dataCode' , username='$txtUsername', user_fullname='$txtFullname',
-       user_group = '$txtUsergroup', user_email='$txtEmail', user_status = '$txtStatus'
-       , company_id = 'CO-0000001',branch = '$txtBranch', division ='$txtDivision', department = '$txtDepartment'
-       , unit= '$txtUnit', position='$txtPosition',updated_by = '$ses_nama',updated_date = now(), user_phone = '$txtPhone', activation_date='$txtActivationDate' $setpassword $setphoto where user_id='$dataCode'";
+      $mySql    = "UPDATE booking set tanggal ='$dataTanggal', jam ='$dataJam' where id='$dataCode'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
       if ($myQry) {
-        echo "<meta http-equiv='refresh' content='0; url=?page=Management-User'>";
+        echo "<meta http-equiv='refresh' content='0; url=?page=Management-Booking&s=success'>";
       }
       exit;
     }
