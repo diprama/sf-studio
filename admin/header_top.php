@@ -30,31 +30,7 @@
                 $TotalApproveDig = 0;
                 $TotalApprovePhy = 0;
                 include_once "library/inc.seslogin.php";
-                if ($_SESSION['SES_GROUP'] != 'USER') {
-                    $mySql1   = "SELECT count(*) as totalAppr FROM view_document
-                    WHERE (document_status='Created' OR document_status='Updated' OR document_status='Request Delete' OR document_status='Reviewed')
-                    AND category_level_1 ='DIGITAL'";
-                    $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("Error query " . mysqli_error($koneksidb));
-                    $myData1 = mysqli_fetch_array($myQry1);
-                    $Totalall  = $Totalall + $myData1['totalAppr'];
-                    $TotalApproveDig  = $TotalApproveDig + $myData1['totalAppr'];
-
-                    $mySql2   = "SELECT count(*) as totalAppr FROM view_document
-                    WHERE (document_status='Created' OR document_status='Updated' OR document_status='Request Delete' OR document_status='Reviewed')
-                    AND category_level_1 ='PHYSICAL'";
-                    $myQry2   = mysqli_query($koneksidb, $mySql2)  or die("Error query " . mysqli_error($koneksidb));
-                    $myData2 = mysqli_fetch_array($myQry2);
-                    $Totalall  = $Totalall + $myData2['totalAppr'];
-                    $TotalApprovePhy  = $TotalApprovePhy + $myData2['totalAppr'];
-
-                    $mySql2   = "SELECT COUNT(*) as totalExpiry FROM view_document WHERE DATEDIFF(document_expire_date,NOW()) < 30 AND category_level_1='DIGITAL'";
-                    $myQry2   = mysqli_query($koneksidb, $mySql2)  or die("Error query " . mysqli_error($koneksidb));
-                    $myData2 = mysqli_fetch_array($myQry2);
-                    $Totalall  = $Totalall + $myData2['totalExpiry'];
-                    $TotalExpiry  = $TotalExpiry + $myData2['totalExpiry'];
-
-                    // $Totalall = $TotalAPPspd + $TotalAPPleave + $TotalAPPovertime + $TotalAPPpermission + $TotalAPPsp;
-                }
+  
 
                 // $Totalall = 1;
                 if ($Totalall > 0) {
