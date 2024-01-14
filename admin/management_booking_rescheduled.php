@@ -185,32 +185,32 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>No Whatsapp <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Phone" name="txtWA" type="text" value="<?php echo $dataWA; ?>" maxlength="100" required />
+                            <input class="form-control" placeholder="Phone" name="txtWA" type="text" value="<?php echo $dataWA; ?>" maxlength="100" required readonly />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Email <span class="required">*</span></label>
-                            <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required />
+                            <input class="form-control" placeholder="Email" name="txtEmail" type="text" value="<?php echo $dataEmail; ?>" maxlength="100" required readonly />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Tanggal Booking </label>
-                            <input class="form-control" placeholder="YYYY-MM-DD" name="txtTanggal" type="date" value="<?php echo $dataTanggal; ?>" autocomplete="off" />
+                            <input class="form-control" placeholder="YYYY-MM-DD" name="txtTanggal" type="date" value="<?php echo $dataTanggal; ?>" autocomplete="off" required />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Jam Booking </label>
-                            <input class="form-control" placeholder="MM:DD" name="txtJam" type="time" value="<?php echo $dataJam; ?>" autocomplete="off" />
+                            <input class="form-control" placeholder="MM:DD" name="txtJam" type="time" value="<?php echo $dataJam; ?>" autocomplete="off" required />
                           </div>
                         </div>
 
                       </div>
                       <div class="col-7 my-5">
-                        <a type="button" href="?page=Management-Booking" class="btn btn-outline-dark me-2">Kembali</a>
-                        <button type="submit" name="btnSubmit" class="btn btn-warning me-3">Re-Schedule</button>
+                        <a type="button" href="?page=Management-Booking" class="btn btn-warning me-2">Kembali</a>
+                        <button type="submit" name="btnSubmit" class="btn btn-success me-3">Re-Schedule</button>
                       </div>
                     </div>
                   </div>
