@@ -43,7 +43,7 @@
                     </li>
 
 
-                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="database"></i>Booking</a>
+                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="camera"></i>Booking</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
                             <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Booking</a>
                             <a class="dropdown-item" href="?page=Management-History" data-bs-toggle="">History</a>
@@ -61,7 +61,7 @@
                         </ul>
                     </li> -->
 
-                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>Booking Management</a>
+                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="tools"></i>Booking Management</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
                             <a class="dropdown-item" href="?page=Master-Jenis" data-bs-toggle="">Jenis</a>
                             <a class="dropdown-item" href="?page=Master-Paket" data-bs-toggle="">Paket</a>
