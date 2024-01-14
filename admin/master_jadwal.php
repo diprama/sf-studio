@@ -99,6 +99,10 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                         $nomor++;
                                         $Code = $myData['id'];
 
+                                        // ganti format jam
+                                        $Jam = $myData['jam'];
+                                        $Jam = date("G:i", strtotime($Jam));
+
                                         // validasi status
                                         if ($myData['status'] == 0) {
                                             $status = "<span class='badge rounded-pill badge-glow bg-success'>Aktif</span>";
@@ -117,9 +121,12 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
-                                            <td><?php echo $myData['jam']; ?></td>
+                                            <td><?php echo $Jam; ?></td>
                                             <td><?php echo $status; ?></td>
                                             <td><?php echo $availability; ?></td>
+                                            <td>
+                                                <a href="?page=Master-Jadwal-Status-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN UPDATE STATUS?')"><?= $availability ?></a>
+                                            </td>
                                         </tr>
                                     <?php }
                                     ?>
