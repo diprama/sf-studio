@@ -172,8 +172,8 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <div class="mb-1">
-                            <label class="form-label" for="User ID">User ID</label>
-                            <input class="form-control" name="txtCode" type="text" value="<?php echo $dataCode; ?>" maxlength="20" required />
+                            <label class="form-label" for="User ID">Booking ID</label>
+                            <input class="form-control" name="txtCode" type="text" value="<?php echo $dataCode; ?>" maxlength="20" required readonly />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
