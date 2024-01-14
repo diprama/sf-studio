@@ -4,7 +4,7 @@
         <div class="navbar-container d-flex content">
             <div class="bookmark-wrapper d-flex align-items-center">
                 <ul class="nav navbar-nav d-xl-none">
-                    <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
+                    <!-- <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li> -->
                 </ul>
                 <ul class="nav navbar-nav">
                     <li class="nav-item"><a class="navbar-brand" href="#"><img style='width:2%' src="../app-assets/images/logo/logo-sf-white.png"></a></li>
