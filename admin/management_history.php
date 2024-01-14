@@ -125,7 +125,7 @@ function hari_ini($tanggal)
                                                     <div class="col-md-2 col-12">
 
                                                         <label>Paket</label>
-                                                        <select class="form-select" id="paketfoto" name="txtPaket" aria-label="Default select example" autocomplete="off" required>
+                                                        <select class="form-select" id="paketfoto" name="txtPaket" aria-label="Default select example" autocomplete="off">
                                                             <option selected value="">Pilih</option>
                                                             <?php
                                                             // panggil database
@@ -146,7 +146,7 @@ function hari_ini($tanggal)
                                                     <div class="col-md-2 col-12">
 
                                                         <label>Background</label>
-                                                        <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off" required>
+                                                        <select class="form-select" id="background" name="txtBackground" aria-label="Default select example" autocomplete="off">
                                                             <option selected value="">Pilih</option>
                                                             <?php
                                                             // panggil database
