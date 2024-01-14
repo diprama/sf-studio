@@ -2,20 +2,25 @@
 include "library/inc.connection.php";
 
   $pesanError = array();
-  // set validasi
-  // if (trim($_POST['txtUser']) == "") {
-  //   $pesanError[] = "Data <b> Username </b> tidak boleh kosong !";
-  // }
-  // if (trim($_POST['txtPassword']) == "") {
-  //   $pesanError[] = "Data <b> Password </b> tidak boleh kosong !";
-  // }
 
   # Baca variabel form
   $id   = $_GET['id'];
+
+#cek status sebelumnya
+$mySql   = "SELECT status FROM jadwal WHERE id='$id'";
+$myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
+$myData = mysqli_fetch_array($myQry);
+
+$status = $myData['status'];
+if ($status =='1') {
+  $updatestatus = 0;
+} else {
+  $updatestatus = 1;
+}
 # UPDATE KE DATABASE BOOKING
 
     $mySql   = "UPDATE `jadwal` 
-      SET `status`=0 WHERE id='$id'";
+      SET `status`='$updatestatus' WHERE id='$id'";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
    # Validasi Insert Sukses
