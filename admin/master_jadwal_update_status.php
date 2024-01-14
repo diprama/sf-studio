@@ -25,7 +25,7 @@ if ($status =='1') {
     $nomor  = 0;
    # Validasi Insert Sukses
     if ($myQry) {
-      echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jadwal&status=ok'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Master-Jadwal&s=ok'>";
     }
     else {
       echo "Query Gagal";
