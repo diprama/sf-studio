@@ -70,7 +70,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                             <div class="content-header-left col-md-4 col-12">
                                 <h4 class="card-title"></h4>
                             </div>
-                            <div class="content-header-right text-md-end col-md-12 col-12 d-md-block d-none">
+                            <div class="content-header-left text-md-end col-md-12 col-12 d-md-block d-none">
                                 <form role="form" action="?page=Master-Jenis-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
                                         <div class="col-12">
