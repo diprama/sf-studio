@@ -22,8 +22,8 @@ include "language.php";
   <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
   <link href="" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/plugins/forms/form-validation.css">
-  <link rel="stylesheet" type="text/css" href="../app-assets/css/pages/authentication.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/plugins/forms/form-validation.css">
+  <link rel="stylesheet" type="text/css" href="../base-app-assets/css/pages/authentication.css">
 
   <!-- Select2 -->
   <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
