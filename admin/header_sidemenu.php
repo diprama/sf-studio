@@ -66,7 +66,7 @@
                             <a class="dropdown-item" href="#" data-bs-toggle="">Jenis</a>
                             <a class="dropdown-item" href="#" data-bs-toggle="">Paket</a>
                             <a class="dropdown-item" href="#" data-bs-toggle="">Background</a>
-                            <a class="dropdown-item" href="Master-Jadwal" data-bs-toggle="">Jadwal</a>
+                            <a class="dropdown-item" href="?page=Master-Jadwal" data-bs-toggle="">Jadwal</a>
                         </ul>
                     </li>
 
