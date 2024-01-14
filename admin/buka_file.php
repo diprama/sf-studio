@@ -145,6 +145,29 @@ if ($_GET) {
       include "master_paket_delete.php";
       break;
 
+      # MASTER BACKGROUND
+
+    case 'Master-Background':
+      if (!file_exists("master_background.php")) die("Sorry Empty Page!");
+      include "master_background.php";
+      break;
+
+    case 'Master-Background-Add':
+      if (!file_exists("master_background_add.php")) die("Sorry Empty Page!");
+      include "master_background_add.php";
+      break;
+
+    case 'Master-Background-Edit':
+      if (!file_exists("master_background_edit.php")) die("Sorry Empty Page!");
+      include "master_background_edit.php";
+      break;
+
+    case 'Master-Background-Delete':
+      if (!file_exists("master_background_delete.php")) die("Sorry Empty Page!");
+      include "master_background_delete.php";
+      break;
+
+
 
       # Master 
     case 'Master-Kategori':
