@@ -118,8 +118,7 @@ function hari_ini($tanggal)
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
-                                        <th>Delete</th>
-                                        <th>Hapus</th>
+                                        <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
@@ -159,6 +158,23 @@ function hari_ini($tanggal)
                                                 </td>
                                                 <td>
                                                     <a href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw"></i>Delete</a>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                            <i data-feather="more-vertical"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="edit-2" class="me-50"></i>
+                                                                    <span>Konfirmasi</span>
+                                                            </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="trash" class="me-50"></i>
+                                                                    <span>Delete</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                                 <!-- <td>
                                                     <a href="?page=#" role="button"><i class="fa fa-pencil fa-fw"></i>Reschedule</a>
