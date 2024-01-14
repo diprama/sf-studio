@@ -15,7 +15,7 @@ include "library/inc.connection.php";
 # UPDATE KE DATABASE BOOKING
 
     $mySql   = "UPDATE `jadwal` 
-      SET `status`=0,`updated_date`=now() WHERE id='$id'";
+      SET `status`=0 WHERE id='$id'";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
    # Validasi Insert Sukses
