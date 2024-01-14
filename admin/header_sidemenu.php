@@ -67,8 +67,7 @@
                             <a class="dropdown-item" href="?page=Position" data-bs-toggle="">Position Management</a>
                             <a class="dropdown-item" href="?page=Role-Permission" data-bs-toggle="">Role Permission</a>
                             <a class="dropdown-item" href="?page=Management-Admin" data-bs-toggle="">Admin Management</a>
-                            <a class="dropdown-item" href="?page=Management-User" data-bs-toggle="">User Management</a>
-                            <a class="dropdown-item" href="?page=Management-Reward" data-bs-toggle="">Reward & Bages Management</a>
+                            <a class="dropdown-item" href="?page=Management-Booking" data-bs-toggle="">Booking Management</a>
                         </ul>
                     </li>
 
@@ -81,9 +80,7 @@
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="book"></i>Report</a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                            <a class="dropdown-item" href="?page=Activity-User" data-bs-toggle="">User Activity</a>
-                            <a class="dropdown-item" href="?page=Asset-History" data-bs-toggle="">Content History</a>
-                            <a class="dropdown-item" href="?page=Asset-Stock" data-bs-toggle="">Inventory Asset</a>
+                            <a class="dropdown-item" href="?page=Report-Booking" data-bs-toggle="">Booking</a>
                         </ul>
                     </li>
                     <!-- 
