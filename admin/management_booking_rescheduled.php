@@ -17,6 +17,18 @@ $id = $_GET['id'];
     $dataTanggal  = $_POST['txtTanggal'];
     $dataJam  = $_POST['txtJam'];
 
+    # VALIDASI JAM 
+    # CEK APAKAH JAM TERSEBUT SUDAH DIGUNAKAN DI HARI YANG DIPILIH
+    $mySqlCek  = "SELECT tanggal, jam FROM booking WHERE tanggal='$dataTanggal' and jam ='$dataJam'";
+    $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
+    $JumlahDataCek = mysqli_num_rows($myQryCek);
+
+    if ($JumlahDataCek >= 1) {
+      $pesanError[] = "Jam tersebut tidak tersedia untuk tanggal yang dipilih";
+    }
+    #VALIDASI JAM SELESAI
+
+
     # JIKA ADA PESAN ERROR DARI VALIDASI
     if (count($pesanError) >= 1) {
       echo "&nbsp;<div class='alert alert-warning'>";
@@ -120,19 +132,39 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Jam Booking </label>
-                            <input class="form-control" placeholder="MM:DD" name="txtJam" type="time" value="<?php echo $dataJam; ?>" autocomplete="off" required />
+                            <label>Jam Booking*</label>
+                            <select class="form-select" id="waktu" name="txtJam" aria-label="Default select example" autocomplete="off" required>
+                              <?php
+                                  $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam >='12:00' order by j.jam asc;";
+                    
+                                $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
+                                while ($myData = mysqli_fetch_array($myQry)) {
+                                  // set tanggal hari ini
+                                  $hariini = date('Y-m-d');
+                                    // jadwal jam yang tersedia
+                                    $jam = date("H:i", strtotime($myData['jam']));
+                                      ?>
+                                        <option value="<?php echo $jam  ?>"><?php echo $jam ?></option>;
+                                    <?php
+                                    // jika tanggal yang dipilih bukan hari ini maka tampilkan semua 
+                                  
+                                }
+                            
+
+                              ?>
+                            </select>
                           </div>
                         </div>
+                      </div>
 
-                      </div>
-                      <div class="col-7 my-5">
-                        <a type="button" href="?page=Management-Booking" class="btn btn-warning me-2">Kembali</a>
-                        <button type="submit" name="btnSubmit" class="btn btn-success me-3">Re-Schedule</button>
-                      </div>
+                    </div>
+                    <div class="col-7 my-5">
+                      <a type="button" href="?page=Management-Booking" class="btn btn-warning me-2">Kembali</a>
+                      <button type="submit" name="btnSubmit" class="btn btn-success me-3">Re-Schedule</button>
                     </div>
                   </div>
                 </div>
+              </div>
         </form>
       </div>
     </div>
