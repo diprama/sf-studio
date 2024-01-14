@@ -85,10 +85,9 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jadwal";
                                                     <button type="submit" name="btnHistory" style="width: 100%;" class="btn btn-success">Tambah Jam</button>
                                                 </div>
                                             </div>
-
-
                                         </div>
                                     </div>
+                                </form>
                             </div>
                         </div>
                         <div class="card-datatable">

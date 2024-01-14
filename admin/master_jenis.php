@@ -26,14 +26,21 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                 </div>
             </div>
 
-            <!-- set notifikasi -->
+  <!-- set notifikasi -->
             <?php
             $status = isset($_GET['s']) ? $_GET['s'] : '';
             if ($status != '') {
                 // jika s = success
-                if ($status == 'success') {
+                if ($status == 'ok') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Berhasil di Re-Schedule<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Update<br>";
+                    echo "</div>";
+                }
+                // jika s = deleted
+                else 
+                 if ($status == 'tambah') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Berhasil di Tambahkan<br>";
                     echo "</div>";
                 }
                 // jika s = deleted
@@ -43,11 +50,9 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                     echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
                     echo "</div>";
                 }
-                // jika s = deleted
-                else 
-                 if ($status == 'confirmation') {
+                if ($status == 'edited') {
                     echo "&nbsp;<div class='alert alert-success'>";
-                    echo "&nbsp;&nbsp; Berhasil di Konfirmasi<br>";
+                    echo "&nbsp;&nbsp; Berhasil di Edit<br>";
                     echo "</div>";
                 }
             }
@@ -66,13 +71,19 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                                 <h4 class="card-title"></h4>
                             </div>
                             <div class="content-header-right text-md-end col-md-8 col-12 d-md-block d-none">
-                                <form role="form" action="?page=Management-Admin-Add" method="POST" name="form1" target="_self" id="form1">
+                                <form role="form" action="?page=Master-Jenis-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
-                                        <div class="col-md-5 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-3 col-12 px-25">
-                                        </div>
-                                        <div class="col-md-4 col-12 ps-25">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col-md-2 col-12">
+                                                    <label>Jenis</label>
+                                                    <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJenis' aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-2">
+                                                    <br>
+                                                    <button type="submit" style="width: 100%;" class="btn btn-success">Tambah</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
