@@ -130,7 +130,7 @@ $randomToken = generateRandomToken();
   <meta property="og:image" content="/images/education-logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <title>SF Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
+  <title>Self Studio - Booking </title><!-- Styles--><!-- Put the 3rd/plugins css here-->
   <link href="./assets/css/vendors/normalize.css" rel="stylesheet">
   <link href="./assets/css/vendors/bootstrap.css" rel="stylesheet">
   <!-- <link href="./assets/css/vendors/materialize.css" rel="stylesheet"> -->
