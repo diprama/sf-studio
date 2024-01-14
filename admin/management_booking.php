@@ -75,7 +75,7 @@ function hari_ini($tanggal)
         if ($status!='') {
             // jika s = success
             if ($status =='success') {
-                echo "&nbsp;<div class='alert alert-warning'>";
+                echo "&nbsp;<div class='alert alert-success'>";
                     echo "&nbsp;&nbsp; Re-Schedule Berhasil<br>";
                 echo "</div>";
             }
