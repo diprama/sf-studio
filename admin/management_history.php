@@ -1,5 +1,5 @@
 <?php
-$_SESSION['SES_TITLE'] = "Booking";
+$_SESSION['SES_TITLE'] = "History";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking";
@@ -61,7 +61,7 @@ function hari_ini($tanggal)
                         <h2 class="content-header-title float-start mb-0">Booking</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>Booking</a>
+                                <li class="breadcrumb-item"><a>History</a>
                                 </li>
                             </ol>
                         </div>
@@ -134,14 +134,13 @@ function hari_ini($tanggal)
                                         <th>Paket</th>
                                         <th>Background</th>
                                         <th>Status</th>
-                                        <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking where status !='Dikonfirmasi' order by tanggal desc";
+                                    $mySql   = "SELECT * FROM booking  order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
@@ -168,31 +167,7 @@ function hari_ini($tanggal)
                                             <td><?php echo $myData['paket']; ?></td>
                                             <td><?php echo $myData['background']; ?></td>
                                             <td><?php echo $myData['status']; ?></td>
-                                            <?php if ($myData['status'] != 'Dikonfirmasi') { ?>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                                                            <i data-feather="more-vertical"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="check" class="me-50"></i>
-                                                                    <span>Konfirmasi</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="edit-2" class="me-50"></i>
-                                                                    <span>Re-Schedule</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="trash" class="me-50"></i>
-                                                                    <span>Hapus</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            <?php } else { ?>
-                                                <td></td>
-                                            <?php } ?>
+                                          
                                         </tr>
                                     <?php }
                                     ?>
