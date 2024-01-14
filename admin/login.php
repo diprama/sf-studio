@@ -83,7 +83,7 @@
                                         </g>
                                     </svg> -->
                                         <img class="img-fluid rounded mt-3 mb-2" src="../app-assets/images/logo/logo-sf.png" height="150" width="150" alt="User avatar" />
-                                    <h2 class="brand-text text-primary ms-1" style='color: #436451;'>SF Studio</h2>
+                                    <h2 style='color: #436451;'>SF Studio</h2>
                                 </a>
 
                                 <h4 class="card-title mb-1">Welcome to SF Studio! 👋</h4>
