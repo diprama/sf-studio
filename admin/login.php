@@ -83,7 +83,7 @@
                                             </g>
                                         </g>
                                     </svg> -->
-                                    <h2 style='color: #436451;'>SF Studio</h2>
+                                    <h2 style='color: #436451;'>Self Studio</h2>
                                 </a>
 
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
