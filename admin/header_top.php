@@ -7,7 +7,7 @@
                     <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li class="nav-item"><a class="navbar-brand" href="#"><img style='width:8%' src="../app-assets/images/logo/logo-sf.png"></a></li>
+                    <li class="nav-item"><a class="navbar-brand" href="#"><img style='width:8%' src="../app-assets/images/logo/logo-sf-white.png"></a></li>
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
