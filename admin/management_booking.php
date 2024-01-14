@@ -145,12 +145,16 @@ function hari_ini($tanggal)
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" href="?page=Management-Booking-Update&id=<?php echo $Code; ?>" onclick="return confirm('INGIN KONFIRMASI DATA?')" role="button"><i class="fa fa-pencil fa-fw">
-                                                                    <i data-feather="edit-2" class="me-50"></i>
+                                                                    <i data-feather="check" class="me-50"></i>
                                                                     <span>Konfirmasi</span>
                                                             </a>
                                                             <a class="dropdown-item" href="?page=Management-Booking-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                     <i data-feather="trash" class="me-50"></i>
                                                                     <span>Delete</span>
+                                                            </a>
+                                                            <a class="dropdown-item" href="?page=Management-Booking-Rescheduled&id=<?php echo $Code; ?>" onclick="return confirm('INGIN RESCHEDULED?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                                    <i data-feather="trash" class="me-50"></i>
+                                                                    <span>Re-Schedule</span>
                                                             </a>
                                                         </div>
                                                     </div>
