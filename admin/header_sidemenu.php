@@ -65,7 +65,7 @@
                         <ul class="dropdown-menu" data-bs-popper="none">
                             <a class="dropdown-item" href="?page=Master-Jenis" data-bs-toggle="">Jenis</a>
                             <a class="dropdown-item" href="?page=Master-Paket" data-bs-toggle="">Paket</a>
-                            <a class="dropdown-item" href="#" data-bs-toggle="">Background</a>
+                            <a class="dropdown-item" href="?page=Master-Background" data-bs-toggle="">Background</a>
                             <a class="dropdown-item" href="?page=Master-Jadwal" data-bs-toggle="">Jadwal</a>
                         </ul>
                     </li>
