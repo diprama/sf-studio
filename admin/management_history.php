@@ -165,7 +165,7 @@ function hari_ini($tanggal)
                                                 </div>
                                                 <div class="col-1">
                                                     <br>
-                                                    <button type="submit" name="btnHistory" style="width: 100%;" class="btn btn-primary">Filter</button>
+                                                    <button type="submit" name="btnHistory" style="width: 100%;" class="btn btn-success">Filter</button>
                                                 </div>
                                             </div>
 
