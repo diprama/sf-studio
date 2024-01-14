@@ -1,7 +1,7 @@
 <?php
 $_SESSION['SES_TITLE'] = "Management Booking";
 include_once "library/inc.seslogin.php";
-include "header_difan.php";
+include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking";
 
 
@@ -182,5 +182,5 @@ function hari_ini($tanggal)
 <!-- END: Content-->
 
 <?php
-include "footer_difan.php";
+include "footer_v2.php";
 ?>

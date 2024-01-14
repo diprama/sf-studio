@@ -48,6 +48,11 @@ if ($_GET) {
       include "management_booking_update.php";
       break;
 
+    case 'Management-Booking-Rescheduled':
+      if (!file_exists("management_booking_rescheduled.php")) die("Sorry Empty Page!");
+      include "management_booking_rescheduled.php";
+      break;
+
     case 'Management-Booking-Delete':
       if (!file_exists("management_booking_delete.php")) die("Sorry Empty Page!");
       include "management_booking_delete.php";
