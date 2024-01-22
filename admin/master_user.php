@@ -137,7 +137,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['user_fullname']; ?></td>
-                                            <td><?php echo $myData['username']; ?></td>
+                                            <td><?php echo $myData['user_name']; ?></td>
                                             <td><?php echo $myData['user_group']; ?></td>
                                             <td>
                                                 <div class="dropdown">
