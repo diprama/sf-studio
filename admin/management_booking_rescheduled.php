@@ -135,7 +135,7 @@ $id = $_GET['id'];
                             <label>Jam Booking*</label>
                             <select class="form-select" id="waktu" name="txtJam" aria-label="Default select example" autocomplete="off" required>
                               <?php
-                                  $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0'  order by j.jam asc;";
+                                  $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0'  order by j.jam asc;";
                     
                                 $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
                                 while ($myData = mysqli_fetch_array($myQry)) {
