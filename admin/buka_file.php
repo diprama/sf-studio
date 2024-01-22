@@ -168,6 +168,30 @@ if ($_GET) {
       break;
 
 
+      #Master User
+
+    case 'Master-User':
+      if (!file_exists("master_user.php")) die("Sorry Empty Page!");
+      include "master_user.php";
+      break;
+
+    case 'Master-User-Add':
+      if (!file_exists("master_user_add.php")) die("Sorry Empty Page!");
+      include "master_user_add.php";
+      break;
+
+    case 'Master-User-Edit':
+      if (!file_exists("master_user_edit.php")) die("Sorry Empty Page!");
+      include "master_user_edit.php";
+      break;
+
+    case 'Master-User-Delete':
+      if (!file_exists("master_user_delete.php")) die("Sorry Empty Page!");
+      include "master_user_delete.php";
+      break;
+
+
+
 
       # Master 
     case 'Master-Kategori':
