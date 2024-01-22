@@ -131,7 +131,6 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
                                         $nomor++;
-                                        $Code =  $myData['id'];
 
                                     ?>
 
