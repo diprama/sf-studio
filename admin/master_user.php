@@ -126,7 +126,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM master_user order by id desc";
+                                    $mySql   = "SELECT * FROM master_user order by user_id desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
