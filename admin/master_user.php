@@ -1,8 +1,8 @@
 <?php
-$_SESSION['SES_TITLE'] = "Master Jenis";
+$_SESSION['SES_TITLE'] = "Master User";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
-$_SESSION['SES_PAGE'] = "?page=Master-Jenis";
+$_SESSION['SES_PAGE'] = "?page=Master-User";
 ?>
 
 
@@ -15,10 +15,10 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Booking Management</h2>
+                        <h2 class="content-header-title float-start mb-0">Management User</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a>Jenis</a>
+                                <li class="breadcrumb-item"><a>User</a>
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                 </div>
             </div>
 
-  <!-- set notifikasi -->
+            <!-- set notifikasi -->
             <?php
             $status = isset($_GET['s']) ? $_GET['s'] : '';
             if ($status != '') {
@@ -49,10 +49,20 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                     echo "&nbsp;<div class='alert alert-success'>";
                     echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
                     echo "</div>";
-                }
+                } else
+                    if ($status == 'gagal-user') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Username sudah pernah dibuat sebelumnya<br>";
+                    echo "</div>";
+                } else 
                 if ($status == 'edited') {
                     echo "&nbsp;<div class='alert alert-success'>";
                     echo "&nbsp;&nbsp; Berhasil di Edit<br>";
+                    echo "</div>";
+                } else 
+                if ($status == 'password') {
+                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;&nbsp; Password setidaknya minimal 8 karakter, terdapat minimal 1 angka dan 1 huruf besar <br>";
                     echo "</div>";
                 }
             }
@@ -71,13 +81,25 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                                 <h4 class="card-title"></h4>
                             </div>
                             <div class="content-header-left text-md-end col-md-12 col-12 d-md-block d-none">
-                                <form role="form" action="?page=Master-Jenis-Add" method="POST" name="form1" target="_self" id="form1">
+                                <form role="form" action="?page=Master-User-Add" method="POST" name="form1" target="_self" id="form1">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-2 col-12">
-                                                    <label>Jenis</label>
-                                                    <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" name='txtJenis' aria-describedby="basic-addon-name" />
+                                                    <label>User Name</label>
+                                                    <input type="text" id="basic-addon-name" class="form-control" placeholder="Username" aria-label="Name" name='txtUsername' aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-md-2 col-12">
+                                                    <label>Password</label>
+                                                    <input type="password" id="basic-addon-name" class="form-control" placeholder="Password" aria-label="Name" name='txtPassword' aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-md-2 col-12">
+                                                    <label>Role</label>
+                                                    <select class="form-select" name="txtRole" aria-label="Default select example" autocomplete="off" required>
+                                                        <option value="">Pilih Role</option>
+                                                        <option value="Super Admin">Super Admin</option>
+                                                        <option value="Admin">Admin</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-2">
                                                     <br>
@@ -94,7 +116,9 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Jenis</th>
+                                        <th>Nama</th>
+                                        <th>Username</th>
+                                        <th>Role</th>
                                         <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
                                     </tr>
@@ -102,7 +126,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM master_jenis_head order by id desc";
+                                    $mySql   = "SELECT * FROM master_user order by id desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
@@ -113,18 +137,20 @@ $_SESSION['SES_PAGE'] = "?page=Master-Jenis";
 
                                         <tr>
                                             <td><?php echo $nomor; ?></td>
-                                            <td><?php echo $myData['jenis']; ?></td>
+                                            <td><?php echo $myData['user_fullname']; ?></td>
+                                            <td><?php echo $myData['username']; ?></td>
+                                            <td><?php echo $myData['user_group']; ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
                                                         <i data-feather="more-vertical"></i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="?page=Master-Jenis-Edit&id=<?php echo $Code; ?>" onclick="return confirm('INGIN EDIT DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                        <a class="dropdown-item" href="?page=Master-User-Edit&id=<?php echo $Code; ?>" onclick="return confirm('INGIN EDIT DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                 <i data-feather="edit-2" class="me-50"></i>
                                                                 <span>Edit</span>
                                                         </a>
-                                                        <a class="dropdown-item" href="?page=Master-Jenis-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
+                                                        <a class="dropdown-item" href="?page=Master-User-Delete&id=<?php echo $Code; ?>" onclick="return confirm('INGIN HAPUS DATA?')" role="button"><i class="fa fa-pencil fa-fw">
                                                                 <i data-feather="trash" class="me-50"></i>
                                                                 <span>Hapus</span>
                                                         </a>
