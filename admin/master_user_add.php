@@ -7,7 +7,7 @@ $txtPassword = $_POST['txtPassword'];
 $txtRole = $_POST['txtRole'];
 
 // Validasi apakah sudah ada di database
-$mySql1   = "SELECT username FROM master_user where username ='$txtUsername'";
+$mySql1   = "SELECT user_name FROM master_user where user_name ='$txtUsername'";
 $myQry1   = mysqli_query($koneksidb, $mySql1)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
 $myData1 = mysqli_fetch_array($myQry1);
 $Jumlahdata = mysqli_num_rows($myQry1);
