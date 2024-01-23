@@ -15,6 +15,7 @@ $Jumlahdata = mysqli_num_rows($myQry1);
 // jika sudah pernah diinputkan, munculkan notif
 if ($Jumlahdata >= 1) {
   echo "<meta http-equiv='refresh' content='0; url=?page=Master-User&s=gagal-user'>";
+  exit;
 }
 
 // validasi password 
