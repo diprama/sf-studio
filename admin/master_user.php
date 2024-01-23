@@ -51,7 +51,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                     echo "</div>";
                 } else
                     if ($status == 'gagal-user') {
-                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;<div class='alert alert-warning'>";
                     echo "&nbsp;&nbsp; Username sudah pernah dibuat sebelumnya<br>";
                     echo "</div>";
                 } else 
@@ -61,7 +61,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                     echo "</div>";
                 } else 
                 if ($status == 'password') {
-                    echo "&nbsp;<div class='alert alert-success'>";
+                    echo "&nbsp;<div class='alert alert-warning'>";
                     echo "&nbsp;&nbsp; Password setidaknya minimal 8 karakter, terdapat minimal 1 angka dan 1 huruf besar <br>";
                     echo "</div>";
                 }
