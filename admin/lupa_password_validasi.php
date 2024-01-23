@@ -133,7 +133,7 @@ if (isset($_POST['btnForgotPassword'])) {
       echo "</div>";
 
  
-      echo "<meta http-equiv='refresh' content='0; url=?page=Forgot-Password'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Forgot-Password&s=ok'>";
 
       // Refreshaa
 
@@ -149,7 +149,7 @@ if (isset($_POST['btnForgotPassword'])) {
       echo "</div>";
 
       // Tampilkan lagi form login
-      echo "<meta http-equiv='refresh' content='0; url=?page=Forgot-Password'>";
+      echo "<meta http-equiv='refresh' content='0; url=?page=Forgot-Password&s=notok'>";
     }
   }
 } // End POST

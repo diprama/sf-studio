@@ -55,6 +55,49 @@
             <div class="content-body">
                 <div class="auth-wrapper auth-basic px-2">
                     <div class="auth-inner my-2">
+
+                        <!-- set notifikasi -->
+                        <?php
+                        $status = isset($_GET['s']) ? $_GET['s'] : '';
+                        if ($status != '') {
+                            // jika s = success
+                            if ($status == 'ok') {
+                                echo "&nbsp;<div class='alert alert-success'>";
+                                echo "&nbsp;&nbsp; Password Berhasil direset, silahkan cek email anda<br>";
+                                echo "</div>";
+                            }
+                            // jika s = deleted
+                            else 
+                 if ($status == 'notok') {
+                                echo "&nbsp;<div class='alert alert-warning'>";
+                                echo "&nbsp;&nbsp; Email tidak Terdaftar<br>";
+                                echo "</div>";
+                            }
+                            // jika s = deleted
+                            else 
+                 if ($status == 'deleted') {
+                                echo "&nbsp;<div class='alert alert-success'>";
+                                echo "&nbsp;&nbsp; Berhasil di Hapus<br>";
+                                echo "</div>";
+                            } else
+                    if ($status == 'gagal-user') {
+                                echo "&nbsp;<div class='alert alert-warning'>";
+                                echo "&nbsp;&nbsp; Username sudah pernah dibuat sebelumnya<br>";
+                                echo "</div>";
+                            } else 
+                if ($status == 'edited') {
+                                echo "&nbsp;<div class='alert alert-success'>";
+                                echo "&nbsp;&nbsp; Berhasil di Edit<br>";
+                                echo "</div>";
+                            } else 
+                if ($status == 'password') {
+                                echo "&nbsp;<div class='alert alert-warning'>";
+                                echo "&nbsp;&nbsp; Password setidaknya minimal 8 karakter, terdapat minimal 1 angka dan 1 huruf besar <br>";
+                                echo "</div>";
+                            }
+                        }
+                        ?>
+
                         <!-- Login basic -->
                         <div class="card mb-0">
                             <div class="card-body">
