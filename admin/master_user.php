@@ -126,6 +126,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Username</th>
+                                        <th>Email</th>
                                         <th>Role</th>
                                         <th>Action</th>
                                         <!-- <th>Reschedule</th> -->
@@ -146,6 +147,7 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                                             <td><?php echo $nomor; ?></td>
                                             <td><?php echo $myData['user_fullname']; ?></td>
                                             <td><?php echo $myData['user_name']; ?></td>
+                                            <td><?php echo $myData['user_email']; ?></td>
                                             <td><?php echo $myData['user_group']; ?></td>
                                             <td>
                                                 <div class="dropdown">
