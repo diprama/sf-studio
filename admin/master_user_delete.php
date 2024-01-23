@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 	VALUES ('master_user','" . $_GET['id'] . "','" . $_SESSION['SES_NAMA'] . "', NOW())";
     $myQry1 = mysqli_query($koneksidb, $mySql1) or die("FDC ERROR : " . mysqli_error($koneksidb));
 
-    $mySql = "DELETE FROM master_user WHERE id='" . $_GET['id'] . "'";
+    $mySql = "DELETE FROM master_user WHERE user_id='" . $_GET['id'] . "'";
     $myQry = mysqli_query($koneksidb, $mySql) or die("FDC ERROR : " . mysqli_error($koneksidb));
     if ($myQry) {
         // Refresh halaman
