@@ -97,7 +97,7 @@
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
                                             <label class="form-label" for="login-password">Password</label>
-                                            <a style=" color: #436451" href="?page=Forgot-Password">
+                                            <a style=" color: #436451" href="?page=Login-Validasi">
                                                 <small>Forgot Password?</small>
                                             </a>
                                         </div>
