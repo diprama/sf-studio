@@ -13,7 +13,7 @@ $id = $_GET['id'];
   if (isset($_POST['btnSubmit'])) {
     # VALIDASI FORM, jika ada kotak yang kosong, buat pesan error ke dalam kotak $pesanError
     $pesanError = array();
-    $dataUsername  = $_POST['txtUsername'];
+    $dataUsername  = $_POST['txtUserName'];
     $dataFullName  = $_POST['txtFullName'];
     $dataRole  = $_POST['txtRole'];
     $dataPassword  = isset($_POST['txtPassword']) ? $_POST['txtPassword'] : '';
