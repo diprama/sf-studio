@@ -26,15 +26,7 @@ $id = $_GET['id'];
       $sql_password = ", user_pass = '$dataPassword'";
     }
 
-    # VALIDASI JAM 
-    # CEK DATA LAMA APAKAH SUDAH PERNAH ADA NAMA TSB DI DATABASE 
-
-    $mySqlCek  = "SELECT user_name FROM master_user WHERE  user_name ='$dataUsername'";
-    $myQryCek  = mysqli_query($koneksidb, $mySqlCek)  or die("Query ambil data salah : " . mysqli_error());
-    $JumlahDataCek = mysqli_num_rows($myQryCek);
-    if ($JumlahDataCek >= 1) {
-      $pesanError[] = "data tersebut sudah diset sebelumnya";
-    }
+ 
 
     # JIKA ADA PESAN ERROR DARI VALIDASI
     if (count($pesanError) >= 1) {
