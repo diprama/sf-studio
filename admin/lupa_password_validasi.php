@@ -47,7 +47,7 @@ if (isset($_POST['btnForgotPassword'])) {
     include "lupa_password.php";
   } else {
     #  CEK KE TABEL 
-      $mySql = "SELECT * FROM master_user u WHERE u.email='" . $txtEmail . "'";
+      $mySql = "SELECT * FROM master_user u WHERE u.user_email='" . $txtEmail . "'";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
     $myData = mysqli_fetch_array($myQry);
    $jumlahdata = mysqli_num_rows($myQry);
