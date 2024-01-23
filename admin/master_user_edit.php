@@ -109,21 +109,21 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <label>Username <span class="required">*</span></label>
-                          <input type="text" class="form-control" placeholder="Name" autocomplete="false" readonly onfocus="this.removeAttribute('readonly')" name='txtUserName' value="<?php echo $dataUsername; ?>" />
+                          <input type="text" class="form-control" placeholder="Name" autocomplete="false"  name='txtUserName' value="<?php echo $dataUsername; ?>" />
                         </div>
                         <div class="col-md-3 col-12">
                           <label>Nama <span class="required">*</span></label>
-                          <input type="text" class="form-control" placeholder="Name" autocomplete="false" readonly onfocus="this.removeAttribute('readonly')"  name='txtFullName' value="<?php echo $dataFullName; ?>" />
+                          <input type="text" class="form-control" placeholder="Name" autocomplete="false"   name='txtFullName' value="<?php echo $dataFullName; ?>" />
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="kosongkan jika tidak dirubah" name='txtPassword' value="" autocomplete="false" readonly onfocus="this.removeAttribute('readonly')" />
+                            <input type="password" class="form-control" placeholder="kosongkan jika tidak dirubah" name='txtPassword' value="" autocomplete="false"  />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
                           <label>Role</label>
-                          <select class="form-select" name="txtRole" aria-label="Default select example" autocomplete="false" readonly onfocus="this.removeAttribute('readonly')" required>
+                          <select class="form-select" name="txtRole" aria-label="Default select example" autocomplete="false"  required>
                             <option value="">Pilih Role</option>
                             <?php
                             if ($user_group == 'Super Admin') { ?>
