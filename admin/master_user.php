@@ -94,6 +94,10 @@ $_SESSION['SES_PAGE'] = "?page=Master-User";
                                                     <input type="text" id="basic-addon-name" readonly onfocus="this.removeAttribute('readonly')" autocomplete="false" class="form-control" placeholder="Name" aria-label="Name" name='txtName' aria-describedby="basic-addon-name" />
                                                 </div>
                                                 <div class="col-md-2 col-12">
+                                                    <label>Email</label>
+                                                    <input type="text" id="basic-addon-name" readonly onfocus="this.removeAttribute('readonly')" autocomplete="false" class="form-control" placeholder="Email" aria-label="Email" name='txtEmail' aria-describedby="basic-addon-name" />
+                                                </div>
+                                                <div class="col-md-2 col-12">
                                                     <label>Password</label>
                                                     <input type="password" id="basic-addon-name" readonly onfocus="this.removeAttribute('readonly')" autocomplete="false" class="form-control" placeholder="Password" aria-label="Name" name='txtPassword' aria-describedby="basic-addon-name" />
                                                 </div>

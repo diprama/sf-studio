@@ -16,7 +16,8 @@ $id = $_GET['id'];
     $dataUsername  = $_POST['txtUserName'];
     $dataFullName  = $_POST['txtFullName'];
     $dataRole  = $_POST['txtRole'];
-   echo  $dataPassword  = isset($_POST['txtPassword']) ? $_POST['txtPassword'] : '';
+    $dataEmail  = $_POST['txtEmail'];
+    echo  $dataPassword  = isset($_POST['txtPassword']) ? $_POST['txtPassword'] : '';
 
 
     // kalau password tidak kosong, update password
@@ -29,15 +30,14 @@ $id = $_GET['id'];
       $number    = preg_match('@[0-9]@', $dataPassword);
       // kalau salah satu tidak memenuhi syarat, munculkan notif
       if (!$uppercase || !$lowercase || !$number || strlen($dataPassword) < 8) {
-      $pesanError[] = "Password setidaknya minimal 8 karakter, terdapat minimal 1 angka dan 1 huruf besar";
+        $pesanError[] = "Password setidaknya minimal 8 karakter, terdapat minimal 1 angka dan 1 huruf besar";
       }
 
       $dataPassword = MD5($dataPassword);
       $sql_password = ", user_pass = '$dataPassword'";
-
     }
 
- 
+
 
     # JIKA ADA PESAN ERROR DARI VALIDASI
     if (count($pesanError) >= 1) {
@@ -52,7 +52,7 @@ $id = $_GET['id'];
       # SIMPAN DATA KE DATABASE. 
       // Jika tidak menemukan error, update data ke database
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE master_user set user_fullname = '$dataFullName', user_name ='$dataUsername', user_group = '$dataRole' $sql_password where user_id='$id'";
+      $mySql    = "UPDATE master_user set user_fullname = '$dataFullName', user_name ='$dataUsername', user_group = '$dataRole', user_email ='$txtEmail' $sql_password where user_id='$id'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
 
 
@@ -74,6 +74,8 @@ $id = $_GET['id'];
   $dataUsername    = $myData['user_name'];
   $dataFullName    = $myData['user_fullname'];
   $user_group    = $myData['user_group'];
+  $dataEmail    = $myData['user_email'];
+
 
   ?>
   <!-- BEGIN: Content-->
@@ -116,7 +118,11 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-3 col-12">
                           <label>Nama <span class="required">*</span></label>
-                          <input type="text" class="form-control" placeholder="Name" autocomplete="false" readonly onfocus="this.removeAttribute('readonly')"  name='txtFullName' value="<?php echo $dataFullName; ?>" />
+                          <input type="text" class="form-control" placeholder="Name" autocomplete="false" readonly onfocus="this.removeAttribute('readonly')" name='txtFullName' value="<?php echo $dataFullName; ?>" />
+                        </div>
+                        <div class="col-md-3 col-12">
+                          <label>Email <span class="required">*</span></label>
+                          <input type="text" class="form-control" placeholder="Email" autocomplete="false" readonly onfocus="this.removeAttribute('readonly')" name='txtEmail' value="<?php echo $dataEmail; ?>" />
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">

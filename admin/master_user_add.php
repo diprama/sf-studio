@@ -6,6 +6,7 @@ $txtUsername = $_POST['txtUsername'];
 $txtName = $_POST['txtName'];
 $txtPassword = $_POST['txtPassword'];
 $txtRole = $_POST['txtRole'];
+$txtEmail = $_POST['txtEmail'];
 
 // Validasi apakah sudah ada di database
 $mySql1   = "SELECT user_name FROM master_user where user_name ='$txtUsername'";
@@ -32,8 +33,8 @@ $txtPassword = MD5($txtPassword);
 
 
 # ADD KE DATABASE BOOKING
-    $mySql   = "INSERT INTO `master_user`( `user_name`,`user_fullname`,`user_pass`, `user_group`, `updated_date`)
-     VALUES ('$txtUsername','$txtName','$txtPassword','$txtRole', now())";
+    $mySql   = "INSERT INTO `master_user`( `user_name`,`user_fullname`,`user_pass`, `user_group`,`user_email`, `updated_date`)
+     VALUES ('$txtUsername','$txtName','$txtPassword','$txtRole','$txtEmail', now())";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
    # Validasi Insert Sukses
