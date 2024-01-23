@@ -118,7 +118,7 @@ $id = $_GET['id'];
                         <div class="col-md-3 col-12">
                           <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="kosongkan jika tidak dirubah" name='txtPassword' value="" />
+                            <input type="password" class="form-control" placeholder="kosongkan jika tidak dirubah" name='txtPassword' value="" autocomplete="off" />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
