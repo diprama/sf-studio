@@ -3,6 +3,7 @@ include "library/inc.connection.php";
 
 
 $txtUsername = $_POST['txtUsername'];
+$txtName = $_POST['txtName'];
 $txtPassword = $_POST['txtPassword'];
 $txtRole = $_POST['txtRole'];
 
@@ -26,8 +27,8 @@ if (!$uppercase || !$lowercase || !$number || strlen($txtPassword) < 8) {
 }
 
 # ADD KE DATABASE BOOKING
-    $mySql   = "INSERT INTO `master_user`( `user_name`,`user_pass`, `user_group`, `updated_date`)
-     VALUES ('$txtUsername','$txtPassword','$txtRole', now())";
+    $mySql   = "INSERT INTO `master_user`( `user_name`,`user_fullname`,`user_pass`, `user_group`, `updated_date`)
+     VALUES ('$txtUsername','$txtName','$txtPassword','$txtRole', now())";
     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
     $nomor  = 0;
    # Validasi Insert Sukses
