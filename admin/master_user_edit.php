@@ -109,11 +109,11 @@ $id = $_GET['id'];
                       <div class="row">
                         <div class="col-md-3 col-12">
                           <label>Username <span class="required">*</span></label>
-                          <input type="text" class="form-control" placeholder="Name" name='txtUserName' value="<?php echo $dataUsername; ?>" />
+                          <input type="text" class="form-control" placeholder="Name" autocomplete="off" name='txtUserName' value="<?php echo $dataUsername; ?>" />
                         </div>
                         <div class="col-md-3 col-12">
                           <label>Nama <span class="required">*</span></label>
-                          <input type="text" class="form-control" placeholder="Name" name='txtFullName' value="<?php echo $dataFullName; ?>" />
+                          <input type="text" class="form-control" placeholder="Name" autocomplete="off"  name='txtFullName' value="<?php echo $dataFullName; ?>" />
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
