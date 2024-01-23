@@ -212,6 +212,10 @@ if ($_GET) {
       if (!file_exists("lupa_password.php")) die("Sorry Empty Page!");
       include "lupa_password.php";
       break;
+    case 'Forgot-Password-Validasi':
+      if (!file_exists("lupa_password_validasi.php")) die("Sorry Empty Page!");
+      include "lupa_password_validasi.php";
+      break;
 
 
 

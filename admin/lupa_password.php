@@ -10,7 +10,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Self Studio - Login</title>
+    <title>Self Studio - Forgot Password</title>
     <link rel="apple-touch-icon" href="../app-assets/images/logo/logo-sf.png">
     <link rel="shortcut icon" type="image/x-icon" href="../app-assets/images/logo/logo-sf.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -88,30 +88,17 @@
 
                                 <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
 
-                                <form class="form-signin" role="form" action="?page=Login-Validasi" method="POST" name="form1" target="_self" id="form1">
+                                <form class="form-signin" role="form" action="?page=Forgot-Password-Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="mb-1">
-                                        <label for="login-email" class="form-label">Username</label>
-                                        <input type="text" class="form-control" id="txtUser" name="txtUser" placeholder="username nya kaka" aria-describedby="login-email" tabindex="1" autofocus />
-                                    </div>
-
-                                    <div class="mb-1">
-                                        <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="login-password">Password</label>
-                                            <a style=" color: #436451" href="?page=Login-Validasi">
-                                                <small>Forgot Password?</small>
-                                            </a>
-                                        </div>
-                                        <div class="input-group input-group-merge form-password-toggle">
-                                            <input type="password" class="form-control form-control-merge" id="txtPassword" name="txtPassword" tabindex="2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="login-password" />
-                                            <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
-                                        </div>
+                                        <label for="login-email" class="form-label">Email</label>
+                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" aria-describedby="login-email" tabindex="1" autofocus />
                                     </div>
                                     <div class="mb-1">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="remember-me" tabindex="3" />
                                         </div>
                                     </div>
-                                    <button class="btn w-100" style='background: #436451; color:white' type=" submit" name="btnLogin" tabindex="4">Sign in</button>
+                                    <button class="btn w-100" style='background: #436451; color:white' type=" submit" name="btnForgotPassword" tabindex="4">Sign in</button>
                                 </form>
 
 
