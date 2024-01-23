@@ -52,7 +52,7 @@ $id = $_GET['id'];
       # SIMPAN DATA KE DATABASE. 
       // Jika tidak menemukan error, update data ke database
       $ses_nama  = $_SESSION['SES_NAMA'];
-      $mySql    = "UPDATE master_user set user_fullname = '$dataFullName', user_name ='$dataUsername', user_group = '$dataRole', user_email ='$txtEmail' $sql_password where user_id='$id'";
+      $mySql    = "UPDATE master_user set user_fullname = '$dataFullName', user_name ='$dataUsername', user_group = '$dataRole', user_email ='$dataEmail' $sql_password where user_id='$id'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Error query " . mysqli_error($koneksidb));
 
 
