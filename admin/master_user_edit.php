@@ -26,11 +26,11 @@ $id = $_GET['id'];
       $sql_password = ", user_pass = '$dataPassword'";
 
       // validasi password 
-      $uppercase = preg_match('@[A-Z]@', $txtPassword);
-      $lowercase = preg_match('@[a-z]@', $txtPassword);
-      $number    = preg_match('@[0-9]@', $txtPassword);
+      $uppercase = preg_match('@[A-Z]@', $dataPassword);
+      $lowercase = preg_match('@[a-z]@', $dataPassword);
+      $number    = preg_match('@[0-9]@', $dataPassword);
       // kalau salah satu tidak memenuhi syarat, munculkan notif
-      if (!$uppercase || !$lowercase || !$number || strlen($txtPassword) < 8) {
+      if (!$uppercase || !$lowercase || !$number || strlen($dataPassword) < 8) {
       $pesanError[] = "Password setidaknya minimal 8 karakter, terdapat minimal 1 angka dan 1 huruf besar";
       }
     }
