@@ -16,14 +16,12 @@ $id = $_GET['id'];
     $dataUsername  = $_POST['txtUserName'];
     $dataFullName  = $_POST['txtFullName'];
     $dataRole  = $_POST['txtRole'];
-    $dataPassword  = isset($_POST['txtPassword']) ? $_POST['txtPassword'] : '';
+   echo  $dataPassword  = isset($_POST['txtPassword']) ? $_POST['txtPassword'] : '';
 
 
     // kalau password tidak kosong, update password
     $sql_password = '';
     if ($dataPassword != '') {
-      $dataPassword = MD5($dataPassword);
-      $sql_password = ", user_pass = '$dataPassword'";
 
       // validasi password 
       $uppercase = preg_match('@[A-Z]@', $dataPassword);
@@ -33,6 +31,10 @@ $id = $_GET['id'];
       if (!$uppercase || !$lowercase || !$number || strlen($dataPassword) < 8) {
       $pesanError[] = "Password setidaknya minimal 8 karakter, terdapat minimal 1 angka dan 1 huruf besar";
       }
+
+      $dataPassword = MD5($dataPassword);
+      $sql_password = ", user_pass = '$dataPassword'";
+
     }
 
  
