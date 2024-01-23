@@ -108,7 +108,7 @@ if (isset($_POST['btnForgotPassword'])) {
         $mail->Subject = 'Admin Reset Password';
 
         // Kirim email
-        // $mail->send();
+        $mail->send();
         // echo "Email berhasil dikirim";
       } catch (Exception $e) {
         echo "Gagal mengirim email: {$mail->ErrorInfo}";
@@ -118,8 +118,7 @@ if (isset($_POST['btnForgotPassword'])) {
       // convert ke MD5
       $txtPassword = MD5($txtPassword);
       // update password di database
-      echo $mySql = "UPDATE `master_user` SET `user_pass`='$txtPassword' WHERE user_id ='$ID'";
-      exit;
+      $mySql = "UPDATE `master_user` SET `user_pass`='$txtPassword' WHERE user_id ='$ID'";
       $myQry = mysqli_query($koneksidb, $mySql) or die("Query Salah : " . mysqli_error($koneksidb));
 
       // Jika berhasil
