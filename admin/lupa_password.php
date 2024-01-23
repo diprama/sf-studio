@@ -86,17 +86,12 @@
                                     <h2 style='color: #436451;'>Self Studio</h2>
                                 </a>
 
-                                <!-- <p class="card-text mb-2">Please sign-in to your account and start the adventure</p> -->
+                                <p class="card-text mb-2">Lupa Password</p>
 
                                 <form class="form-signin" role="form" action="?page=Forgot-Password-Validasi" method="POST" name="form1" target="_self" id="form1">
                                     <div class="mb-1">
                                         <label for="login-email" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" aria-describedby="login-email" tabindex="1" autofocus />
-                                    </div>
-                                    <div class="mb-1">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="remember-me" tabindex="3" />
-                                        </div>
                                     </div>
                                     <button class="btn w-100" style='background: #436451; color:white' type=" submit" name="btnForgotPassword" tabindex="4">Sign in</button>
                                 </form>
