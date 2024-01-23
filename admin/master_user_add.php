@@ -27,6 +27,9 @@ if (!$uppercase || !$lowercase || !$number || strlen($txtPassword) < 8) {
   echo "<meta http-equiv='refresh' content='0; url=?page=Master-User&s=password'>";
   exit;
 }
+// convert ke MD5
+$txtPassword = MD5($txtPassword);
+
 
 # ADD KE DATABASE BOOKING
     $mySql   = "INSERT INTO `master_user`( `user_name`,`user_fullname`,`user_pass`, `user_group`, `updated_date`)
