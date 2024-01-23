@@ -68,8 +68,8 @@ $id = $_GET['id'];
   $myData = mysqli_fetch_array($myQry);
   # MASUKKAN DATA KE VARIABEL
   $dataCode    = $myData['user_id'];
-  $user_name    = $myData['user_name'];
-  $user_fullname    = $myData['user_fullname'];
+  $dataUsername    = $myData['user_name'];
+  $dataFullName    = $myData['user_fullname'];
   $user_group    = $myData['user_group'];
 
   ?>
@@ -117,8 +117,8 @@ $id = $_GET['id'];
                         </div>
                         <div class="col-md-3 col-12">
                           <div class="form-group">
-                            <label>Password (kosongkan jika tidak di edit)</label>
-                            <input type="password" class="form-control" placeholder="Name" name='txtPassword' value="" />
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="kosongkan jika tidak dirubah" name='txtPassword' value="" />
                           </div>
                         </div>
                         <div class="col-md-3 col-12">
