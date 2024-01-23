@@ -24,6 +24,7 @@ $number    = preg_match('@[0-9]@', $txtPassword);
 // kalau salah satu tidak memenuhi syarat, munculkan notif
 if (!$uppercase || !$lowercase || !$number || strlen($txtPassword) < 8) {
   echo "<meta http-equiv='refresh' content='0; url=?page=Master-User&s=password'>";
+  exit;
 }
 
 # ADD KE DATABASE BOOKING
