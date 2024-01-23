@@ -106,11 +106,6 @@
                                             <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
-                                    <div class="mb-1">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="remember-me" tabindex="3" />
-                                        </div>
-                                    </div>
                                     <button class="btn w-100" style='background: #436451; color:white' type=" submit" name="btnLogin" tabindex="4">Sign in</button>
                                 </form>
 
