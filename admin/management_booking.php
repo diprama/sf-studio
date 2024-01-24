@@ -3,6 +3,7 @@ $_SESSION['SES_TITLE'] = "Booking";
 include_once "library/inc.seslogin.php";
 include "header_v2.php";
 $_SESSION['SES_PAGE'] = "?page=Management-Booking";
+$tanggal_hari_ini = date('Y-m-d');
 
 
 function hari_ini($tanggal)
@@ -141,7 +142,7 @@ function hari_ini($tanggal)
                                 <tbody>
 
                                     <?php
-                                    $mySql   = "SELECT * FROM booking where status !='Dikonfirmasi' order by tanggal desc";
+                                    $mySql   = "SELECT * FROM booking where status !='Dikonfirmasi' and tanggal >= '$tanggal_hari_ini' order by tanggal desc";
                                     $myQry   = mysqli_query($koneksidb, $mySql)  or die("ERROR BOOKING:  " . mysqli_error($koneksidb));
                                     $nomor  = 0;
                                     while ($myData = mysqli_fetch_array($myQry)) {
