@@ -5,7 +5,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
 // panggil data dari database
 
 // panggil data dari database
-$mySql1  = "SELECT * from test_booking where id ='$id'";
+$mySql1  = "SELECT * from booking where id ='$id'";
 $myQry1  = mysqli_query($koneksidb, $mySql1)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 $myData1 = mysqli_fetch_array($myQry1);
 
@@ -14,7 +14,7 @@ $nama = $myData1['nama'];
 
 
 // update data
-$mySql  = "UPDATE test_booking SET status='Dibatalkan' where id ='$id'";
+$mySql  = "UPDATE booking SET status='Dibatalkan' where id ='$id'";
 $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
 
 

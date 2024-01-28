@@ -29,7 +29,16 @@
 				moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; -khtml-border-radius: 10px;
 				border-color: #A3D0F8; border-width: 4px 1px; border-style: solid;">
 
-			<!-- <h1 style="font-size: 22px;"><center>{EMAIL_TITLE}</center></h1> -->
+			<h1 style="font-size: 22px;">
+				<center> <img src="https://i.imghippo.com/files/1706428146.png" style="width: 20%;" alt="logo" />
+				</center>
+				<center>
+					<div style='color:green'>
+						<b>selfstudio</b>
+					</div>
+
+				</center>
+			</h1>
 
 			<p class="stylefont">{NAME}</p>
 			<p class="stylefont">Terimakasih, kamu sudah melakukan booking pada tanggal <b>{DATE}</b> di jam <b>{TIME}</b> </p>
@@ -65,7 +74,7 @@
 
 			<p style="justify-content: center; margin-top: 10px;">
 				<center>
-					<a href="{URLTIKETV}" target="_blank" style="border: 1px solid #0561B3; background-color: #238CEA; 
+					<a href="{URLTIKETV}" target="_blank" style="border: 1px solid #0561B3; background-color:green; 
 					color: #fff; text-decoration: none; font-size: 18px; padding: 10px 20px;">Batal Booking</a>
 				</center>
 			</p>

@@ -122,6 +122,9 @@ if (isset($_POST['btnSubmit'])) {
     // Inisialisasi PHPMailer
     $mail = new PHPMailer(true);
 
+    $urlcancel = "https://sf-selfstudio.com/booking/?page=Test-Booking-Cancel&id=" . $last_id;
+
+
     try {
       // Set pengaturan SMTP
       $mail->isSMTP();
@@ -163,7 +166,9 @@ Appointment Type: $txtJenis <br>";
         "{NAME}" => 'Hi ' . $txtNama,
         "{DATE}" =>  $txtTanggal,
         "{TIME}" =>  $txtWaktu,
-        "{FORMFIELDS}" => $formfields
+        "{FORMFIELDS}" => $formfields,
+        "{URLTIKETV}" => $urlcancel
+
       );
 
       // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
