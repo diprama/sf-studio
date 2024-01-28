@@ -30,7 +30,7 @@
 				border-color: #A3D0F8; border-width: 4px 1px; border-style: solid;">
 
 			<h1 style="font-size: 22px;">
-				<center> <img src="assets/images/logo-sf-white.png" alt="logo" />
+				<center> <img src="https://www.imghippo.com/i/1706428146.png" alt="logo" />
 				</center>
 			</h1>
 
