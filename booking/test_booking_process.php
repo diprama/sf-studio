@@ -119,10 +119,12 @@ if (isset($_POST['btnSubmit'])) {
       $mySql = "INSERT INTO `test_booking`( `nama`, `email`, `no_wa`, `jenis`, `paket`, `background`, `instagram`, `tanggal`, `jam`, `status`, `updated_date`,`token`) VALUES 
       ('$txtNama','$txtEmail','$txtWhatsapp','$txtJenis','$txtPaket','$txtBackground','$txtInstagram','$txtTanggal','$txtWaktu','$txtStatus', now(),'$txtToken') ";
     $myQry = mysqli_query($koneksidb, $mySql) or die("Query Insert Salah : " . mysqli_error($koneksidb));
-
+    $last_id = $koneksidb->insert_id;
     // Kirim email customer
     // Inisialisasi PHPMailer
     $mail = new PHPMailer(true);
+
+    $urlcancel = "?page=Test-Booking-Cancel&id=" . $last_id;
 
     try {
       // Set pengaturan SMTP
@@ -140,7 +142,7 @@ if (isset($_POST['btnSubmit'])) {
 
 
       // set lokasi template email
-      $template_file = "email_customer.php";
+      $template_file = "test_email_customer.php";
       // cek template nya ready atau tidak
       if (file_exists($template_file))
       $email_message = file_get_contents($template_file);
@@ -161,11 +163,12 @@ Appointment Type: $txtJenis <br>";
         "{EMAIL_LOGO}" => "uploads/NEX.png",
         "{EMAIL_TITLE}" => "Notification",
         "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
-        "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png",
+        "{CUSTOM_IMG}" => "./assets/images/logo-sf.png",
         "{NAME}" => 'Hi ' . $txtNama,
         "{DATE}" =>  $txtTanggal,
         "{TIME}" =>  $txtWaktu,
-        "{FORMFIELDS}" => $formfields
+        "{FORMFIELDS}" => $formfields,
+        "{URLTIKETV}" => $urlcancel
       );
 
       // ngecek variable dan timpah dengan variable yang di cek , seperti SITE_ADDR, {NAME}, {lOGO}, {CUSTOM_URL} etc
