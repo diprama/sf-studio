@@ -16,7 +16,6 @@ $nama = $myData1['nama'];
 // update data
 $mySql  = "UPDATE test_booking SET status='Dibatalkan' where id ='$id'";
 $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
-$myData = mysqli_fetch_array($myQry);
 
 
 
