@@ -74,7 +74,7 @@
 
 			<p style="justify-content: center; margin-top: 10px;">
 				<center>
-					<a href="{URLTIKETV}" target="_blank" style="border: 1px solid #0561B3; background-color: #238CEA; 
+					<a href="https://sf-selfstudio.com/booking/{URLTIKETV}" target="_blank" style="border: 1px solid #0561B3; background-color: #238CEA; 
 					color: #fff; text-decoration: none; font-size: 18px; padding: 10px 20px;">Batal Booking</a>
 				</center>
 			</p>

@@ -124,7 +124,7 @@ if (isset($_POST['btnSubmit'])) {
     // Inisialisasi PHPMailer
     $mail = new PHPMailer(true);
 
-    $urlcancel = "?page=Test-Booking-Cancel&id=" . $last_id;
+    $urlcancel = "https://sf-selfstudio.com/booking/?page=Test-Booking-Cancel&id=" . $last_id;
 
     try {
       // Set pengaturan SMTP
