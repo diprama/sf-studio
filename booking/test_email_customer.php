@@ -33,7 +33,9 @@
 				<center> <img src="https://i.imghippo.com/files/1706428146.png" style="width: 20%;" alt="logo" />
 				</center>
 				<center>
-					<b>selfstudio</b>
+					<div style='color:green'>
+						<b>selfstudio</b>
+					</div>
 
 				</center>
 			</h1>
