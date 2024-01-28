@@ -31,7 +31,10 @@
 
 			<h1 style="font-size: 22px;">
 				<center> <img src="https://i.imghippo.com/files/1706428146.png" style="width: 20%;" alt="logo" />
-				<b>selfstudio</b>
+				</center>
+				<center>
+					<b>selfstudio</b>
+
 				</center>
 			</h1>
 
