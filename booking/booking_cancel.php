@@ -93,7 +93,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
         <div class="page-wrap">
           <div class="hidden-md-up">
             <div class="logo logo-header">
-              <a href="index.html">
+              <a href="?page=Booking">
                 <img src="./assets/images/logo-sf-white.png" alt="logo">
               </a>
             </div>
@@ -101,7 +101,7 @@ $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysql
           <div class="container max-lg inner-wrap">
             <div class="card form-box fragment-fadeUp">
               <div class="hidden-sm-down">
-                <a class="waves-effect btn-icon backtohome" href="index.html">
+                <a class="waves-effect btn-icon backtohome" href="?page=Booking">
                   <span><i class="ion-ios-home-outline"></i><i class="ion-ios-arrow-thin-left"></i></span>
                 </a>
               </div>
