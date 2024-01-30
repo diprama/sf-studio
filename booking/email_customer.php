@@ -41,7 +41,8 @@
 			</h1>
 
 			<p class="stylefont">{NAME}</p>
-			<p class="stylefont">Terimakasih, kamu sudah melakukan booking pada tanggal <b>{DATE}</b> di jam <b>{TIME}</b> </p>
+			<p class="stylefont">Terimakasih, kamu sudah melakukan Booking di jam <b>{TIME}</b> pada <b>{HARI}</b>, <b>{DATE}</b></p>
+
 
 
 			<p class="stylefont">Tim kami akan segera menghubungi kamu <br>

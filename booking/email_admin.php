@@ -29,8 +29,19 @@
 				moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; -khtml-border-radius: 10px;
 				border-color: #A3D0F8; border-width: 4px 1px; border-style: solid;">
 
+			<h1 style="font-size: 22px;">
+				<center> <img src="https://i.imghippo.com/files/1706428146.png" style="width: 20%;" alt="logo" />
+				</center>
+				<center>
+					<div style='color:green'>
+						<b>selfstudio</b>
+					</div>
+
+				</center>
+			</h1>
+
 			<p class="stylefont">
-				<b>{NAME}</b> Booking pada tanggal <b>{DATE}</b> hari <b>{HARI}</b> jam <b>{TIME}</b>
+				<b>{NAME}</b> Booking di jam <b>{TIME}</b> pada <b>{HARI}</b>, <b>{DATE}</b>
 				<hr />
 				<br>
 
