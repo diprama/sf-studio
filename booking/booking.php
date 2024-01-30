@@ -191,7 +191,7 @@ $randomToken = generateRandomToken();
                         <br>
                         <br>
 
-                        <div class="col-lg-12 col-sm-12" style="">
+                        <div class="logo" style="">
 
                           <img src="./assets/images/logo-sf-white.png" alt="logo" />
                           <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
