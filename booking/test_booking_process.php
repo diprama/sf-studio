@@ -144,9 +144,8 @@ if (isset($_POST['btnSubmit'])) {
   // set ke variabel 
   $hari_ini = hari_ini();
   // set ke variabel 
-  $hari_ini = hari_ini();
   $bulan_ini = bulan_ini();
-  $tanggal_ini = date("n", strtotime($txtTanggal));
+  $tanggal_ini = date("j", strtotime($txtTanggal));
   $tahun_ini = date("Y", strtotime($txtTanggal));
 
   $date_ini = $tanggal_ini . ' ' . $bulan_ini . ' ' . $tahun_ini;
@@ -237,6 +236,7 @@ Appointment Type: $txtJenis <br>";
         "{NAME}" => 'Hi ' . $txtNama,
         "{DATE}" =>  $date_ini,
         "{TIME}" =>  $txtWaktu,
+        "{HARI}" =>  $hari_ini,
         "{FORMFIELDS}" => $formfields,
         "{URLTIKETV}" => $urlcancel
       );
