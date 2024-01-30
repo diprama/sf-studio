@@ -79,8 +79,78 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
+  function bulan_ini()
+  {
+    $txtTanggal = $_POST['txtTanggal'];
+    $bulan = date("M", strtotime($txtTanggal));
+
+    switch ($bulan) {
+      case 'Jan':
+        $bulan_ini = "Januari";
+        break;
+
+      case 'Feb':
+        $bulan_ini = "Februari";
+        break;
+
+      case 'Mar':
+        $bulan_ini = "Maret";
+        break;
+
+      case 'Apr':
+        $bulan_ini = "April";
+        break;
+
+      case 'May':
+        $bulan_ini = "Mei";
+        break;
+
+      case 'Jun':
+        $bulan_ini = "Juni";
+        break;
+
+      case 'Jul':
+        $bulan_ini = "Juli";
+        break;
+
+      case 'Aug':
+        $bulan_ini = "Agustus";
+        break;
+
+      case 'Sep':
+        $bulan_ini = "September";
+        break;
+
+      case 'Oct':
+        $bulan_ini = "Oktober";
+        break;
+
+      case 'Nov':
+        $bulan_ini = "November";
+        break;
+
+      case 'Dec':
+        $bulan_ini = "Desember";
+        break;
+
+      default:
+        $bulan_ini = "Tidak di ketahui";
+        break;
+    }
+
+    return "<b>" . $bulan_ini . "</b>";
+  }
+
   // set ke variabel 
   $hari_ini = hari_ini();
+  // set ke variabel 
+  $hari_ini = hari_ini();
+  $bulan_ini = bulan_ini();
+  $tanggal_ini = date("n", strtotime($txtTanggal));
+  $tahun_ini = date("Y", strtotime($txtTanggal));
+
+  $date_ini = $tanggal_ini . ' ' . $bulan_ini . ' ' . $tahun_ini;
+
 
   // cek apakah detail transaksi dengan token yang diset sudah ada di database
     $mySql  = "SELECT token from test_booking where token ='$txtToken'";
@@ -165,7 +235,7 @@ Appointment Type: $txtJenis <br>";
         "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
         "{CUSTOM_IMG}" => "./assets/images/logo-sf.png",
         "{NAME}" => 'Hi ' . $txtNama,
-        "{DATE}" =>  $txtTanggal,
+        "{DATE}" =>  $date_ini,
         "{TIME}" =>  $txtWaktu,
         "{FORMFIELDS}" => $formfields,
         "{URLTIKETV}" => $urlcancel
@@ -239,7 +309,7 @@ Appointment Type: $txtJenis <br>";
         "{CUSTOM_URL}" => "https://www.heytuts.com/web-dev/php/send-emails-with-php-from-localhost-with-sendmail",
         "{CUSTOM_IMG}" => "https://i1.wp.com/www.heytuts.com/wp-content/uploads/2019/05/thumbnail_Send-emails-with-php-from-localhost-with-SendMail.png",
         "{NAME}" => 'Hi ' . $txtNama,
-        "{DATE}" =>  $txtTanggal,
+        "{DATE}" =>  $date_ini,
         "{TIME}" =>  $txtWaktu,
         "{HARI}" =>  $hari_ini,
         "{FORMFIELDS}" => $formfields
