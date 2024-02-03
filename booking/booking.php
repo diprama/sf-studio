@@ -6,6 +6,7 @@ include_once "library/inc.connection.php";
 // Set the locale to a foreign language (e.g., French)
 setlocale(LC_TIME, 'id_ID');
 
+
 $txtTanggal = '';
 if (isset($_POST['btnSubmit'])) {
 
@@ -25,6 +26,59 @@ if (isset($_POST['btnSubmit'])) {
   if ($txtTanggal < $tanggal_sekarang) {
     $txtTanggal = '';
   }
+
+
+  // ambil nama hari ini
+  function hari_ini()
+  {
+    $txtTanggal = $_POST['txtTanggal'];
+    $hari = date("D", strtotime($txtTanggal));
+
+    switch ($hari) {
+      case 'Sun':
+        $hari_ini = "Minggu";
+        break;
+
+      case 'Mon':
+        $hari_ini = "Senin";
+        break;
+
+      case 'Tue':
+        $hari_ini = "Selasa";
+        break;
+
+      case 'Wed':
+        $hari_ini = "Rabu";
+        break;
+
+      case 'Thu':
+        $hari_ini = "Kamis";
+        break;
+
+      case 'Fri':
+        $hari_ini = "Jumat";
+        break;
+
+      case 'Sat':
+        $hari_ini = "Sabtu";
+        break;
+
+      default:
+        $hari_ini = "Tidak di ketahui";
+        break;
+    }
+
+    return "<b>" . $hari_ini . "</b>";
+  }
+
+  $hari_ini = hari_ini();
+  // set status kosong
+  $status = '';
+  if ($hari_ini =='Senin') {
+    $status = 'Tutup';
+  }
+
+
 }
 
 
@@ -82,8 +136,30 @@ $randomToken = generateRandomToken();
   }
 </style>
 
-<!-- Copyright @ 2018 PT. Rentas Media Indonesia (www.rentas.co.id) -->
-<!-- Dilarang mengcopy , memperbanyak atau menggunakan source code ini dalam bentuk apapun tanpa izin tertulis dari PT. Rentas Media Indonesia. -->
+<!-- alert notification -->
+
+<style>
+  .alert {
+    padding: 20px;
+    background-color: #ed8002;
+    color: white;
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .closebtn:hover {
+    color: black;
+  }
+</style>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -152,6 +228,16 @@ $randomToken = generateRandomToken();
 
 
 </head>
+
+<?php
+if ($status == 'Tutup') { ?>
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
+  </div>
+
+<?php }
+?>
 
 <body>
 
