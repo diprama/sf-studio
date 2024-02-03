@@ -71,7 +71,7 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
-  $hari_ini = hari_ini();
+  echo $hari_ini = hari_ini();
   // set status kosong
   $status = '';
   if ($hari_ini =='Senin') {
