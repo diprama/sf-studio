@@ -208,21 +208,22 @@ if (isset($_POST['btnSubmit'])) {
                   </a>
                 </div>
                 <div class="auth-frame">
-                  <div class="row">
-                    <?php
-                    // kalau hari senin, tutup
-                    if ($nama_hari == 'Monday') {
-                      // exit;
-                      $txtTanggal = '';
-                    ?>
-                      <div class="alert">
-                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
-                      </div>
-
-                  <?php }
-                  }
+                  <?php
+                  // kalau hari senin, tutup
+                  if ($nama_hari == 'Monday') {
+                    // exit;
+                    $txtTanggal = '';
                   ?>
+                    <div class="alert">
+                      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                      <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
+                    </div>
+
+                <?php }
+                }
+                ?>
+                <div class="row">
+
                   <div class="col-md-5">
                     <div class="hidden-sm-down">
                       <div class="greeting">
@@ -515,7 +516,7 @@ if (isset($_POST['btnSubmit'])) {
                       </div>
                     </div>
                   </div>
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
