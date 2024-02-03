@@ -376,8 +376,19 @@ $randomToken = generateRandomToken();
                           <!-- <h2>Jam Buka</h2>
                           <h4>Senin 09:00 - 18:00</h4>
                           <h4>Senin 09:00 - 18:00</h4> -->
-                          <div>
-                            <i>Jadwal Operasional : Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>, Kamis <b>09-18</b>, Jum'at <b>09-18</b>, Sabtu <b>Sesuai Booking</b>, Minggu <b>12-20</b></i>
+                          <div class="row">
+                            <i>Jadwal Operasional</i>
+                            <div class="col-6">
+                              Senin <b>Tutup</b>, <br>
+                              Selasa <b>09-18</b>, <br>
+                              Rabu <b>09-18</b>
+                            </div>
+                            <div class="col-6">
+                              Kamis <b>09-18</b>, <br>
+                              Jum'at <b>09-18</b>, <br>
+                              Sabtu <b>Sesuai Booking</b>
+                              Minggu <b>09-18</b>
+                            </div>
                           </div>
 
                           <div class="wrapper">
