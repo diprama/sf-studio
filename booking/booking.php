@@ -188,40 +188,41 @@ if (isset($_POST['btnSubmit'])) {
 
     <div id="preloader" style="position: fixed; z-index: 10000; background: #fafafa; width: 100%; height: 100%"><img style="opacity: 0.5; position: fixed; top: calc(50% - 50px); left: calc(50% - 50px)" src="./assets/images/loading.gif" alt="loading"></div>
     <div class="m-application theme--light transition-page" id="app">
-      <?php
-      // kalau hari senin, tutup
-      if ($nama_hari == 'Monday') {
-        // exit;
-        $txtTanggal = '';
-      ?>
-        <div class="alert">
-          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-          <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
-        </div>
 
-    <?php }
-    }
-    ?>
-    <div class="loading"></div>
-    <div class="m-content smart smart-var" id="main-wrap">
-      <div class="form-page">
-        <div class="page-wrap">
-          <div class="hidden-md-up">
-            <div class="logo logo-header">
-              <!-- <a href="index.html">
+      <div class="loading"></div>
+      <div class="m-content smart smart-var" id="main-wrap">
+        <div class="form-page">
+          <div class="page-wrap">
+            <div class="hidden-md-up">
+              <div class="logo logo-header">
+                <!-- <a href="index.html">
                 <img src="./assets/images/logox2.png" alt="logo">
               </a> -->
-            </div>
-          </div>
-          <div class="container max-lg inner-wrap">
-            <div class="card form-box fragment-fadeUp">
-              <div class="hidden-sm-down">
-                <a class="waves-effect btn-icon backtohome" href="index.html">
-                  <span><i class="ion-ios-home-outline"></i><i class="ion-ios-arrow-thin-left"></i></span>
-                </a>
               </div>
-              <div class="auth-frame">
-                <div class="row">
+            </div>
+            <div class="container max-lg inner-wrap">
+              <div class="card form-box fragment-fadeUp">
+                <div class="hidden-sm-down">
+                  <a class="waves-effect btn-icon backtohome" href="index.html">
+                    <span><i class="ion-ios-home-outline"></i><i class="ion-ios-arrow-thin-left"></i></span>
+                  </a>
+                </div>
+                <div class="auth-frame">
+                  <div class="row">
+                    <?php
+                    // kalau hari senin, tutup
+                    if ($nama_hari == 'Monday') {
+                      // exit;
+                      $txtTanggal = '';
+                    ?>
+                      <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
+                      </div>
+
+                  <?php }
+                  }
+                  ?>
                   <div class="col-md-5">
                     <div class="hidden-sm-down">
                       <div class="greeting">
@@ -514,13 +515,13 @@ if (isset($_POST['btnSubmit'])) {
                       </div>
                     </div>
                   </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div><!-- Scripts--><!-- Put the 3rd/plugins javascript here-->
 
     <script>
