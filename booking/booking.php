@@ -71,14 +71,18 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
-  echo $hari_ini = hari_ini();
-  // set status kosong
-  $status = '';
-  if ($hari_ini =='Senin') {
-    $status = 'Tutup';
-  }
+  // echo $hari_ini = hari_ini();
 
 
+  if ($status == 'Tutup') {
+  $txtTanggal = '';
+    ?>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
+    </div>
+
+<?php }
 }
 
 
@@ -229,15 +233,7 @@ $randomToken = generateRandomToken();
 
 </head>
 
-<?php
-if ($status == 'Tutup') { ?>
-  <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
-  </div>
 
-<?php }
-?>
 
 <body>
 
