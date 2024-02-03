@@ -31,7 +31,7 @@ if (isset($_POST['btnSubmit'])) {
   // ambil nama hari ini
   function hari_ini()
   {
-    $txtTanggal = $_POST['txtTanggal'];
+    $txtTanggal = $_POST['selectedDate'];
     $hari = date("D", strtotime($txtTanggal));
 
     switch ($hari) {
