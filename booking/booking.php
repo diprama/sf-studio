@@ -32,7 +32,7 @@ if (isset($_POST['btnSubmit'])) {
 
   // kalau hari senin, tutup
   if ($nama_hari == 'Monday') {
-    exit;
+    // exit;
   $txtTanggal = '';
     ?>
     <div class="alert">
