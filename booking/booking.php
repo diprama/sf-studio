@@ -85,7 +85,7 @@ if (isset($_POST['btnSubmit'])) {
 <?php }
 }
 
-
+echo $txtTanggal;
 // ambil token
 function generateRandomToken($length = 32)
 {
