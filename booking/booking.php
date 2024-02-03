@@ -71,11 +71,12 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
- echo  $hari_ini = hari_ini();
+ $hari_ini = hari_ini();
 
   // kalau hari senin, tutup
   if ($hari_ini == 'Senin') {
   $txtTanggal = '';
+  echo "oke";
     ?>
     <div class="alert">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
