@@ -21,7 +21,7 @@ if (isset($_POST['btnSubmit'])) {
 
 
   $nama_hari = date("l", strtotime($txtTanggal));
-  echo "Hari ini adalah: " . $nama_hari;
+  // echo "Hari ini adalah: " . $nama_hari;
 
   if ($txtTanggal < $tanggal_sekarang) {
     $txtTanggal = '';
@@ -31,7 +31,7 @@ if (isset($_POST['btnSubmit'])) {
   
 
   // kalau hari senin, tutup
-  if ($nama_hari == 'Senin') {
+  if ($nama_hari == 'Monday') {
     exit;
   $txtTanggal = '';
     ?>
