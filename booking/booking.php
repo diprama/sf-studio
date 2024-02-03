@@ -451,7 +451,7 @@ $randomToken = generateRandomToken();
 
                           </div>
 
-                          <div class="row">
+                          <!-- <div class="row">
                             <div class="col-12">
                               Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>
                               Kamis <b>09-18</b>,
@@ -459,7 +459,7 @@ $randomToken = generateRandomToken();
                               Sabtu <b>Sesuai Booking</b>
                               Minggu <b>09-18</b>
                             </div>
-                          </div>
+                          </div> -->
 
                           <div class="btn-area mt-10">
                             <button class="btn secondary btn-large block waves-effect" name="btnSubmit" type=" submit">Confirm Tanggal</button>
