@@ -71,7 +71,7 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
-  $hari_ini = hari_ini();
+ echo  $hari_ini = hari_ini();
 
   // kalau hari senin, tutup
   if ($hari_ini == 'Senin') {
@@ -85,7 +85,7 @@ if (isset($_POST['btnSubmit'])) {
 <?php }
 }
 
-echo $txtTanggal;
+// echo $txtTanggal;
 // ambil token
 function generateRandomToken($length = 32)
 {
