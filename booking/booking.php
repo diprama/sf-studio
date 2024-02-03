@@ -452,10 +452,8 @@ $randomToken = generateRandomToken();
                           </div>
 
                           <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
                               Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>
-                            </div>
-                            <div class="col-6">
                               Kamis <b>09-18</b>,
                               Jum'at <b>09-18</b>,
                               Sabtu <b>Sesuai Booking</b>
