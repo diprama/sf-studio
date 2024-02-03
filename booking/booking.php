@@ -208,44 +208,45 @@ if (isset($_POST['btnSubmit'])) {
                   </a>
                 </div>
                 <div class="auth-frame">
-                  <?php
-                  // kalau hari senin, tutup
-                  if ($nama_hari == 'Monday') {
-                    // exit;
-                    $txtTanggal = '';
-                  ?>
-                    <div class="alert">
-                      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                      <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
-                    </div>
 
-                <?php }
-                }
-                ?>
-                <div class="row">
+                  <div class="row">
 
-                  <div class="col-md-5">
-                    <div class="hidden-sm-down">
-                      <div class="greeting">
-                        <div class="deco">
-                          <div class="primary-light"></div>
-                          <div class="secondary-main"></div>
-                          <div class="secondary-light"></div>
+                    <div class="col-md-5">
+                      <div class="hidden-sm-down">
+                        <div class="greeting">
+                          <div class="deco">
+                            <div class="primary-light"></div>
+                            <div class="secondary-main"></div>
+                            <div class="secondary-light"></div>
+                          </div>
+                          <br>
+                          <br>
+                          <br>
+
+                          <div class="logo" style="">
+
+                            <img src="./assets/images/logo-sf-white.png" alt="logo" />
+                            <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
+                          </div>
+                          <!-- <a href="" class="use-text-subtitle2">Lihat harga</a> -->
                         </div>
-                        <br>
-                        <br>
-                        <br>
-
-                        <div class="logo" style="">
-
-                          <img src="./assets/images/logo-sf-white.png" alt="logo" />
-                          <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
-                        </div>
-                        <!-- <a href="" class="use-text-subtitle2">Lihat harga</a> -->
                       </div>
                     </div>
-                  </div>
-                  <div class="col-lg-7 col-sm-12">
+                    <div class="col-lg-7 col-sm-12">
+                      <?php
+                      // kalau hari senin, tutup
+                      if ($nama_hari == 'Monday') {
+                        // exit;
+                        $txtTanggal = '';
+                      ?>
+                        <div class="alert">
+                          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                          <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
+                        </div>
+
+                    <?php }
+                    }
+                    ?>
                     <div class="form-wrap">
                       <div>
                         <div class="head">
@@ -515,8 +516,8 @@ if (isset($_POST['btnSubmit'])) {
 
                       </div>
                     </div>
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
