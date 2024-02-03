@@ -71,10 +71,10 @@ if (isset($_POST['btnSubmit'])) {
     return "<b>" . $hari_ini . "</b>";
   }
 
-  // echo $hari_ini = hari_ini();
+  $hari_ini = hari_ini();
 
-
-  if ($status == 'Tutup') {
+  // kalau hari senin, tutup
+  if ($hari_ini == 'Senin') {
   $txtTanggal = '';
     ?>
     <div class="alert">
