@@ -220,9 +220,7 @@ $randomToken = generateRandomToken();
                           <div class="row spacing3">
                             <!-- jika tanggal sudah diisi -->
                             <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
-                              <div>
-                                <i>Jadwal Operasional : Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>, Kamis <b>09-18</b>, Jum'at <b>09-18</b>, Sabtu <b>Sesuai Booking</b>, Minggu <b>12-20</b></i>
-                              </div>
+
                               <div class="col-12">
                                 <div class="form-group">
                                   <label>Waktu*</label>
@@ -378,7 +376,9 @@ $randomToken = generateRandomToken();
                           <!-- <h2>Jam Buka</h2>
                           <h4>Senin 09:00 - 18:00</h4>
                           <h4>Senin 09:00 - 18:00</h4> -->
-
+                          <div>
+                            <i>Jadwal Operasional : Senin <b>Tutup</b>, Selasa <b>09-18</b>, Rabu <b>09-18</b>, Kamis <b>09-18</b>, Jum'at <b>09-18</b>, Sabtu <b>Sesuai Booking</b>, Minggu <b>12-20</b></i>
+                          </div>
 
                           <div class="wrapper">
                             <div class="container-calendar">
