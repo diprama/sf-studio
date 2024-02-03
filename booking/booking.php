@@ -21,60 +21,17 @@ if (isset($_POST['btnSubmit'])) {
 
 
   $nama_hari = date("l", strtotime($txtTanggal));
-  // echo "Hari ini adalah: " . $nama_hari;
+  echo "Hari ini adalah: " . $nama_hari;
 
   if ($txtTanggal < $tanggal_sekarang) {
     $txtTanggal = '';
   }
 
 
-  // ambil nama hari ini
-  function hari_ini()
-  {
-    $txtTanggal = $_POST['selectedDate'];
-    $hari = date("D", strtotime($txtTanggal));
-
-    switch ($hari) {
-      case 'Sun':
-        $hari_ini = "Minggu";
-        break;
-
-      case 'Mon':
-        $hari_ini = "Senin";
-        break;
-
-      case 'Tue':
-        $hari_ini = "Selasa";
-        break;
-
-      case 'Wed':
-        $hari_ini = "Rabu";
-        break;
-
-      case 'Thu':
-        $hari_ini = "Kamis";
-        break;
-
-      case 'Fri':
-        $hari_ini = "Jumat";
-        break;
-
-      case 'Sat':
-        $hari_ini = "Sabtu";
-        break;
-
-      default:
-        $hari_ini = "Tidak di ketahui";
-        break;
-    }
-
-    return "<b>" . $hari_ini . "</b>";
-  }
-
- $hari_ini = hari_ini();
+  
 
   // kalau hari senin, tutup
-  if ($hari_ini == 'Senin') {
+  if ($nama_hari == 'Senin') {
     exit;
   $txtTanggal = '';
     ?>
