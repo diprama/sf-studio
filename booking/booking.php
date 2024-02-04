@@ -195,9 +195,9 @@ if (isset($_POST['btnSubmit'])) {
           <div class="page-wrap">
             <div class="hidden-md-up">
               <div class="logo logo-header">
-                <!-- <a href="index.html">
+                <a href="index.html">
                 <img src="./assets/images/logox2.png" alt="logo">
-              </a> -->
+              </a>
               </div>
             </div>
             <div class="container max-lg inner-wrap">
