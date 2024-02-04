@@ -8,6 +8,7 @@ setlocale(LC_TIME, 'id_ID');
 
 
 $txtTanggal = '';
+$nama_hari = '';
 if (isset($_POST['btnSubmit'])) {
 
   $tanggal_sekarang = date('Y-m-d');
