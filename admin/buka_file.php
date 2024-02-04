@@ -101,6 +101,34 @@ if ($_GET) {
       include "master_jadwal_delete.php";
       break;
 
+
+      #MASTER Jadwal Hari
+
+    case 'Master-Jadwal-Hari':
+      if (!file_exists("master_jadwal_hari.php")) die("Sorry Empty Page!");
+      include "master_jadwal_hari.php";
+      break;
+
+    case 'Master-Jadwal-Hari-Update-Status':
+      if (!file_exists("master_jadwal_hari_update_status.php")) die("Sorry Empty Page!");
+      include "master_jadwal_hari_update_status.php";
+      break;
+
+    case 'Master-Jadwal-Hari-Add':
+      if (!file_exists("master_jadwal_hari_add.php")) die("Sorry Empty Page!");
+      include "master_jadwal_hari_add.php";
+      break;
+
+    case 'Master-Jadwal-Hari-Edit':
+      if (!file_exists("master_jadwal_hari_edit.php")) die("Sorry Empty Page!");
+      include "master_jadwal_hari_edit.php";
+      break;
+
+    case 'Master-Jadwal-Hari-Delete':
+      if (!file_exists("master_jadwal_hari_delete.php")) die("Sorry Empty Page!");
+      include "master_jadwal_hari_delete.php";
+      break;
+
       # MASTER JENIS
 
     case 'Master-Jenis':
@@ -189,6 +217,8 @@ if ($_GET) {
       if (!file_exists("master_user_delete.php")) die("Sorry Empty Page!");
       include "master_user_delete.php";
       break;
+
+
 
 
 

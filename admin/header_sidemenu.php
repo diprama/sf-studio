@@ -66,7 +66,8 @@
                             <a class="dropdown-item" href="?page=Master-Jenis" data-bs-toggle="">Jenis</a>
                             <a class="dropdown-item" href="?page=Master-Paket" data-bs-toggle="">Paket</a>
                             <a class="dropdown-item" href="?page=Master-Background" data-bs-toggle="">Background</a>
-                            <a class="dropdown-item" href="?page=Master-Jadwal" data-bs-toggle="">Jadwal</a>
+                            <a class="dropdown-item" href="?page=Master-Jadwal" data-bs-toggle="">Jam</a>
+                            <a class="dropdown-item" href="?page=Master-Jadwal-Hari" data-bs-toggle="">Jadwal Buka/Tutup</a>
                         </ul>
                     </li>
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="users"></i>User Management</a>
