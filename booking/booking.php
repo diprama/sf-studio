@@ -254,7 +254,6 @@ if (isset($_POST['btnSubmit'])) {
                             </div>
 
                         <?php }
-                        }
                         ?>
                         <div class="head">
                           <div class="title-main align-left">
