@@ -242,19 +242,7 @@ if (isset($_POST['btnSubmit'])) {
 
                       <div class="form-wrap">
                         <div>
-                          <?php
-                          // kalau hari senin, tutup
-                          if ($nama_hari == 'Monday') {
-                            // exit;
-                            $txtTanggal = '';
-                          ?>
-                            <div class="alert">
-                              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                              <strong>Yaah, tanggal yang kamu pilih tidak tersedia bisa jadi tutup atau sedang tutup. Jangan sedih, kamu bisa pilih tanggal lain yaa :)
-                            </div>
-
-                        <?php }
-                        ?>
+                      
                         <div class="head">
                           <div class="title-main align-left">
                             <h4 class="secondary"><span>BOOKING</span></h4>
