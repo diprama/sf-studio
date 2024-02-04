@@ -196,8 +196,10 @@ if (isset($_POST['btnSubmit'])) {
             <div class="hidden-md-up">
               <div class="logo logo-header">
                 <a href="index.html">
-                <img src="./assets/images/logox2.png" alt="logo">
-              </a>
+                  <img src="./assets/images/logo-sf-white.png" alt="logo">
+                  <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
+
+                </a>
               </div>
             </div>
             <div class="container max-lg inner-wrap">
