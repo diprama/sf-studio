@@ -201,7 +201,7 @@ if (isset($_POST['btnSubmit'])) {
               <div class="logo logo-header">
                 <a href="index.html">
                   <img src="./assets/images/logo-sf-white.png" alt="logo">
-                  <p class="use-text-subtitle2">Silahkan isi formulir berikut :) </p>
+                  <p class="use-text-subtitle2">Silahkan isi formulir berikut </p>
 
                 </a>
               </div>
