@@ -670,6 +670,7 @@ if (isset($_POST['btnSubmit'])) {
               if (cellDate < currentDate) {
                 cell.classList.add("disabled");
                 cell.onclick = null; // Hapus event onclick untuk tanggal yang sudah lewat
+                cell.style.backgroundColor = "grey";
               }
 
               row.appendChild(cell);
