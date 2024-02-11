@@ -1,4 +1,7 @@
 <?php
+
+echo "sedang maintenance!";
+exit;
 include_once "library/inc.connection.php";
 
 
