@@ -26,6 +26,19 @@ if (isset($_POST['btnSubmit'])) {
     $txtTanggal = '';
   }
 }
+
+
+// ambil token
+function generateRandomToken($length = 32)
+{
+  // Membuat token dengan panjang tertentu
+  $token = bin2hex(random_bytes($length / 2));
+
+  return $token;
+}
+
+// Contoh penggunaan
+$randomToken = generateRandomToken();
 ?>
 
 <style>
@@ -206,7 +219,7 @@ if (isset($_POST['btnSubmit'])) {
 
                           <div class="row spacing3">
                             <!-- jika tanggal sudah diisi -->
-                            <form class="form-signin" role="form" action="?page=Booking-Process" method="POST" name="form1" target="_self" id="form1">
+                            <form class="form-signin" role="form" action="?page=Test-Booking-Process" method="POST" name="form1" target="_self" id="form1">
 
                               <div class="col-12">
                                 <div class="form-group">
@@ -216,14 +229,14 @@ if (isset($_POST['btnSubmit'])) {
                                     if ($txtTanggal != '') {
                                       # code...
                                       // panggil database
-                                      echo "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
+                                      echo "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam not in (select jam from booking where tanggal = '$txtTanggal'";
 
                                       if ($nama_hari == 'Sunday') {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam >='12:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam >='12:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       } else if ($nama_hari == 'Monday') {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam ='00:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam ='00:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       } else {
-                                        $mySql  = "SELECT * from jadwal j where j.status ='0' and j.availability ='0' and j.jam <='17:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
+                                        $mySql  = "SELECT * from jadwal j where j.status ='1' and j.availability ='0' and j.jam <='17:00' and j.jam not in (select jam from booking where tanggal = '$txtTanggal') order by j.jam asc;";
                                       }
 
                                       $myQry  = mysqli_query($koneksidb, $mySql)  or die("RENTAS ERP ERROR : " . mysqli_error($koneksidb));
@@ -280,7 +293,7 @@ if (isset($_POST['btnSubmit'])) {
                                   <label>Nama*</label>
                                   <input class="form-control" type="text" placeholder="masukkin nama kamu" name="txtNama" autocomplete="off" required>
                                   <input class="form-control" type="hidden" placeholder="" name="txtTanggal" value="<?php echo $txtTanggal ?>" autocomplete="off" required>
-
+                                  <input class="form-control" type="hidden" placeholder="" name="txtToken" value="<?php echo $randomToken ?>" autocomplete="off" required>
                                 </div>
                               </div>
 

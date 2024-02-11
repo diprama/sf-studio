@@ -29,11 +29,6 @@ if ($_GET) {
       include "booking.php";
       break;
 
-    case 'Test-Booking':
-      if (!file_exists("test_booking.php")) die("Empty Main Page!");
-      include "test_booking.php";
-      break;
-
     case 'Booking-Process':
       if (!file_exists("booking_process.php")) die("Sorry Empty Page!");
       include "booking_process.php";
@@ -43,6 +38,37 @@ if ($_GET) {
       if (!file_exists("booking_success.php")) die("Sorry Empty Page!");
       include "booking_success.php";
       break;
+
+    case 'Booking-Cancel':
+      if (!file_exists("booking_cancel.php")) die("Sorry Empty Page!");
+      include "booking_cancel.php";
+      break;
+
+
+    case 'Booking-Notification':
+      if (!file_exists("notification_30menitbooking.php")) die("Sorry Empty Page!");
+      include "notification_30menitbooking.php";
+      break;
+
+      # Booking ======================================
+
+    case 'Test-Booking':
+      if (!file_exists("test_booking.php")) die("Empty Main Page!");
+      include "test_booking.php";
+      break;
+
+    case 'Test-Booking-Process':
+      if (!file_exists("test_booking_process.php")) die("Sorry Empty Page!");
+      include "test_booking_process.php";
+      break;
+
+    case 'Test-Booking-Success':
+      if (!file_exists("test_booking_success.php")) die("Sorry Empty Page!");
+      include "test_booking_success.php";
+      break;
+
+
+
 
 
       
